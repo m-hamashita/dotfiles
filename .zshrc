@@ -4,7 +4,10 @@ export WORKON_HOME=$HOME/.virtualenvs
 LANG=ja_JP.UTF-8
 LC_CTYPE=ja_JP.UTF-8
 
-PROMPT='%K{cyan}%c%k $ '
+#PROMPT='%K{cyan}%c%k $ '
+PROMPT="%{%F{$FONT_COL}%K{038}%}%T%{%k%f%}%{%F{038}%K{230}%}$SEP%{%f%k%}%{%F{$FONT_COL}%K{230}%}[%M]%{%f%k%}%{%F{230}%K{206}%}$SEP%{%k%f%}%{%K{206}%F{$FONT_COL}%}%~%{%f%k%}%F{206}$SEP%f
+%(?.%F{green}.%F{red})%(?! OK ! NG )%f %F{155}$%f "
+
 eval "$(pyenv init -)"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
@@ -34,7 +37,7 @@ alias rm='rm -i'
 alias df='df -h'
 alias -g G='| grep'
 alias grep='grep --color'
-
+alias cot='open -a /Applications/'\''CotEditor.app'\'''
 #—————————————————————————————————————————
 #色を付ける
 autoload -Uz add-zsh-hook
@@ -54,8 +57,43 @@ zstyle ':chpwd:*' recent-dirs-default true
 zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/shell/chpwd-recent-dirs"
 zstyle ':chpwd:*' recent-dirs-pushd true
 
+#カレントディレクトリが変更した時にする行動
+function chpwd() { ls_abbrev } 
+ls_abbrev() {
+    if [[ ! -r $PWD ]]; then
+        return
+    fi
+    # -a : Do not ignore entries starting with ..
+    # -C : Force multi-column output.
+    # -F : Append indicator (one of */=>@|) to entries.
+    local cmd_ls='ls'
+    local -a opt_ls
+    opt_ls=('-aCF' '--color=always')
+    case "${OSTYPE}" in
+        freebsd*|darwin*)
+            if type gls > /dev/null 2>&1; then
+                cmd_ls='gls'
+            else
+                # -G : Enable colorized output.
+                opt_ls=('-aCFG')
+            fi
+            ;;
+    esac
 
+    local ls_result
+    ls_result=$(CLICOLOR_FORCE=1 COLUMNS=$COLUMNS command $cmd_ls ${opt_ls[@]} | sed $'/^\e\[[0-9;]*m$/d')
 
+    local ls_lines=$(echo "$ls_result" | wc -l | tr -d ' ')
+
+    if [ $ls_lines -gt 10 ]; then
+        echo "$ls_result" | head -n 5
+        echo '...'
+        echo "$ls_result" | tail -n 5
+        echo "$(command ls -1 -A | wc -l | tr -d ' ') files exist"
+    else
+        echo "$ls_result"
+    fi
+}
 
 #補完結果に色を付ける
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
