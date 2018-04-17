@@ -5,6 +5,7 @@ export WORKON_HOME=$HOME/.virtualenvs
      export PATH=${HOME}/.rbenv/bin:${PATH} && \
    eval "$(rbenv init -)"	 
 
+
 LANG=ja_JP.UTF-8
 LC_CTYPE=ja_JP.UTF-8
 

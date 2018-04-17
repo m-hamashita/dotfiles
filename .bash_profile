@@ -9,12 +9,16 @@ if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
 fi
 
-export PATH=/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/bin
 
+#export PATH=/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/bin:$PATH
 export PATH=$PATH:/Users/MPEG/documents/experiment/nlplab/bin
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH=$PYENV_ROOT/bin:$PATH
+export PATH="$HOME/.pyenv/shims:$PATH"
+
+
+
 
 if [ -d "${PYENV_ROOT}" ]; then
        export PATH=${PYENV_ROOT}/bin:$PATH

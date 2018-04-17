@@ -1,160 +1,220 @@
-set ambiwidth=double
+set encoding=utf-8
 
+set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+set fileformats=unix,dos,mac
+scriptencoding utf-8
+
+
+
+"括弧の対応をハイライト
+set showmatch
+"保存時の文字コード
+set fileencoding=utf-8
+"□や○文字が崩れる問題を解決
+set ambiwidth=double
+"ヤンクした時にクリップボードにコピーする
+set clipboard=unnamed,autoselect
 syntax on
+"filetypeによってインデントを変更する
 filetype plugin indent on
 filetype indent on
+"行数を表示する
 set number
-
-set smartindent
-set tabstop=4
-set shiftwidth=4
-highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
-au BufNewFile,BufRead * match ZenkakuSpace /��/
+"ルーラーを表示
+set ruler
+"バックスペースキーで行頭を削除する
 set backspace=indent,eol,start
-"---------------------------
-"" Start Neobundle Settings.
-"---------------------------
-"" bundleã§ç®¡ç†ã™ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’æŒ‡å®š
-set runtimepath+=~/.vim/bundle/neobundle.vim/
+"改行時に前の行の構文をチェックし次の行のインデントを増減する
+set smartindent
+"画面上でタブ文字が占める幅
+set tabstop=2
+" smartindentで増減する幅
+set shiftwidth=2
+"カーソルラインの表示
+set cursorline
+
+"全角スペースの可視化
+highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
+au BufNewFile,BufRead * match ZenkakuSpace /　/
+set backspace=indent,eol,start
+
+"入力中のコマンドの表示
+set showcmd
+"ステータスラインを常に表示
+set laststatus=2
+"ファイルナンバー表示
+set statusline=[%n]
+"ホスト名表示
+set statusline+=%{matchstr(hostname(),'\\w\\+')}@
+"ファイル名表示
+set statusline+=%<%F
+"変更のチェック表示
+set statusline+=%m
+"読み込み専用かどうか表示
+set statusline+=%r
+"ヘルプページなら[HELP]と表示
+set statusline+=%h
+"プレビューウインドウなら[Prevew]と表示
+set statusline+=%w
+"ファイルフォーマット表示
+set statusline+=[%{&fileformat}]
+"文字コード表示
+set statusline+=[%{has('multi_byte')&&\&fileencoding!=''?&fileencoding:&encoding}]
+"ファイルタイプ表示
+set statusline+=%y
+"ここからツールバー右側
+set statusline+=%=
+"skk.vimの状態
+"set statusline+=%{exists('*SkkGetModeStr')?SkkGetModeStr():''}
+"文字バイト数/カラム番号
+" set statusline+=[%{col('.')-1}=ASCII=%B,HEX=%c]
+"現在文字列/全体列表示
+set statusline+=[C=%c/%{col('$')-1}]
+"現在文字行/全体行表示
+set statusline+=[L=%l/%L]
+"現在のファイルの文字数をカウント
+" set statusline+=[WC=%{exists('*WordCount')?WordCount():[]}]
+"現在行が全体行の何%か表示
+set statusline+=[%p%%]
+
+"-------Search--------
+"インクリメンタルサーチを有効にする
+set incsearch
+"大文字小文字を区別しない
+set ignorecase
+"大文字で検索されたら対象を大文字限定にする
+set smartcase
+"行末まで検索したら行頭に戻る
+set wrapscan
+"---------------------
+
+"カーソル位置を復元
+"autocmd BufWinLeave ?* silent mkview
+"autocmd BufWinEnter ?* silent loadview
+autocmd BufReadPost * if line("'\"") > 0 && line ("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+
+" ショートカット
+nnoremap s <Nop>
+nnoremap sj <C-w>j "タブ移動系
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+
+noremap <S-h>   ^ "カーソル移動系shift+hjkl
+noremap <S-j>   }
+noremap <S-k>   {
+noremap <S-l>   $
+
+"Insertmodeで<C-C>でESCと同義
+inoremap <C-C> <ESC>
+
+"括弧の補完
+"inoremap { {}<Left>
+"inoremap {<Enter> {}<Left><CR><ESC><S-o>
+"inoremap ( ()<ESC>i
+"inoremap (<Enter> ()<Left><CR><ESC><S-o>
+
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
 
 " Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+set runtimepath+=/Users/MPEG/.vim/dein/repos/github.com/Shougo/dein.vim
 
-noremap <C-e> <Esc>$a
-noremap <C-a> <Esc>^a
+" Required:
+if dein#load_state('/Users/MPEG/.vim/dein')
+  call dein#begin('/Users/MPEG/.vim/dein')
 
-inoremap <C-e> <Esc>$a
-inoremap <C-a> <Esc>^a
-" neobundleè‡ªä½“ã‚’neobundleã§ç®¡ç†
-NeoBundleFetch 'Shougo/neobundle.vim'
+  " Let dein manage dein
+  " Required:
+  call dein#add('/Users/MPEG/.vim/dein/repos/github.com/Shougo/dein.vim')
 
-"ã“ã“ã«è¿½åŠ ã®ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚’æ›¸ã
+  " Add or remove your plugins here:
+  call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/neosnippet-snippets')
+  " You can specify revision/branch/tag.
+  call dein#add('Shougo/deol.nvim')
+  "vim-clang 
+  call dein#add('justmao945/vim-clang')
+  "unite.vim
+  call dein#add('Shougo/unite.vim')
+  call dein#add('ujihisa/unite-colorscheme')
+  "補完してくれるやつ
+  call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('Shougo/neocomplete.vim') 
+  "vimのカラースキーム:railscasts
+  call dein#add('jpo/vim-railscasts-theme')
+  call dein#add('morhetz/gruvbox')
+  call dein#add('NLKNguyen/papercolor-theme')
+  call dein#add('mhinz/vim-janah')
+  call dein#add('gilsondev/lizard')
+  call dein#add('mbbill/vim-seattle')
+  call dein#add('thomd/vim-wasabi-colorscheme')
+  call dein#add('sickill/vim-sunburst')
+  call dein#add('vim-scripts/Wombat')
+  call dein#add('vim-scripts/wombat256.vim')
+  call dein#add('junegunn/seoul256.vim')
+  " ディレクトリをツリー表示とショートカットCtrl+eで開く
+	call dein#add('scrooloose/nerdtree')
+	" VimからThe Silver Searcherが使えるようにするやつ
+	call dein#add('rking/ag.vim') 
+  " 括弧とかいい感じに補完するやつ
+  call dein#add('cohama/lexima.vim')		
+	
+	" deolate.nvimの設定
+  "call dein#add('Shougo/deoplete.nvim')
+  "call dein#add('zchee/deoplete-clang')
+  "if !has('nvim')
+  "  call dein#add('roxma/nvim-yarp')
+  "  call dein#add('roxma/vim-hug-neovim-rpc')
+  "endif
+  "この下の設定うまくいってない.
+  "let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/6.0.0/lib/libclang.dylib'
+  "let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/6.0.0/lib/clang'
+  "g:deoplete#sources#clang#libclang_path
+  "g:deoplete#sources#clang#clang_header
+  
+  "補完や英単語検索
+  call dein#add('Shougo/neco-vim')
+  call dein#add('Shougo/neco-syntax')
+  call dein#add('ujihisa/neco-look') 
+  
 
-" neocompleteã‚’è¨­å®š
-NeoBundle 'Shougo/neocomplete.vim'
+  " プラグインリストを収めた TOML ファイル
+  " 予め TOML ファイル（後述）を用意しておく
+  let g:rc_dir    = expand('~/.vim/rc')
+  let s:toml      = g:rc_dir . '/dein.toml'
+  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
 
-" NERDTreeã‚’è¨­å®š
-"NeoBundle 'scrooloose/nerdtree'
+  " TOML を読み込み、キャッシュしておく
+  call dein#load_toml(s:toml,      {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
-" autocloseã‚’è¨­å®š
-NeoBundle 'Townk/vim-autoclose'
-
-" neco-lookã‚’è¨­å®š
-NeoBundle 'ujihisa/neco-look'
-
-
-" neocompleteã®è¨­å®šå§‹ã¾ã‚Š
-
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
-
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
+  " Required:
+  call dein#end()
+  call dein#save_state()
 endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-
-"neocompleteã®è¨­å®šçµ‚ã‚ã‚Š
-
-
-
-
-
-"Neco-lookã®è¨­å®š
-  if !exists('g:neocomplete#text_mode_filetypes')
-	      let g:neocomplete#text_mode_filetypes = {}
-  endif
-  let g:neocomplete#text_mode_filetypes = {
-			    \ 'rst': 1,
-			    \ 'markdown': 1,
-			    \ 'gitrebase': 1,
-			    \ 'gitcommit': 1,
-			    \ 'vcs-commit': 1,
-			    \ 'hybrid': 1,
-			    \ 'text': 1,
-			    \ 'help': 1,
-			    \ 'tex': 1,
-			    \ }
-"Neco-lookã®è¨­å®šçµ‚ã‚ã‚Š
-
-
-
-
-
-
-
-call neobundle#end()
 
 " Required:
 filetype plugin indent on
+syntax enable
 
-NeoBundleCheck
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
 
-"---------------------------
-" End Neobundle Settings.
-"---------------------------
+"End dein Scripts-------------------------
 
+"vim起動時にNERDTree起動
+"autocmd VimEnter * execute 'NERDTree'
+nnoremap <silent><C-e> :NERDTreeToggle<CR> 
+" NERDTreeで隠しファイルも表示する
+let NERDTreeShowHidden=1 
+" colorscheme
+colorscheme wombat256mod
 
-
+"カッコを閉じたとき対応するカッコに一時的に移動
+set nostartofline
