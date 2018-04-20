@@ -95,7 +95,7 @@ fi
 alias ls='ls -a'
 alias df='df -h'
 #alias rm='rm -i'
-alias rm='rmtrash'
+alias rm='rmtrash' #実際はmv2trash(renameしている)
 alias vi='vim'
 alias -g G='| grep'
 alias grep='grep --color'
@@ -106,7 +106,9 @@ function pb (){ cat $@ | pbcopy }
 
 #補完
 autoload -U compinit
-compinit 
+compinit
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin /usr/local/git/bin
+
 
 # cdrを有効にする
 autoload -Uz chpwd_recent_dirs cdr
@@ -264,6 +266,33 @@ man() {
 			LESS_TERMCAP_us=$(printf "\e[1;32m") \
 			man "$@"
 }
+
+
+# zplugの設定
+source ~/.zplug/init.zsh
+
+# 構文のハイライト defer:2にすることでcompinitの後に読み込まれる
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+# タイプ補完
+# 履歴から候補が出てくる，→，ctrl-f,ctrl-eで補完できる.
+zplug "zsh-users/zsh-autosuggestions"
+#補完の強化
+zplug "zsh-users/zsh-completions"
+zplug "chrissicool/zsh-256color"
+zplug "ascii-soup/zsh-url-highlighter" 
+# mapとかeachのコマンド追加 https://github.com/Tarrasch/zsh-functional
+zplug "Tarrasch/zsh-functional"
+
+
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+zplug load
+
 
 
 

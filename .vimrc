@@ -107,13 +107,11 @@ noremap <S-k>   {
 noremap <S-l>   $
 
 "Insertmodeで<C-C>でESCと同義
-inoremap <C-C> <ESC>
+" inoremap <C-C> <ESC>
+"Enterで改行
+nnoremap <CR> o<ESC>
 
-"括弧の補完
-"inoremap { {}<Left>
-"inoremap {<Enter> {}<Left><CR><ESC><S-o>
-"inoremap ( ()<ESC>i
-"inoremap (<Enter> ()<Left><CR><ESC><S-o>
+
 
 "dein Scripts-----------------------------
 if &compatible
@@ -133,7 +131,7 @@ if dein#load_state('/Users/MPEG/.vim/dein')
 
   " Add or remove your plugins here:
   call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
+	call dein#add('Shougo/neosnippet-snippets')
   " You can specify revision/branch/tag.
   call dein#add('Shougo/deol.nvim')
   "vim-clang 
@@ -200,6 +198,26 @@ endif
 " Required:
 filetype plugin indent on
 syntax enable
+
+" leximaの設定 (末尾以外では自動クローズしない)
+call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '{', 'input': '{'})
+call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '(', 'input': '('})
+call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': "'", 'input': "'"})
+call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '"', 'input': '"'})
+"自動クローズした文字が次の行にあってもタイプできるように(よくわかってない)
+call lexima#add_rule({'at': '\%#\n\s*}', 'char': '}', 'input': '}', 'delete': '}'})
+call lexima#add_rule({'at': '\%#\n\s*}', 'char': ')', 'input': ')', 'delete': ')'})
+call lexima#add_rule({'at': '\%#\n\s*}', 'char': "'", 'input': "'", 'delete': "'"})
+call lexima#add_rule({'at': '\%#\n\s*}', 'char': '"', 'input': '"', 'delete': '"'})
+" TAB押したら括弧の右に行くようにする
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#)', 'leave': 1})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#"', 'leave': 1})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#''', 'leave': 1})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#]', 'leave': 1})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#}', 'leave': 1})
+
+
+
 
 " If you want to install not installed plugins on startup.
 if dein#check_install()
