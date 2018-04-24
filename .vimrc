@@ -4,7 +4,10 @@ set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 set fileformats=unix,dos,mac
 scriptencoding utf-8
 
-
+if has('persistent_undo')
+   set undodir=~/.vim/undo
+   set undofile
+endif
 
 "括弧の対応をハイライト
 set showmatch
@@ -110,6 +113,10 @@ noremap <S-l>   $
 " inoremap <C-C> <ESC>
 "Enterで改行
 nnoremap <CR> o<ESC>
+
+" 複数行を選択して連続してインデントできるようにする
+vnoremap > >gv
+vnoremap < <gv
 
 
 
