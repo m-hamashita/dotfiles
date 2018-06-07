@@ -118,6 +118,10 @@ nnoremap <CR> o<ESC>
 vnoremap > >gv
 vnoremap < <gv
 
+"行頭へ移動
+inoremap <C-a> <C-o>^
+"行末へ移動
+inoremap <C-l> <C-o>$
 
 
 "dein Scripts-----------------------------
@@ -136,20 +140,7 @@ if dein#load_state('/Users/MPEG/.vim/dein')
   " Required:
   call dein#add('/Users/MPEG/.vim/dein/repos/github.com/Shougo/dein.vim')
 
-  " Add or remove your plugins here:
-  call dein#add('Shougo/neosnippet.vim')
-	call dein#add('Shougo/neosnippet-snippets')
-  " You can specify revision/branch/tag.
-  call dein#add('Shougo/deol.nvim')
-  "vim-clang 
-  call dein#add('justmao945/vim-clang')
-  "unite.vim
-  call dein#add('Shougo/unite.vim')
-  call dein#add('ujihisa/unite-colorscheme')
-  "補完してくれるやつ
-  call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('Shougo/neocomplete.vim') 
-  "vimのカラースキーム:railscasts
+	"vimのカラースキーム
   call dein#add('jpo/vim-railscasts-theme')
   call dein#add('morhetz/gruvbox')
   call dein#add('NLKNguyen/papercolor-theme')
@@ -161,7 +152,44 @@ if dein#load_state('/Users/MPEG/.vim/dein')
   call dein#add('vim-scripts/Wombat')
   call dein#add('vim-scripts/wombat256.vim')
   call dein#add('junegunn/seoul256.vim')
-  " ディレクトリをツリー表示とショートカットCtrl+eで開く
+
+  " Add or remove your plugins here:
+  call dein#add('Shougo/neosnippet.vim')
+	call dein#add('Shougo/neosnippet-snippets')
+  " You can specify revision/branch/tag.
+  call dein#add('Shougo/deol.nvim')
+	" ステータスバー系
+	call dein#add('vim-airline/vim-airline')
+    " カラーテーマ指定してかっこよく
+    "let g:airline_theme = ''
+    " タブバーをかっこよく
+    let g:airline#extensions#tabline#enabled = 2 
+	
+	"vim-fugitive Gitクライアントプラグイン
+	"vimから離れずにGitが使える
+	call dein#add('tpope/vim-fugitive')
+
+	"vim-gitgutter gitのHEADからのコード追加，削除，変更を左端に表示
+	call dein#add('airblade/vim-gitgutter')
+	
+	"deoplete-jedi Pythonの自動補完
+	call dein#add('zchee/deoplete-jedi')
+  "vim-virtualenv パス自動追加プラグイン
+	call dein#add('jmcantrell/vim-virtualenv')
+	"vim-python-pep8-indent 自動でpep8準拠のインデント
+  call dein#add('Vimjas/vim-python-pep8-indent')
+	"jedi-vim 自動補完などPythonのコーディングをする際の様々な便利ツールを提供している
+	" call dein#add('davidhalter/jedi-vim')
+
+	"vim-clang 
+  call dein#add('justmao945/vim-clang')
+  "unite.vim
+  call dein#add('Shougo/unite.vim')
+  call dein#add('ujihisa/unite-colorscheme')
+  "補完してくれるやつ
+  call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('Shougo/neocomplete.vim') 
+    " ディレクトリをツリー表示とショートカットCtrl+eで開く
 	call dein#add('scrooloose/nerdtree')
 	" VimからThe Silver Searcherが使えるようにするやつ
 	call dein#add('rking/ag.vim') 
