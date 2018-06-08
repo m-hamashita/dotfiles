@@ -1,8 +1,0 @@
-Host m.hama@mibel.cs.tsukuba.ac.jp
-  User git 
-  Port 22
-  HostName m.hama@mibel.cs.tsukuba.ac.jp
-  TCPKeepAlive yes
-  identitiesonly yes
-  identityFile ~/.ssh/id_rsa
-  RemoteForward 52698 127.0.0.1:52698
