@@ -123,6 +123,12 @@ inoremap <C-a> <C-o>^
 "行末へ移動
 inoremap <C-l> <C-o>$
 
+"新しいタブ
+nnoremap st :<C-u>tabnew<CR>
+"Unite
+nnoremap sT :<C-u>Unite tab<CR>
+nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
+nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 
 "dein Scripts-----------------------------
 if &compatible
