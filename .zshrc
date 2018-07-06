@@ -100,10 +100,14 @@ alias vi='vim'
 alias -g G='| grep'
 alias grep='grep --color'
 alias cot='open -a /Applications/'\''CotEditor.app'\'''
-alias history='history -f'
+#alias history='history -f'
+alias history='cat ~/.zhistory'
 alias gcc='/usr/local/bin/gcc-8'
 alias g++='/usr/local/bin/g++-8'
+
+
 function pb (){ cat $@ | pbcopy }
+
 
 export LESSOPEN="| /usr/local/Cellar/source-highlight/3.1.8_9/bin/src-hilite-lesspipe.sh %s"
 export LESS='-R'
