@@ -118,6 +118,10 @@ nnoremap <CR> o<ESC>
 vnoremap > >gv
 vnoremap < <gv
 
+"折返しがある場合次の行に行くのではなく，そのまま下に行く 
+nnoremap j gj
+nnoremap k gk
+
 "行頭へ移動
 inoremap <C-a> <C-o>^
 "行末へ移動

@@ -69,6 +69,7 @@ RPROMPT='`rprompt-git-current-branch`'
 
 
 export PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/sbin:/usr/bin:$PATH
+export PATH="$HOME/Library/Python/3.6/bin:$PATH"
 export PATH=$PATH:/usr/local/lib/mecab/dic/ipadic
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
@@ -92,7 +93,7 @@ if [ -d "${PYENV_ROOT}" ]; then
     eval "$(pyenv virtualenv-init -)"
 fi 
 
-alias ls='ls -a'
+alias ls='ls -at'
 alias df='df -h'
 #alias rm='rm -i'
 alias rm='rmtrash' #実際はmv2trash(renameしている)
@@ -104,7 +105,7 @@ alias cot='open -a /Applications/'\''CotEditor.app'\'''
 alias history='cat ~/.zhistory'
 alias gcc='/usr/local/bin/gcc-8'
 alias g++='/usr/local/bin/g++-8'
-
+function mk (){ mkdir $@ && cd $_  }
 
 function pb (){ cat $@ | pbcopy }
 
