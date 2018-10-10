@@ -109,6 +109,7 @@ noremap <S-j>   }
 noremap <S-k>   {
 noremap <S-l>   $
 
+
 "Insertmodeで<C-C>でESCと同義
 " inoremap <C-C> <ESC>
 "Enterで改行
@@ -205,7 +206,19 @@ if dein#load_state('/Users/MPEG/.vim/dein')
 	call dein#add('rking/ag.vim') 
   " 括弧とかいい感じに補完するやつ
   call dein#add('cohama/lexima.vim')		
-	
+  " 括弧に色を付けるやつ
+	call dein#add('luochen1990/rainbow')
+
+  " Jedi.vim Pythonコードの補完
+  call dein#add('davidhalter/jedi-vim')	
+  
+  "syntastic 
+	"	call dein#add('vim-syntastic/syntastic')	
+
+
+
+
+
 	" deolate.nvimの設定
   "call dein#add('Shougo/deoplete.nvim')
   "call dein#add('zchee/deoplete-clang')
@@ -223,7 +236,7 @@ if dein#load_state('/Users/MPEG/.vim/dein')
   call dein#add('Shougo/neco-vim')
   call dein#add('Shougo/neco-syntax')
   call dein#add('ujihisa/neco-look') 
-  
+	
 
   " プラグインリストを収めた TOML ファイル
   " 予め TOML ファイル（後述）を用意しておく
@@ -261,8 +274,8 @@ call lexima#add_rule({'char': '<TAB>', 'at': '\%#''', 'leave': 1})
 call lexima#add_rule({'char': '<TAB>', 'at': '\%#]', 'leave': 1})
 call lexima#add_rule({'char': '<TAB>', 'at': '\%#}', 'leave': 1})
 
-
-
+"括弧に色つけるやつの設定
+let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 
 " If you want to install not installed plugins on startup.
 if dein#check_install()
@@ -270,6 +283,59 @@ if dein#check_install()
 endif
 
 "End dein Scripts-------------------------
+
+"Neco-look 設定
+if !exists('g:neocomplete#text_mode_filetypes')
+		let g:neocomplete#text_mode_filetypes={}
+endif
+let g:neocomplete#text_mode_filetypes={
+		\ 'rst' : 1,
+		\ 'markdown' : 1,
+		\ 'gitrebase' : 1,
+		\ 'gitcommit' : 1,
+		\ 'vcs-commit' : 1,
+		\ 'hybrid' : 1,
+		\ 'text' : 1,
+		\ 'help' : 1,
+		\ 'tex' : 1,
+		\ }
+autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mark*} set filetype=markdown
+
+filetype plugin indent on
+
+"jedi-vim
+let g:jedi#documentation_command = "<P>"
+
+" --------------------------------
+" syntastic
+" --------------------------------
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"
+"
+"let g:syntastic_always_populate_loc_list = 0
+"let g:syntastic_auto_loc_list = 0
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"
+"let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [
+"  \ 'ruby', 'javascript','coffee', 'scss', 'html', 'haml', 'slim', 'sh',
+"  \ 'spec', 'vim', 'zsh', 'sass', 'eruby'] }
+"
+"let g:syntastic_javascript_checkers=['eslint']
+"let g:syntastic_coffee_checkers = ['coffeelint']
+"let g:syntastic_scss_checkers = ['scss_lint']
+"let g:syntastic_ruby_checkers = ['rubocop']
+"let g:syntastic_python_checkers = ['flake8']
+"
+"let g:syntastic_error_symbol='>>'
+"let g:syntastic_style_error_symbol = '>>'
+"let g:syntastic_warning_symbol = '>>'
+"let g:syntastic_style_warning_symbol = '>>'
+"
+" end syntastic preference -------------------
+
 
 "vim起動時にNERDTree起動
 "autocmd VimEnter * execute 'NERDTree'
