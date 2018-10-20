@@ -81,6 +81,8 @@ set statusline+=[L=%l/%L]
 set statusline+=[%p%%]
 
 "-------Search--------
+"検索結果をハイライト表示する
+set hlsearch
 "インクリメンタルサーチを有効にする
 set incsearch
 "大文字小文字を区別しない

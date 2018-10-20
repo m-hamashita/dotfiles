@@ -1,0 +1,30 @@
+[merge]
+	ff = false
+[pull]
+	ff = only
+[core]
+	excludesfile = /Users/MPEG/.gitignore_global
+	editor = vim -c \"set fenc=utf-8\"
+	precomposeunicode = true
+	quotepath = false
+	pager = less -c
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[user]
+	name = m.hama
+	email = m.hama@mibel.cs.tsukuba.ac.jp
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[push]
+	default = simple
+[alias]
+	co = checkout
+	st = status
+[alists]
+	ci = commit -a

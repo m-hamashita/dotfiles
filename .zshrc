@@ -80,7 +80,8 @@ if [ -f ~/.bashrc ]; then
 fi
 
 
-export PATH=$PATH:/Users/MPEG/documents/experiment/nlplab/bin
+#実験のときにつかっただけ
+#export PATH=$PATH:/Users/MPEG/documents/experiment/nlplab/bin
 
 export PYENV_ROOT="$HOME/.pyenv"
 #export PATH=$PYENV_ROOT/bin:$PATH
