@@ -17,3 +17,8 @@ ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
 # ssh
 mkdir -p ~/.ssh
 ln -sf ~/dotfiles/.ssh/config ~/.ssh/config 
+
+#.config (nvim, karabiner)
+ln -sf ~/dotfiles/.config/ ~/.config
+
+

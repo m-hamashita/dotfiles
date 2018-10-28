@@ -1,0 +1,69 @@
+[[plugins]]
+repo = 'zchee/deoplete-clang'
+hook_source = '''
+let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/7.0.0/lib/libclang.dylib'
+let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/7.0.0/lib/clang'
+'''
+
+[[plugins]]
+repo = 'zchee/deoplete-jedi'
+on_ft = 'python'
+hook_add = '''
+    let g:deoplete#sources#jedi#python_path = '/Users/.pyenv/shims/python3'
+'''
+on_ft = ['c', 'cpp', 'cmake']
+depends = ['deoplete.nvim']
+
+
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+
+[[plugins]]
+repo = 'jpo/vim-railscasts-theme'
+
+[[plugins]]
+repo = 'morhetz/gruvbox'
+
+[[plugins]]
+repo = 'NLKNguyen/papercolor-theme'
+
+[[plugins]]
+repo = 'mhinz/vim-janah'
+
+[[plugins]]
+repo = 'gilsondev/lizard'
+
+[[plugins]]
+repo = 'mbbill/vim-seattle'
+
+[[plugins]]
+repo = 'thomd/vim-wasabi-colorscheme'
+
+[[plugins]]
+repo = 'sickill/vim-sunburst'
+
+[[plugins]]
+repo = 'vim-scripts/Wombat'
+
+[[plugins]]
+repo = 'vim-scripts/wombat256.vim'
+
+[[plugins]]
+repo = 'junegunn/seoul256.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'Shougo/deol.nvim'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+
+

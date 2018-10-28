@@ -9,6 +9,8 @@ if has('persistent_undo')
    set undofile
 endif
 
+" bufferの切り替えときに保存していないのを無視する
+set hidden 
 "括弧の対応をハイライト
 set showmatch
 "保存時の文字コード
@@ -16,7 +18,8 @@ set fileencoding=utf-8
 "□や○文字が崩れる問題を解決
 set ambiwidth=double
 "ヤンクした時にクリップボードにコピーする
-set clipboard=unnamed,autoselect
+" set clipboard=unnamed,autoselect
+set clipboard+=unnamedplus
 syntax on
 "filetypeによってインデントを変更する
 filetype plugin indent on
@@ -35,6 +38,12 @@ set tabstop=2
 set shiftwidth=2
 "カーソルラインの表示
 set cursorline
+" tab to space
+set expandtab
+" softtabstop
+set softtabstop=0
+" autoindent
+set autoindent
 
 "全角スペースの可視化
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
@@ -111,6 +120,8 @@ noremap <S-j>   }
 noremap <S-k>   {
 noremap <S-l>   $
 
+nnoremap <silent> <C-j> :bprev<CR>
+nnoremap <silent> <C-k> :bnext<CR>
 
 "Insertmodeで<C-C>でESCと同義
 " inoremap <C-C> <ESC>
@@ -124,6 +135,12 @@ vnoremap < <gv
 "折返しがある場合次の行に行くのではなく，そのまま下に行く 
 nnoremap j gj
 nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+
+" jjでnormal modeに
+inoremap <silent> jj <ESC>:<C-u>w<CR>
+
 
 "行頭へ移動
 inoremap <C-a> <C-o>^
@@ -137,47 +154,20 @@ nnoremap sT :<C-u>Unite tab<CR>
 nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
 nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 
-"dein Scripts-----------------------------
+
+"jedi-vimのため
+" let g:python3_host_prog = expand('~/.pyenv/versions/shims/python3')
+
+" dein scripts----------------------- 
 if &compatible
-  set nocompatible               " Be iMproved
+  set nocompatible
 endif
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+if dein#load_state('~/.cache/dein')
+  call dein#begin('~/.cache/dein')
 
-" Required:
-set runtimepath+=/Users/MPEG/.vim/dein/repos/github.com/Shougo/dein.vim
-
-" Required:
-if dein#load_state('/Users/MPEG/.vim/dein')
-  call dein#begin('/Users/MPEG/.vim/dein')
-
-  " Let dein manage dein
-  " Required:
-  call dein#add('/Users/MPEG/.vim/dein/repos/github.com/Shougo/dein.vim')
-
-	"vimのカラースキーム
-  call dein#add('jpo/vim-railscasts-theme')
-  call dein#add('morhetz/gruvbox')
-  call dein#add('NLKNguyen/papercolor-theme')
-  call dein#add('mhinz/vim-janah')
-  call dein#add('gilsondev/lizard')
-  call dein#add('mbbill/vim-seattle')
-  call dein#add('thomd/vim-wasabi-colorscheme')
-  call dein#add('sickill/vim-sunburst')
-  call dein#add('vim-scripts/Wombat')
-  call dein#add('vim-scripts/wombat256.vim')
-  call dein#add('junegunn/seoul256.vim')
-
-  " Add or remove your plugins here:
-  call dein#add('Shougo/neosnippet.vim')
-	call dein#add('Shougo/neosnippet-snippets')
-  " You can specify revision/branch/tag.
-  call dein#add('Shougo/deol.nvim')
-	" ステータスバー系
 	call dein#add('vim-airline/vim-airline')
-    " カラーテーマ指定してかっこよく
-    "let g:airline_theme = ''
-    " タブバーをかっこよく
-    let g:airline#extensions#tabline#enabled = 2 
-	
+  
 	"vim-fugitive Gitクライアントプラグイン
 	"vimから離れずにGitが使える
 	call dein#add('tpope/vim-fugitive')
@@ -192,7 +182,6 @@ if dein#load_state('/Users/MPEG/.vim/dein')
 	"vim-python-pep8-indent 自動でpep8準拠のインデント
   call dein#add('Vimjas/vim-python-pep8-indent')
 	"jedi-vim 自動補完などPythonのコーディングをする際の様々な便利ツールを提供している
-	call dein#add('davidhalter/jedi-vim')
 
 	"vim-clang 
   call dein#add('justmao945/vim-clang')
@@ -213,47 +202,50 @@ if dein#load_state('/Users/MPEG/.vim/dein')
 
   
   "syntastic 
-	"	call dein#add('vim-syntastic/syntastic')	
+	call dein#add('vim-syntastic/syntastic')	
 
 
 
 
 
 	" deolate.nvimの設定
-  "call dein#add('Shougo/deoplete.nvim')
-  "call dein#add('zchee/deoplete-clang')
-  "if !has('nvim')
-  "  call dein#add('roxma/nvim-yarp')
-  "  call dein#add('roxma/vim-hug-neovim-rpc')
-  "endif
+  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('zchee/deoplete-clang')
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
   "この下の設定うまくいってない.
-  "let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/6.0.0/lib/libclang.dylib'
-  "let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/6.0.0/lib/clang'
-  "g:deoplete#sources#clang#libclang_path
-  "g:deoplete#sources#clang#clang_header
+	let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/7.0.0/lib/libclang.dylib'
+ 	let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/7.0.0/lib/clang'
+ 	" g:deoplete#sources#clang#libclang_path
+  " g:deoplete#sources#clang#clang_header
   
   "補完や英単語検索
   call dein#add('Shougo/neco-vim')
   call dein#add('Shougo/neco-syntax')
   call dein#add('ujihisa/neco-look') 
 	
+	" ALE linter実行プラグイン　静的解析
+	call dein#add('w0rp/ale')	
+	
+	
+	
+	
+	call dein#load_toml('~/.config/nvim/rc/dein.toml', {'lazy': 0})
+  call dein#load_toml('~/.config/nvim/rc/dein_lazy.toml', {'lazy': 1})
 
-  " プラグインリストを収めた TOML ファイル
-  " 予め TOML ファイル（後述）を用意しておく
-  let g:rc_dir    = expand('~/.vim/rc')
-  let s:toml      = g:rc_dir . '/dein.toml'
-  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+ 
 
-  " TOML を読み込み、キャッシュしておく
-  call dein#load_toml(s:toml,      {'lazy': 0})
-  call dein#load_toml(s:lazy_toml, {'lazy': 1})
-
-  " Required:
-  call dein#end()
+	call dein#end()
   call dein#save_state()
 endif
 
-" Required:
+if dein#check_install()
+  call dein#install()
+endif
+"End dein scripts -----------------------------------------------
+
 filetype plugin indent on
 syntax enable
 
@@ -274,17 +266,14 @@ call lexima#add_rule({'char': '<TAB>', 'at': '\%#''', 'leave': 1})
 call lexima#add_rule({'char': '<TAB>', 'at': '\%#]', 'leave': 1})
 call lexima#add_rule({'char': '<TAB>', 'at': '\%#}', 'leave': 1})
 
+
+
+
 "括弧に色つけるやつの設定
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
 
-"End dein Scripts-------------------------
-
-"Neco-look 設定
+""Neco-look 設定
 if !exists('g:neocomplete#text_mode_filetypes')
 		let g:neocomplete#text_mode_filetypes={}
 endif
@@ -300,42 +289,61 @@ let g:neocomplete#text_mode_filetypes={
 		\ 'tex' : 1,
 		\ }
 autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mark*} set filetype=markdown
+""Neco-look------
 
-filetype plugin indent on
 
 "jedi-vim
 let g:jedi#documentation_command = "<P>"
 
-" --------------------------------
-" syntastic
-" --------------------------------
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"
-"
-"let g:syntastic_always_populate_loc_list = 0
-"let g:syntastic_auto_loc_list = 0
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"
-"let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [
-"  \ 'ruby', 'javascript','coffee', 'scss', 'html', 'haml', 'slim', 'sh',
-"  \ 'spec', 'vim', 'zsh', 'sass', 'eruby'] }
-"
-"let g:syntastic_javascript_checkers=['eslint']
-"let g:syntastic_coffee_checkers = ['coffeelint']
-"let g:syntastic_scss_checkers = ['scss_lint']
-"let g:syntastic_ruby_checkers = ['rubocop']
-"let g:syntastic_python_checkers = ['flake8']
-"
-"let g:syntastic_error_symbol='>>'
-"let g:syntastic_style_error_symbol = '>>'
-"let g:syntastic_warning_symbol = '>>'
-"let g:syntastic_style_warning_symbol = '>>'
-"
-" end syntastic preference -------------------
+" パワーラインでかっこよく
+let g:airline_powerline_fonts = 1
+" カラーテーマ指定してかっこよく
+let g:airline_theme = 'badwolf'
+" タブバーをかっこよく
+let g:airline#extensions#tabline#enabled = 1
 
+
+""""""""ALE設定"""""""""""""""""""""""""""""""""""""""""""""""
+" エラー行に表示するマーク
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+" エラー行にカーソルをあわせた際に表示されるメッセージフォーマット
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" エラー表示の列を常時表示
+let g:ale_sign_column_always = 1
+
+" ファイルを開いたときにlint実行
+let g:ale_lint_on_enter = 1
+" ファイルを保存したときにlint実行
+let g:ale_lint_on_save = 1
+" 編集中のlintはしない
+let g:ale_lint_on_text_changed = 'never'
+
+" lint結果をロケーションリストとQuickFixには表示しない
+" 出てると結構うざいしQuickFixを書き換えられるのは困る
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 0
+let g:ale_open_list = 0
+let g:ale_keep_list_window_open = 0
+
+" 有効にするlinter
+let g:ale_linters = {
+\   'python': ['flake8'],
+\}
+
+" ALE用プレフィックス
+nmap [ale] <Nop>
+map <C-f> [ale]
+" エラー行にジャンプ
+nnoremap <silent> [ale]<C-p> <Plug>(ale_previous)
+nnoremap <silent> [ale]<C-n> <Plug>(ale_next)
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+
+
+ 
 
 "vim起動時にNERDTree起動
 "autocmd VimEnter * execute 'NERDTree'
@@ -347,3 +355,6 @@ colorscheme wombat256mod
 
 "カッコを閉じたとき対応するカッコに一時的に移動
 set nostartofline
+
+
+
