@@ -421,6 +421,36 @@
           ]
         }
       ]
+    },
+    {
+      "description": "command+spaceを押したとき英数も送信する",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [  
+            {
+              "key_code": "japanese_eisuu"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "keyboard_type_if",
+              "keyboard_types": [
+                "ansi",
+                "iso"
+              ]
+            }
+          ]
+        }  
+      ]
     }
   ]
 }
