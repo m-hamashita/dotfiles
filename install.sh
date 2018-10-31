@@ -13,6 +13,7 @@ ln -sf ~/dotfiles/.gitignore_global ~/.gitignore_global
 
 # tmux
 ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
+ln -sf ~/dotfiles/.tmux ~/.tmux
 
 # ssh
 mkdir -p ~/.ssh
@@ -21,4 +22,6 @@ ln -sf ~/dotfiles/.ssh/config ~/.ssh/config
 #.config (nvim, karabiner)
 ln -sf ~/dotfiles/.config/ ~/.config
 
+#.tigrc #gitのやつ
+ln -sf ~/dotfiles/.tigrc ~/.tigrc
 

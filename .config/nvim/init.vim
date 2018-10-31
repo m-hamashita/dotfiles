@@ -228,7 +228,9 @@ if dein#load_state('~/.cache/dein')
 	
 	" ALE linter実行プラグイン　静的解析
 	call dein#add('w0rp/ale')	
-	
+  
+  "sessionが保存されるらしい
+  call dein#add('tpope/vim-obsession')
 	
 	
 	
