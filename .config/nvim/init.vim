@@ -115,6 +115,9 @@ nnoremap sk <C-w>k
 nnoremap sl <C-w>l
 nnoremap sh <C-w>h
 
+
+
+
 noremap <S-h>   ^ "カーソル移動系shift+hjkl
 noremap <S-j>   }
 noremap <S-k>   {
@@ -141,7 +144,6 @@ vnoremap k gk
 " jjでnormal modeに
 inoremap <silent> jj <ESC>:<C-u>w<CR>
 
-
 "行頭へ移動
 inoremap <C-a> <C-o>^
 "行末へ移動
@@ -153,6 +155,14 @@ nnoremap st :<C-u>tabnew<CR>
 nnoremap sT :<C-u>Unite tab<CR>
 nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
 nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
+
+"<Leader>をSpaceに変更する
+let mapleader = "\<Space>"
+"Twitvim Refresh
+nnoremap <Leader>q :<C-u>RefreshTwitter<CR>
+
+"検索ハイライトを消す
+nnoremap  <C-c><C-c> :<C-u>nohlsearch<cr><Esc>
 
 
 "jedi-vimのため
@@ -169,32 +179,32 @@ if dein#load_state('~/.cache/dein')
 	call dein#add('vim-airline/vim-airline')
   
 	"vim-fugitive Gitクライアントプラグイン
-	"vimから離れずにGitが使える
-	call dein#add('tpope/vim-fugitive')
+	"vimから離れずにGitが使える toml
+	"call dein#add('tpope/vim-fugitive')
 
 	"vim-gitgutter gitのHEADからのコード追加，削除，変更を左端に表示
 	call dein#add('airblade/vim-gitgutter')
 	
 	"deoplete-jedi Pythonの自動補完
 	call dein#add('zchee/deoplete-jedi')
-  "vim-virtualenv パス自動追加プラグイン
-	call dein#add('jmcantrell/vim-virtualenv')
-	"vim-python-pep8-indent 自動でpep8準拠のインデント
-  call dein#add('Vimjas/vim-python-pep8-indent')
+  "vim-virtualenv パス自動追加プラグイン toml
+	"call dein#add('jmcantrell/vim-virtualenv')
+	"vim-python-pep8-indent 自動でpep8準拠のインデント toml
+  "call dein#add('Vimjas/vim-python-pep8-indent')
 	"jedi-vim 自動補完などPythonのコーディングをする際の様々な便利ツールを提供している
 
-	"vim-clang 
-  call dein#add('justmao945/vim-clang')
-  "unite.vim
-  call dein#add('Shougo/unite.vim')
-  call dein#add('ujihisa/unite-colorscheme')
+	"vim-clang toml
+  "call dein#add('justmao945/vim-clang')
+  "unite.vim tomlの方にある
+  " call dein#add('Shougo/unite.vim')
+  " call dein#add('ujihisa/unite-colorscheme')
   "補完してくれるやつ
   call dein#add('Shougo/neosnippet-snippets')
   call dein#add('Shougo/neocomplete.vim') 
     " ディレクトリをツリー表示とショートカットCtrl+eで開く
 	call dein#add('scrooloose/nerdtree')
-	" VimからThe Silver Searcherが使えるようにするやつ
-	call dein#add('rking/ag.vim') 
+	" VimからThe Silver Searcherが使えるようにするやつ tomlにある
+  " call dein#add('rking/ag.vim') 
   " 括弧とかいい感じに補完するやつ
   call dein#add('cohama/lexima.vim')		
   " 括弧に色を付けるやつ
@@ -231,14 +241,15 @@ if dein#load_state('~/.cache/dein')
   
   "sessionが保存されるらしい
   call dein#add('tpope/vim-obsession')
-	
-	
-	
+  
+	"Twitvim
+  call dein#add('~/.vim/local_repos/twitvim/twitvim')
+
+
 	call dein#load_toml('~/.config/nvim/rc/dein.toml', {'lazy': 0})
   call dein#load_toml('~/.config/nvim/rc/dein_lazy.toml', {'lazy': 1})
 
- 
-
+  
 	call dein#end()
   call dein#save_state()
 endif
@@ -247,6 +258,22 @@ if dein#check_install()
   call dein#install()
 endif
 "End dein scripts -----------------------------------------------
+
+
+
+" TwitVim設定
+let twitvim_enable_python = 1
+let twitvim_browser_cmd = 'open'
+let twitvim_force_ssl = 1
+let twitvim_count = 40
+let twitvim_filter_enable = 1
+	
+
+
+
+
+
+
 
 filetype plugin indent on
 syntax enable
@@ -268,7 +295,9 @@ call lexima#add_rule({'char': '<TAB>', 'at': '\%#''', 'leave': 1})
 call lexima#add_rule({'char': '<TAB>', 'at': '\%#]', 'leave': 1})
 call lexima#add_rule({'char': '<TAB>', 'at': '\%#}', 'leave': 1})
 
-
+"dein.vimでのプラグイン削除, :call
+"dein#recache_runtimepath()を実行すると良いらしい
+call map(dein#check_clean(), "delete(v:val, 'rf')")
 
 
 "括弧に色つけるやつの設定
@@ -343,9 +372,6 @@ nnoremap <silent> [ale]<C-n> <Plug>(ale_next)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-
-
- 
 
 "vim起動時にNERDTree起動
 "autocmd VimEnter * execute 'NERDTree'
