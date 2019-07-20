@@ -69,6 +69,8 @@ RPROMPT='`rprompt-git-current-branch`'
 #neovimのためのpath
 export XDG_CONFIG_HOME="~/.config"
 
+
+export PATH=$PATH:/Users/mpeg/.nodebrew/current/bin
 export PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/sbin:/usr/bin:$PATH
 export PATH="$HOME/Library/Python/3.6/bin:$PATH"
 export PATH=$PATH:/usr/local/lib/mecab/dic/ipadic
@@ -395,3 +397,14 @@ ZSH_THEME="robbyrussell"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --preview "head -100 {}"'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+
+export LDFLAGS="-L/usr/local/opt/llvm/lib"
+export CPPFLAGS="-I/usr/local/opt/llvm/include"
+
+export PATH="/Users/mpeg/cquery/build/release/bin:$PATH"
+
