@@ -149,25 +149,30 @@ inoremap <C-a> <C-o>^
 "行末へ移動
 inoremap <C-l> <C-o>$
 
-"新しいタブ
+" 新しいタブ
 nnoremap st :<C-u>tabnew<CR>
-"Unite
+" Unite
 nnoremap sT :<C-u>Unite tab<CR>
 nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
 nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 
-"<Leader>をSpaceに変更する
-let mapleader = "\<Space>"
+"<Leader>はバックスラッシュ
 "Twitvim Refresh
 nnoremap <Leader>q :<C-u>RefreshTwitter<CR>
 
 "検索ハイライトを消す
 nnoremap  <C-c><C-c> :<C-u>nohlsearch<cr><Esc>
 
+"ctagジャンプ Ctrl-hで横にCtrl-lで縦に分割
+nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <C-l> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
+
 
 "jedi-vimのため
 " let g:python3_host_prog = expand('~/.pyenv/versions/shims/python3')
 
+"意味ないかも
+let $PATH = "~/.pyenv/shims:".$PATH
 " dein scripts----------------------- 
 if &compatible
   set nocompatible
@@ -176,7 +181,7 @@ set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
 
-	call dein#add('vim-airline/vim-airline')
+	"call dein#add('vim-airline/vim-airline')
   
 	"vim-fugitive Gitクライアントプラグイン
 	"vimから離れずにGitが使える toml
@@ -185,26 +190,9 @@ if dein#load_state('~/.cache/dein')
 	"vim-gitgutter gitのHEADからのコード追加，削除，変更を左端に表示
 	call dein#add('airblade/vim-gitgutter')
 	
-	"deoplete-jedi Pythonの自動補完
-	call dein#add('zchee/deoplete-jedi')
-  "vim-virtualenv パス自動追加プラグイン toml
-	"call dein#add('jmcantrell/vim-virtualenv')
-	"vim-python-pep8-indent 自動でpep8準拠のインデント toml
-  "call dein#add('Vimjas/vim-python-pep8-indent')
-	"jedi-vim 自動補完などPythonのコーディングをする際の様々な便利ツールを提供している
 
-	"vim-clang toml
-  "call dein#add('justmao945/vim-clang')
-  "unite.vim tomlの方にある
-  " call dein#add('Shougo/unite.vim')
-  " call dein#add('ujihisa/unite-colorscheme')
-  "補完してくれるやつ
-  call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('Shougo/neocomplete.vim') 
-    " ディレクトリをツリー表示とショートカットCtrl+eで開く
+  " ディレクトリをツリー表示とショートカットCtrl+eで開く
 	call dein#add('scrooloose/nerdtree')
-	" VimからThe Silver Searcherが使えるようにするやつ tomlにある
-  " call dein#add('rking/ag.vim') 
   " 括弧とかいい感じに補完するやつ
   call dein#add('cohama/lexima.vim')		
   " 括弧に色を付けるやつ
@@ -212,29 +200,26 @@ if dein#load_state('~/.cache/dein')
 
   
   "syntastic 
-	call dein#add('vim-syntastic/syntastic')	
-
-
-
-
+  call dein#add('scrooloose/syntastic') 
 
 	" deolate.nvimの設定
-  call dein#add('Shougo/deoplete.nvim')
-  call dein#add('zchee/deoplete-clang')
+  "call dein#add('Shougo/deoplete.nvim')
+  "call dein#add('zchee/deoplete-clang')
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
+  let g:deoplete#enable_at_startup = 1
   "この下の設定うまくいってない.
-	let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/7.0.0/lib/libclang.dylib'
- 	let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/7.0.0/lib/clang'
+	"let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/7.0.0/lib/libclang.dylib'
+ 	"let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/7.0.0/lib/clang'
  	" g:deoplete#sources#clang#libclang_path
   " g:deoplete#sources#clang#clang_header
   
   "補完や英単語検索
-  call dein#add('Shougo/neco-vim')
-  call dein#add('Shougo/neco-syntax')
-  call dein#add('ujihisa/neco-look') 
+  "call dein#add('Shougo/neco-vim')
+  "call dein#add('Shougo/neco-syntax')
+  "call dein#add('ujihisa/neco-look') 
 	
 	" ALE linter実行プラグイン　静的解析
 	call dein#add('w0rp/ale')	
@@ -259,7 +244,17 @@ if dein#check_install()
 endif
 "End dein scripts -----------------------------------------------
 
+"lightline
+set laststatus=2
+set showtabline=2
+let g:lightline#bufferline#show_number  = 1
+let g:lightline#bufferline#shorten_path = 0
+let g:lightline#bufferline#unnamed      = '[No Name]'
 
+let g:lightline = { 'colorscheme': 'wombat' }
+let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
 
 " TwitVim設定
 let twitvim_enable_python = 1
@@ -268,15 +263,56 @@ let twitvim_force_ssl = 1
 let twitvim_count = 40
 let twitvim_filter_enable = 1
 	
+"neocompleteの設定
+"let g:neocomplete#enable_at_startup = 1
+" ポップアップメニューで表示される候補の数
+"let g:neocomplete#max_list = 50
+" キーワードの長さ、デフォルトで80
+"let g:neocomplete#max_keyword_width = 80
+"let g:neocomplete#enable_ignore_case = 1
+" highlight Pmenu ctermbg=6
+"highlight PmenuSel ctermbg=3
+"highlight PMenuSbar ctermbg=0
+"inoremap <expr><CR>  pumvisible() ? neocomplete#close_popup() : "<CR>"
+"inoremap <expr><C-q> neocomplete#complete_common_string()
 
+" syntastic
+let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 
+" Autopep8
+" original http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
+function! Preserve(command)
+    " Save the last search.
+    let search = @/
+    " Save the current cursor position.
+    let cursor_position = getpos('.')
+    " Save the current window position.
+    normal! H
+    let window_position = getpos('.')
+    call setpos('.', cursor_position)
+    " Execute the command.
+    execute a:command
+    " Restore the last search.
+    let @/ = search
+    " Restore the previous window position.
+    call setpos('.', window_position)
+    normal! zt
+    " Restore the previous cursor position.
+    call setpos('.', cursor_position)
+endfunction
 
+function! Autopep8()
+    call Preserve(':silent %!autopep8 -')
+endfunction
 
-
-
+" Shift + F で自動修正
+autocmd FileType python nnoremap <S-f> :call Autopep8()<CR>
 
 filetype plugin indent on
 syntax enable
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
 
 " leximaの設定 (末尾以外では自動クローズしない)
 call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '{', 'input': '{'})
@@ -329,7 +365,7 @@ let g:jedi#documentation_command = "<P>"
 " パワーラインでかっこよく
 let g:airline_powerline_fonts = 1
 " カラーテーマ指定してかっこよく
-let g:airline_theme = 'badwolf'
+let g:airline_theme = 'papercolor'
 " タブバーをかっこよく
 let g:airline#extensions#tabline#enabled = 1
 
@@ -351,7 +387,6 @@ let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
 
 " lint結果をロケーションリストとQuickFixには表示しない
-" 出てると結構うざいしQuickFixを書き換えられるのは困る
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 0
 let g:ale_open_list = 0
@@ -360,6 +395,7 @@ let g:ale_keep_list_window_open = 0
 " 有効にするlinter
 let g:ale_linters = {
 \   'python': ['flake8'],
+\   'cpp': ['clangd'],
 \}
 
 " ALE用プレフィックス
@@ -371,6 +407,63 @@ nnoremap <silent> [ale]<C-n> <Plug>(ale_next)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"coc
+
+" use <tab> for trigger completion and navigate to next complete item
+" function! s:check_back_space() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~ '\s'
+" endfunction
+" inoremap <silent><expr> <TAB>
+"      \ pumvisible() ? "\<C-n>" :
+"      \ <SID>check_back_space() ? "\<TAB>" :
+"      \ coc#refresh()
+
+" use <c-space>for trigger completion
+" inoremap <silent><expr> <c-space> coc#refresh()
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+autocmd FileType json syntax match Comment +\/\/.\+$+
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+vmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Use `:Format` for format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` for fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+""""""""""""""""""""""coc""""""""""""""""""""""""""""""""""""
 
 
 "vim起動時にNERDTree起動
@@ -384,5 +477,9 @@ colorscheme wombat256mod
 "カッコを閉じたとき対応するカッコに一時的に移動
 set nostartofline
 
+function MakeCquery()
+  let temp = expand('%:p')
+  echo system('echo ''[{"directory": "/Users/mpeg/Documents/Programming/abc/132","command": "/usr/bin/c++  ' . temp . ' -std=c++11","file": "' . temp . '"}]'' > compile_commands.json')
+endfunction
 
 
