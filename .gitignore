@@ -1,2 +1,13 @@
 Session.vim
 .vim
+.config/inkscape/
+.config/karabiner/automatic_backups
+.config/nvim/rc/experiment/
+.config/nvim/rc/tmp.toml
+.cquery_cache
+.config/gcloud
+.config/coc
+.config/nvim/coc-settings.json
+.config/nvim/rc/yarn.lock
+.config/nvim/rc/package-lock.json
+.config/nvim/rc/node_modules
