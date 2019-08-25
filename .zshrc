@@ -72,11 +72,16 @@ function _command_exists()
 #neovimのためのpath
 export XDG_CONFIG_HOME="~/.config"
 
-
-# export PATH=$PATH:/Users/mpeg/.nodebrew/current/bin
 export PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/sbin:/usr/bin:$PATH
 export PATH="$HOME/Library/Python/3.6/bin:$PATH"
 export PATH=$PATH:/usr/local/lib/mecab/dic/ipadic
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+
+export LDFLAGS="-L/usr/local/opt/llvm/lib"
+export CPPFLAGS="-I/usr/local/opt/llvm/include"
+# export PATH="/Users/mpeg/cquery/build/release/bin:$PATH"
+export CFLAGS="-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -mmacosx-version-min=10.14"
+
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
 if [ -f ~/.bashrc ]; then
@@ -109,8 +114,6 @@ export LESS='-R'
 #—————————————————————————————————————————
 
 #補完
-# autoload -U compinit
-# compinit
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin /usr/local/git/bin
 
 
@@ -119,6 +122,10 @@ autoload -Uz chpwd_recent_dirs cdr
 add-zsh-hook chpwd chpwd_recent_dirs
 
 # cdr の設定
+if [ ! -e  "$HOME/.cache/shell/chpwd-recent-dirs" ]; then
+  mkdir -p $HOME/.cache/shell/
+  touch $HOME/.cache/shell/chpwd-recent-dirs
+fi
 zstyle ':completion:*' recent-dirs-insert both
 zstyle ':chpwd:*' recent-dirs-max 500
 zstyle ':chpwd:*' recent-dirs-default true
@@ -211,8 +218,6 @@ zstyle ':completion:*:default' menu select=1
 setopt list_packed
 #ビープ音を鳴らさない設定
 setopt nolistbeep
-#コマンド自動修正
-#setopt correct
 #バックグラウンドジョブが終了したら知らせる
 setopt no_tify
 # m:{a-z}={A-Z}: 小文字を大文字に変えたものでも補完する。
@@ -301,12 +306,6 @@ zplug load
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --preview "head -100 {}"'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export PATH="/usr/local/opt/llvm/bin:$PATH"
-
-export LDFLAGS="-L/usr/local/opt/llvm/lib"
-export CPPFLAGS="-I/usr/local/opt/llvm/include"
-# export PATH="/Users/mpeg/cquery/build/release/bin:$PATH"
-export CFLAGS="-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -mmacosx-version-min=10.14"
 zmodload zsh/zprof #&& zprof
 # if (which zprof > /dev/null 2>&1) ;then
 #   zprof
