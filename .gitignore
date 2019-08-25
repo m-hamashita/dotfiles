@@ -12,3 +12,4 @@ Session.vim
 .config/nvim/rc/package-lock.json
 .config/nvim/rc/node_modules
 .config/nvim/rc/vim-powerline
+.config/gtk-2.0/
