@@ -16,8 +16,9 @@ zstyle ':prezto:module:editor:info:keymap:primary' format '%B%F{blue}❯%f%b'
 SEP=`echo -e "\xE2\xAE\x80"`
 FONT_COL='233'
 #PROMPT="%{%F{$FONT_COL}%K{045}%}%T%{%k%f%}%{%F{045}%K{230}%}$SEP%{%f%k%}%{%F{$FONT_COL}%K{230}%}[%M]%{%f%k%}%{%F{230}%K{120}%}$SEP%{%k%f%}%{%K{120}%F{$FONT_COL}%}%~%{%f%k%}%F{120}$SEP%f
-#PROMPT="%{%F{$FONT_COL}%K{045}%}%T%{%k%f%}%{%F{045}%K{230}%}$SEP%{%f%k%}%{%F{$FONT_COL}%K{230}%}[%M]%{%f%k%}%{%F{230}%K{120}%}$SEP%{%k%f%}%{%K{120}%F{$FONT_COL}%}%~%{%f%k%}%F{120}$SEP%f
-PROMPT="%{%F{$FONT_COL}%K{045}%}%T%{%k%f%}%{%F{045}%K{120}%}$SEP%{%k%f%}%{%K{120}%F{$FONT_COL}%}%~%{%f%k%}%F{120}$SEP%f
+# PROMPT="%{%F{$FONT_COL}%K{045}%}%T%{%k%f%}%{%F{045}%K{230}%}$SEP%{%f%k%}%{%F{$FONT_COL}%K{230}%}[%M]%{%f%k%}%{%F{230}%K{120}%}$SEP%{%k%f%}%{%K{120}%F{$FONT_COL}%}%~%{%f%k%}%F{120}$SEP%f
+BACKGROUND_COL='111'
+PROMPT="%{%F{$FONT_COL}%K{$BACKGROUND_COL}%}%T%{%k%f%}%{%F{$BACKGROUND_COL}%K{230}%}$SEP%{%f%k%}%{%F{$FONT_COL}%K{230}%}[%M]%{%f%k%}%{%F{230}%K{$BACKGROUND_COL}%}$SEP%{%k%f%}%{%K{$BACKGROUND_COL}%F{$FONT_COL}%}%~%{%f%k%}%F{$BACKGROUND_COL}$SEP%f
 %(?.%F{green}.%F{red})%(?! OK ! NG )%f %F{155}$%f "
 
 # ctrl-sとctrl-qの無効化
@@ -74,28 +75,12 @@ export PATH=$PATH:/Users/mpeg/.nodebrew/current/bin
 export PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/sbin:/usr/bin:$PATH
 export PATH="$HOME/Library/Python/3.6/bin:$PATH"
 export PATH=$PATH:/usr/local/lib/mecab/dic/ipadic
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
 if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
 fi
 
-
-#実験のときにつかっただけ
-#export PATH=$PATH:/Users/MPEG/documents/experiment/nlplab/bin
-
-export PYENV_ROOT="$HOME/.pyenv"
-#export PATH=$PYENV_ROOT/bin:$PATH
-export PATH=$PYENV_ROOT/shims:$PATH
-#eval "$(pyenv init -)"
-
-if [ -d "${PYENV_ROOT}" ]; then
-       export PATH=${PYENV_ROOT}/bin:$PATH
-       eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-fi 
 
 alias ls='ls -at'
 alias df='df -h'
@@ -108,8 +93,8 @@ alias grep='grep --color'
 alias cot='open -a /Applications/'\''CotEditor.app'\'''
 #alias history='history -f'
 alias history='cat ~/.zhistory'
-alias gcc='/usr/local/bin/gcc-8'
-alias g++='/usr/local/bin/g++-8'
+alias gcc='/usr/local/bin/gcc-9'
+alias g++='/usr/local/bin/g++-9'
 function mk (){ mkdir $@ && cd $_  }
 
 function pb (){ cat $@ | pbcopy }
@@ -121,8 +106,8 @@ export LESS='-R'
 #—————————————————————————————————————————
 
 #補完
-autoload -U compinit
-compinit
+# autoload -U compinit
+# compinit
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin /usr/local/git/bin
 
 
@@ -405,6 +390,16 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 export LDFLAGS="-L/usr/local/opt/llvm/lib"
 export CPPFLAGS="-I/usr/local/opt/llvm/include"
-
+# export CPPFLAGS="-I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Versions/c/Headers"
+# export LDFLAGS="-I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Versions/c/Headers"
 export PATH="/Users/mpeg/cquery/build/release/bin:$PATH"
+export CFLAGS="-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -mmacosx-version-min=10.14"
+zmodload zsh/zprof #&& zprof
+# if (which zprof > /dev/null 2>&1) ;then
+#   zprof
+# fi
+# if (which zprof > /dev/null) ;then
+#   zprof | less
+# fi
+
 
