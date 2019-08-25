@@ -1,4 +1,3 @@
-#————————————————————————————————————————
 HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export WORKON_HOME=$HOME/.virtualenvs
 LANG=ja_JP.UTF-8
@@ -11,12 +10,10 @@ setopt prompt_subst
 autoload -Uz add-zsh-hook
 autoload -U colors && colors
 
-#https://gist.github.com/qrush/1595572を実行して文字化けを解消した
+#https://gist.github.com/qrush/1595572でフォントをダウンロード
 zstyle ':prezto:module:editor:info:keymap:primary' format '%B%F{blue}❯%f%b'
 SEP=`echo -e "\xE2\xAE\x80"`
 FONT_COL='233'
-#PROMPT="%{%F{$FONT_COL}%K{045}%}%T%{%k%f%}%{%F{045}%K{230}%}$SEP%{%f%k%}%{%F{$FONT_COL}%K{230}%}[%M]%{%f%k%}%{%F{230}%K{120}%}$SEP%{%k%f%}%{%K{120}%F{$FONT_COL}%}%~%{%f%k%}%F{120}$SEP%f
-# PROMPT="%{%F{$FONT_COL}%K{045}%}%T%{%k%f%}%{%F{045}%K{230}%}$SEP%{%f%k%}%{%F{$FONT_COL}%K{230}%}[%M]%{%f%k%}%{%F{230}%K{120}%}$SEP%{%k%f%}%{%K{120}%F{$FONT_COL}%}%~%{%f%k%}%F{120}$SEP%f
 BACKGROUND_COL='111'
 PROMPT="%{%F{$FONT_COL}%K{$BACKGROUND_COL}%}%T%{%k%f%}%{%F{$BACKGROUND_COL}%K{230}%}$SEP%{%f%k%}%{%F{$FONT_COL}%K{230}%}[%M]%{%f%k%}%{%F{230}%K{$BACKGROUND_COL}%}$SEP%{%k%f%}%{%K{$BACKGROUND_COL}%F{$FONT_COL}%}%~%{%f%k%}%F{$BACKGROUND_COL}$SEP%f
 %(?.%F{green}.%F{red})%(?! OK ! NG )%f %F{155}$%f "
@@ -65,13 +62,18 @@ setopt prompt_subst
 # プロンプトの右側(RPROMPT)にメソッドの結果を表示させる
 RPROMPT='`rprompt-git-current-branch`'
 
+function _command_exists()
+{
+    which $1 &> /dev/null
+}
+
 
 
 #neovimのためのpath
 export XDG_CONFIG_HOME="~/.config"
 
 
-export PATH=$PATH:/Users/mpeg/.nodebrew/current/bin
+# export PATH=$PATH:/Users/mpeg/.nodebrew/current/bin
 export PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/sbin:/usr/bin:$PATH
 export PATH="$HOME/Library/Python/3.6/bin:$PATH"
 export PATH=$PATH:/usr/local/lib/mecab/dic/ipadic
@@ -84,19 +86,20 @@ fi
 
 alias ls='ls -at'
 alias df='df -h'
-#alias rm='rm -i'
-alias rm='rmtrash' #実際はmv2trash(renameしている)
 alias vi='vim'
-alias vim='nvim'
+_command_exists rmtrash || alias rm='rm -i'
+! _command_exists rmtrash || alias rm='rmtrash' #実際はmv2trash(renameしてる)
+! _command_exists nvim || alias vim='nvim'
+! _command_exists gcc-9 || alias gcc='/usr/local/bin/gcc-9'
+! _command_exists g++-9 || alias g++='/usr/local/bin/g++-9'
 alias -g G='| grep'
 alias grep='grep --color'
-alias cot='open -a /Applications/'\''CotEditor.app'\'''
+if [ -e "/Applications/CotEditor.app" ]; then
+  alias cot='open -a /Applications/'\''CotEditor.app'\'''
+fi
 #alias history='history -f'
 alias history='cat ~/.zhistory'
-alias gcc='/usr/local/bin/gcc-9'
-alias g++='/usr/local/bin/g++-9'
 function mk (){ mkdir $@ && cd $_  }
-
 function pb (){ cat $@ | pbcopy }
 
 
@@ -295,94 +298,6 @@ fi
 zplug load
 
 
-
-
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
-#export ZSH=/Users/MPEG/.oh-my-zsh
-
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-#plugins=(git)
-
-#source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --preview "head -100 {}"'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -390,9 +305,7 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 export LDFLAGS="-L/usr/local/opt/llvm/lib"
 export CPPFLAGS="-I/usr/local/opt/llvm/include"
-# export CPPFLAGS="-I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Versions/c/Headers"
-# export LDFLAGS="-I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Versions/c/Headers"
-export PATH="/Users/mpeg/cquery/build/release/bin:$PATH"
+# export PATH="/Users/mpeg/cquery/build/release/bin:$PATH"
 export CFLAGS="-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -mmacosx-version-min=10.14"
 zmodload zsh/zprof #&& zprof
 # if (which zprof > /dev/null 2>&1) ;then
