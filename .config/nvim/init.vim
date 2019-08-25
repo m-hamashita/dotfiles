@@ -230,6 +230,11 @@ if dein#load_state('~/.cache/dein')
 	"Twitvim
   call dein#add('~/.vim/local_repos/twitvim/twitvim')
 
+  if has('mac')
+    call dein#add('keith/swift.vim')
+    call dein#add('landaire/deoplete-swift')
+  endif
+
 
 	call dein#load_toml('~/.config/nvim/rc/dein.toml', {'lazy': 0})
   call dein#load_toml('~/.config/nvim/rc/dein_lazy.toml', {'lazy': 1})
