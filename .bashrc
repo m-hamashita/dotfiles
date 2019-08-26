@@ -1,5 +1,4 @@
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-export WORKON_HOME=$HOME/.virtualenvs
 
 LANG=ja_JP.UTF-8
 LC_CTYPE=ja_JP.UTF-8
