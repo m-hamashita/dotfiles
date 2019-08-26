@@ -3,7 +3,7 @@
 [pull]
 	ff = only
 [core]
-	excludesfile = /Users/MPEG/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	editor = vim -c \"set fenc=utf-8\"
 	precomposeunicode = true
 	quotepath = false
