@@ -210,16 +210,6 @@ if dein#load_state('~/.cache/dein')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
   let g:deoplete#enable_at_startup = 1
-  "この下の設定うまくいってない.
-	"let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/7.0.0/lib/libclang.dylib'
- 	"let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/7.0.0/lib/clang'
- 	" g:deoplete#sources#clang#libclang_path
-  " g:deoplete#sources#clang#clang_header
-  
-  "補完や英単語検索
-  "call dein#add('Shougo/neco-vim')
-  "call dein#add('Shougo/neco-syntax')
-  "call dein#add('ujihisa/neco-look') 
 	
 	" ALE linter実行プラグイン　静的解析
 	call dein#add('w0rp/ale')	
@@ -230,6 +220,7 @@ if dein#load_state('~/.cache/dein')
 	"Twitvim
   call dein#add('~/.vim/local_repos/twitvim/twitvim')
 
+  "swiftのハイライト
   if has('mac')
     call dein#add('keith/swift.vim')
     call dein#add('landaire/deoplete-swift')
@@ -284,7 +275,7 @@ let twitvim_filter_enable = 1
 " syntastic
 let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 
-" Autopep8
+" Autopep8 ------------------------------------------------------------------
 " original http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
 function! Preserve(command)
     " Save the last search.
@@ -367,11 +358,11 @@ autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mark*} set filetype=markdown
 "jedi-vim
 let g:jedi#documentation_command = "<P>"
 
-" パワーラインでかっこよく
+" powerline
 let g:airline_powerline_fonts = 1
-" カラーテーマ指定してかっこよく
+" colortheme
 let g:airline_theme = 'papercolor'
-" タブバーをかっこよく
+" tabline
 let g:airline#extensions#tabline#enabled = 1
 
 
@@ -482,9 +473,5 @@ colorscheme wombat256mod
 "カッコを閉じたとき対応するカッコに一時的に移動
 set nostartofline
 
-function MakeCquery()
-  let temp = expand('%:p')
-  echo system('echo ''[{"directory": "/Users/mpeg/Documents/Programming/abc/132","command": "/usr/bin/c++  ' . temp . ' -std=c++11","file": "' . temp . '"}]'' > compile_commands.json')
-endfunction
 
 
