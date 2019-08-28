@@ -12,6 +12,6 @@
 `$ sh ./installer.sh`  
 ## zsh
 - zplug install  
-`curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh`
+`$ curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh`
 - font install  
   - https://gist.github.com/qrush/1595572
