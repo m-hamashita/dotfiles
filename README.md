@@ -3,6 +3,7 @@
 - require tpm install
 ## nvim
 - neovim install
+`brew install neovim`
 - dein install 
 ## zsh
 - zplug install 
