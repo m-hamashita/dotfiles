@@ -25,3 +25,4 @@ ln -sf ~/dotfiles/.config/ ~/.config
 #.tigrc #gitのやつ
 ln -sf ~/dotfiles/.tigrc ~/.tigrc
 
+
