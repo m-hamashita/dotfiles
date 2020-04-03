@@ -16,3 +16,6 @@
     $ curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 - font install  
   - https://gist.github.com/qrush/1595572
+
+## mac
+- chsh -s /bin/zsh
