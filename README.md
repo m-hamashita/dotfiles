@@ -10,6 +10,10 @@
 `$ cd ~/.cache/dein`  
 `$ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh`  
 `$ sh ./installer.sh ~/.cache/dein`  
+- node install
+`$ brew install node brew`
+`$ mkdir -p ~/.nodebrew/src`
+`$ nodebrew install-binary stable`
 ## zsh
 - brew install zsh
 - zplug install  
