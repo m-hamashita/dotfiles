@@ -5,9 +5,9 @@
 ## nvim
 - neovim install  
 `$ brew install neovim` 
-`$ pip install neovim`
-- init.vimに次を入力
-`let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n $(pyenv root)/versions/${ここにバージョンを入力}/bin/python) || echo -n $(which python3)')`
+`$ pip install neovim`  
+- init.vimに次を入力  
+`let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n $(pyenv root)/versions/${ここにバージョンを入力}/bin/python) || echo -n $(which python3)')`  
 - dein install  
 `$ mkdir -p ~/.cache/dein`  
 `$ cd ~/.cache/dein`  
