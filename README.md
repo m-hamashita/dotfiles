@@ -4,7 +4,7 @@
 `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
 ## nvim
 - neovim install  
-`$ brew install neovim` 
+`$ brew install neovim`   
 `$ pip install neovim`  
 - init.vimに次を入力  
 `let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n $(pyenv root)/versions/${ここにバージョンを入力}/bin/python) || echo -n $(which python3)')`  
