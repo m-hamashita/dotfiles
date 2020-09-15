@@ -1,9 +1,17 @@
 HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export WORKON_HOME=$HOME/.virtualenvs
+
 LANG=ja_JP.UTF-8
 LC_CTYPE=ja_JP.UTF-8
+export LC_ALL='ja_JP.UTF-8'
+
+# Postgres
+export PGDATA=/usr/local/var/postgres
 
 
+export PATH=~/usr/lib/bin:$PATH
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATH=/usr/local/git/bin:$PATH
 # プロンプトを表示する際に最初に変数展開する
 setopt prompt_subst
 #色を付ける
@@ -68,36 +76,39 @@ function _command_exists()
 }
 
 
+typeset -g ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE='20'
+
 
 #neovimのためのpath
 export XDG_CONFIG_HOME="~/.config"
 
-export PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/sbin:/usr/bin:$PATH
-export PATH="$HOME/Library/Python/3.6/bin:$PATH"
-export PATH=$PATH:/usr/local/lib/mecab/dic/ipadic
-export PATH="/usr/local/opt/llvm/bin:$PATH"
 
-export LDFLAGS="-L/usr/local/opt/llvm/lib"
-export CPPFLAGS="-I/usr/local/opt/llvm/include"
-# export PATH="/Users/mpeg/cquery/build/release/bin:$PATH"
-export CFLAGS="-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -mmacosx-version-min=10.14"
 
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
-if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
-fi
 
+# git checkout branchをfzfで選択
+alias co='git checkout $(git branch -a | tr -d " " |fzf --height 100% --prompt "CHECKOUT BRANCH>" --preview "git log --color=always {}" | head -n 1 | sed -e "s/^\*\s*//g" | perl -pe "s/remotes\/origin\///g")'
 
+# alias gcl='gcloud compute ssh --zone us-west1-b pytorch-study-vm'
+alias gcl='gcloud beta compute ssh --zone "us-west1-b" "global-wheat-detection-vm" --project "euphoric-diode-279610" -- -L 8080:localhost:8080 -L 8081:localhost:8081'
+# alias cd='pushd'
+# alias cdd='popd'
 alias ls='ls -at'
 alias df='df -h'
 alias vi='vim'
+alias his='history | fzf | awk -F ";" "{system($2)}"'
+alias del_swap='rm ~/.local/share/nvim/swap/*'
 _command_exists rmtrash || alias rm='rm -i'
 ! _command_exists rmtrash || alias rm='rmtrash' #実際はmv2trash(renameしてる)
 ! _command_exists nvim || alias vim='nvim'
 ! _command_exists gcc-9 || alias gcc='/usr/local/bin/gcc-9'
 ! _command_exists g++-9 || alias g++='/usr/local/bin/g++-9'
+# ! _command_exists gcloud || alias gcl='gcloud compute ssh --zone us-west1-b "pytorch-study-vm" -- -L 8888:localhost:8888'
+# ! _command_exists gcloud || alias gcli='gcloud compute ssh --zone us-central1-a "instance-2" -- -L 8888:localhost:8888'
+! _command_exists tmux || alias ta='tmux a -d'
 alias -g G='| grep'
+
 alias grep='grep --color'
 if [ -e "/Applications/CotEditor.app" ]; then
   alias cot='open -a /Applications/'\''CotEditor.app'\'''
@@ -108,7 +119,7 @@ function mk (){ mkdir $@ && cd $_  }
 function pb (){ cat $@ | pbcopy }
 
 
-export LESSOPEN="| /usr/local/Cellar/source-highlight/3.1.8_9/bin/src-hilite-lesspipe.sh %s"
+export LESSOPEN="| /usr/local/Cellar/source-highlight/3.1.9_2/bin/src-hilite-lesspipe.sh %s"
 export LESS='-R'
 
 #—————————————————————————————————————————
@@ -116,6 +127,15 @@ export LESS='-R'
 #補完
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin /usr/local/git/bin
 
+# fzf-cdr 
+alias cdd='fzf-cdr'
+function fzf-cdr() {
+    target_dir=`cdr -l | sed 's/^[^ ][^ ]*  *//' | fzf`
+    target_dir=`echo ${target_dir/\~/$HOME}`
+    if [ -n "$target_dir" ]; then
+        cd $target_dir
+    fi
+}
 
 # cdrを有効にする
 autoload -Uz chpwd_recent_dirs cdr
@@ -260,9 +280,56 @@ zle -N peco-find-file
 bindkey '^q' peco-find-file
 
 
+# fshow - git commit browser
+fshow() {
+  git log --graph --color=always \
+      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+      --bind "ctrl-m:execute:
+                (grep -o '[a-f0-9]\{7\}' | head -1 |
+                xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
+                {}
+FZF-EOF"
+}
+
+# fzfでリポジトリ以下のファイルを検索してvimで開く
+fvim() {
+  files=$(git ls-files) &&
+  selected_files=$(echo "$files" | fzf -m --preview 'head -100 {}') &&
+  vim $selected_files
+}
+
+# ctrl-zでbackground行ったり来たり出来る
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
+
+# agの結果をfzfで絞り込み選択するとvimで開く
+alias agg="_agAndVim"
+function _agAndVim() {
+    if [ -z "$1" ]; then
+        echo 'Usage: agg PATTERN'
+        return 0
+    fi
+    result=`ag $1 | fzf`
+    line=`echo "$result" | awk -F ':' '{print $2}'`
+    file=`echo "$result" | awk -F ':' '{print $1}'`
+    if [ -n "$file" ]; then
+        vim $file +$line
+    fi
+}
+
 
 #manに色を付ける
-
 export MANPAGER='less -R'
 man() {
 	env \
@@ -303,10 +370,16 @@ fi
 zplug load
 
 
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --preview "head -100 {}"'
+# export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --preview "head -100 {}"'
 
+
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+[ -z "$ZSH_NAME" ] && [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 zmodload zsh/zprof #&& zprof
+
 # if (which zprof > /dev/null 2>&1) ;then
 #   zprof
 # fi
@@ -314,4 +387,26 @@ zmodload zsh/zprof #&& zprof
 #   zprof | less
 # fi
 
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/masakatsu.hamashita/gcp/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/masakatsu.hamashita/gcp/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/masakatsu.hamashita/gcp/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/masakatsu.hamashita/gcp/google-cloud-sdk/completion.zsh.inc'; fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/masakatsu.hamashita/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/masakatsu.hamashita/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/masakatsu.hamashita/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/masakatsu.hamashita/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
