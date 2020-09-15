@@ -1,6 +1,6 @@
 set encoding=utf-8
 
-set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
 set fileformats=unix,dos,mac
 scriptencoding utf-8
 
@@ -8,6 +8,11 @@ if has('persistent_undo')
    set undodir=~/.vim/undo
    set undofile
 endif
+
+" let g:python_host_prog = system('(type pyenv &>/dev/null && echo -n $(pyenv root)/versions/$(pyenv global | grep python2)/bin/python) || echo -n $(which python2)')
+let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n $(pyenv root)/versions/3.8.1/bin/python) || echo -n $(which python3)')
+" let g:python_host_prog = '/usr/local/bin/python'
+" let g:python3_host_prog = '/usr/local/bin/python3'
 
 " bufferの切り替えときに保存していないのを無視する
 set hidden 
@@ -33,9 +38,9 @@ set backspace=indent,eol,start
 "改行時に前の行の構文をチェックし次の行のインデントを増減する
 set smartindent
 "画面上でタブ文字が占める幅
-set tabstop=2
+set tabstop=4
 " smartindentで増減する幅
-set shiftwidth=2
+set shiftwidth=4
 "カーソルラインの表示
 set cursorline
 " tab to space
@@ -44,6 +49,11 @@ set expandtab
 set softtabstop=0
 " autoindent
 set autoindent
+
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.dig setlocal tabstop=2 softtabstop=2 shiftwidth=2
+augroup END
 
 "全角スペースの可視化
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
@@ -116,8 +126,6 @@ nnoremap sl <C-w>l
 nnoremap sh <C-w>h
 
 
-
-
 noremap <S-h>   ^ "カーソル移動系shift+hjkl
 noremap <S-j>   }
 noremap <S-k>   {
@@ -181,44 +189,44 @@ set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
 
-	"call dein#add('vim-airline/vim-airline')
+  "call dein#add('vim-airline/vim-airline')
   
-	"vim-fugitive Gitクライアントプラグイン
-	"vimから離れずにGitが使える toml
-	"call dein#add('tpope/vim-fugitive')
+  "vim-fugitive Gitクライアントプラグイン
+  "vimから離れずにGitが使える toml
+  "call dein#add('tpope/vim-fugitive')
 
-	"vim-gitgutter gitのHEADからのコード追加，削除，変更を左端に表示
-	call dein#add('airblade/vim-gitgutter')
+  "vim-gitgutter gitのHEADからのコード追加，削除，変更を左端に表示
+  call dein#add('airblade/vim-gitgutter')
 	
 
   " ディレクトリをツリー表示とショートカットCtrl+eで開く
-	call dein#add('scrooloose/nerdtree')
+  call dein#add('scrooloose/nerdtree')
   " 括弧とかいい感じに補完するやつ
   call dein#add('cohama/lexima.vim')		
   " 括弧に色を付けるやつ
-	call dein#add('luochen1990/rainbow')
+  call dein#add('luochen1990/rainbow')
 
   
   "syntastic 
   call dein#add('scrooloose/syntastic') 
 
-	" deolate.nvimの設定
+  " deolate.nvimの設定
   "call dein#add('Shougo/deoplete.nvim')
   "call dein#add('zchee/deoplete-clang')
-  if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-  endif
+  "if !has('nvim')
+  "  call dein#add('roxma/nvim-yarp')
+  "  call dein#add('roxma/vim-hug-neovim-rpc')
+  "endif
   let g:deoplete#enable_at_startup = 1
 	
 	" ALE linter実行プラグイン　静的解析
-	call dein#add('w0rp/ale')	
+	" call dein#add('w0rp/ale')
   
   "sessionが保存されるらしい
   call dein#add('tpope/vim-obsession')
   
-	"Twitvim
-  call dein#add('~/.vim/local_repos/twitvim/twitvim')
+  "Twitvim
+  " call dein#add('~/.vim/local_repos/twitvim/twitvim')
 
   "swiftのハイライト
   if has('mac')
@@ -227,11 +235,10 @@ if dein#load_state('~/.cache/dein')
   endif
 
 
-	call dein#load_toml('~/.config/nvim/rc/dein.toml', {'lazy': 0})
+  call dein#load_toml('~/.config/nvim/rc/dein.toml', {'lazy': 0})
   call dein#load_toml('~/.config/nvim/rc/dein_lazy.toml', {'lazy': 1})
 
-  
-	call dein#end()
+  call dein#end()
   call dein#save_state()
 endif
 
@@ -239,6 +246,7 @@ if dein#check_install()
   call dein#install()
 endif
 "End dein scripts -----------------------------------------------
+
 
 "lightline
 set laststatus=2
@@ -271,6 +279,9 @@ let twitvim_filter_enable = 1
 "highlight PMenuSbar ctermbg=0
 "inoremap <expr><CR>  pumvisible() ? neocomplete#close_popup() : "<CR>"
 "inoremap <expr><C-q> neocomplete#complete_common_string()
+
+" Cheatsheet
+let g:cheatsheet#cheat_file = '~/.cheatsheet.md'
 
 " syntastic
 let g:syntastic_python_checkers = ['pyflakes', 'pep8']
@@ -355,8 +366,8 @@ autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mark*} set filetype=markdown
 ""Neco-look------
 
 
-"jedi-vim
-let g:jedi#documentation_command = "<P>"
+" jedi-vim
+" let g:jedi#documentation_command = "<P>"
 
 " powerline
 let g:airline_powerline_fonts = 1
@@ -376,7 +387,7 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_sign_column_always = 1
 
 " ファイルを開いたときにlint実行
-let g:ale_lint_on_enter = 1
+let g:ale_lint_on_enter = 0
 " ファイルを保存したときにlint実行
 let g:ale_lint_on_save = 1
 " 編集中のlintはしない
@@ -385,9 +396,11 @@ let g:ale_lint_on_text_changed = 'never'
 " lint結果をロケーションリストとQuickFixには表示しない
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 0
-let g:ale_open_list = 0
-let g:ale_keep_list_window_open = 0
+let g:ale_open_list = 1
+let g:ale_keep_list_window_open = 1
 
+let g:syntastic_cpp_compiler="gcc"
+let g:syntastic_cpp_compiler_options="-std=c++17"
 " 有効にするlinter
 let g:ale_linters = {
 \   'python': ['flake8'],
@@ -400,23 +413,21 @@ map <C-f> [ale]
 " エラー行にジャンプ
 nnoremap <silent> [ale]<C-p> <Plug>(ale_previous)
 nnoremap <silent> [ale]<C-n> <Plug>(ale_next)
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "coc
-
 " use <tab> for trigger completion and navigate to next complete item
-" function! s:check_back_space() abort
-"   let col = col('.') - 1
-"   return !col || getline('.')[col - 1]  =~ '\s'
-" endfunction
-" inoremap <silent><expr> <TAB>
-"      \ pumvisible() ? "\<C-n>" :
-"      \ <SID>check_back_space() ? "\<TAB>" :
-"      \ coc#refresh()
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+inoremap <silent><expr> <TAB>
+     \ pumvisible() ? "\<C-n>" :
+     \ <SID>check_back_space() ? "\<TAB>" :
+     \ coc#refresh()
 
 " use <c-space>for trigger completion
-" inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <c-space> coc#refresh()
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -460,6 +471,10 @@ command! -nargs=0 Format :call CocAction('format')
 " Use `:Fold` for fold current buffer
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 """"""""""""""""""""""coc""""""""""""""""""""""""""""""""""""
+
+" digdag
+autocmd BufNewFile,BufRead *.dig set filetype=yaml
+autocmd Syntax yaml setl indentkeys-=<:>
 
 
 "vim起動時にNERDTree起動
