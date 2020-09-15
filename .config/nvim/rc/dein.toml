@@ -7,7 +7,6 @@ repo = 'vim-scripts/wombat256.vim'
 [[plugins]]
 repo = 'Shougo/deol.nvim'
 
-
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 build = './install.sh nightly'
@@ -21,15 +20,6 @@ hook_add = '''
           nmap , <Plug>(caw:zeropos:toggle)
           vmap , <Plug>(caw:zeropos:toggle)
 '''
-
-[[plugins]]
-repo='prabirshrestha/async.vim'
-
-[[plugins]]
-repo='prabirshrestha/asyncomplete.vim'
-
-[[plugins]]
-repo='prabirshrestha/asyncomplete-lsp.vim'
 
 [[plugins]]
 repo='zxqfl/tabnine-vim'
@@ -68,4 +58,13 @@ hook_add = '''
   nmap <silent> <C-f><C-v> :<C-u>Vista coc<CR>
   nmap <silent> <C-f><C-s> :<C-u>Vista finder coc<CR>
 '''
+
+[[plugins]]
+repo = 'psf/black'
+
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+
+[[plugins]]
+repo = 'reireias/vim-cheatsheet'
 
