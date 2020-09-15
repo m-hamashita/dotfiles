@@ -16,7 +16,7 @@
 	trustExitCode = true
 [user]
 	name = m.hama
-	email = m.hama@mibel.cs.tsukuba.ac.jp
+	email = masakatsu.hamashita@gunosy.com
 [color]
 	diff = auto
 	status = auto
@@ -28,3 +28,8 @@
 	st = status
 [alists]
 	ci = commit -a
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
