@@ -229,7 +229,7 @@ if dein#load_state('~/.cache/dein')
   let g:deoplete#enable_at_startup = 1
 	
   " ALE linter実行プラグイン　静的解析
-  call dein#add('w0rp/ale')
+  call dein#add('dense-analysis/ale')
   
   "sessionが保存されるらしい
   call dein#add('tpope/vim-obsession')
@@ -419,7 +419,7 @@ let g:ale_fixers = {
   \   '*': ['remove_trailing_lines', 'trim_whitespace'],
   \   'python': ['black'],
   \ }
-
+let g:ale_fix_on_save = 1
 " ALE用プレフィックス
 nmap [ale] <Nop>
 map <C-f> [ale]
