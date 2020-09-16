@@ -8,7 +8,6 @@ if has('persistent_undo')
    set undodir=~/.vim/undo
    set undofile
 endif
-
 " let g:python_host_prog = system('(type pyenv &>/dev/null && echo -n $(pyenv root)/versions/$(pyenv global | grep python2)/bin/python) || echo -n $(which python2)')
 let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n $(pyenv root)/versions/3.8.1/bin/python) || echo -n $(which python3)')
 " let g:python_host_prog = '/usr/local/bin/python'
@@ -51,8 +50,9 @@ set softtabstop=0
 set autoindent
 
 augroup fileTypeIndent
-    autocmd!
-    autocmd BufNewFile,BufRead *.dig setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd!
+  autocmd BufNewFile,BufRead *.dig setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.vim setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
 "全角スペースの可視化
@@ -134,6 +134,10 @@ noremap <S-l>   $
 nnoremap <silent> <C-j> :bprev<CR>
 nnoremap <silent> <C-k> :bnext<CR>
 
+
+" space+. でvimrcを開く
+nnoremap <Space>. :<C-u>tabedit $MYVIMRC<CR>
+
 "Insertmodeで<C-C>でESCと同義
 " inoremap <C-C> <ESC>
 "Enterで改行
@@ -164,6 +168,11 @@ nnoremap sT :<C-u>Unite tab<CR>
 nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
 nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 
+" git-fugitive
+nnoremap <silent> <Space>gb :Gblame<CR>
+nnoremap <silent> <Space>gd :Gdiff<CR>
+nnoremap <silent> <Space>gs :Gstatus<CR>
+
 "<Leader>はバックスラッシュ
 "Twitvim Refresh
 nnoremap <Leader>q :<C-u>RefreshTwitter<CR>
@@ -189,13 +198,13 @@ set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
 
-  "call dein#add('vim-airline/vim-airline')
+  " call dein#add('vim-airline/vim-airline')
   
-  "vim-fugitive Gitクライアントプラグイン
-  "vimから離れずにGitが使える toml
-  "call dein#add('tpope/vim-fugitive')
+  " vim-fugitive Gitクライアントプラグイン
+  " vimから離れずにGitが使える toml
+  " call dein#add('tpope/vim-fugitive')
 
-  "vim-gitgutter gitのHEADからのコード追加，削除，変更を左端に表示
+  " vim-gitgutter gitのHEADからのコード追加，削除，変更を左端に表示
   call dein#add('airblade/vim-gitgutter')
 	
 
@@ -207,7 +216,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('luochen1990/rainbow')
 
   
-  "syntastic 
+  " syntastic 
   call dein#add('scrooloose/syntastic') 
 
   " deolate.nvimの設定
@@ -219,8 +228,8 @@ if dein#load_state('~/.cache/dein')
   "endif
   let g:deoplete#enable_at_startup = 1
 	
-	" ALE linter実行プラグイン　静的解析
-	" call dein#add('w0rp/ale')
+  " ALE linter実行プラグイン　静的解析
+  call dein#add('w0rp/ale')
   
   "sessionが保存されるらしい
   call dein#add('tpope/vim-obsession')
@@ -406,6 +415,10 @@ let g:ale_linters = {
 \   'python': ['flake8'],
 \   'cpp': ['clangd'],
 \}
+let g:ale_fixers = {
+  \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+  \   'python': ['black'],
+  \ }
 
 " ALE用プレフィックス
 nmap [ale] <Nop>
