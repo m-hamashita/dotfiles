@@ -14,7 +14,7 @@ let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n $(pyenv roo
 " let g:python3_host_prog = '/usr/local/bin/python3'
 
 " bufferの切り替えときに保存していないのを無視する
-set hidden 
+set hidden
 "括弧の対応をハイライト
 set showmatch
 "保存時の文字コード
@@ -54,6 +54,10 @@ augroup fileTypeIndent
   autocmd BufNewFile,BufRead *.dig setlocal tabstop=2 softtabstop=2 shiftwidth=2
   autocmd BufNewFile,BufRead *.vim setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
+
+" digdag
+autocmd BufNewFile,BufRead *.dig set filetype=yaml
+autocmd Syntax yaml setl indentkeys-=<:>
 
 "全角スペースの可視化
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
@@ -147,7 +151,7 @@ nnoremap <CR> o<ESC>
 vnoremap > >gv
 vnoremap < <gv
 
-"折返しがある場合次の行に行くのではなく，そのまま下に行く 
+"折返しがある場合次の行に行くのではなく，そのまま下に行く
 nnoremap j gj
 nnoremap k gk
 vnoremap j gj
@@ -185,12 +189,9 @@ nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 nnoremap <C-l> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
 
-"jedi-vimのため
-" let g:python3_host_prog = expand('~/.pyenv/versions/shims/python3')
-
 "意味ないかも
 let $PATH = "~/.pyenv/shims:".$PATH
-" dein scripts----------------------- 
+" dein scripts-----------------------
 if &compatible
   set nocompatible
 endif
@@ -199,25 +200,25 @@ if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
 
   " call dein#add('vim-airline/vim-airline')
-  
+
   " vim-fugitive Gitクライアントプラグイン
   " vimから離れずにGitが使える toml
   " call dein#add('tpope/vim-fugitive')
 
   " vim-gitgutter gitのHEADからのコード追加，削除，変更を左端に表示
   call dein#add('airblade/vim-gitgutter')
-	
+
 
   " ディレクトリをツリー表示とショートカットCtrl+eで開く
   call dein#add('scrooloose/nerdtree')
   " 括弧とかいい感じに補完するやつ
-  call dein#add('cohama/lexima.vim')		
+  call dein#add('cohama/lexima.vim')
   " 括弧に色を付けるやつ
   call dein#add('luochen1990/rainbow')
 
-  
-  " syntastic 
-  call dein#add('scrooloose/syntastic') 
+
+  " syntastic
+  call dein#add('scrooloose/syntastic')
 
   " deolate.nvimの設定
   "call dein#add('Shougo/deoplete.nvim')
@@ -227,13 +228,13 @@ if dein#load_state('~/.cache/dein')
   "  call dein#add('roxma/vim-hug-neovim-rpc')
   "endif
   let g:deoplete#enable_at_startup = 1
-	
+
   " ALE linter実行プラグイン　静的解析
   call dein#add('dense-analysis/ale')
-  
+
   "sessionが保存されるらしい
   call dein#add('tpope/vim-obsession')
-  
+
   "Twitvim
   " call dein#add('~/.vim/local_repos/twitvim/twitvim')
 
@@ -275,19 +276,6 @@ let twitvim_browser_cmd = 'open'
 let twitvim_force_ssl = 1
 let twitvim_count = 40
 let twitvim_filter_enable = 1
-	
-"neocompleteの設定
-"let g:neocomplete#enable_at_startup = 1
-" ポップアップメニューで表示される候補の数
-"let g:neocomplete#max_list = 50
-" キーワードの長さ、デフォルトで80
-"let g:neocomplete#max_keyword_width = 80
-"let g:neocomplete#enable_ignore_case = 1
-" highlight Pmenu ctermbg=6
-"highlight PmenuSel ctermbg=3
-"highlight PMenuSbar ctermbg=0
-"inoremap <expr><CR>  pumvisible() ? neocomplete#close_popup() : "<CR>"
-"inoremap <expr><C-q> neocomplete#complete_common_string()
 
 " Cheatsheet
 let g:cheatsheet#cheat_file = '~/.cheatsheet.md'
@@ -347,16 +335,15 @@ call lexima#add_rule({'char': '<TAB>', 'at': '\%#''', 'leave': 1})
 call lexima#add_rule({'char': '<TAB>', 'at': '\%#]', 'leave': 1})
 call lexima#add_rule({'char': '<TAB>', 'at': '\%#}', 'leave': 1})
 
-"dein.vimでのプラグイン削除, :call
-"dein#recache_runtimepath()を実行すると良いらしい
+" dein.vimでのプラグイン削除, :call
+" dein#recache_runtimepath()を実行すると良いらしい
 call map(dein#check_clean(), "delete(v:val, 'rf')")
 
-
-"括弧に色つけるやつの設定
+" 括弧に色つけるやつの設定
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 
 
-""Neco-look 設定
+" Neco-look 設定
 if !exists('g:neocomplete#text_mode_filetypes')
 		let g:neocomplete#text_mode_filetypes={}
 endif
@@ -428,6 +415,9 @@ nnoremap <silent> [ale]<C-p> <Plug>(ale_previous)
 nnoremap <silent> [ale]<C-n> <Plug>(ale_next)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" vim-highlightedyank
+let g:highlightedyank_highlight_duration = 300
+
 "coc
 " use <tab> for trigger completion and navigate to next complete item
 function! s:check_back_space() abort
@@ -485,21 +475,15 @@ command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 """"""""""""""""""""""coc""""""""""""""""""""""""""""""""""""
 
-" digdag
-autocmd BufNewFile,BufRead *.dig set filetype=yaml
-autocmd Syntax yaml setl indentkeys-=<:>
 
 
 "vim起動時にNERDTree起動
 "autocmd VimEnter * execute 'NERDTree'
-nnoremap <silent><C-e> :NERDTreeToggle<CR> 
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " NERDTreeで隠しファイルも表示する
-let NERDTreeShowHidden=1 
+let NERDTreeShowHidden=1
 " colorscheme
 colorscheme wombat256mod
 
 "カッコを閉じたとき対応するカッコに一時的に移動
 set nostartofline
-
-
-
