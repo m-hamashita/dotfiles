@@ -203,13 +203,8 @@ if dein#load_state('~/.cache/dein')
   " vim-gitgutter gitのHEADからのコード追加，削除，変更を左端に表示
   call dein#add('airblade/vim-gitgutter')
 
-  " ディレクトリをツリー表示とショートカットCtrl+eで開く
-  call dein#add('scrooloose/nerdtree')
-  " 括弧とかいい感じに補完するやつ
-  " call dein#add('cohama/lexima.vim')
   " 括弧に色を付けるやつ
   call dein#add('luochen1990/rainbow')
-
 
   " ALE linter実行プラグイン　静的解析
   call dein#add('dense-analysis/ale')
