@@ -13,13 +13,43 @@ repo = 'rking/ag.vim'
 repo = 'justmao945/vim-clang'
 
 [[plugins]]
-repo = 'tpope/vim-fugitive'
-
-[[plugins]]
 repo = 'jmcantrell/vim-virtualenv'
 
 [[plugins]]
 repo = 'Vimjas/vim-python-pep8-indent'
+
+[[plugins]]
+repo = 'Shougo/deol.nvim'
+hook_add = '''
+nnoremap <silent><C-o> :<C-u>Deol -split=floating<CR>
+tnoremap <silent>jj   <C-\><C-n>
+'''
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+hook_source = """
+call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '{', 'input': '{'})
+call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '(', 'input': '('})
+call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': "'", 'input': "'"})
+call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '"', 'input': '"'})
+call lexima#add_rule({'at': '\%#\n\s*}', 'char': '}', 'input': '}', 'delete': '}'})
+call lexima#add_rule({'at': '\%#\n\s*}', 'char': ')', 'input': ')', 'delete': ')'})
+call lexima#add_rule({'at': '\%#\n\s*}', 'char': "'", 'input': "'", 'delete': "'"})
+call lexima#add_rule({'at': '\%#\n\s*}', 'char': '"', 'input': '"', 'delete': '"'})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#)', 'leave': 1})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#"', 'leave': 1})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#''', 'leave': 1})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#]', 'leave': 1})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#}', 'leave': 1})
+"""
+
+[[plugins]]
+repo = 'simeji/winresizer'
+hook_add = '''
+let g:winresizer_start_key = '<C-q>'
+let g:winresizer_vert_resize = 1
+let g:winresizer_horiz_resize = 1
+'''
 
 
 [[plugins]]
@@ -27,5 +57,46 @@ repo = 'Shougo/neco-vim'
 [[plugins]]
 repo = 'Shougo/neco-syntax'
 [[plugins]]
-repo = 'ujihisa/neco-look' 
+repo = 'ujihisa/neco-look'
 
+[[plugins]]
+repo = 'psf/black'
+[[plugins]]
+repo = 'cespare/vim-toml'
+
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+
+[[plugins]]
+repo = 'reireias/vim-cheatsheet'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'machakann/vim-highlightedyank'
+
+[[plugins]]
+repo = "tyru/caw.vim.git"
+on_i = 1
+hook_add = '''
+          nmap c <Plug>(caw:hatpos:toggle)
+          vmap c <Plug>(caw:hatpos:toggle)
+          nmap , <Plug>(caw:zeropos:toggle)
+          vmap , <Plug>(caw:zeropos:toggle)
+'''
+
+
+
+[[plugins]]
+repo = 'liuchengxu/vista.vim'
+depends = ['coc.nvim', 'lightline.vim']
+hook_add = '''
+  nmap <silent> <C-f><C-v> :<C-u>Vista coc<CR>
+  nmap <silent> <C-f><C-s> :<C-u>Vista finder coc<CR>
+'''
+
+
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --all'
