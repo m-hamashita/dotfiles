@@ -9,7 +9,7 @@ if has('persistent_undo')
    set undofile
 endif
 
-" let g:python_host_prog = system('(type pyenv &>/dev/null && echo -n $(pyenv root)/versions/$(pyenv global | grep python2)/bin/python) || echo -n $(which python2)')
+let g:python_host_prog = system('(type pyenv &>/dev/null && echo -n $(pyenv root)/versions/$(pyenv global | grep python2)/bin/python) || echo -n $(which python2)')
 let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n $(pyenv root)/versions/3.8.1/bin/python) || echo -n $(which python3)')
 " let g:python_host_prog = '/usr/local/bin/python'
 " let g:python3_host_prog = '/usr/local/bin/python3'
@@ -179,8 +179,6 @@ nnoremap <silent> <Space>gd :Gdiff<CR>
 nnoremap <silent> <Space>gs :Gstatus<CR>
 
 "<Leader>はバックスラッシュ
-"Twitvim Refresh
-nnoremap <Leader>q :<C-u>RefreshTwitter<CR>
 
 "検索ハイライトを消す
 nnoremap  <C-c><C-c> :<C-u>nohlsearch<cr><Esc>
@@ -202,37 +200,22 @@ if dein#load_state('~/.cache/dein')
 
   " call dein#add('vim-airline/vim-airline')
 
-  " vim-fugitive Gitクライアントプラグイン
-  " vimから離れずにGitが使える toml
-  " call dein#add('tpope/vim-fugitive')
-
   " vim-gitgutter gitのHEADからのコード追加，削除，変更を左端に表示
   call dein#add('airblade/vim-gitgutter')
 
   " ディレクトリをツリー表示とショートカットCtrl+eで開く
   call dein#add('scrooloose/nerdtree')
   " 括弧とかいい感じに補完するやつ
-  call dein#add('cohama/lexima.vim')
+  " call dein#add('cohama/lexima.vim')
   " 括弧に色を付けるやつ
   call dein#add('luochen1990/rainbow')
 
-  " deolate.nvimの設定
-  "call dein#add('Shougo/deoplete.nvim')
-  "call dein#add('zchee/deoplete-clang')
-  "if !has('nvim')
-  "  call dein#add('roxma/nvim-yarp')
-  "  call dein#add('roxma/vim-hug-neovim-rpc')
-  "endif
-  " let g:deoplete#enable_at_startup = 1
 
   " ALE linter実行プラグイン　静的解析
   call dein#add('dense-analysis/ale')
 
   "sessionが保存されるらしい
   call dein#add('tpope/vim-obsession')
-
-  "Twitvim
-  " call dein#add('~/.vim/local_repos/twitvim/twitvim')
 
   "swiftのハイライト
   if has('mac')
@@ -311,23 +294,6 @@ syntax enable
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-
-" leximaの設定 (末尾以外では自動クローズしない)
-call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '{', 'input': '{'})
-call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '(', 'input': '('})
-call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': "'", 'input': "'"})
-call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '"', 'input': '"'})
-"自動クローズした文字が次の行にあってもタイプできるように(よくわかってない)
-call lexima#add_rule({'at': '\%#\n\s*}', 'char': '}', 'input': '}', 'delete': '}'})
-call lexima#add_rule({'at': '\%#\n\s*}', 'char': ')', 'input': ')', 'delete': ')'})
-call lexima#add_rule({'at': '\%#\n\s*}', 'char': "'", 'input': "'", 'delete': "'"})
-call lexima#add_rule({'at': '\%#\n\s*}', 'char': '"', 'input': '"', 'delete': '"'})
-" TAB押したら括弧の右に行くようにする
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#)', 'leave': 1})
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#"', 'leave': 1})
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#''', 'leave': 1})
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#]', 'leave': 1})
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#}', 'leave': 1})
 
 " dein.vimでのプラグイン削除, :call
 " dein#recache_runtimepath()を実行すると良いらしい
