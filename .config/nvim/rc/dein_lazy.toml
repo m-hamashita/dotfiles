@@ -50,16 +50,4 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'liuchengxu/vista.vim'
-depends = ['coc.nvim', 'lightline.vim']
-hook_add = '''
-  nmap <silent> <C-f><C-v> :<C-u>Vista coc<CR>
-  nmap <silent> <C-f><C-s> :<C-u>Vista finder coc<CR>
-'''
-
-[[plugins]]
-repo = 'junegunn/fzf'
-build = './install --all'
-
-[[plugins]]
 repo = 'scrooloose/nerdtree'

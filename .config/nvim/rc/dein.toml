@@ -68,3 +68,15 @@ let g:winresizer_start_key = '<C-q>'
 let g:winresizer_vert_resize = 1
 let g:winresizer_horiz_resize = 1
 '''
+
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --all'
+
+[[plugins]]
+repo = 'liuchengxu/vista.vim'
+depends = ['coc.nvim', 'lightline.vim']
+hook_add = '''
+  nmap <silent> <C-f><C-v> :<C-u>Vista coc<CR>
+  nmap <silent> <C-f><C-s> :<C-u>Vista finder coc<CR>
+'''
