@@ -90,6 +90,8 @@ export LSCOLORS=DxGxcxdxCxegedabagacad
 # git checkout branchをfzfで選択
 alias co='git checkout $(git branch -a | tr -d " " |fzf --height 100% --prompt "CHECKOUT BRANCH>" --preview "git log --color=always {}" | head -n 1 | sed -e "s/^\*\s*//g" | perl -pe "s/remotes\/origin\///g")'
 
+alias :q='exit'
+
 # alias gcl='gcloud compute ssh --zone us-west1-b pytorch-study-vm'
 alias gcl='gcloud beta compute ssh --zone "us-west1-b" "global-wheat-detection-vm" --project "euphoric-diode-279610" -- -L 8080:localhost:8080 -L 8081:localhost:8081'
 # alias cd='pushd'
