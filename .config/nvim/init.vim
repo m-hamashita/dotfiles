@@ -8,6 +8,7 @@ if has('persistent_undo')
    set undodir=~/.vim/undo
    set undofile
 endif
+
 " let g:python_host_prog = system('(type pyenv &>/dev/null && echo -n $(pyenv root)/versions/$(pyenv global | grep python2)/bin/python) || echo -n $(which python2)')
 let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n $(pyenv root)/versions/3.8.1/bin/python) || echo -n $(which python3)')
 " let g:python_host_prog = '/usr/local/bin/python'
@@ -208,17 +209,12 @@ if dein#load_state('~/.cache/dein')
   " vim-gitgutter gitのHEADからのコード追加，削除，変更を左端に表示
   call dein#add('airblade/vim-gitgutter')
 
-
   " ディレクトリをツリー表示とショートカットCtrl+eで開く
   call dein#add('scrooloose/nerdtree')
   " 括弧とかいい感じに補完するやつ
   call dein#add('cohama/lexima.vim')
   " 括弧に色を付けるやつ
   call dein#add('luochen1990/rainbow')
-
-
-  " syntastic
-  call dein#add('scrooloose/syntastic')
 
   " deolate.nvimの設定
   "call dein#add('Shougo/deoplete.nvim')
@@ -227,7 +223,7 @@ if dein#load_state('~/.cache/dein')
   "  call dein#add('roxma/nvim-yarp')
   "  call dein#add('roxma/vim-hug-neovim-rpc')
   "endif
-  let g:deoplete#enable_at_startup = 1
+  " let g:deoplete#enable_at_startup = 1
 
   " ALE linter実行プラグイン　静的解析
   call dein#add('dense-analysis/ale')
@@ -280,8 +276,6 @@ let twitvim_filter_enable = 1
 " Cheatsheet
 let g:cheatsheet#cheat_file = '~/.cheatsheet.md'
 
-" syntastic
-let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 
 " Autopep8 ------------------------------------------------------------------
 " original http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
@@ -395,8 +389,6 @@ let g:ale_set_quickfix = 0
 let g:ale_open_list = 1
 let g:ale_keep_list_window_open = 1
 
-let g:syntastic_cpp_compiler="gcc"
-let g:syntastic_cpp_compiler_options="-std=c++17"
 " 有効にするlinter
 let g:ale_linters = {
 \   'python': ['flake8'],
