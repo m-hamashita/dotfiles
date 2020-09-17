@@ -1,5 +1,3 @@
-
-
 [[plugins]]
 repo = 'Shougo/unite.vim'
 
@@ -61,6 +59,7 @@ repo = 'ujihisa/neco-look'
 
 [[plugins]]
 repo = 'psf/black'
+
 [[plugins]]
 repo = 'cespare/vim-toml'
 
@@ -86,8 +85,6 @@ hook_add = '''
           vmap , <Plug>(caw:zeropos:toggle)
 '''
 
-
-
 [[plugins]]
 repo = 'liuchengxu/vista.vim'
 depends = ['coc.nvim', 'lightline.vim']
@@ -95,7 +92,6 @@ hook_add = '''
   nmap <silent> <C-f><C-v> :<C-u>Vista coc<CR>
   nmap <silent> <C-f><C-s> :<C-u>Vista finder coc<CR>
 '''
-
 
 [[plugins]]
 repo = 'junegunn/fzf'
