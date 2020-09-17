@@ -4,7 +4,6 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'vim-scripts/wombat256.vim'
 
-
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
@@ -26,6 +25,24 @@ endfunction
 '''
 
 [[plugins]]
+repo = 'cohama/lexima.vim'
+hook_post_source = """
+call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '{', 'input': '{'})
+call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '(', 'input': '('})
+call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': "'", 'input': "'"})
+call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '"', 'input': '"'})
+call lexima#add_rule({'at': '\%#\n\s*}', 'char': '}', 'input': '}', 'delete': '}'})
+call lexima#add_rule({'at': '\%#\n\s*}', 'char': ')', 'input': ')', 'delete': ')'})
+call lexima#add_rule({'at': '\%#\n\s*}', 'char': "'", 'input': "'", 'delete': "'"})
+call lexima#add_rule({'at': '\%#\n\s*}', 'char': '"', 'input': '"', 'delete': '"'})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#)', 'leave': 1})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#"', 'leave': 1})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#''', 'leave': 1})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#]', 'leave': 1})
+call lexima#add_rule({'char': '<TAB>', 'at': '\%#}', 'leave': 1})
+"""
+
+[[plugins]]
 repo = 'neoclide/coc.nvim'
 build = './install.sh nightly'
 
@@ -34,3 +51,20 @@ repo='zxqfl/tabnine-vim'
 
 [[plugins]]
 repo = 'mengelbrecht/lightline-bufferline'
+
+[[plugins]]
+repo = 'reireias/vim-cheatsheet'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'machakann/vim-highlightedyank'
+
+[[plugins]]
+repo = 'simeji/winresizer'
+hook_add = '''
+let g:winresizer_start_key = '<C-q>'
+let g:winresizer_vert_resize = 1
+let g:winresizer_horiz_resize = 1
+'''

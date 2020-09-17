@@ -24,33 +24,6 @@ tnoremap <silent>jj   <C-\><C-n>
 '''
 
 [[plugins]]
-repo = 'cohama/lexima.vim'
-hook_source = """
-call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '{', 'input': '{'})
-call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '(', 'input': '('})
-call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': "'", 'input': "'"})
-call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '"', 'input': '"'})
-call lexima#add_rule({'at': '\%#\n\s*}', 'char': '}', 'input': '}', 'delete': '}'})
-call lexima#add_rule({'at': '\%#\n\s*}', 'char': ')', 'input': ')', 'delete': ')'})
-call lexima#add_rule({'at': '\%#\n\s*}', 'char': "'", 'input': "'", 'delete': "'"})
-call lexima#add_rule({'at': '\%#\n\s*}', 'char': '"', 'input': '"', 'delete': '"'})
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#)', 'leave': 1})
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#"', 'leave': 1})
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#''', 'leave': 1})
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#]', 'leave': 1})
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#}', 'leave': 1})
-"""
-
-[[plugins]]
-repo = 'simeji/winresizer'
-hook_add = '''
-let g:winresizer_start_key = '<C-q>'
-let g:winresizer_vert_resize = 1
-let g:winresizer_horiz_resize = 1
-'''
-
-
-[[plugins]]
 repo = 'Shougo/neco-vim'
 [[plugins]]
 repo = 'Shougo/neco-syntax'
@@ -65,15 +38,6 @@ repo = 'cespare/vim-toml'
 
 [[plugins]]
 repo = 'hashivim/vim-terraform'
-
-[[plugins]]
-repo = 'reireias/vim-cheatsheet'
-
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-
-[[plugins]]
-repo = 'machakann/vim-highlightedyank'
 
 [[plugins]]
 repo = "tyru/caw.vim.git"
@@ -96,3 +60,6 @@ hook_add = '''
 [[plugins]]
 repo = 'junegunn/fzf'
 build = './install --all'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
