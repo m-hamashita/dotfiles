@@ -9,6 +9,8 @@ if has('persistent_undo')
    set undofile
 endif
 
+" 10進数でインクリメントする
+set nrformats=
 "括弧の対応をハイライト
 set showmatch
 "保存時の文字コード
