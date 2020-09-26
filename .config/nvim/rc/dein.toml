@@ -80,3 +80,13 @@ hook_add = '''
   nmap <silent> <C-f><C-v> :<C-u>Vista coc<CR>
   nmap <silent> <C-f><C-s> :<C-u>Vista finder coc<CR>
 '''
+
+[[plugins]]
+repo = 'Shougo/deol.nvim'
+hook_add = '''
+nnoremap <silent><C-o> :<C-u>Deol -split=floating<CR>
+tnoremap <silent>jj   <C-\><C-n>
+'''
+
+[[plugins]]
+repo = 'vim-scripts/dbext.vim'
