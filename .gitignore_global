@@ -3,3 +3,4 @@
 .DS_Store
 .python-version
 .ccls-cache/
+.cquery_cache

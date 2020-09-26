@@ -1,6 +1,5 @@
 Session.vim
 .vim
-.cquery_cache
 .config/*
 !.config/karabiner/karabiner.json
 !.config/karabiner/kana.json
