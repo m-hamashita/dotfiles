@@ -131,14 +131,16 @@ nnoremap sl <C-w>l
 nnoremap sh <C-w>h
 
 
-noremap <S-h>   ^ "カーソル移動系shift+hjkl
-noremap <S-j>   }
-noremap <S-k>   {
-noremap <S-l>   $
+" noremap <S-h>   ^ "カーソル移動系shift+hjkl
+" noremap <S-j>   }
+" noremap <S-k>   {
+" noremap <S-l>   $
 
 nnoremap <silent> <C-j> :bprev<CR>
 nnoremap <silent> <C-k> :bnext<CR>
 
+command Tmux e ~/.tmux_cheatsheet.md
+command Work e ~/.work_cheatsheet.md
 
 " space+. でvimrcを開く
 nnoremap <Space>. :<C-u>tabedit $MYVIMRC<CR>
@@ -249,7 +251,6 @@ let twitvim_filter_enable = 1
 " Cheatsheet
 let g:cheatsheet#cheat_file = '~/.cheatsheet.md'
 
-
 " Autopep8 ------------------------------------------------------------------
 " original http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
 function! Preserve(command)
@@ -328,7 +329,7 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 " エラー表示の列を常時表示
 let g:ale_sign_column_always = 1
 
-" ファイルを開いたときにlint実行
+" ファイルを開いたときにlint実行しない
 let g:ale_lint_on_enter = 0
 " ファイルを保存したときにlint実行
 let g:ale_lint_on_save = 1
@@ -353,10 +354,10 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 " ALE用プレフィックス
 nmap [ale] <Nop>
-map <C-f> [ale]
+nmap <C-n> [ale]
 " エラー行にジャンプ
-nnoremap <silent> [ale]<C-p> <Plug>(ale_previous)
-nnoremap <silent> [ale]<C-n> <Plug>(ale_next)
+nmap <silent> [ale]<C-p> <Plug>(ale_previous)
+nmap <silent> [ale]<C-n> <Plug>(ale_next)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " vim-highlightedyank
