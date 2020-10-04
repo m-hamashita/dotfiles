@@ -31,3 +31,15 @@ endif
 " call dein#add('~/.vim/local_repos/twitvim/twitvim')
 "Twitvim Refresh
 nnoremap <Leader>q :<C-u>RefreshTwitter<CR>
+
+### caw.vim
+" コメントアウトが簡単にできる
+[[plugins]]
+repo = "tyru/caw.vim.git"
+on_i = 1
+hook_add = '''
+          nmap c <Plug>(caw:hatpos:toggle)
+          vmap c <Plug>(caw:hatpos:toggle)
+          nmap , <Plug>(caw:zeropos:toggle)
+          vmap , <Plug>(caw:zeropos:toggle)
+'''
