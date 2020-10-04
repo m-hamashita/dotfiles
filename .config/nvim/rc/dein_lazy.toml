@@ -37,10 +37,8 @@ repo = 'hashivim/vim-terraform'
 repo = "tyru/caw.vim.git"
 on_i = 1
 hook_add = '''
-          nmap c <Plug>(caw:hatpos:toggle)
-          vmap c <Plug>(caw:hatpos:toggle)
-          nmap , <Plug>(caw:zeropos:toggle)
-          vmap , <Plug>(caw:zeropos:toggle)
+          nmap , <Plug>(caw:hatpos:toggle)
+          vmap , <Plug>(caw:hatpos:toggle)
 '''
 
 [[plugins]]
