@@ -99,6 +99,7 @@ alias gcl='gcloud beta compute ssh --zone "us-west1-b" "global-wheat-detection-v
 alias ls='ls -at'
 alias df='df -h'
 alias vi='vim'
+alias diff='colordiff'
 alias his='history | fzf | awk -F ";" "{system($2)}"'
 alias del_swap='rm ~/.local/share/nvim/swap/*'
 _command_exists rmtrash || alias rm='rm -i'
