@@ -14,6 +14,8 @@ let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n $(pyenv roo
 " let g:python_host_prog = '/usr/local/bin/python'
 " let g:python3_host_prog = '/usr/local/bin/python3'
 
+" ctags
+set tags=./tags;,tags;
 " bufferの切り替えときに保存していないのを無視する
 set hidden
 "括弧の対応をハイライト
@@ -55,6 +57,9 @@ augroup fileTypeIndent
   autocmd BufNewFile,BufRead *.dig setlocal tabstop=2 softtabstop=2 shiftwidth=2
   autocmd BufNewFile,BufRead *.vim setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
+
+" python file 起動時，Vista finder 起動
+" autocmd BufNewFile,BufRead *.py execute 'Vista'
 
 " digdag
 autocmd BufNewFile,BufRead *.dig set filetype=yaml
@@ -187,6 +192,8 @@ nnoremap  <C-c><C-c> :<C-u>nohlsearch<cr><Esc>
 nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 nnoremap <C-l> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
+" q: でも閉じる
+map q: :q
 
 "意味ないかも
 let $PATH = "~/.pyenv/shims:".$PATH
