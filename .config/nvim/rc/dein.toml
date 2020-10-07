@@ -100,4 +100,5 @@ hook_add = '''
 	call altercmd#load()
 	AlterCommand tmux Tmux
 	AlterCommand work Work
+	AlterCommand cheat Cheat
 '''
