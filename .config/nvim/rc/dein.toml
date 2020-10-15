@@ -53,10 +53,10 @@ repo='zxqfl/tabnine-vim'
 repo = 'mengelbrecht/lightline-bufferline'
 
 [[plugins]]
-repo = 'reireias/vim-cheatsheet'
+repo = 'tpope/vim-fugitive'
 
 [[plugins]]
-repo = 'tpope/vim-fugitive'
+repo = 'tpope/vim-rhubarb'
 
 [[plugins]]
 repo = 'machakann/vim-highlightedyank'
@@ -101,4 +101,5 @@ hook_add = '''
 	AlterCommand tmux Tmux
 	AlterCommand work Work
 	AlterCommand cheat Cheat
+	AlterCommand path Path
 '''
