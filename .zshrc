@@ -91,6 +91,8 @@ export LSCOLORS=DxGxcxdxCxegedabagacad
 alias co='git checkout $(git branch -a | tr -d " " |fzf --height 100% --prompt "CHECKOUT BRANCH>" --preview "git log --color=always {}" | head -n 1 | sed -e "s/^\*\s*//g" | perl -pe "s/remotes\/origin\///g")'
 
 alias :q='exit'
+alias gd='git diff'
+alias ...='cd ../../'
 
 # alias gcl='gcloud compute ssh --zone us-west1-b pytorch-study-vm'
 alias gcl='gcloud beta compute ssh --zone "us-west1-b" "global-wheat-detection-vm" --project "euphoric-diode-279610" -- -L 8080:localhost:8080 -L 8081:localhost:8081'
@@ -130,7 +132,7 @@ export LESS='-R'
 #補完
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin /usr/local/git/bin
 
-# fzf-cdr 
+# fzf-cdr
 alias cdd='fzf-cdr'
 function fzf-cdr() {
     target_dir=`cdr -l | sed 's/^[^ ][^ ]*  *//' | fzf`
@@ -138,6 +140,12 @@ function fzf-cdr() {
     if [ -n "$target_dir" ]; then
         cd $target_dir
     fi
+}
+
+## z の設定
+. `brew --prefix`/etc/profile.d/z.sh
+    function precmd () {
+    _z --add "$(pwd -P)"
 }
 
 # cdrを有効にする
@@ -156,7 +164,7 @@ zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/shell/chpwd-recent-dirs"
 zstyle ':chpwd:*' recent-dirs-pushd true
 
 #カレントディレクトリが変更した時にする行動
-#function chpwd() { ls_abbrev } 
+#function chpwd() { ls_abbrev }
 #ls_abbrev() {
 #    if [[ ! -r $PWD ]]; then
 #        return
@@ -217,8 +225,8 @@ setopt hist_ignore_space
 # ヒストリを呼び出してから実行する間に一旦編集可能
 setopt hist_verify
 # 余分な空白は詰めて記録
-setopt hist_reduce_blanks  
-# 古いコマンドと同じものは無視 
+setopt hist_reduce_blanks
+# 古いコマンドと同じものは無視
 setopt hist_save_no_dups
 # historyコマンドは履歴に登録しない
 setopt hist_no_store
@@ -358,7 +366,7 @@ zplug "zsh-users/zsh-autosuggestions"
 #補完の強化
 zplug "zsh-users/zsh-completions"
 zplug "chrissicool/zsh-256color"
-zplug "ascii-soup/zsh-url-highlighter" 
+zplug "ascii-soup/zsh-url-highlighter"
 # mapとかeachのコマンド追加 https://github.com/Tarrasch/zsh-functional
 zplug "Tarrasch/zsh-functional"
 
@@ -412,4 +420,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
