@@ -14,6 +14,8 @@ let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n $(pyenv roo
 " let g:python_host_prog = '/usr/local/bin/python'
 " let g:python3_host_prog = '/usr/local/bin/python3'
 
+" _ を単語に含めない
+set isk-=_
 " ctags
 set tags=./tags;,tags;
 " bufferの切り替えときに保存していないのを無視する
@@ -70,43 +72,45 @@ highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
 au BufNewFile,BufRead * match ZenkakuSpace /　/
 set backspace=indent,eol,start
 
-"入力中のコマンドの表示
+" ハイライトする桁数
+set synmaxcol=300
+" 入力中のコマンドの表示
 set showcmd
-"ステータスラインを常に表示
+" ステータスラインを常に表示
 set laststatus=2
-"ファイルナンバー表示
+" ファイルナンバー表示
 set statusline=[%n]
-"ホスト名表示
+" ホスト名表示
 set statusline+=%{matchstr(hostname(),'\\w\\+')}@
-"ファイル名表示
+" ファイル名表示
 set statusline+=%<%F
-"変更のチェック表示
+" 変更のチェック表示
 set statusline+=%m
-"読み込み専用かどうか表示
+" 読み込み専用かどうか表示
 set statusline+=%r
-"ヘルプページなら[HELP]と表示
+" ヘルプページなら[HELP]と表示
 set statusline+=%h
-"プレビューウインドウなら[Prevew]と表示
+" プレビューウインドウなら[Prevew]と表示
 set statusline+=%w
-"ファイルフォーマット表示
+" ファイルフォーマット表示
 set statusline+=[%{&fileformat}]
-"文字コード表示
+" 文字コード表示
 set statusline+=[%{has('multi_byte')&&\&fileencoding!=''?&fileencoding:&encoding}]
-"ファイルタイプ表示
+" ファイルタイプ表示
 set statusline+=%y
-"ここからツールバー右側
+" ここからツールバー右側
 set statusline+=%=
-"skk.vimの状態
+" skk.vimの状態
 "set statusline+=%{exists('*SkkGetModeStr')?SkkGetModeStr():''}
-"文字バイト数/カラム番号
+" 文字バイト数/カラム番号
 " set statusline+=[%{col('.')-1}=ASCII=%B,HEX=%c]
-"現在文字列/全体列表示
+" 現在文字列/全体列表示
 set statusline+=[C=%c/%{col('$')-1}]
-"現在文字行/全体行表示
+" 現在文字行/全体行表示
 set statusline+=[L=%l/%L]
-"現在のファイルの文字数をカウント
+" 現在のファイルの文字数をカウント
 " set statusline+=[WC=%{exists('*WordCount')?WordCount():[]}]
-"現在行が全体行の何%か表示
+" 現在行が全体行の何%か表示
 set statusline+=[%p%%]
 
 "-------Search--------
@@ -146,6 +150,8 @@ nnoremap <silent> <C-k> :bnext<CR>
 
 command Tmux e ~/.tmux_cheatsheet.md
 command Work e ~/.work_cheatsheet.md
+command Cheat e ~/.vim_cheatsheet.md
+command Path echo expand("%:p")
 
 " space+. でvimrcを開く
 nnoremap <Space>. :<C-u>tabedit $MYVIMRC<CR>
@@ -356,9 +362,18 @@ let g:ale_linters = {
 \}
 let g:ale_fixers = {
   \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-  \   'python': ['black'],
+  \   'python': ['black', 'isort'],
   \ }
 let g:ale_fix_on_save = 1
+
+" 各ツールの実行オプションを変更してPythonパスを固定
+" let g:ale_python_flake8_executable = g:python3_host_prog
+" let g:ale_python_flake8_options = '-m flake8'
+" let g:ale_python_isort_executable = g:python3_host_prog
+" let g:ale_python_isort_options = '-m isort'
+" let g:ale_python_black_executable = g:python3_host_prog
+" let g:ale_python_black_options = '-m black'
+
 " ALE用プレフィックス
 nmap [ale] <Nop>
 nmap <C-n> [ale]
