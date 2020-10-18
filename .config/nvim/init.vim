@@ -15,7 +15,7 @@ let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n $(pyenv roo
 " let g:python3_host_prog = '/usr/local/bin/python3'
 
 " _ を単語に含めない
-set isk-=_
+" set isk-=_
 " ctags
 set tags=./tags;,tags;
 " bufferの切り替えときに保存していないのを無視する
