@@ -151,6 +151,7 @@ nnoremap <silent> <C-k> :bnext<CR>
 command Tmux e ~/.tmux_cheatsheet.md
 command Work e ~/.work_cheatsheet.md
 command Cheat e ~/.vim_cheatsheet.md
+command Shell e ~/.shell_cheatsheet.md
 command Path echo expand("%:p")
 
 " space+. でvimrcを開く
@@ -188,6 +189,11 @@ nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 nnoremap <silent> <Space>gb :Gblame<CR>
 nnoremap <silent> <Space>gd :Gdiff<CR>
 nnoremap <silent> <Space>gs :Gstatus<CR>
+
+" neoterm https://sy-base.com/myrobotics/vim/neovim-neoterm/
+nnoremap <c-t><c-t> :Ttoggle<CR>
+tnoremap <c-t><c-t> <C-¥><C-n>:Ttoggle<CR>
+
 
 "<Leader>はバックスラッシュ
 
