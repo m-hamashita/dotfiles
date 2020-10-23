@@ -87,6 +87,7 @@ export XDG_CONFIG_HOME="~/.config"
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
 
+
 # git checkout branchをfzfで選択
 alias co='git checkout $(git branch -a | tr -d " " |fzf --height 100% --prompt "CHECKOUT BRANCH>" --preview "git log --color=always {}" | head -n 1 | sed -e "s/^\*\s*//g" | perl -pe "s/remotes\/origin\///g")'
 
@@ -257,8 +258,10 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 setopt auto_pushd
 # ディレクトリスタックから重複を削除
 setopt pushd_ignore_dups
-#pecoの設定
-function peco-select-history() {
+
+
+# fzf の設定
+function fzf-select-history() {
     local tac
     if which tac > /dev/null; then
         tac="tac"
@@ -266,29 +269,42 @@ function peco-select-history() {
         tac="tail -r"
     fi
     BUFFER=$(\history -n 1 | \
-        eval $tac | \
-        peco --query "$LBUFFER")
+        eval $tac | fzf)
+        # peco --query "$LBUFFER")
     CURSOR=$#BUFFER
     zle clear-screen
 }
-zle -N peco-select-history
-bindkey '^r' peco-select-history
+zle -N fzf-select-history
+bindkey '^r' fzf-select-history
 
 
-function peco-find-file() {
+function fzf-find-file() {
     if git rev-parse 2> /dev/null; then
         source_files=$(git ls-files)
     else
         source_files=$(find . -type f)
     fi
-    selected_files=$(echo $source_files | peco --prompt "[find file]")
+    selected_files=$(echo $source_files | fzf -m)
 
-    BUFFER="${BUFFER}${echo $selected_files | tr '\n' ' '}"
+    BUFFER="${BUFFER}$(echo $selected_files | tr '\n' ' ')"
     CURSOR=$#BUFFER
     zle redisplay
 }
-zle -N peco-find-file
-bindkey '^q' peco-find-file
+zle -N fzf-find-file
+bindkey '^q' fzf-find-file
+
+
+# git diff のあるファイルを選ぶ
+function fzf-git-editdiff {
+  local dir=$(git diff --name-only | fzf)
+  if [ ${#dir} -ne 0 ]; then
+    BUFFER="vim ${dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N fzf-git-editdiff
+bindkey '^e' fzf-git-editdiff
 
 
 # fshow - git commit browser
@@ -303,12 +319,38 @@ fshow() {
 FZF-EOF"
 }
 
-# fzfでリポジトリ以下のファイルを検索してvimで開く
+# fzfでリポジトリ以下のファイルの中身を検索してvimで開く
 fvim() {
   files=$(git ls-files) &&
   selected_files=$(echo "$files" | fzf -m --preview 'head -100 {}') &&
   vim $selected_files
 }
+
+gcd () {
+    if [ -n "$1" ]; then
+        dir="$(ghq list --full-path --exact "$1")"
+        if [ -z "$dir" ]; then
+            echo "no directroies found for '$1'"
+            return 1
+        fi
+        cd "$dir"
+        return
+    fi
+    echo 'usage: ghq-cd $repo'
+    return 1
+}
+
+# ghq で管理されている リポジトリに fzf でジャンプ
+fzf-src () {
+local repo=$(ghq list | fzf)
+    if [ -n "$repo" ]; then
+        BUFFER="cd $(ghq root)/${repo}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N fzf-src
+bindkey '^]' fzf-src
 
 # ctrl-zでbackground行ったり来たり出来る
 fancy-ctrl-z () {
