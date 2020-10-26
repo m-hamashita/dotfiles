@@ -148,6 +148,11 @@ nnoremap sh <C-w>h
 nnoremap <silent> <C-j> :bprev<CR>
 nnoremap <silent> <C-k> :bnext<CR>
 
+" ctags
+nnoremap <silent> <C-[> <C-t>
+nnoremap <C-]> g<C-]>
+inoremap <C-]> <ESC>g<C-]>
+
 command Tmux e ~/.tmux_cheatsheet.md
 command Work e ~/.work_cheatsheet.md
 command Cheat e ~/.vim_cheatsheet.md
