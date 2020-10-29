@@ -73,7 +73,7 @@ au BufNewFile,BufRead * match ZenkakuSpace /　/
 set backspace=indent,eol,start
 
 " ハイライトする桁数
-set synmaxcol=300
+set synmaxcol=600
 " 入力中のコマンドの表示
 set showcmd
 " ステータスラインを常に表示
