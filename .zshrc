@@ -8,6 +8,10 @@ export LC_ALL='ja_JP.UTF-8'
 # Postgres
 export PGDATA=/usr/local/var/postgres
 
+export GOPATH=$HOME/go
+export GOROOT=$( go env GOROOT )
+export PATH=$GOPATH/bin:$PATH
+
 
 export PATH=~/usr/lib/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$PATH
