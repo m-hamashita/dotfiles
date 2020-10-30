@@ -149,9 +149,12 @@ nnoremap <silent> <C-j> :bprev<CR>
 nnoremap <silent> <C-k> :bnext<CR>
 
 " ctags
-nnoremap <silent> <C-[> <C-t>
-nnoremap <C-]> g<C-]>
-inoremap <C-]> <ESC>g<C-]>
+autocmd FileType python nnoremap <C-]> g<C-]>
+autocmd FileType python inoremap <C-]> <ESC>g<C-]>
+autocmd FileType python nnoremap <silent><C-[> <C-t>
+" vim-go
+autocmd FileType go nnoremap <silent> <C-[> :GoDefPop<CR>
+
 
 command Tmux e ~/.tmux_cheatsheet.md
 command Work e ~/.work_cheatsheet.md
