@@ -43,6 +43,9 @@ call lexima#add_rule({'char': '<TAB>', 'at': '\%#}', 'leave': 1})
 """
 
 [[plugins]]
+repo = 'fatih/vim-go'
+
+[[plugins]]
 repo = 'neoclide/coc.nvim'
 build = './install.sh nightly'
 
