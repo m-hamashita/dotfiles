@@ -154,7 +154,8 @@ autocmd FileType python inoremap <C-]> <ESC>g<C-]>
 autocmd FileType python nnoremap <silent><C-[> <C-t>
 " vim-go
 autocmd FileType go nnoremap <silent> <C-[> :GoDefPop<CR>
-
+autocmd FileType go nmap <leader>s <Plug>(go-def-split)
+autocmd FileType go nmap <leader>v <Plug>(go-def-vertical)
 
 command Tmux e ~/.tmux_cheatsheet.md
 command Work e ~/.work_cheatsheet.md
