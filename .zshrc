@@ -97,6 +97,8 @@ alias co='git checkout $(git branch -a | tr -d " " |fzf --height 100% --prompt "
 
 alias :q='exit'
 alias gd='git diff'
+alias ga='git add'
+alias gc='git commit'
 alias ...='cd ../../'
 
 # alias gcl='gcloud compute ssh --zone us-west1-b pytorch-study-vm'
@@ -133,7 +135,7 @@ kaggle_python(){
 }
 
 kaggle_jupyter() {
-  docker run -v $PWD:/tmp/working -w=/tmp/working -p 8888:8888 --rm -it kaggle/python jupyter notebook --no-browser --ip="0.0.0.0" --notebook-dir=/tmp/working --allow-root
+  docker run -v $PWD:/tmp/working -w=/tmp/working -p 8988:8888 --rm -it kaggle/python jupyter notebook --no-browser --ip="0.0.0.0" --notebook-dir=/tmp/working --allow-root
 }
 
 export LESSOPEN="| /usr/local/Cellar/source-highlight/3.1.9_2/bin/src-hilite-lesspipe.sh %s"
