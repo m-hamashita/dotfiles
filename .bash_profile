@@ -17,3 +17,7 @@ export PATH="$HOME/.pyenv/shims:$PATH"
 export PYTHONSTARTUP=~/.pythonstartup
 
 
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/masakatsu.hamashita/.sdkman"
+[[ -s "/Users/masakatsu.hamashita/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/masakatsu.hamashita/.sdkman/bin/sdkman-init.sh"
