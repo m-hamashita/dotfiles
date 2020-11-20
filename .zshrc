@@ -159,7 +159,13 @@ function fzf-cdr() {
 ## z の設定
 . `brew --prefix`/etc/profile.d/z.sh
     function precmd () {
+    # z の設定
     _z --add "$(pwd -P)"
+
+    # https://qiita.com/arks22/items/db8eb6a14223ce29219a
+    if [ ! -z $TMUX ]; then
+      tmux refresh-client -S
+    fi
 }
 
 # cdrを有効にする
@@ -410,6 +416,7 @@ man() {
 }
 
 
+
 # zplugの設定
 source ~/.zplug/init.zsh
 
@@ -475,3 +482,7 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/masakatsu.hamashita/.sdkman"
+[[ -s "/Users/masakatsu.hamashita/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/masakatsu.hamashita/.sdkman/bin/sdkman-init.sh"
