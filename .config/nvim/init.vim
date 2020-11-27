@@ -161,6 +161,7 @@ command Tmux e ~/.tmux_cheatsheet.md
 command Work e ~/.work_cheatsheet.md
 command Cheat e ~/.vim_cheatsheet.md
 command Shell e ~/.shell_cheatsheet.md
+command Prog e ~/.prog_cheatsheet.md
 command Path echo expand("%:p")
 
 " space+. でvimrcを開く
