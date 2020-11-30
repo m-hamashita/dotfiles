@@ -48,6 +48,9 @@ repo = 'fatih/vim-go'
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 build = './install.sh nightly'
+hook_add = '''
+let coc#util#get_data_home = '/Users/masakatsu.hamashita/.config/coc'
+'''
 
 [[plugins]]
 repo='zxqfl/tabnine-vim'
@@ -232,3 +235,6 @@ nmap <C-n> <Plug>(yankround-next)
 
 [[plugins]]
 repo = 'skanehira/getpr.vim'
+
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
