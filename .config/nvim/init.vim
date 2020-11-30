@@ -280,8 +280,6 @@ let twitvim_filter_enable = 1
 " Cheatsheet
 let g:cheatsheet#cheat_file = '~/.cheatsheet.md'
 
-" Autopep8 ------------------------------------------------------------------
-" original http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
 function! Preserve(command)
     " Save the last search.
     let search = @/
@@ -398,10 +396,24 @@ nmap <silent> [ale]<C-p> <Plug>(ale_previous)
 nmap <silent> [ale]<C-n> <Plug>(ale_next)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
 " vim-highlightedyank
 let g:highlightedyank_highlight_duration = 300
 
+" easymotion
+" s{char}{char} to move to {char}{char}
+map <leader>j <Plug>(easymotion-bd-f2)
+nmap <leader>j <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <leader>l <Plug>(easymotion-bd-jk)
+nmap <leader>l <Plug>(easymotion-overwin-line)
+
+
 "coc
+" インストールされていなかったら起動時にインストール
+" let g:coc_global_extensions = ['coc-pyls']
+
 " use <tab> for trigger completion and navigate to next complete item
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -421,6 +433,16 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
