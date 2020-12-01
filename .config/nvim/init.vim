@@ -483,9 +483,10 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 """"""""""""""""""""""coc""""""""""""""""""""""""""""""""""""
 
 " preview-markdown
-nnoremap <Leader>md :PreviewMarkdown<CR>
+nnoremap <space>md :PreviewMarkdown<CR>
 let g:preview_markdown_vertical = 1
 let g:preview_markdown_auto_update = 1
+let g:preview_markdown_parser='glow'
 
 "vim起動時にNERDTree起動
 "autocmd VimEnter * execute 'NERDTree'
