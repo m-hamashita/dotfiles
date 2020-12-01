@@ -53,6 +53,8 @@ set expandtab
 set softtabstop=0
 " autoindent
 set autoindent
+" splitright
+set splitright
 
 augroup fileTypeIndent
   autocmd!
@@ -480,7 +482,10 @@ command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 """"""""""""""""""""""coc""""""""""""""""""""""""""""""""""""
 
-
+" preview-markdown
+nnoremap <Leader>md :PreviewMarkdown<CR>
+let g:preview_markdown_vertical = 1
+let g:preview_markdown_auto_update = 1
 
 "vim起動時にNERDTree起動
 "autocmd VimEnter * execute 'NERDTree'

@@ -223,3 +223,9 @@ repo = 'easymotion/vim-easymotion'
 
 [[plugins]]
 repo = 'Shougo/defx.nvim'
+
+[[plugins]]
+repo = 'skanehira/preview-markdown.vim'
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
