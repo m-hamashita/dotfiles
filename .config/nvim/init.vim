@@ -217,7 +217,11 @@ nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 nnoremap <C-l> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
 " q: でも閉じる
-map q: :q
+map q: :qa
+" 全部 ! にする
+map :q :q!
+map :wq :wq!
+
 
 "意味ないかも
 let $PATH = "~/.pyenv/shims:".$PATH
@@ -414,7 +418,9 @@ nmap <leader>l <Plug>(easymotion-overwin-line)
 
 "coc
 " インストールされていなかったら起動時にインストール
-" let g:coc_global_extensions = ['coc-pyls']
+let g:coc_global_extensions = ['coc-pyls']
+" インストール先を固定するために必要
+let g:coc_data_home = '~/'
 
 " use <tab> for trigger completion and navigate to next complete item
 function! s:check_back_space() abort
