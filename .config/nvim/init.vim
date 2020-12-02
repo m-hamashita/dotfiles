@@ -60,6 +60,8 @@ augroup fileTypeIndent
   autocmd!
   autocmd BufNewFile,BufRead *.dig setlocal tabstop=2 softtabstop=2 shiftwidth=2
   autocmd BufNewFile,BufRead *.vim setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.cpp setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.c setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
 " python file 起動時，Vista finder 起動
@@ -383,6 +385,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
   \   '*': ['remove_trailing_lines', 'trim_whitespace'],
   \   'python': ['black', 'isort'],
+  \   'cpp': ['clang-format'],
   \ }
 let g:ale_fix_on_save = 1
 
@@ -421,6 +424,11 @@ nmap <leader>l <Plug>(easymotion-overwin-line)
 let g:coc_global_extensions = ['coc-pyls']
 " インストール先を固定するために必要
 let g:coc_data_home = '~/'
+
+"coc-pairsのenterの挙動
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+
 
 " use <tab> for trigger completion and navigate to next complete item
 function! s:check_back_space() abort
