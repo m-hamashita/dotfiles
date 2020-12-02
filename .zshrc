@@ -114,8 +114,8 @@ alias del_swap='rm ~/.local/share/nvim/swap/*'
 _command_exists rmtrash || alias rm='rm -i'
 ! _command_exists rmtrash || alias rm='rmtrash' #実際はmv2trash(renameしてる)
 ! _command_exists nvim || alias vim='nvim'
-! _command_exists gcc-9 || alias gcc='/usr/local/bin/gcc-9'
-! _command_exists g++-9 || alias g++='/usr/local/bin/g++-9'
+! _command_exists gcc-10 || alias gcc='/usr/local/bin/gcc-10'
+! _command_exists g++-10 || alias g++='/usr/local/bin/g++-10'
 # ! _command_exists gcloud || alias gcl='gcloud compute ssh --zone us-west1-b "pytorch-study-vm" -- -L 8888:localhost:8888'
 # ! _command_exists gcloud || alias gcli='gcloud compute ssh --zone us-central1-a "instance-2" -- -L 8888:localhost:8888'
 ! _command_exists tmux || alias ta='tmux a -d'
@@ -486,3 +486,4 @@ unset __conda_setup
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/masakatsu.hamashita/.sdkman"
 [[ -s "/Users/masakatsu.hamashita/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/masakatsu.hamashita/.sdkman/bin/sdkman-init.sh"
+export PATH="/usr/local/opt/llvm/bin:$PATH"
