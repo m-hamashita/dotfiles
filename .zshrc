@@ -8,6 +8,8 @@ export LC_ALL='ja_JP.UTF-8'
 # Postgres
 export PGDATA=/usr/local/var/postgres
 
+export PYTHONPATH="/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Resources/Python:${PYTHONPATH}"
+
 export GOPATH=$HOME/go
 export GOROOT=$( go env GOROOT )
 export PATH=$GOPATH/bin:$PATH
@@ -87,7 +89,6 @@ typeset -g ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE='20'
 export XDG_CONFIG_HOME="~/.config"
 
 
-
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
 
@@ -98,6 +99,7 @@ alias co='git checkout $(git branch -a | tr -d " " |fzf --height 100% --prompt "
 alias :q='exit'
 alias gd='git diff'
 alias ga='git add'
+alias gp='git pull'
 alias gc='git commit'
 alias ...='cd ../../'
 
@@ -105,7 +107,6 @@ alias ...='cd ../../'
 alias gcl='gcloud beta compute ssh --zone "us-west1-b" "global-wheat-detection-vm" --project "euphoric-diode-279610" -- -L 8080:localhost:8080 -L 8081:localhost:8081'
 # alias cd='pushd'
 # alias cdd='popd'
-alias ls='ls -at'
 alias df='df -h'
 alias vi='vim'
 alias diff='colordiff'
@@ -119,6 +120,12 @@ _command_exists rmtrash || alias rm='rm -i'
 # ! _command_exists gcloud || alias gcl='gcloud compute ssh --zone us-west1-b "pytorch-study-vm" -- -L 8888:localhost:8888'
 # ! _command_exists gcloud || alias gcli='gcloud compute ssh --zone us-central1-a "instance-2" -- -L 8888:localhost:8888'
 ! _command_exists tmux || alias ta='tmux a -d'
+if [ $(command -v exa) ]; then
+    alias ls='exa -a --git'
+    alias tree='exa --tree'
+else
+    alias ls='ls -at'
+fi
 alias -g G='| grep'
 
 alias grep='grep --color'
@@ -127,13 +134,20 @@ if [ -e "/Applications/CotEditor.app" ]; then
 fi
 #alias history='history -f'
 alias history='cat ~/.zhistory'
+# cd, pwd などは history に登録しない
+HISTORY_IGNORE="(cd|pwd|ls)"
+zshaddhistory() {
+    emulate -L zsh
+    [[ ${1%%$'\n'} != ${~HISTORY_IGNORE} ]]
+}
+
+
 function mk (){ mkdir $@ && cd $_  }
 function pb (){ cat $@ | pbcopy }
 
 kaggle_python(){
   docker run -v $PWD:/tmp/working -w=/tmp/working --rm -it kaggle/python python "$@"
 }
-
 kaggle_jupyter() {
   docker run -v $PWD:/tmp/working -w=/tmp/working -p 8988:8888 --rm -it kaggle/python jupyter notebook --no-browser --ip="0.0.0.0" --notebook-dir=/tmp/working --allow-root
 }
@@ -143,7 +157,7 @@ export LESS='-R'
 
 #—————————————————————————————————————————
 
-#補完
+# 補完
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin /usr/local/git/bin
 
 # fzf-cdr
