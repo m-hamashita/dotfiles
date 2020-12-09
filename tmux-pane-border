@@ -9,13 +9,17 @@ if git_status=$(cd $1 && git status 2>/dev/null ); then
     * ) state="#[bg=green, fg=brightcyan]$SEP#[bg=green,fg=black] ✔ #[default]#[bg=default, fg=green]$SEP" ;;
   esac
   if [[ $git_branch = "master" ]]; then
+    git_base_name=$(cd $1 && git rev-parse --show-toplevel)
     git_info="#[bg=brightcyan,fg=black] ${git_branch}$state"
+    directory="#[bg=brightblue,fg=black] $git_base_name#[bg=brightcyan, fg=brightblue]$SEP"
   else
+    git_base_name=$(cd $1 && git rev-parse --show-toplevel)
     git_info="#[bg=brightcyan,fg=black] ${git_branch}$state"
+    directory="#[bg=brightblue,fg=black] $git_base_name#[bg=brightcyan, fg=brightblue]$SEP"
   fi
 else
+  directory="#[bg=brightblue,fg=black] $1#[bg=default, fg=brightblue]$SEP"
   git_info=""
 fi
 
-directory="#[bg=brightblue,fg=black]$1#[bg=brightcyan, fg=brightblue]$SEP"
 echo "$directory$git_info"
