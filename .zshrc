@@ -103,6 +103,7 @@ alias gp='git pull'
 alias gc='git commit'
 alias gis='git status'
 alias ...='cd ../../'
+alias refresh='source ~/.zshrc'
 
 # alias gcl='gcloud compute ssh --zone us-west1-b pytorch-study-vm'
 alias gcl='gcloud beta compute ssh --zone "us-west1-b" "global-wheat-detection-vm" --project "euphoric-diode-279610" -- -L 8080:localhost:8080 -L 8081:localhost:8081'
