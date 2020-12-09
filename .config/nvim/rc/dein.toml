@@ -229,3 +229,7 @@ repo = 'skanehira/preview-markdown.vim'
 
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
+
+[[plugins]]
+repo = 'dbgx/lldb.nvim'
+on_ft = ['c', 'cpp']

@@ -9,7 +9,8 @@ if has('persistent_undo')
    set undofile
 endif
 
-let g:python_host_prog = system('(type pyenv &>/dev/null && echo -n $(pyenv root)/versions/$(pyenv global | grep python2)/bin/python) || echo -n $(which python2)')
+" let g:python_host_prog = system('(type pyenv &>/dev/null && echo -n $(pyenv root)/versions/$(pyenv global | grep python2)/bin/python) || echo -n $(which python2)')
+let g:python_host_prog = '/usr/bin/python2.7'
 let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n $(pyenv root)/versions/3.8.1/bin/python) || echo -n $(which python3)')
 " let g:python_host_prog = '/usr/local/bin/python'
 " let g:python3_host_prog = '/usr/local/bin/python3'
@@ -62,6 +63,7 @@ augroup fileTypeIndent
   autocmd BufNewFile,BufRead *.vim setlocal tabstop=2 softtabstop=2 shiftwidth=2
   autocmd BufNewFile,BufRead *.cpp setlocal tabstop=2 softtabstop=2 shiftwidth=2
   autocmd BufNewFile,BufRead *.c setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.md setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
 " python file 起動時，Vista finder 起動
@@ -219,10 +221,10 @@ nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 nnoremap <C-l> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
 " q: でも閉じる
-map q: :qa
+map q: :q
 " 全部 ! にする
-map :q :q!
-map :wq :wq!
+" map :q :q!
+" map :wq :wq!
 
 
 "意味ないかも
@@ -504,7 +506,7 @@ let g:preview_markdown_parser='glow'
 
 "vim起動時にNERDTree起動
 "autocmd VimEnter * execute 'NERDTree'
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
+nnoremap <space>f :NERDTreeToggle<CR>
 " NERDTreeで隠しファイルも表示する
 let NERDTreeShowHidden=1
 " colorscheme
