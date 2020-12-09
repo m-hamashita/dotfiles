@@ -101,6 +101,7 @@ alias gd='git diff'
 alias ga='git add'
 alias gp='git pull'
 alias gc='git commit'
+alias gis='git status'
 alias ...='cd ../../'
 
 # alias gcl='gcloud compute ssh --zone us-west1-b pytorch-study-vm'
