@@ -9,3 +9,4 @@ export CPPFLAGS="-I/usr/local/opt/llvm/include"
 export CFLAGS="-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -mmacosx-version-min=10.14"
 export PATH=/usr/local/var/nodebrew/current/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$PATH
+source "$HOME/.cargo/env"
