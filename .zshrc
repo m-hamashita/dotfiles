@@ -29,8 +29,11 @@ zstyle ':prezto:module:editor:info:keymap:primary' format '%B%F{blue}❯%f%b'
 SEP=`echo -e "\xE2\xAE\x80"`
 FONT_COL='233'
 BACKGROUND_COL='111'
-PROMPT="%{%F{$FONT_COL}%K{$BACKGROUND_COL}%}%T%{%k%f%}%{%F{$BACKGROUND_COL}%K{230}%}$SEP%{%f%k%}%{%F{$FONT_COL}%K{230}%}[%M]%{%f%k%}%{%F{230}%K{$BACKGROUND_COL}%}$SEP%{%k%f%}%{%K{$BACKGROUND_COL}%F{$FONT_COL}%}%~%{%f%k%}%F{$BACKGROUND_COL}$SEP%f
-%(?.%F{green}.%F{red})%(?! OK ! NG )%f %F{155}$%f "
+# PROMPT="%(?.%F{green}.%F{red})%(?!$ !$ )%f"
+# PROMPT="%(?.%F{green}.%F{red})%(?!❯❯❯ !❯❯❯ )%f"
+
+ PROMPT="%{%F{$FONT_COL}%K{$BACKGROUND_COL}%}%T%{%k%f%}%{%F{$BACKGROUND_COL}%K{230}%}$SEP%{%f%k%}%{%F{$FONT_COL}%K{230}%}[%M]%{%f%k%}%{%F{230}%K{$BACKGROUND_COL}%}$SEP%{%k%f%}%{%K{$BACKGROUND_COL}%F{$FONT_COL}%}%~%{%f%k%}%F{$BACKGROUND_COL}$SEP%f
+ %(?.%F{green}.%F{red})%(?!OK !NG )%f%F{155}$%f "
 
 # ctrl-sとctrl-qの無効化
 setopt no_flow_control
@@ -103,7 +106,7 @@ alias gp='git pull'
 alias gc='git commit'
 alias gis='git status'
 alias ...='cd ../../'
-alias refresh='source ~/.zshrc'
+alias ref='source ~/.zshrc'
 
 # alias gcl='gcloud compute ssh --zone us-west1-b pytorch-study-vm'
 alias gcl='gcloud beta compute ssh --zone "us-west1-b" "global-wheat-detection-vm" --project "euphoric-diode-279610" -- -L 8080:localhost:8080 -L 8081:localhost:8081'
@@ -294,6 +297,9 @@ setopt auto_pushd
 # ディレクトリスタックから重複を削除
 setopt pushd_ignore_dups
 
+# ctrl+矢印で単語単位の移動
+bindkey "5C" forward-word
+bindkey "5D" backward-word
 
 # fzf の設定
 function fzf-select-history() {
@@ -472,9 +478,6 @@ zmodload zsh/zprof #&& zprof
 # if (which zprof > /dev/null 2>&1) ;then
 #   zprof
 # fi
-# if (which zprof > /dev/null) ;then
-#   zprof | less
-# fi
 
 
 
@@ -503,3 +506,7 @@ unset __conda_setup
 export SDKMAN_DIR="/Users/masakatsu.hamashita/.sdkman"
 [[ -s "/Users/masakatsu.hamashita/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/masakatsu.hamashita/.sdkman/bin/sdkman-init.sh"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
+
+# if (which zprof > /dev/null) ;then
+#   zprof | less
+# fi

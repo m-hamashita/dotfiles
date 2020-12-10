@@ -1,3 +1,4 @@
+# zmodload zsh/zprof && zprof
 export PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/sbin:/usr/bin:$PATH
 export PATH="$HOME/Library/Python/3.6/bin:$PATH"
 export PATH=$PATH:/usr/local/lib/mecab/dic/ipadic
