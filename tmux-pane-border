@@ -4,7 +4,7 @@ SEP=`echo ""`
 if git_status=$(cd $1 && git status 2>/dev/null ); then
   git_branch="$(echo $git_status| awk 'NR==1 {print $3}')"
   case $git_status in
-    *Changes\ not\ staged* ) state="#[bg=colour013,fg=black] ± #[fg=default]#[bg=brightcyan, fg=colour013]$SEP" ;;
+    *Changes\ not\ staged* ) state="#[bg=brightred,fg=black] ± #[fg=default]#[bg=brightcyan, fg=brightred]$SEP" ;;
     *Changes\ to\ be\ committed* ) state="#[bg=blue,fg=black] + #[default]#[bg=bightcyan, fg=blue]$SEP" ;;
     * ) state="#[bg=green,fg=black] ✔ #[default]#[bg=brightcyan, fg=green]$SEP" ;;
   esac
