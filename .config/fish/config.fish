@@ -20,11 +20,6 @@ set -x PATH ~/usr/lib/bin $PATH
 set -x PATH $HOME/.nodebrew/current/bin $PATH
 set -x PATH /usr/local/git/bin $PATH
 
-
-function _command_exists
-    which $1 &> /dev/null
-end
-
 # .bash_profile
 set -x PYENV_ROOT "$HOME/.pyenv"
 set -x PATH $PYENV_ROOT/bin:$PATH
@@ -38,17 +33,10 @@ set -x PYENV_ROOT "$HOME/.pyenv"
 set -x PATH $PYENV_ROOT/shims:$PATH
 set -x PATH $HOME/.nodebrew/current/bin:$PATH
 set -x CPLUS_INCLUDE_PATH $CPLUS_INCLUDE_PATH:/usr/local/include/c++/9.2.0/x86_64-apple-darwin18/
-if [ -d "$PYENV_ROOT" ]
-       set -x PATH $PYENV_ROOT/bin:$PATH
-       source (pyenv init - | psub)
-    source (pyenv virtualenv-init - | psub)
-end
 
 set -x PATH "$HOME/bin:$PATH"
 set -U fish_user_paths $fish_user_paths $HOME/.cargo/bin
 
-#neovimのためのpath
-set -x XDG_CONFIG_HOME "~/.config"
 
 set -x CLICOLOR 1
 set -x LSCOLORS DxGxcxdxCxegedabagacad
