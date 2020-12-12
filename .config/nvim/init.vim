@@ -66,6 +66,8 @@ augroup fileTypeIndent
   autocmd BufNewFile,BufRead *.md setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
+noremap x "_x
+
 " python file 起動時，Vista finder 起動
 " autocmd BufNewFile,BufRead *.py execute 'Vista'
 
@@ -131,6 +133,9 @@ set smartcase
 "行末まで検索したら行頭に戻る
 set wrapscan
 "---------------------
+" shift+K でカーソル下の word のヘルプを開くことができる
+set keywordprg=:help
+
 
 "カーソル位置を復元
 "autocmd BufWinLeave ?* silent mkview
@@ -210,6 +215,11 @@ nnoremap <silent> <Space>gs :Gstatus<CR>
 nnoremap <c-t><c-t> :Ttoggle<CR>
 tnoremap <c-t><c-t> <C-¥><C-n>:Ttoggle<CR>
 
+" コマンドラインモードで履歴を探索
+cnoremap <C-p> <Up>
+
+" 0 で(インデントを含む|含まない)行頭をtoggleで移動できる
+noremap <expr> 0 getline('.')[0 : col('.') - 2] =~# '^\s\+$' ? '0' : '^'
 
 "<Leader>はバックスラッシュ
 
