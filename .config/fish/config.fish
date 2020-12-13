@@ -20,6 +20,8 @@ set -x PATH ~/usr/lib/bin $PATH
 set -x PATH $HOME/.nodebrew/current/bin $PATH
 set -x PATH /usr/local/git/bin $PATH
 
+
+
 # .bash_profile
 set -x PYENV_ROOT "$HOME/.pyenv"
 set -x PATH $PYENV_ROOT/bin:$PATH
@@ -111,8 +113,8 @@ function kaggle_jupyter
   docker run -v $PWD:/tmp/working -w=/tmp/working -p 8988:8888 --rm -it kaggle/python jupyter notebook --no-browser --ip="0.0.0.0" --notebook-dir=/tmp/working --allow-root
 end
 
-set -x LESSOPEN "| /usr/local/Cellar/source-highlight/3.1.9_2/bin/src-hilite-lesspipe.sh %s"
-set -x LESS '-R'
+# set -x LESSOPEN "| /usr/local/Cellar/source-highlight/3.1.9_2/bin/src-hilite-lesspipe.sh %s"
+# set -x LESS '-R'
 
 #—————————————————————————————————————————
 
