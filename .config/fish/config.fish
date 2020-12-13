@@ -19,25 +19,24 @@ set -x PATH $GOPATH/bin $PATH
 set -x PATH ~/usr/lib/bin $PATH
 set -x PATH $HOME/.nodebrew/current/bin $PATH
 set -x PATH /usr/local/git/bin $PATH
-
+set -x PATH $HOME/.cargo/bin $PATH
 
 
 # .bash_profile
-set -x PYENV_ROOT "$HOME/.pyenv"
-set -x PATH $PYENV_ROOT/bin:$PATH
-set -x PATH "$HOME/.pyenv/shims:$PATH"
+set -x PYENV_ROOT $HOME/.pyenv
+set -x PATH $PYENV_ROOT/bin $PATH
+set -x PATH $HOME/.pyenv/shims $PATH
 set -x PYTHONSTARTUP ~/.pythonstartup
-set -x PATH /usr/local/bin:$PATH
+set -x PATH /usr/local/bin $PATH
 set -x SDKMAN_DIR "/Users/masakatsu.hamashita/.sdkman"
 # .bashrc
 set -x HOMEBREW_CASK_OPTS "--appdir=/Applications"
-set -x PYENV_ROOT "$HOME/.pyenv"
-set -x PATH $PYENV_ROOT/shims:$PATH
-set -x PATH $HOME/.nodebrew/current/bin:$PATH
+set -x PYENV_ROOT $HOME/.pyenv
+set -x PATH $PYENV_ROOT/shims $PATH
+set -x PATH $HOME/.nodebrew/current/bin $PATH
 set -x CPLUS_INCLUDE_PATH $CPLUS_INCLUDE_PATH:/usr/local/include/c++/9.2.0/x86_64-apple-darwin18/
 
-set -x PATH "$HOME/bin:$PATH"
-set -U fish_user_paths $fish_user_paths $HOME/.cargo/bin
+set -x PATH $HOME/bin $PATH
 
 
 set -x CLICOLOR 1
