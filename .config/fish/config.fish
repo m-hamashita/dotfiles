@@ -10,6 +10,11 @@ set -x WORKON_HOME $HOME/.virtualenvs
 
 set fish_color_command green
 
+# カーソルをプロンプトの次の行にする
+set -g theme_newline_cursor yes
+set -g theme_newline_prompt (set_color green; echo ' $ ')
+set -g fish_prompt_pwd_dir_length 0
+
 set -x LANG ja_JP.UTF-8
 set -x LC_CTYPE ja_JP.UTF-8
 set -x LC_ALL 'ja_JP.UTF-8'
