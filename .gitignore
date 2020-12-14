@@ -1,9 +1,11 @@
 Session.vim
 .vim
 .config/*
+.config/fish/function
 !.config/karabiner/karabiner.json
 !.config/karabiner/kana.json
 !.config/nvim/init.vim
+!.config/fish/config.fish
 !.config/nvim/rc/dein.toml
 !.config/nvim/rc/dein_lazy.toml
 !.config/nvim/rc/plugin.md
