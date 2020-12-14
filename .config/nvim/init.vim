@@ -12,9 +12,9 @@ endif
 
 " let g:python_host_prog = system('(type pyenv &>/dev/null && echo -n $(pyenv root)/versions/$(pyenv global | grep python2)/bin/python) || echo -n $(which python2)')
 let g:python_host_prog = '/usr/bin/python2.7'
-let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n $(pyenv root)/versions/3.8.1/bin/python) || echo -n $(which python3)')
+" let g:python3_host_prog = system('(type pyenv &>/dev/null && echo $(pyenv root)/versions/3.8.1/bin/python) || echo -n $(which python3)')
 " let g:python_host_prog = '/usr/local/bin/python'
-" let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python3_host_prog = '~/.pyenv/shims/python3'
 
 " _ を単語に含めない
 " set isk-=_
