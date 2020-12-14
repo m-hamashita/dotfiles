@@ -1,7 +1,12 @@
 # fish_user_paths を config.fish で設定するな - https://qiita.com/HelloRusk/items/ea0089bf80b07aa74d8d
 
-set -x WORKON_HOME $HOME/.virtualenvs
+# vimのキーバインドになる
+fish_vi_key_bindings
 
+# jk で normal に
+set fish_key_bindings fish_user_key_bindings
+
+set -x WORKON_HOME $HOME/.virtualenvs
 
 set fish_color_command green
 
