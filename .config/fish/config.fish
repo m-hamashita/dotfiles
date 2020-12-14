@@ -1,4 +1,7 @@
+# fish_user_paths を config.fish で設定するな - https://qiita.com/HelloRusk/items/ea0089bf80b07aa74d8d
+
 set -x WORKON_HOME $HOME/.virtualenvs
+
 
 set fish_color_command green
 
@@ -51,10 +54,10 @@ alias :q 'exit'
 alias gd 'git diff'
 alias ga 'git add'
 alias gp 'git pull'
-alias gc 'git commit'
+alias gc 'git commit -m'
 alias gis 'git status'
 alias ... 'cd ../../'
-alias ref 'source ~/.zshrc'
+alias ref 'source ~/.config/fish/config.fish'
 
 alias gcl 'gcloud beta compute ssh --zone "us-west1-b" "global-wheat-detection-vm" --project "euphoric-diode-279610" -- -L 8080:localhost:8080 -L 8081:localhost:8081'
 # alias cd='pushd'
