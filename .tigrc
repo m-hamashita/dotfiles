@@ -19,3 +19,5 @@ color date yellow default
 color "Reported-by:"	green	default
 # View-specific color
 color tree.date		black	cyan bold
+bind main D !sh -c "git difftool %(commit)~ %(commit)"
+bind refs D !sh -c "git difftool %(branch)"
