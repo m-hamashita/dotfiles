@@ -1,10 +1,11 @@
 # fish_user_paths を config.fish で設定するな - https://qiita.com/HelloRusk/items/ea0089bf80b07aa74d8d
 
 # vimのキーバインドになる
-fish_vi_key_bindings
+# fish_vi_key_bindings
+set -U fish_key_bindings fish_default_key_bindings
 
-# jk で normal に
-set fish_key_bindings fish_user_key_bindings
+# jj で normal に
+#set fish_key_bindings fish_user_key_bindings
 
 set -x WORKON_HOME $HOME/.virtualenvs
 
@@ -65,7 +66,7 @@ alias gd 'git diff'
 alias ga 'git add'
 alias gp 'git pull'
 alias gc 'git commit -m'
-alias gis 'git status'
+alias gs 'git status'
 alias ... 'cd ../../'
 alias ref 'source ~/.config/fish/config.fish'
 
@@ -102,7 +103,7 @@ else
     alias ls 'ls -at'
 end
 
-alias grep 'grep --color'
+# alias grep 'grep --color'
 if [ -e "/Applications/CotEditor.app" ]
   alias cot 'open -a /Applications/'\''CotEditor.app'\'''
 end
@@ -130,77 +131,6 @@ end
 
 #—————————————————————————————————————————
 
-# 補完
-
-# fzf-cdr
-alias cdd 'fzf-cdr'
-function fzf-cdr
-    set target_dir `cdr -l | sed 's/^[^ ][^ ]*  *//' | fzf`
-    set target_dir `echo $target_dir/\~/$HOME`
-    if [ -n "$target_dir" ]
-        cd $target_dir
-    end
-end
-
-
-# cdr の設定
-if [ ! -e  "$HOME/.cache/shell/chpwd-recent-dirs" ]
-  mkdir -p $HOME/.cache/shell/
-  touch $HOME/.cache/shell/chpwd-recent-dirs
-end
-
-
-# fshow - git commit browser
-function fshow
-  git log --graph --color=always \
-      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$argv" |
-  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
-      --bind "ctrl-m:execute:
-                (grep -o '[a-f0-9]\{7\}' | head -1 |
-                xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
-                {}
-FZF-EOF"
-end
-
-# fzfでリポジトリ以下のファイルの中身を検索してvimで開く
-function fvim
-  set files (git ls-files) &&
-  set selected_files (echo "$files" | fzf -m --preview 'head -100 {}') &&
-  vim $selected_files
-end
-
-function gcd
-    if [ -n "$1" ]
-        set dir "(ghq list --full-path --exact "$1")"
-        if [ -z "$dir" ]
-            echo "no directroies found for '$1'"
-            return 1
-        end
-        cd "$dir"
-        return
-    end
-    echo 'usage: ghq-cd $repo'
-    return 1
-end
-
-
-
-# agの結果をfzfで絞り込み選択するとvimで開く
-alias agg="_agAndVim"
-function _agAndVim
-    if [ -z "$1" ]
-        echo 'Usage: agg PATTERN'
-        return 0
-    end
-    result=`ag $1 | fzf`
-    line=`echo "$result" | awk -F ':' '{print $2}'`
-    file=`echo "$result" | awk -F ':' '{print $1}'`
-    if [ -n "$file" ]
-        vim $file +$line
-    end
-end
-
-
 #manに色を付ける
 set -x MANPAGER 'less -R'
 function man
@@ -212,15 +142,13 @@ function man
 			LESS_TERMCAP_so=(printf "\e[1;44;33m") \
 			LESS_TERMCAP_ue=(printf "\e[0m") \
 			LESS_TERMCAP_us=(printf "\e[1;32m") \
-			man "$argv"
+			man "$argv[1]"
 end
 
 
-# set -x FZF_DEFAULT_OPTS '--height 40% --layout=reverse --border --preview "head -100 {}"'
+set -x FZF_DEFAULT_OPTS '--height 40% --layout=reverse --border --preview "head -100 {}"'
 
-
-
-# The next line updates PATH for the Google Cloud SDK.
+# # The next line updates PATH for the Google Cloud SDK.
 # if test -f '/Users/masakatsu.hamashita/gcp/google-cloud-sdk/path.zsh.inc'
 #     source '/Users/masakatsu.hamashita/gcp/google-cloud-sdk/path.zsh.inc';
 # end
