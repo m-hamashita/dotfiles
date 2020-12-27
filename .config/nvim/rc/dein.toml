@@ -233,3 +233,6 @@ repo = 'plasticboy/vim-markdown'
 [[plugins]]
 repo = 'dbgx/lldb.nvim'
 on_ft = ['c', 'cpp']
+
+[[plugins]]
+repo = 'hashivim/vim-terraform'

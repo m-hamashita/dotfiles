@@ -31,9 +31,6 @@ repo = 'psf/black'
 repo = 'cespare/vim-toml'
 
 [[plugins]]
-repo = 'hashivim/vim-terraform'
-
-[[plugins]]
 repo = "tyru/caw.vim.git"
 on_i = 1
 hook_add = '''
