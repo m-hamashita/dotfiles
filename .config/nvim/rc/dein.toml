@@ -236,3 +236,6 @@ on_ft = ['c', 'cpp']
 
 [[plugins]]
 repo = 'hashivim/vim-terraform'
+
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
