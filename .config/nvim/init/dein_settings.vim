@@ -248,3 +248,12 @@ let NERDTreeShowHidden=1
 
 " python file 起動時，Vista finder 起動
 " autocmd BufNewFile,BufRead *.py execute 'Vista'
+
+" translate.vim
+let g:translate_source = "en"
+let g:translate_target = "ja"
+let g:translate_popup_window = 1 " if you want use popup window, set value 1
+let g:translate_winsize = 5 " set buffer window height size if you doesn't use popup window
+
+nmap <space>t <Plug>(Translate)
+vmap <space>t <Plug>(VTranslate)
