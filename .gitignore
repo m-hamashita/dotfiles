@@ -12,7 +12,6 @@ Session.vim
 .config/inkscape/
 .config/karabiner/
 .config/nvim/.netrwhist
-.config/nvim/coc-settings.json
 .config/nvim/getpr/
 .config/nvim/rc/node_modules/
 .config/nvim/rc/package-lock.json
