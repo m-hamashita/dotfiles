@@ -17,7 +17,7 @@ ln -sf ~/dotfiles/.tmux ~/.tmux
 
 # ssh
 mkdir -p ~/.ssh
-ln -sf ~/dotfiles/.ssh/config ~/.ssh/config 
+ln -sf ~/dotfiles/.ssh/config ~/.ssh/config
 
 #.config (nvim, karabiner)
 ln -sf ~/dotfiles/.config/ ~/.config
@@ -25,4 +25,8 @@ ln -sf ~/dotfiles/.config/ ~/.config
 #.tigrc #gitのやつ
 ln -sf ~/dotfiles/.tigrc ~/.tigrc
 
-
+ln -sf ~/cheatsheet/.work_cheatsheet ~/.work_cheatsheet
+ln -sf ~/cheatsheet/.prog_cheatsheet ~/.prog_cheatsheet
+ln -sf ~/cheatsheet/.vim_cheatsheet ~/.vim_cheatsheet
+ln -sf ~/cheatsheet/.tmux_cheatsheet ~/.tmux_cheatsheet
+ln -sf ~/cheatsheet/.shell_cheatsheet ~/.shell_cheatsheet
