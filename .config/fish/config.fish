@@ -5,6 +5,8 @@ set -g theme_newline_cursor yes
 set -g theme_newline_prompt (set_color green; echo ' $ ')
 set -g fish_prompt_pwd_dir_length 0
 
+# コマンドの色を緑に
+set fish_color_command green
 
 #manに色を付ける
 set -x MANPAGER 'less -R'
