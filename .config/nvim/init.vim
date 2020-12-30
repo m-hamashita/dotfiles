@@ -151,7 +151,6 @@ nnoremap sk <C-w>k
 nnoremap sl <C-w>l
 nnoremap sh <C-w>h
 
-
 " noremap <S-h>   ^ "カーソル移動系shift+hjkl
 " noremap <S-j>   }
 " noremap <S-k>   {
@@ -233,13 +232,10 @@ nnoremap <C-l> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
 " q: でも閉じる
 map q: :q
-" 全部 ! にする
-" map :q :q!
-" map :wq :wq!
-
 
 "意味ないかも
 let $PATH = "~/.pyenv/shims:".$PATH
+
 " dein scripts-----------------------
 if &compatible
   set nocompatible
@@ -420,7 +416,6 @@ nmap <silent> [ale]<C-p> <Plug>(ale_previous)
 nmap <silent> [ale]<C-n> <Plug>(ale_next)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
 " vim-highlightedyank
 let g:highlightedyank_highlight_duration = 300
 
@@ -526,8 +521,6 @@ let g:preview_markdown_vertical = 1
 let g:preview_markdown_auto_update = 1
 let g:preview_markdown_parser='glow'
 
-"vim起動時にNERDTree起動
-"autocmd VimEnter * execute 'NERDTree'
 nnoremap <space>f :NERDTreeToggle<CR>
 " NERDTreeで隠しファイルも表示する
 let NERDTreeShowHidden=1
