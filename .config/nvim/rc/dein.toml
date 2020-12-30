@@ -239,3 +239,6 @@ repo = 'hashivim/vim-terraform'
 
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
+
+[[plugins]]
+repo = 'skanehira/translate.vim'
