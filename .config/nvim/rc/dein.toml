@@ -35,9 +35,6 @@ let coc#util#get_data_home = '/Users/masakatsu.hamashita/.config/coc'
 '''
 
 [[plugins]]
-repo='zxqfl/tabnine-vim'
-
-[[plugins]]
 repo = 'mengelbrecht/lightline-bufferline'
 
 [[plugins]]
