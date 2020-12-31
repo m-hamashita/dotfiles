@@ -26,9 +26,11 @@ set -x PATH $HOME/.cargo/bin $PATH
 set -x PATH $HOME/bin $PATH
 set -x PATH $HOME/.bin $PATH
 set -x PATH $HOME/usr/lib/bin $PATH
-set -x PATH /usr/local/opt/llvm/bin $PATH
 set -x PATH /usr/local/bin $PATH
 set -x PATH /usr/local/git/bin $PATH
+
+set -x PATH /usr/local/opt/llvm/bin $PATH
+set -g fish_user_paths "/usr/local/opt/llvm/bin" $fish_user_paths
 
 # pyenv
 set -x PYENV_ROOT $HOME/.pyenv
