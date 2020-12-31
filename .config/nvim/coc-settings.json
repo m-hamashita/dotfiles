@@ -1,20 +1,16 @@
 {
   "languageserver": {
-    "clangd": {
-          "command": "clangd",
-          "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-          "filetypes": ["c", "cpp", "objc", "objcpp"]
-        },
     "terraform": {
-        "command": "terraform-lsp",
-        "filetypes": [
-            "terraform",
-            "tf"
-        ],
-        "initializationOptions": {},
-        "settings": {}
+      "command": "terraform-lsp",
+      "filetypes": [
+          "terraform",
+          "tf"
+      ],
+      "initializationOptions": {},
+      "settings": {}
     }
   },
   "python.jediEnabled": false,
-  "coc.preferences.formatOnType": true
+  "coc.preferences.formatOnType": true,
+  "clangd.path": "/Users/masakatsu.hamashita/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd"
 }
