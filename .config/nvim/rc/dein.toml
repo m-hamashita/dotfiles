@@ -89,6 +89,7 @@ hook_add = '''
 	AlterCommand shell Shell
 	AlterCommand prog Prog
 	AlterCommand path Path
+	AlterCommand refresh Refresh
 '''
 
 # neovim terminal plugin
