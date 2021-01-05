@@ -89,5 +89,6 @@ command Cheat e ~/.vim_cheatsheet.md
 command Shell e ~/.shell_cheatsheet.md
 command Prog e ~/.prog_cheatsheet.md
 command Goal e ~/.goal_cheatsheet.md
+command Todo e ~/.todo_cheatsheet.md
 command Refresh :call dein#recache_runtimepath()
 command Path echo expand("%:p")

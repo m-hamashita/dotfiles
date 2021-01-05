@@ -89,6 +89,7 @@ hook_add = '''
 	AlterCommand shell Shell
 	AlterCommand prog Prog
 	AlterCommand goal Goal
+	AlterCommand todo Todo
 	AlterCommand path Path
 	AlterCommand refresh Refresh
 '''
