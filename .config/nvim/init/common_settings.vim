@@ -85,6 +85,12 @@ set autoindent
 " splitright
 set splitright
 
+" fold の設定
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
+
 
 " ハイライトする桁数
 set synmaxcol=600
