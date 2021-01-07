@@ -1,6 +1,11 @@
 # git checkout branchをfzfで選択
 alias co 'git checkout (git branch -a | tr -d " " |fzf --height 100% --prompt "CHECKOUT BRANCH>" --preview "git log --color=always {}" | head -n 1 | sed -e "s/^\*\s*//g" | perl -pe "s/remotes\/origin\///g")'
-alias cop 'git push origin (git branch -a | tr -d " " |fzf --height 100% --prompt "CHECKOUT BRANCH>" --preview "git log --color=always {}" | head -n 1 | sed -e "s/^\*\s*//g" | perl -pe "s/remotes\/origin\///g")'
+
+function cop
+ git branch -a | tr -d " " |fzf --height 100% --prompt "CHECKOUT BRANCH>" --preview "git log --color=always {}" | head -n 1 | sed -e "s/^\*\s*//g" | perl -pe "s/remotes\/origin\///g" | read -l repository_path
+ echo "git push origin $repository_path"
+ git push origin $repository_path
+end
 
 alias :q 'exit'
 alias gd 'git diff'
@@ -87,4 +92,32 @@ end
 # fzfでリポジトリ以下のファイルの中身を検索してvimで開く
 function fvim
   vim (git ls-files | fzf -m --preview 'head -100 {}')
+end
+
+# function cd
+#     if test $argv[1] = "-"
+#         echo "1" | cdh
+#     else
+#         builtin cd $argv;
+#         pwd >> $HOME/.config/fish/tmp/recent_dir.list
+#     end
+# end
+
+
+# https://github.com/fish-shell/fish-shell/issues/4869#issuecomment-377850086
+# cd - を使うための設定 builtin cd の代わりに使用
+functions -c cd standard_cd
+function cd
+    standard_cd $argv;
+    mkdir -p $HOME/.config/fish/tmp
+    touch $HOME/.config/fish/tmp/recent_dir.list
+    pwd >> $HOME/.config/fish/tmp/recent_dir.list
+end
+function cdr
+	tail -100 $HOME/.config/fish/tmp/recent_dir.list | \
+	ruby -ne 'BEGIN{$list=[]}; $list << $_; END{puts $list.reverse.uniq}' | \
+	fzf | read d
+	if [ $d ]
+	   cd $d
+	end
 end
