@@ -94,16 +94,6 @@ function fvim
   vim (git ls-files | fzf -m --preview 'head -100 {}')
 end
 
-# function cd
-#     if test $argv[1] = "-"
-#         echo "1" | cdh
-#     else
-#         builtin cd $argv;
-#         pwd >> $HOME/.config/fish/tmp/recent_dir.list
-#     end
-# end
-
-
 # https://github.com/fish-shell/fish-shell/issues/4869#issuecomment-377850086
 # cd - を使うための設定 builtin cd の代わりに使用
 functions -c cd standard_cd
