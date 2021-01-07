@@ -1,5 +1,6 @@
 # git checkout branchをfzfで選択
 alias co 'git checkout (git branch -a | tr -d " " |fzf --height 100% --prompt "CHECKOUT BRANCH>" --preview "git log --color=always {}" | head -n 1 | sed -e "s/^\*\s*//g" | perl -pe "s/remotes\/origin\///g")'
+alias cop 'git push origin (git branch -a | tr -d " " |fzf --height 100% --prompt "CHECKOUT BRANCH>" --preview "git log --color=always {}" | head -n 1 | sed -e "s/^\*\s*//g" | perl -pe "s/remotes\/origin\///g")'
 
 alias :q 'exit'
 alias gd 'git diff'
@@ -57,9 +58,32 @@ function pb
   cat $argv | pbcopy
 end
 
+function fzf-git-editdiff
+  vim (git diff --name-only | fzf)
+end
+function fish_user_key_bindings
+    bind \ce vd
+end
+
 function kaggle_python
   docker run -v $PWD:/tmp/working -w=/tmp/working --rm -it kaggle/python python "$argv"
 end
 function kaggle_jupyter
   docker run -v $PWD:/tmp/working -w=/tmp/working -p 8988:8888 --rm -it kaggle/python jupyter notebook --no-browser --ip="0.0.0.0" --notebook-dir=/tmp/working --allow-root
+end
+
+function fshow
+  git log --graph --color=always \
+      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" $argv |
+  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+      --bind "ctrl-m:execute:
+                (grep -o '[a-f0-9]\{7\}' | head -1 |
+                xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
+                {}
+FZF-EOF"
+end
+
+# fzfでリポジトリ以下のファイルの中身を検索してvimで開く
+function fvim
+  vim (git ls-files | fzf -m --preview 'head -100 {}')
 end
