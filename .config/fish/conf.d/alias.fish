@@ -19,6 +19,7 @@ alias vi 'vim'
 alias diff 'colordiff'
 alias his 'history | fzf | awk -F ";" "{system($2)}"'
 alias del_swap 'rm ~/.local/share/nvim/swap/*'
+alias root 'cd (git rev-parse --show-toplevel)'
 if [ (command -v rmtrash) ]
     alias rm 'rmtrash'
 else
