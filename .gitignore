@@ -1,5 +1,6 @@
 Session.vim
 .vim
+.config/fish/tmp/
 .config/fish/functions/*
 .config/coc/
 .config/dask/
