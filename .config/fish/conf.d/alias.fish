@@ -68,7 +68,7 @@ function fzf-git-editdiff
   vim (git diff --name-only | fzf)
 end
 function fish_user_key_bindings
-    bind \ce vd
+    bind \ce fzf-git-editdiff
 end
 
 function kaggle_python
@@ -102,6 +102,7 @@ function cd
     mkdir -p $HOME/.config/fish/tmp
     touch $HOME/.config/fish/tmp/recent_dir.list
     pwd >> $HOME/.config/fish/tmp/recent_dir.list
+    sort -u $HOME/.config/fish/tmp/recent_dir.list -o $HOME/.config/fish/tmp/recent_dir.list
 end
 function cdr
 	tail -100 $HOME/.config/fish/tmp/recent_dir.list | \
@@ -110,4 +111,8 @@ function cdr
 	if [ $d ]
 	   cd $d
 	end
+    commandline -f repaint
+end
+function fish_user_key_bindings
+    bind \c] cdr
 end
