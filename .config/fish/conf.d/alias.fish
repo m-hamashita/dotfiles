@@ -1,3 +1,5 @@
+
+
 # git checkout branchをfzfで選択
 alias co 'git checkout (git branch -a | tr -d " " |fzf --height 100% --prompt "CHECKOUT BRANCH>" --preview "git log --color=always {}" | head -n 1 | sed -e "s/^\*\s*//g" | perl -pe "s/remotes\/origin\///g")'
 
@@ -25,6 +27,14 @@ alias diff 'colordiff'
 alias his 'history | fzf | awk -F ";" "{system($2)}"'
 alias del_swap 'rm ~/.local/share/nvim/swap/*'
 alias root 'cd (git rev-parse --show-toplevel)'
+
+# abbr
+abbr -a dc docker-compose
+abbr -a awsdoc "aws ecr get-login-password | docker login --username AWS --password-stdin (aws sts get-caller-identity | jq -cr '.Account').dkr.ecr.ap-northeast-1.amazonaws.com"
+abbr -a one onelogin-aws-login -d 32400 --config-name ads --username masakatsu.hamashita@gunosy.com --profile default
+
+
+
 if [ (command -v rmtrash) ]
     alias rm 'rmtrash'
 else
