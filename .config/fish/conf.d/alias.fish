@@ -10,11 +10,6 @@ function cop
 end
 
 alias :q 'exit'
-alias gd 'git diff'
-alias ga 'git add'
-alias gp 'git pull'
-alias gc 'git commit -m'
-alias gs 'git status'
 alias ... 'cd ../../'
 alias ref 'source ~/.config/fish/config.fish'
 
@@ -29,6 +24,11 @@ alias del_swap 'rm ~/.local/share/nvim/swap/*'
 alias root 'cd (git rev-parse --show-toplevel)'
 
 # abbr
+abbr gd git diff
+abbr ga git add
+abbr gp git pull
+abbr gc git commit -m
+abbr gs git status
 abbr -a dc docker-compose
 abbr -a awsdoc "aws ecr get-login-password | docker login --username AWS --password-stdin (aws sts get-caller-identity | jq -cr '.Account').dkr.ecr.ap-northeast-1.amazonaws.com"
 abbr -a one onelogin-aws-login -d 32400 --config-name ads --username masakatsu.hamashita@gunosy.com --profile default
