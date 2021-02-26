@@ -25,6 +25,7 @@ set -x PATH $HOME/.nodebrew/current/bin $PATH
 set -x PATH $HOME/.cargo/bin $PATH
 set -x PATH $HOME/bin $PATH
 set -x PATH $HOME/.bin $PATH
+set -x PATH $HOME/.local/bin $PATH
 set -x PATH $HOME/usr/lib/bin $PATH
 set -x PATH /usr/local/bin $PATH
 set -x PATH /usr/local/git/bin $PATH
