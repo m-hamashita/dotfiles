@@ -115,7 +115,7 @@ function cd
     sort -u $HOME/.config/fish/tmp/recent_dir.list -o $HOME/.config/fish/tmp/recent_dir.list
 end
 function cdr
-	tail -100 $HOME/.config/fish/tmp/recent_dir.list | \
+	tail -500 $HOME/.config/fish/tmp/recent_dir.list | \
 	ruby -ne 'BEGIN{$list=[]}; $list << $_; END{puts $list.reverse.uniq}' | \
 	fzf | read d
 	if [ $d ]
