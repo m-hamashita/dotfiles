@@ -72,7 +72,7 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/deol.nvim'
 hook_add = '''
-nnoremap <silent><C-o> :<C-u>Deol -split=floating<CR>
+nnoremap <silent><C-p> :<C-u>Deol -split=floating<CR>
 tnoremap <silent>jj   <C-\><C-n>
 '''
 
