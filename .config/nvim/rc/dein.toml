@@ -245,3 +245,9 @@ repo = 'skanehira/translate.vim'
 
 [[plugins]]
 repo = 'dag/vim-fish'
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+hook_add = '''
+    let g:rustfmt_autosave = 1
+'''
