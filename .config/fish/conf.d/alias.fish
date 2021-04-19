@@ -33,7 +33,7 @@ abbr -a dc docker-compose
 abbr -a awsdoc "aws ecr get-login-password | docker login --username AWS --password-stdin (aws sts get-caller-identity | jq -cr '.Account').dkr.ecr.ap-northeast-1.amazonaws.com"
 abbr -a one onelogin-aws-login -d 32400 --config-name ads --username masakatsu.hamashita@gunosy.com --profile default
 abbr -a oneads onelogin-aws-login -d 32400 --config-name ads --username masakatsu.hamashita@gunosy.com --profile ads
-
+# abbr -a del "git branch --merged | grep -vE '^\\*|master|develop|staging' | xargs -I % git branch -d % && git remote prune origin"
 
 
 if [ (command -v rmtrash) ]
