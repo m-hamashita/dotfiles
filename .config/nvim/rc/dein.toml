@@ -251,3 +251,7 @@ repo = 'rust-lang/rust.vim'
 hook_add = '''
     let g:rustfmt_autosave = 1
 '''
+
+[[plugins]]
+repo = 'yaegassy/coc-pysen'
+build = 'yarn install --frozen-lockfile'
