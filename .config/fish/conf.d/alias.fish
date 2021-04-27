@@ -34,6 +34,7 @@ abbr -a awsdoc "aws ecr get-login-password | docker login --username AWS --passw
 abbr -a one onelogin-aws-login -d 32400 --config-name ads --username masakatsu.hamashita@gunosy.com --profile default
 abbr -a oneads onelogin-aws-login -d 32400 --config-name ads --username masakatsu.hamashita@gunosy.com --profile ads
 # abbr -a del "git branch --merged | grep -vE '^\\*|master|develop|staging' | xargs -I % git branch -d % && git remote prune origin"
+abbr -a gh open https://github.(git config remote.origin.url | cut -f2 -d. | tr ':' /)
 
 
 if [ (command -v rmtrash) ]
