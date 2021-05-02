@@ -251,3 +251,12 @@ repo = 'rust-lang/rust.vim'
 hook_add = '''
     let g:rustfmt_autosave = 1
 '''
+
+[[plugins]]
+repo = 'nvim-lua/popup.nvim'
+
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope.nvim'
