@@ -1,4 +1,5 @@
 Session.vim
+tsukae/
 .vim
 .config/fish/tmp/
 .config/fish/functions/*
@@ -20,6 +21,9 @@ Session.vim
 .config/nvim/rc/yarn.lock
 .config/slackcat/
 .config/vim/
+.config/nyaovim/
+package.json
+package-lock.json
 !.config/karabiner/karabiner.json
 !.config/karabiner/kana.json
 !.config/nvim/init.vim
