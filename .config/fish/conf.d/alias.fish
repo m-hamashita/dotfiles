@@ -128,3 +128,8 @@ end
 function fish_user_key_bindings
     bind \c] cdr
 end
+
+# command not found の時，cd する (zsh の auto_cd 的な)
+function __fish_command_not_found_handler --on-event fish_command_not_found
+    cd $argv[1]
+end
