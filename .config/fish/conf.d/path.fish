@@ -50,6 +50,3 @@ set -x CPLUS_INCLUDE_PATH $CPLUS_INCLUDE_PATH:/usr/local/include/c++/9.2.0/x86_6
 set -x HISTORY_IGNORE "(cd|pwd|ls)"
 
 set -x FZF_DEFAULT_OPTS '--height 40% --layout=reverse --border --preview "head -100 {}"'
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-set -x SDKMAN_DIR "/Users/masakatsu.hamashita/.sdkman"
-# [[ -s "/Users/masakatsu.hamashita/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/masakatsu.hamashita/.sdkman/bin/sdkman-init.sh"
