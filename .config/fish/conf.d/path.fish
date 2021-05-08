@@ -49,4 +49,4 @@ set -x CPLUS_INCLUDE_PATH $CPLUS_INCLUDE_PATH:/usr/local/include/c++/9.2.0/x86_6
 # cd, pwd などは history に登録しない
 set -x HISTORY_IGNORE "(cd|pwd|ls)"
 
-set -x FZF_DEFAULT_OPTS '--height 40% --layout=reverse --border --preview "head -100 {}"'
+set -x FZF_DEFAULT_OPTS '--height 70% --layout=reverse --preview "bat --style=numbers --color=always --line-range :300 {}"'

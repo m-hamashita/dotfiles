@@ -82,7 +82,7 @@ function pb
 end
 
 function fzf-git-diff-vim
-  git diff --relative --name-only | fzf --preview 'bat --color=always --style=numbers --line-range=:100 {}' | read file
+  git diff --relative --name-only | fzf | read file
   if [ $file ]
      vim $file
   end
@@ -91,7 +91,7 @@ end
 
 # fzfでリポジトリ以下のファイル名を検索して vim で開く
 function fzf-git-vim
-  git ls-files | fzf --preview 'bat --color=always --style=numbers --line-range=:100 {}' | read file
+  git ls-files | fzf | read file
   if [ $file ]
      vim $file
   end
