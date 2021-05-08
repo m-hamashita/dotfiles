@@ -83,9 +83,13 @@ function fzf-git-editdiff
   commandline -f repaint
 end
 
-# fzfでリポジトリ以下のファイルの中身を検索してvimで開く
+# fzfでリポジトリ以下のファイル名を検索して vim で開く
 function fzf-git-vim
-  vim (git ls-files | fzf -m --preview 'head -100 {}')
+  git ls-files | fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' | read file
+  if [ $file ]
+     vim $file
+  end
+  commandline -f repaint
 end
 
 function kaggle_python
