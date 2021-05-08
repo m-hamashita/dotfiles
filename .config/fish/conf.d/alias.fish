@@ -1,5 +1,3 @@
-
-
 # git checkout branchをfzfで選択
 alias co 'git checkout (git branch -a | tr -d " " |fzf --height 100% --prompt "CHECKOUT BRANCH>" --preview "git log --color=always {}" | head -n 1 | sed -e "s/^\*\s*//g" | perl -pe "s/remotes\/origin\///g")'
 
@@ -70,7 +68,6 @@ else
     echo "exa is not installed"
 end
 
-# alias grep 'grep --color'
 if [ -e "/Applications/CotEditor.app" ]
   alias cot 'open -a /Applications/'\''CotEditor.app'\'''
 else
@@ -85,7 +82,7 @@ function pb
 end
 
 function fzf-git-diff-vim
-  git diff --relative --name-only | fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' | read file
+  git diff --relative --name-only | fzf --preview 'bat --color=always --style=numbers --line-range=:100 {}' | read file
   if [ $file ]
      vim $file
   end
@@ -94,7 +91,7 @@ end
 
 # fzfでリポジトリ以下のファイル名を検索して vim で開く
 function fzf-git-vim
-  git ls-files | fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' | read file
+  git ls-files | fzf --preview 'bat --color=always --style=numbers --line-range=:100 {}' | read file
   if [ $file ]
      vim $file
   end
@@ -142,5 +139,5 @@ end
 
 # command not found の時，cd する (zsh の auto_cd 的な)
 function __fish_command_not_found_handler --on-event fish_command_not_found
-    cd $argv[1]
+    echo $argv[1]
 end
