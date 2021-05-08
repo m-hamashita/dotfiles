@@ -3,9 +3,9 @@ if bind -M insert >/dev/null 2>/dev/null
     bind -M insert \cg '__ghq_repository_search'
 end
 
-bind \ce 'fzf-git-editdiff'
+bind \ce 'fzf-git-diff-vim'
 if bind -M insert >/dev/null 2>/dev/null
-    bind -M insert \ce 'fzf-git-editdiff'
+    bind -M insert \ce 'fzf-git-diff-vim'
 end
 
 bind \c] 'cdr'

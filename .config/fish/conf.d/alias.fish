@@ -75,7 +75,7 @@ function pb
   cat $argv | pbcopy
 end
 
-function fzf-git-editdiff
+function fzf-git-diff-vim
   git diff --relative --name-only | fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' | read file
   if [ $file ]
      vim $file
