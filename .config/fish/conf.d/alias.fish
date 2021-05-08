@@ -36,7 +36,6 @@ abbr -a one onelogin-aws-login -d 32400 --config-name ads --username masakatsu.h
 abbr -a oneads onelogin-aws-login -d 32400 --config-name ads --username masakatsu.hamashita@gunosy.com --profile ads
 # abbr -a del "git branch --merged | grep -vE '^\\*|master|develop|staging' | xargs -I % git branch -d % && git remote prune origin"
 
-
 if [ (command -v rmtrash) ]
     alias rm 'rmtrash'
 else
@@ -77,10 +76,16 @@ function pb
 end
 
 function fzf-git-editdiff
-  vim (git diff --name-only | fzf)
+  git diff --relative --name-only | fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' | read file
+  if [ $file ]
+     vim $file
+  end
+  commandline -f repaint
 end
-function fish_user_key_bindings
-    bind \ce fzf-git-editdiff
+
+# fzfでリポジトリ以下のファイルの中身を検索してvimで開く
+function fzf-git-vim
+  vim (git ls-files | fzf -m --preview 'head -100 {}')
 end
 
 function kaggle_python
@@ -101,10 +106,6 @@ function fshow
 FZF-EOF"
 end
 
-# fzfでリポジトリ以下のファイルの中身を検索してvimで開く
-function fvim
-  vim (git ls-files | fzf -m --preview 'head -100 {}')
-end
 
 # https://github.com/fish-shell/fish-shell/issues/4869#issuecomment-377850086
 # cd - を使うための設定 builtin cd の代わりに使用
@@ -124,9 +125,6 @@ function cdr
 	   cd $d
 	end
     commandline -f repaint
-end
-function fish_user_key_bindings
-    bind \c] cdr
 end
 
 # command not found の時，cd する (zsh の auto_cd 的な)
