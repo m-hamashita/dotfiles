@@ -263,3 +263,10 @@ repo = 'nvim-telescope/telescope.nvim'
 
 [[plugins]]
 repo = 'fannheyward/telescope-coc.nvim'
+
+[[plugins]]
+repo = "tyru/caw.vim.git"
+hook_add = '''
+          nmap , <Plug>(caw:hatpos:toggle)
+          vmap , <Plug>(caw:hatpos:toggle)
+'''

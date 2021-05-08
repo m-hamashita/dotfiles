@@ -31,12 +31,4 @@ repo = 'psf/black'
 repo = 'cespare/vim-toml'
 
 [[plugins]]
-repo = "tyru/caw.vim.git"
-on_i = 1
-hook_add = '''
-          nmap , <Plug>(caw:hatpos:toggle)
-          vmap , <Plug>(caw:hatpos:toggle)
-'''
-
-[[plugins]]
 repo = 'scrooloose/nerdtree'
