@@ -19,7 +19,6 @@ alias gcl 'gcloud beta compute ssh --zone "us-west1-b" "global-wheat-detection-v
 alias df 'df -h'
 alias vi 'vim'
 alias diff 'colordiff'
-alias his 'history | fzf | awk -F ";" "{system($2)}"'
 alias del_swap 'rm ~/.local/share/nvim/swap/*'
 alias root 'cd (git rev-parse --show-toplevel)'
 alias gg 'open https://github.(git config remote.origin.url | cut -f2 -d. | tr ':' /)'
@@ -40,18 +39,27 @@ if [ (command -v rmtrash) ]
     alias rm 'rmtrash'
 else
     alias rm 'rm -i'
+    echo "rmtrash is not installed"
 end
 if [ (command -v nvim) ]
     alias vim 'nvim'
+else
+    echo "neovim is not installed"
 end
 if [ (command -v gcc-10) ]
     alias gcc '/usr/local/bin/gcc-10'
+else
+    echo "gcc-10 is not installed"
 end
 if [ (command -v g++-10) ]
     alias g++ '/usr/local/bin/g++-10'
+else
+    echo "g++-10 is not installed"
 end
 if [ (command -v tmux) ]
     alias ta 'tmux a -d'
+else
+    echo "tmux is not installed"
 end
 
 if [ (command -v exa) ]
@@ -59,14 +67,15 @@ if [ (command -v exa) ]
     alias tree 'exa --tree'
 else
     alias ls 'ls -at'
+    echo "exa is not installed"
 end
 
 # alias grep 'grep --color'
 if [ -e "/Applications/CotEditor.app" ]
   alias cot 'open -a /Applications/'\''CotEditor.app'\'''
+else
+    echo "CotEditer is not installed"
 end
-# alias history='history -f'
-# alias history 'cat ~/.zhistory'
 
 function mk
   mkdir $argv && cd $_
