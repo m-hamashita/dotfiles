@@ -1,10 +1,13 @@
 # git checkout branchをfzfで選択
-alias co 'git checkout (git branch -a | tr -d " " |fzf --height 100% --prompt "CHECKOUT BRANCH>" --preview "git log --color=always {}" | head -n 1 | sed -e "s/^\*\s*//g" | perl -pe "s/remotes\/origin\///g")'
+alias co 'git checkout (git branch -a | tr -d " " |fzf --height 70% --prompt "CHECKOUT BRANCH>" --preview "git log --color=always {}" | head -n 1 | sed -e "s/^\*\s*//g" | perl -pe "s/remotes\/origin\///g")'
 
 function cop
- git branch -a | tr -d " " |fzf --height 100% --prompt "CHECKOUT BRANCH>" --preview "git log --color=always {}" | head -n 1 | sed -e "s/^\*\s*//g" | perl -pe "s/remotes\/origin\///g" | read -l repository_path
- echo "git push origin $repository_path"
- git push origin $repository_path
+ git branch -a | tr -d " " |fzf --height 70% --prompt "CHECKOUT BRANCH>" --preview "git log --color=always {}" | head -n 1 | sed -e "s/^\*\s*//g" | perl -pe "s/remotes\/origin\///g" | read -l repository_path
+ if [ $repository_path ]
+    echo "git push origin $repository_path"
+    git push origin $repository_path
+ end
+ commandline -f repaint
 end
 
 alias :q 'exit'

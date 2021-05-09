@@ -17,3 +17,13 @@ bind \cv 'fzf-git-vim'
 if bind -M insert >/dev/null 2>/dev/null
     bind -M insert \cv 'fzf-git-vim'
 end
+
+bind \cb 'co'
+if bind -M insert >/dev/null 2>/dev/null
+    bind -M insert \cb 'co'
+end
+
+bind \co 'cop'
+if bind -M insert >/dev/null 2>/dev/null
+    bind -M insert \co 'cop'
+end
