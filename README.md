@@ -1,4 +1,5 @@
 # my dotfiles
+いずれ治す
 ## tmux
 - tpm install
 `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
