@@ -6,7 +6,6 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 export LDFLAGS="-L/usr/local/opt/llvm/lib"
 export CPPFLAGS="-I/usr/local/opt/llvm/include"
-# export PATH="/Users/mpeg/cquery/build/release/bin:$PATH"
 export CFLAGS="-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -mmacosx-version-min=10.14"
 export PATH=/usr/local/var/nodebrew/current/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$PATH
