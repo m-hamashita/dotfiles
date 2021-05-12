@@ -34,7 +34,7 @@
 	required = true
 	clean = git-lfs clean -- %f
 [ghq]
-	root = /Users/masakatsu.hamashita/Documents/work
+	root = ~/Documents/work
 [difftool]
 	prompt = true
 [branch]
