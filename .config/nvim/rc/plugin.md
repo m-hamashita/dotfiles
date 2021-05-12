@@ -1,8 +1,5 @@
 # ここにインストールしたpluginとその説明を記述する
 ## 使ってるやつ
-### 括弧とかいい感じに補完するやつ
-" call dein#add('cohama/lexima.vim')
-
 ### vim上でterminalが開ける
 [[plugins]]
 repo = 'Shougo/deol.nvim'
@@ -17,6 +14,19 @@ tnoremap <silent>jj  <C-\><C-n>
 
 ### ディレクトリをツリー表示とショートカットCtrl+eで開く
 call dein#add('scrooloose/nerdtree')
+
+### caw.vim
+" コメントアウトが簡単にできる
+[[plugins]]
+repo = "tyru/caw.vim.git"
+on_i = 1
+hook_add = '''
+          nmap c <Plug>(caw:hatpos:toggle)
+          vmap c <Plug>(caw:hatpos:toggle)
+          nmap , <Plug>(caw:zeropos:toggle)
+          vmap , <Plug>(caw:zeropos:toggle)
+'''
+
 ## 使ってないやつ
 ### deolate の設定
 let g:deoplete#enable_at_startup = 1
@@ -32,14 +42,5 @@ endif
 "Twitvim Refresh
 nnoremap <Leader>q :<C-u>RefreshTwitter<CR>
 
-### caw.vim
-" コメントアウトが簡単にできる
-[[plugins]]
-repo = "tyru/caw.vim.git"
-on_i = 1
-hook_add = '''
-          nmap c <Plug>(caw:hatpos:toggle)
-          vmap c <Plug>(caw:hatpos:toggle)
-          nmap , <Plug>(caw:zeropos:toggle)
-          vmap , <Plug>(caw:zeropos:toggle)
-'''
+### 括弧とかいい感じに補完するやつ
+" call dein#add('cohama/lexima.vim')
