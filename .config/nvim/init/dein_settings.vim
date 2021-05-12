@@ -1,4 +1,3 @@
-
 "lightline
 set laststatus=2
 set showtabline=2
@@ -146,17 +145,6 @@ nmap <leader>j <Plug>(easymotion-overwin-f2)
 map <leader>l <Plug>(easymotion-bd-jk)
 nmap <leader>l <Plug>(easymotion-overwin-line)
 
-
-"coc
-" インストールされていなかったら起動時にインストール
-let g:coc_global_extensions = ['coc-pyls']
-" インストール先を固定するために必要
-let g:coc_data_home = '~/'
-
-"coc-pairsのenterの挙動
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-
 " vim-markdown
 let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_liquid=1
@@ -166,6 +154,16 @@ let g:vim_markdown_toml_frontmatter=1
 let g:vim_markdown_json_frontmatter=0
 
 set nofoldenable
+
+"""""""""" coc """""""""""""""""""
+" インストールされていなかったら起動時にインストール
+let g:coc_global_extensions = ['coc-pyls']
+" インストール先を固定するために必要
+let g:coc_data_home = '~/'
+
+"coc-pairsのenterの挙動
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 
 " use <tab> for trigger completion and navigate to next complete item
 function! s:check_back_space() abort
@@ -232,7 +230,7 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 command! -nargs=0 Format :call CocAction('format')
 
 " Use `:Fold` for fold current buffer
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
 """"""""""""""""""""""coc""""""""""""""""""""""""""""""""""""
 
 " preview-markdown

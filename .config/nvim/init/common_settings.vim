@@ -146,7 +146,6 @@ set smartcase
 set wrapscan
 "---------------------
 " shift+K でカーソル下の word のヘルプを開くことができる
-set keywordprg=:help
-
+" set keywordprg=:help
 "カッコを閉じたとき対応するカッコに一時的に移動
 set nostartofline

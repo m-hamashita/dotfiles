@@ -1,4 +1,3 @@
-" dein scripts-----------------------
 if &compatible
   set nocompatible
 endif
@@ -15,7 +14,7 @@ if dein#load_state('~/.cache/dein')
   " ALE linter実行プラグイン　静的解析
   call dein#add('dense-analysis/ale')
 
-  "sessionが保存されるらしい
+  "sessionが保存される
   call dein#add('tpope/vim-obsession')
 
   "swiftのハイライト
@@ -34,4 +33,3 @@ endif
 if dein#check_install()
   call dein#install()
 endif
-"End dein scripts -----------------------------------------------
