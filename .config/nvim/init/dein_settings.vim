@@ -18,9 +18,6 @@ let twitvim_force_ssl = 1
 let twitvim_count = 40
 let twitvim_filter_enable = 1
 
-" Cheatsheet
-let g:cheatsheet#cheat_file = '~/.cheatsheet.md'
-
 function! Preserve(command)
     " Save the last search.
     let search = @/
