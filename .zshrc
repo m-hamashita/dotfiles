@@ -476,32 +476,27 @@ zmodload zsh/zprof #&& zprof
 #   zprof
 # fi
 
-
-
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/masakatsu.hamashita/gcp/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/masakatsu.hamashita/gcp/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f $HOME/gcp/google-cloud-sdk/path.zsh.inc ]; then . $HOME/gcp/google-cloud-sdk/path.zsh.inc; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/masakatsu.hamashita/gcp/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/masakatsu.hamashita/gcp/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f $HOME/gcp/google-cloud-sdk/completion.zsh.inc ]; then . $HOME/gcp/google-cloud-sdk/completion.zsh.inc; fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/masakatsu.hamashita/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('~/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/masakatsu.hamashita/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/masakatsu.hamashita/opt/anaconda3/etc/profile.d/conda.sh"
+    if [ -f $HOME/opt/anaconda3/etc/profile.d/conda.sh ]; then
+        . $HOME/opt/anaconda3/etc/profile.d/conda.sh
     else
-        export PATH="/Users/masakatsu.hamashita/opt/anaconda3/bin:$PATH"
+        export PATH=$HOME/opt/anaconda3/bin:$PATH
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/masakatsu.hamashita/.sdkman"
-[[ -s "/Users/masakatsu.hamashita/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/masakatsu.hamashita/.sdkman/bin/sdkman-init.sh"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # if (which zprof > /dev/null) ;then
