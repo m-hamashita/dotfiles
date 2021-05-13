@@ -119,8 +119,6 @@ _command_exists rmtrash || alias rm='rm -i'
 ! _command_exists nvim || alias vim='nvim'
 ! _command_exists gcc-10 || alias gcc='/usr/local/bin/gcc-10'
 ! _command_exists g++-10 || alias g++='/usr/local/bin/g++-10'
-# ! _command_exists gcloud || alias gcl='gcloud compute ssh --zone us-west1-b "pytorch-study-vm" -- -L 8888:localhost:8888'
-# ! _command_exists gcloud || alias gcli='gcloud compute ssh --zone us-central1-a "instance-2" -- -L 8888:localhost:8888'
 ! _command_exists tmux || alias ta='tmux a -d'
 if [ $(command -v exa) ]; then
     alias ls='exa -a --git'
