@@ -18,8 +18,7 @@
 `brew install node brew`
 `mkdir -p ~/.nodebrew/src`
 `nodebrew install-binary stable`
-- black install
-`pip install black`
+
 ## zsh
 - brew install zsh
 - zplug install
