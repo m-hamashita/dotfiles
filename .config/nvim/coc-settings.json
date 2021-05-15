@@ -1,16 +1,17 @@
 {
-  "languageserver": {
-    "terraform": {
-      "command": "terraform-lsp",
-      "filetypes": [
-          "terraform",
-          "tf"
-      ],
-      "initializationOptions": {},
-      "settings": {}
-    }
-  },
-  "python.jediEnabled": false,
-  "coc.preferences.formatOnType": true,
-  "clangd.path": "~/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd"
+    "suggest.noselect": false,
+    "languageserver": {
+        "terraform": {
+            "command": "terraform-lsp",
+            "filetypes": [
+                "terraform",
+                "tf"
+            ],
+            "initializationOptions": {},
+            "settings": {}
+        }
+    },
+    "python.jediEnabled": false,
+    "coc.preferences.formatOnType": true,
+    "clangd.path": "~/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd"
 }
