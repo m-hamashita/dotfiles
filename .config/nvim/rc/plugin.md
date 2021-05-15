@@ -44,3 +44,7 @@ nnoremap <Leader>q :<C-u>RefreshTwitter<CR>
 
 ### 括弧とかいい感じに補完するやつ
 " call dein#add('cohama/lexima.vim')
+
+### defx.nvim
+- brew tap homebrew/cask-fonts
+- brew cask install font-hack-nerd-font
