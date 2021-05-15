@@ -225,6 +225,15 @@ repo = 'easymotion/vim-easymotion'
 repo = 'Shougo/defx.nvim'
 
 [[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
+repo = 'kristijanhusak/defx-icons'
+
+[[plugins]]
+repo = 'kristijanhusak/defx-git'
+
+[[plugins]]
 repo = 'skanehira/preview-markdown.vim'
 
 [[plugins]]
