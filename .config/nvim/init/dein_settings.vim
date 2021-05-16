@@ -133,7 +133,7 @@ set nofoldenable
 
 """""""""" coc """""""""""""""""""
 " インストールされていなかったら起動時にインストール
-" let g:coc_global_extensions = ['coc-pyls']
+let g:coc_global_extensions = ['coc-pyls']
 " インストール先を固定するために必要
 let g:coc_data_home = '~/'
 
