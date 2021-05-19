@@ -28,6 +28,7 @@ alias gg 'open https://github.(git config remote.origin.url | cut -f2 -d. | tr '
 abbr gd git diff
 abbr ga git add
 abbr gp git pull
+abbr push git push origin (git rev-parse --abbrev-ref HEAD)
 abbr -a gc git commit -m
 abbr gs git status
 abbr -a dc docker-compose
@@ -141,6 +142,6 @@ function cdr
 end
 
 # command not found の時，cd する (zsh の auto_cd 的な)
-function __fish_command_not_found_handler --on-event fish_command_not_found
-    echo $argv[1]
-end
+# function __fish_command_not_found_handler --on-event fish_command_not_found
+#     echo $argv[1]
+# end
