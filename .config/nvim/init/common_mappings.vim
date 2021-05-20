@@ -60,6 +60,8 @@ nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 " nnoremap <silent> <Space>gb :Gblame<CR>
 nnoremap <silent> <Space>gd :Gdiff<CR>
 " nnoremap <silent> <Space>gs :Gstatus<CR>
+nnoremap <silent> <space>ga :Gwrite<CR>
+nnoremap <silent> <space>gc :Git commit<CR>
 
 " neoterm https://sy-base.com/myrobotics/vim/neovim-neoterm/
 nnoremap <c-t><c-t> :Ttoggle<CR>
