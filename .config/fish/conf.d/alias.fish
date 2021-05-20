@@ -1,12 +1,17 @@
 # git checkout branchをfzfで選択
-alias co 'git checkout (git branch -a | tr -d " " |fzf --height 70% --prompt "CHECKOUT BRANCH>" --preview "git log --color=always {}" | head -n 1 | sed -e "s/^\*\s*//g" | perl -pe "s/remotes\/origin\///g")'
+function co
+    git checkout (git branch -a | tr -d " " |fzf --height 70% --prompt "CHECKOUT BRANCH>" --preview "git log --color=always {}" | head -n 1 | sed -e "s/^\*\s*//g" | perl -pe "s/remotes\/origin\///g")
+    echo ""
+    commandline -f repaint
+end
 
 function cop
- git branch -a | tr -d " " |fzf --height 70% --prompt "CHECKOUT BRANCH>" --preview "git log --color=always {}" | head -n 1 | sed -e "s/^\*\s*//g" | perl -pe "s/remotes\/origin\///g" | read -l repository_path
+ git branch -a | tr -d " " |fzf --height 100% --prompt "CHECKOUT BRANCH>" --preview "git log --color=always {}" | head -n 1 | sed -e "s/^\*\s*//g" | perl -pe "s/remotes\/origin\///g" | read -l repository_path
  if [ $repository_path ]
     echo "git push origin $repository_path"
     git push origin $repository_path
  end
+ echo ""
  commandline -f repaint
 end
 
@@ -28,7 +33,6 @@ alias gg 'open https://github.(git config remote.origin.url | cut -f2 -d. | tr '
 abbr gd git diff
 abbr ga git add
 abbr gp git pull
-abbr push git push origin (git rev-parse --abbrev-ref HEAD)
 abbr -a gc git commit -m
 abbr gs git status
 abbr -a dc docker-compose
@@ -90,6 +94,7 @@ function fzf-git-diff-vim
   if [ $file ]
      vim $file
   end
+  echo ""
   commandline -f repaint
 end
 
@@ -99,6 +104,7 @@ function fzf-git-vim
   if [ $file ]
      vim $file
   end
+  echo ""
   commandline -f repaint
 end
 
@@ -138,10 +144,11 @@ function cdr
 	if [ $d ]
 	   cd $d
 	end
+    echo ""
     commandline -f repaint
 end
 
 # command not found の時，cd する (zsh の auto_cd 的な)
-# function __fish_command_not_found_handler --on-event fish_command_not_found
-#     echo $argv[1]
-# end
+function __fish_command_not_found_handler --on-event fish_command_not_found
+    echo $argv[1]
+end
