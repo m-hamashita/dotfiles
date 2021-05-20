@@ -1,5 +1,10 @@
 # my dotfiles
-いずれ治す
+
+## introduction
+`sh install.sh`
+`sh alias.sh`
+を実行すればそこそこいい感じになるはず．
+
 ## tmux
 - tpm install
 `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
@@ -27,8 +32,10 @@
   - https://gist.github.com/qrush/1595572
 
 ## fish
+- brew install fish
+- curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 - 補完を効かせる系を入れる
   - ex. `poetry completions fish > ~/.config/fish/completions/poetry.fish`
 
 ## mac
-- chsh -s /bin/zsh
+- chsh -s /usr/local/bin/fish

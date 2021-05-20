@@ -21,8 +21,11 @@ sh ./installer.sh
 # fish install
 brew install fish
 echo "Please add `/usr/local/bin/fish` to /etc/shells "
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 
 # font install
 echo "Please install powerline font"
 echo "Font: menlo for powerline"
 echo "Non-ASCII: Hack Nerd Font Mono for defx.nvim"
+
+chsh -s /usr/local/bin/fish
