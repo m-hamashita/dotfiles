@@ -33,6 +33,7 @@ alias gg 'open https://github.(git config remote.origin.url | cut -f2 -d. | tr '
 abbr gd git diff
 abbr ga git add
 abbr gp git pull
+abbr push git push origin (git rev-parse --abbrev-ref HEAD)
 abbr -a gc git commit -m
 abbr gs git status
 abbr -a dc docker-compose
