@@ -15,7 +15,7 @@
 `curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh`
 `sh ./installer.sh ~/.cache/dein`
 - node install
-`brew install node brew`
+`brew install nodebrew`
 `mkdir -p ~/.nodebrew/src`
 `nodebrew install-binary stable`
 
