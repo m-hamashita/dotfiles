@@ -15,6 +15,12 @@ function cop
  commandline -f repaint
 end
 
+function push
+    git rev-parse --abbrev-ref HEAD | read -l branch_name
+    echo "git push origin $branch_name"
+    git push origin $branch_name
+end
+
 alias :q 'exit'
 alias ... 'cd ../../'
 alias ref 'source ~/.config/fish/config.fish'
@@ -33,7 +39,6 @@ alias gg 'open https://github.(git config remote.origin.url | cut -f2 -d. | tr '
 abbr gd git diff
 abbr ga git add
 abbr gp git pull
-abbr push git push origin (git rev-parse --abbrev-ref HEAD)
 abbr -a gc git commit -m
 abbr gs git status
 abbr -a dc docker-compose
