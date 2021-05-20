@@ -32,6 +32,7 @@ package-lock.json
 !.config/fish/conf.d/alias.fish
 !.config/fish/conf.d/key_bindings.fish
 !.config/fish/functions/fish_user_key_bindings.fish
+!.config/fish/functions/tmuxpopup.fish
 !.config/nvim/rc/dein.toml
 !.config/nvim/rc/dein_lazy.toml
 !.config/nvim/rc/plugin.md
