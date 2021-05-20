@@ -10,39 +10,6 @@ if has('persistent_undo')
    set undofile
 endif
 
-" let g:python_host_prog = system('(type pyenv &>/dev/null && echo -n $(pyenv root)/versions/$(pyenv global | grep python2)/bin/python) || echo -n $(which python2)')
-let g:python_host_prog = '/usr/bin/python2.7'
-" let g:python3_host_prog = system('(type pyenv &>/dev/null && echo $(pyenv root)/versions/3.8.1/bin/python) || echo -n $(which python3)')
-" let g:python_host_prog = '/usr/local/bin/python'
-let g:python3_host_prog = '~/.pyenv/shims/python3'
-
-
-augroup fileTypeIndent
-  autocmd!
-  autocmd BufNewFile,BufRead *.dig setlocal tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd BufNewFile,BufRead *.vim setlocal tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd BufNewFile,BufRead *.cpp setlocal tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd BufNewFile,BufRead *.c setlocal tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd BufNewFile,BufRead *.md setlocal tabstop=2 softtabstop=2 shiftwidth=2
-augroup END
-
-" digdag
-autocmd BufNewFile,BufRead *.dig set filetype=yaml
-autocmd Syntax yaml setl indentkeys-=<:>
-
-"全角スペースの可視化
-highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
-au BufNewFile,BufRead * match ZenkakuSpace /　/
-set backspace=indent,eol,start
-
-"意味ないかも
-let $PATH = "~/.pyenv/shims:".$PATH
-
-"カーソル位置を復元
-"autocmd BufWinLeave ?* silent mkview
-"autocmd BufWinEnter ?* silent loadview
-autocmd BufReadPost * if line("'\"") > 0 && line ("'\"") <= line("$") | exe "normal! g'\"" | endif
-
 " _ を単語に含めない
 " set isk-=_
 " ctags
@@ -62,6 +29,7 @@ syntax on
 " filetypeによってインデントを変更する
 filetype plugin indent on
 filetype indent on
+
 " 行数を表示する
 set number
 " ルーラーを表示
@@ -91,8 +59,7 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=2
 
-
-" ハイライトする桁数
+" ハイライトする桁数(重さ軽減のため)
 set synmaxcol=600
 " 入力中のコマンドの表示
 set showcmd
@@ -110,7 +77,41 @@ set smartcase
 set wrapscan
 
 "---------------------
+
 " shift+K でカーソル下の word のヘルプを開くことができる
 " set keywordprg=:help
 "カッコを閉じたとき対応するカッコに一時的に移動
 set nostartofline
+
+
+" let g:python_host_prog = system('(type pyenv &>/dev/null && echo -n $(pyenv root)/versions/$(pyenv global | grep python2)/bin/python) || echo -n $(which python2)')
+let g:python_host_prog = '/usr/bin/python2.7'
+" let g:python3_host_prog = system('(type pyenv &>/dev/null && echo $(pyenv root)/versions/3.8.1/bin/python) || echo -n $(which python3)')
+let g:python3_host_prog = '~/.pyenv/shims/python3'
+
+
+augroup fileTypeIndent
+  autocmd!
+  autocmd BufNewFile,BufRead *.dig setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.vim setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.cpp setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.c setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.md setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
+augroup END
+
+" digdag
+autocmd BufNewFile,BufRead *.dig set filetype=yaml
+autocmd Syntax yaml setl indentkeys-=<:>
+
+"全角スペースの可視化
+highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
+au BufNewFile,BufRead * match ZenkakuSpace /　/
+
+"意味ないかも
+let $PATH = "~/.pyenv/shims:".$PATH
+
+"カーソル位置を復元
+"autocmd BufWinLeave ?* silent mkview
+"autocmd BufWinEnter ?* silent loadview
+autocmd BufReadPost * if line("'\"") > 0 && line ("'\"") <= line("$") | exe "normal! g'\"" | endif
