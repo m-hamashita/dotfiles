@@ -21,6 +21,7 @@ sh ./installer.sh
 # fish install
 brew install fish
 echo "Please add `/usr/local/bin/fish` to /etc/shells "
+
 # font install
 echo "Please install powerline font"
 echo "Font: menlo for powerline"
