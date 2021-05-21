@@ -5,19 +5,7 @@ set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
 
-  " vim-gitgutter gitのHEADからのコード追加，削除，変更を左端に表示
-  call dein#add('airblade/vim-gitgutter')
-
-  " 括弧に色を付けるやつ
-  call dein#add('luochen1990/rainbow')
-
-  " ALE linter実行プラグイン　静的解析
-  call dein#add('dense-analysis/ale')
-
-  "sessionが保存される
-  call dein#add('tpope/vim-obsession')
-
-  "swiftのハイライト
+  " syntax highlight for swift
   if has('mac')
     call dein#add('keith/swift.vim')
     call dein#add('landaire/deoplete-swift')

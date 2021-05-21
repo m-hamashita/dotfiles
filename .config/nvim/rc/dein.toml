@@ -5,6 +5,9 @@ repo = 'Shougo/dein.vim'
 repo = 'vim-scripts/wombat256.vim'
 
 [[plugins]]
+repo = 'luochen1990/rainbow'
+
+[[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
 let g:lightline = {
@@ -25,6 +28,12 @@ endfunction
 '''
 
 [[plugins]]
+repo = 'dense-analysis/ale'
+
+[[plugins]]
+repo = 'tpope/vim-obsession'
+
+[[plugins]]
 repo = 'fatih/vim-go'
 
 [[plugins]]
@@ -36,6 +45,9 @@ let coc#util#get_data_home = '~/.config/coc'
 
 [[plugins]]
 repo = 'mengelbrecht/lightline-bufferline'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
