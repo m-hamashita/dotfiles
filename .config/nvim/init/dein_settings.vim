@@ -22,6 +22,8 @@ autocmd FileType python nnoremap <S-f> :call Autopep8()<CR>
 
 filetype plugin indent on
 syntax enable
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " dein.vimでのプラグイン削除, :call
@@ -133,7 +135,7 @@ set nofoldenable
 
 """""""""" coc """""""""""""""""""
 " インストールされていなかったら起動時にインストール
-let g:coc_global_extensions = ['coc-pyls']
+let g:coc_global_extensions = ['coc-pyls', 'coc-python', 'coc-json', 'coc-pairs', 'coc-rls', 'coc-clangd']
 " インストール先を固定するために必要
 let g:coc_data_home = '~/'
 
