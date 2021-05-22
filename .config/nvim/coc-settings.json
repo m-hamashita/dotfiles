@@ -9,15 +9,9 @@
             ],
             "initializationOptions": {},
             "settings": {}
-        },
-        "clangd": {
-         "command": "clangd",
-         "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
-         "filetypes": ["c", "cpp", "objc", "objcpp"]
         }
     },
     "python.jediEnabled": false,
     "coc.preferences.formatOnType": true,
-    "clangd.path": "~/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd",
     "python.analysis.disabled": ["unresolved-import"]
 }
