@@ -1,18 +1,16 @@
 {
-    "suggest.noselect": false,
-    "languageserver": {
-        "terraform": {
-            "command": "terraform-lsp",
-            "filetypes": [
-                "terraform",
-                "tf"
-            ],
-            "initializationOptions": {},
-            "settings": {}
-        }
-    },
-    "python.jediEnabled": false,
-    "coc.preferences.formatOnType": true,
-    "python.analysis.disabled": ["unresolved-import"],
-    "eslint.autoFixOnSave": true,
+  "coc.preferences.formatOnSaveFiletypes": ["json", "css", "markdown"],
+  "suggest.noselect": false,
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["terraform", "tf"],
+      "initializationOptions": {},
+      "settings": {}
+    }
+  },
+  "python.jediEnabled": false,
+  "coc.preferences.formatOnType": true,
+  "python.analysis.disabled": ["unresolved-import"],
+  "eslint.autoFixOnSave": true
 }
