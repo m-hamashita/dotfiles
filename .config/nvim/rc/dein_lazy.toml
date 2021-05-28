@@ -32,3 +32,16 @@ repo = 'cespare/vim-toml'
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
+
+
+[[plugins]]
+repo = 'elzr/vim-json'
+on_ft = ['json']
+
+[[plugins]]
+repo = 'yuezk/vim-js'
+on_ft = ['javascript', 'javascript.jsx']
+
+[[plugins]]
+repo = 'maxmellon/vim-jsx-pretty'
+on_ft = ['javascript', 'javascript.jsx']
