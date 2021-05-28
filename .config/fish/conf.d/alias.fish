@@ -23,6 +23,7 @@ end
 
 alias :q 'exit'
 alias ref 'source ~/.config/fish/config.fish'
+alias dotfile 'cd ~/dotfiles/'
 
 alias gcl 'gcloud beta compute ssh --zone "us-west1-b" "global-wheat-detection-vm" --project "euphoric-diode-279610" -- -L 8080:localhost:8080 -L 8081:localhost:8081'
 # alias cd='pushd'
