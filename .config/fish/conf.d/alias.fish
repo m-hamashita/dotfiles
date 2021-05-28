@@ -22,7 +22,6 @@ function push
 end
 
 alias :q 'exit'
-alias ... 'cd ../../'
 alias ref 'source ~/.config/fish/config.fish'
 
 alias gcl 'gcloud beta compute ssh --zone "us-west1-b" "global-wheat-detection-vm" --project "euphoric-diode-279610" -- -L 8080:localhost:8080 -L 8081:localhost:8081'
@@ -46,6 +45,8 @@ abbr -a dc docker-compose
 abbr -a awsdoc "aws ecr get-login-password | docker login --username AWS --password-stdin (aws sts get-caller-identity | jq -cr '.Account').dkr.ecr.ap-northeast-1.amazonaws.com"
 abbr -a one onelogin-aws-login -d 32400 --config-name ads --username masakatsu.hamashita@gunosy.com --profile default
 abbr -a oneads onelogin-aws-login -d 32400 --config-name ads --username masakatsu.hamashita@gunosy.com --profile ads
+abbr -a ... '../../'
+abbr -a .... '../../../'
 # abbr -a del "git branch --merged | grep -vE '^\\*|master|develop|staging' | xargs -I % git branch -d % && git remote prune origin"
 
 if [ (command -v rmtrash) ]
