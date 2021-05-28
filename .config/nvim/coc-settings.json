@@ -13,5 +13,6 @@
     },
     "python.jediEnabled": false,
     "coc.preferences.formatOnType": true,
-    "python.analysis.disabled": ["unresolved-import"]
+    "python.analysis.disabled": ["unresolved-import"],
+    "eslint.autoFixOnSave": true,
 }
