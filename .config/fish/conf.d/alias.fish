@@ -34,6 +34,7 @@ alias diff 'colordiff'
 alias del_swap 'rm ~/.local/share/nvim/swap/*'
 alias root 'cd (git rev-parse --show-toplevel)'
 alias gg 'open https://github.(git config remote.origin.url | cut -f2 -d. | tr ':' /)'
+alias cat 'bat'
 
 # abbr
 abbr gd git diff
