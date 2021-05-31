@@ -144,7 +144,7 @@ set sessionoptions+=globals
 
 "coc-pairsのenterの挙動
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
+autocmd FileType cpp let b:coc_pairs_disabled = ["<"]
 
 " use <tab> for trigger completion and navigate to next complete item
 function! s:check_back_space() abort
