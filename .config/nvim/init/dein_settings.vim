@@ -302,7 +302,7 @@ call defx#custom#option('_', {
       \ 'buffer_name': 'explorer',
       \ 'toggle': 1,
       \ 'resume': 1,
-      \ 'columns': 'mark:indent:git:icons:filename',
+      \ 'columns': 'mark:indent:icons:filename',
       \ 'post_action': 'jump',
       \ })
 
