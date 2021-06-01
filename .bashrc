@@ -21,3 +21,5 @@ fi
 
 export PATH="$HOME/bin:$PATH"
 source "$HOME/.cargo/env"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
