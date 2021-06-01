@@ -230,7 +230,7 @@ autocmd FileType defx call s:defx_my_settings()
 
 function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> <CR>
-   \ defx#do_action('drop')
+   \ defx#do_action('open')
   nnoremap <silent><buffer><expr> c
   \ defx#do_action('copy')
   nnoremap <silent><buffer><expr> m
@@ -302,7 +302,13 @@ call defx#custom#option('_', {
       \ 'buffer_name': 'explorer',
       \ 'toggle': 1,
       \ 'resume': 1,
-      \ 'columns': 'indent:git:icons:filename:mark',
+      \ 'columns': 'mark:indent:git:icons:filename',
+      \ 'post_action': 'jump',
+      \ })
+
+call defx#custom#column('mark', {
+      \ 'readonly_icon': '✗',
+      \ 'selected_icon': '✓',
       \ })
 
 " 起動時に Defx 起動
