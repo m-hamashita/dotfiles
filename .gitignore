@@ -22,6 +22,7 @@ tsukae/
 .config/slackcat/
 .config/vim/
 .config/nyaovim/
+.config/DMM/
 package.json
 package-lock.json
 !.config/karabiner/karabiner.json
