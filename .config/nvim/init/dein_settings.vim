@@ -207,6 +207,11 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
 
+nmap <leader>d  :CocDiagnostic<CR>
+nmap <silent>gk <Plug>(coc-diagnostic-prev)
+nmap <silent>gj <Plug>(coc-diagnostic-next)
+
+
 " Use `:Format` for format current buffer
 command! -nargs=0 Format :call CocAction('format')
 
