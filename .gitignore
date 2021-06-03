@@ -23,6 +23,7 @@ tsukae/
 .config/vim/
 .config/nyaovim/
 .config/DMM/
+.config/wandb/
 package.json
 package-lock.json
 !.config/karabiner/karabiner.json
