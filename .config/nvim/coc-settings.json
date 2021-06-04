@@ -18,5 +18,7 @@
   "python.jediEnabled": false,
   "coc.preferences.formatOnType": true,
   "python.analysis.disabled": ["unresolved-import"],
-  "eslint.autoFixOnSave": true
+  "eslint.autoFixOnSave": true,
+  "pyls.plugins.pyflakes.enabled": false,
+  "pyls.plugins.pycodestyle.enabled": false
 }
