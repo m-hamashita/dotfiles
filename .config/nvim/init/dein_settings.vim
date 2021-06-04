@@ -58,8 +58,9 @@ let g:airline_theme = 'papercolor'
 " tabline
 let g:airline#extensions#tabline#enabled = 1
 
-
-""""""""ALE設定"""""""""""""""""""""""""""""""""""""""""""""""
+" ===============================================
+" ALE設定
+" ===============================================
 " エラー行に表示するマーク
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
@@ -96,8 +97,7 @@ let g:ale_fix_on_save = 1
 " 各ツールの実行オプションを変更してPythonパスを固定
 " let g:ale_python_flake8_executable = g:python3_host_prog
 " let g:ale_python_flake8_options = '-m flake8'
-let g:ale_python_flake8_options = '--ignore=E501'
-" let g:ale_python_flake8_options .= ' --max-line-length=120'
+let g:ale_python_flake8_use_global = 1
 " let g:ale_python_isort_executable = g:python3_host_prog
 " let g:ale_python_isort_options = '-m isort'
 " let g:ale_python_black_executable = g:python3_host_prog
@@ -133,7 +133,11 @@ let g:vim_markdown_json_frontmatter=0
 
 set nofoldenable
 
-"""""""""" coc """""""""""""""""""
+
+
+" ===============================================
+" Coc
+" ===============================================
 " インストールされていなかったら起動時にインストール
 let g:coc_global_extensions = ['coc-pyls', 'coc-python', 'coc-json', 'coc-pairs', 'coc-rls', 'coc-clangd', 'coc-tsserver', 'coc-prettier', 'coc-eslint']
 " インストール先を固定するために必要
@@ -217,7 +221,9 @@ command! -nargs=0 Format :call CocAction('format')
 
 " Use `:Fold` for fold current buffer
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
-""""""""""""""""""""""coc""""""""""""""""""""""""""""""""""""
+
+" ===============================================
+
 
 " preview-markdown
 nnoremap <space>md :PreviewMarkdown<CR>
