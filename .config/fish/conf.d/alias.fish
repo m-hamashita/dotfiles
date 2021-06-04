@@ -160,5 +160,5 @@ end
 
 # command not found の時，cd する (zsh の auto_cd 的な)
 function __fish_command_not_found_handler --on-event fish_command_not_found
-    echo $argv[1]
+    cd $argv[1]
 end
