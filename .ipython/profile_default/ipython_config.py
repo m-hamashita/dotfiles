@@ -541,6 +541,7 @@
 
 ## Experimental: Use Jedi to generate autocompletions. Default to True if jedi is
 #  installed.
+# https://github.com/ipython/ipython/issues/10493
 c.Completer.use_jedi = False
 
 # ------------------------------------------------------------------------------
