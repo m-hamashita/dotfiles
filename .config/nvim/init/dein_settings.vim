@@ -210,7 +210,7 @@ augroup mygroup
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
   " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
+augroup END
 
 augroup cocJson
   autocmd!
@@ -343,6 +343,8 @@ call defx#custom#column('mark', {
       \ 'selected_icon': '✓',
       \ })
 
+
+" Vista
 " python file 起動時，Vista finder 起動
 " augroup vistaSettings
 " autocmd!
@@ -350,6 +352,7 @@ call defx#custom#column('mark', {
 " augroup END
 
 " telescope.nvim
+"
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
