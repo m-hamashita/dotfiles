@@ -13,18 +13,6 @@
       "filetypes": ["terraform", "tf"],
       "initializationOptions": {},
       "settings": {}
-    },
-    "efm": {
-      "command": "efm-langserver",
-      "args": ["-c", "~/.config/efm-langserver/config.yaml"],
-      "filetypes": ["vim"],
-      "initializationOptions": {
-        "documentFormatting": true,
-        "hover": true,
-        "documentSymbol": true,
-        "codeAction": true,
-        "completion": true
-      }
     }
   },
   "python.jediEnabled": false,

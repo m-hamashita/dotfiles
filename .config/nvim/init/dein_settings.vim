@@ -88,6 +88,7 @@ let g:ale_keep_list_window_open = 1
 let g:ale_linters = {
 \   'python': ['flake8'],
 \   'cpp': ['clangd'],
+\   'vim': ['vint'],
 \}
 let g:ale_fixers = {
   \   '*': ['remove_trailing_lines', 'trim_whitespace'],
