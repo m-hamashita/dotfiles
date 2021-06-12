@@ -64,22 +64,22 @@ set synmaxcol=600
 set showcmd
 
 "-------Search--------
-"検索結果をハイライト表示する
+" 検索結果をハイライト表示する
 set hlsearch
-"インクリメンタルサーチを有効にする
+" インクリメンタルサーチを有効にする
 set incsearch
-"大文字小文字を区別しない
+" 大文字小文字を区別しない
 set ignorecase
-"大文字で検索されたら対象を大文字限定にする
+" 大文字で検索されたら対象を大文字限定にする
 set smartcase
-"行末まで検索したら行頭に戻る
+" 行末まで検索したら行頭に戻る
 set wrapscan
 
 "---------------------
 
 " shift+K でカーソル下の word のヘルプを開くことができる
 " set keywordprg=:help
-"カッコを閉じたとき対応するカッコに一時的に移動
+" カッコを閉じたとき対応するカッコに一時的に移動
 set nostartofline
 
 
@@ -102,17 +102,25 @@ augroup fileTypeIndent
 augroup END
 
 " digdag
-autocmd BufNewFile,BufRead *.dig set filetype=yaml
-autocmd Syntax yaml setl indentkeys-=<:>
+augroup digdagSettings
+  autocmd!
+  autocmd BufNewFile,BufRead *.dig set filetype=yaml
+  autocmd Syntax yaml setl indentkeys-=<:>
+augroup END
 
-"全角スペースの可視化
-highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
-au BufNewFile,BufRead * match ZenkakuSpace /　/
+" 全角スペースの可視化
+augroup zenkakuVisual
+  highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
+  au BufNewFile,BufRead * match ZenkakuSpace /　/
+augroup END
 
-"意味ないかも
-let $PATH = "~/.pyenv/shims:".$PATH
+" 意味ないかも
+let $PATH = '~/.pyenv/shims:'.$PATH
 
-"カーソル位置を復元
-"autocmd BufWinLeave ?* silent mkview
-"autocmd BufWinEnter ?* silent loadview
-autocmd BufReadPost * if line("'\"") > 0 && line ("'\"") <= line("$") | exe "normal! g'\"" | endif
+" カーソル位置を復元
+augroup cursorRestore
+  autocmd!
+  " autocmd BufWinLeave ?* silent mkview
+  " autocmd BufWinEnter ?* silent loadview
+  autocmd BufReadPost * if line("'\"") > 0 && line ("'\"") <= line("$") | exe "normal! g'\"" | endif
+augroup END

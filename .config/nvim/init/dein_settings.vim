@@ -19,9 +19,6 @@ let twitvim_force_ssl = 1
 let twitvim_count = 40
 let twitvim_filter_enable = 1
 
-" Shift + F で自動修正
-autocmd FileType python nnoremap <S-f> :call Autopep8()<CR>
-
 filetype plugin indent on
 syntax enable
 
@@ -50,7 +47,10 @@ let g:neocomplete#text_mode_filetypes={
 		\ 'help' : 1,
 		\ 'tex' : 1,
 		\ }
-autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mark*} set filetype=markdown
+augroup necolookSetting
+  autocmd!
+  autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mark*} set filetype=markdown
+augroup END
 ""Neco-look------
 
 " powerline
@@ -146,17 +146,23 @@ let g:coc_global_extensions = ['coc-pyls', 'coc-python', 'coc-json', 'coc-pairs'
 " インストール先を固定するために必要
 let g:coc_data_home = '~/'
 
-autocmd FileType python let b:coc_root_patterns = ['pyproject.toml', '.git']
+augroup cocRootPattern
+  autocmd!
+  autocmd FileType python let b:coc_root_patterns = ['pyproject.toml', '.git']
+augroup END
 set sessionoptions+=globals
 
 "coc-pairsのenterの挙動
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-autocmd FileType cpp let b:coc_pairs_disabled = ["<"]
+augroup cocPairsSettings
+  autocmd!
+  autocmd FileType cpp let b:coc_pairs_disabled = ["<"]
+augroup END
 
 " use <tab> for trigger completion and navigate to next complete item
 function! s:check_back_space() abort
   let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
+  return !col || getline('.')[col - 1]  =~? '\s'
 endfunction
 inoremap <silent><expr> <TAB>
      \ pumvisible() ? "\<C-n>" :
@@ -186,7 +192,10 @@ function! s:show_documentation()
 endfunction
 
 " Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup cocCursorHold
+  autocmd!
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup END
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
@@ -203,7 +212,10 @@ augroup mygroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-autocmd FileType json syntax match Comment +\/\/.\+$+
+augroup cocJson
+  autocmd!
+  autocmd FileType json syntax match Comment +\/\/.\+$+
+augroup END
 
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
 vmap <leader>a  <Plug>(coc-codeaction-selected)
@@ -240,7 +252,13 @@ let g:preview_markdown_parser='glow'
 
 " defx.nvim
 nnoremap <space>f :Defx<CR>
-autocmd FileType defx call s:defx_my_settings()
+augroup defxSettings
+  autocmd!
+  autocmd FileType defx call s:defx_my_settings()
+  " 起動時に Defx 起動
+  " autocmd VimEnter * execute 'Defx'
+  " nnoremap <silent> <Leader>f :<C-u> Defx <CR>
+augroup END
 
 function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> <CR>
@@ -325,16 +343,15 @@ call defx#custom#column('mark', {
       \ 'selected_icon': '✓',
       \ })
 
-" 起動時に Defx 起動
-" autocmd VimEnter * execute 'Defx'
-" nnoremap <silent> <Leader>f :<C-u> Defx <CR>
-
 " python file 起動時，Vista finder 起動
+" augroup vistaSettings
+" autocmd!
 " autocmd BufNewFile,BufRead *.py execute 'Vista'
+" augroup END
 
 " translate.vim
-let g:translate_source = "en"
-let g:translate_target = "ja"
+let g:translate_source = 'en'
+let g:translate_target = 'ja'
 let g:translate_popup_window = 1 " if you want use popup window, set value 1
 let g:translate_winsize = 5 " set buffer window height size if you doesn't use popup window
 

@@ -19,13 +19,20 @@ nnoremap <silent> <C-j> :bprev<CR>
 nnoremap <silent> <C-k> :bnext<CR>
 
 " ctags
-autocmd FileType python nnoremap <C-]> g<C-]>
-autocmd FileType python inoremap <C-]> <ESC>g<C-]>
-autocmd FileType python nnoremap <silent><C-[> <C-t>
+augroup pythonJumpDefinition
+  autocmd!
+  autocmd FileType python nnoremap <C-]> g<C-]>
+  autocmd FileType python inoremap <C-]> <ESC>g<C-]>
+  autocmd FileType python nnoremap <silent><C-[> <C-t>
+augroup end
+
 " vim-go
-autocmd FileType go nnoremap <silent> <C-[> :GoDefPop<CR>
-autocmd FileType go nmap <leader>s <Plug>(go-def-split)
-autocmd FileType go nmap <leader>v <Plug>(go-def-vertical)
+augroup goJumpDefinition
+  autocmd!
+  autocmd FileType go nnoremap <silent> <C-[> :GoDefPop<CR>
+  autocmd FileType go nmap <leader>s <Plug>(go-def-split)
+  autocmd FileType go nmap <leader>v <Plug>(go-def-vertical)
+augroup end
 
 " space+. でvimrcを開く
 nnoremap <Space>. :<C-u>tabedit $MYVIMRC<CR>
