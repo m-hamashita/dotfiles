@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 if &compatible
   set nocompatible
 endif

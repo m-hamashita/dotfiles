@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 " x で削除した時にコピーしない
 noremap x "_x
 
