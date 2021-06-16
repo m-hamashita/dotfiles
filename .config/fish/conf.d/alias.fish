@@ -165,7 +165,7 @@ end
 
 function docker-run
     set name (docker image ls | sed -e '1d' | fzf --height 40% --reverse | awk -v 'OFS=:' '{print $1,$2}')
-    docker run -it $name $argv
+    docker run -it --rm $name $argv
 end
 
 # command not found の時，cd する (zsh の auto_cd 的な)
