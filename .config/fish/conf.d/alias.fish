@@ -158,6 +158,16 @@ function cdr
     commandline -f repaint
 end
 
+function docker-exec
+    set name (docker ps --format "{{.Names}}" | fzf)
+    docker exec -it $name $argv
+end
+
+function docker-run
+    set name (docker image ls | sed -e '1d' | fzf --height 40% --reverse | awk -v 'OFS=:' '{print $1,$2}')
+    docker run -it $name $argv
+end
+
 # command not found の時，cd する (zsh の auto_cd 的な)
 function __fish_command_not_found_handler --on-event fish_command_not_found
     cd $argv[1]
