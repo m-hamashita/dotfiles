@@ -21,6 +21,12 @@ function push
     git push origin $branch_name
 end
 
+function pull
+    git rev-parse --abbrev-ref HEAD | read -l branch_name
+    echo "git pull origin $branch_name"
+    git pull origin $branch_name
+end
+
 alias :q 'exit'
 alias ref 'source ~/.config/fish/config.fish'
 alias dotfiles 'cd ~/dotfiles/'
