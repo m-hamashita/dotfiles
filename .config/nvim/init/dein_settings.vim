@@ -142,7 +142,7 @@ set nofoldenable
 " Coc
 " ===============================================
 " インストールされていなかったら起動時にインストール
-let g:coc_global_extensions = ['coc-pyls', 'coc-python', 'coc-json', 'coc-pairs', 'coc-rls', 'coc-clangd', 'coc-tsserver', 'coc-prettier', 'coc-eslint']
+let g:coc_global_extensions = ['coc-pyls', 'coc-python', 'coc-json', 'coc-pairs', 'coc-rls', 'coc-clangd', 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-yaml']
 " インストール先を固定するために必要
 let g:coc_data_home = '~/'
 
