@@ -21,3 +21,6 @@ color "Reported-by:"	green	default
 color tree.date		black	cyan bold
 bind main D !sh -c "git difftool %(commit)~ %(commit)"
 bind refs D !sh -c "git difftool %(branch)"
+
+# copy commit hash
+bind generic y @sh -c "echo %(commit) | pbcopy"
