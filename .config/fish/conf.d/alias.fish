@@ -49,6 +49,7 @@ alias root 'cd (git rev-parse --show-toplevel)'
 alias gg 'open https://github.(git config remote.origin.url | cut -f2 -d. | tr ':' /)'
 alias cat 'bat'
 alias digdag '/bin/bash ~/bin/digdag'
+
 # abbr
 abbr gd git diff
 abbr ga git add
@@ -109,6 +110,11 @@ function mk
 end
 function pb
   cat $argv | pbcopy
+end
+
+function swap
+    set TMPFILE tmp."%self"
+    mv "$argv[1]" $TMPFILE && mv "$argv[2]" "$argv[1]" && mv $TMPFILE "$argv[2]"
 end
 
 function fzf-git-diff-vim
