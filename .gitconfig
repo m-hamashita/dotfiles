@@ -15,8 +15,11 @@
 [mergetool "nvimdiff"]
   cmd = "nvim -d -c \"4wincmd w | wincmd J\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"  \"$MERGED\""
 [user]
-	name = m.hama
+	name = m-hamashita
 	email = masakatsu.hamashita@gunosy.com
+[url "github:"]
+	InsteadOf = https://github.com/
+	InsteadOf = git@github.com:
 [color]
 	diff = auto
 	status = auto
