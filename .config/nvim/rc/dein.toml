@@ -291,3 +291,6 @@ hook_add = '''
           nmap , <Plug>(caw:hatpos:toggle)
           vmap , <Plug>(caw:hatpos:toggle)
 '''
+
+[[plugins]]
+repo = "nathanaelkane/vim-indent-guides"

@@ -368,6 +368,24 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
+" vim-indent-guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_default_mapping = 0
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_guide_size = 1
+let g:indent_guides_exclude_filetypes = ['help', 'man', 'startify', 'go']
+
+function! s:myIndentGuideHighlight()
+  highlight IndentGuidesOdd guibg=NONE
+  highlight IndentGuidesEven guibg=green ctermbg=235
+  " https://h2plus.biz/hiromitsu/entry/674
+endfunction
+
+augroup indentGuideHighlight
+  autocmd!
+  autocmd VimEnter,ColorScheme * call s:myIndentGuideHighlight()
+augroup END
+
 " git-fugitive
 function! s:GstatusToggle() abort
   let found = 0
