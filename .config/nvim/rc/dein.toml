@@ -294,3 +294,6 @@ hook_add = '''
 
 [[plugins]]
 repo = "nathanaelkane/vim-indent-guides"
+
+[[plugins]]
+repo = "tpope/vim-surround"
