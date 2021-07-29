@@ -105,6 +105,10 @@ else
     echo "CotEditer is not installed"
 end
 
+function vimrg
+  vim (rg -l $argv)
+end
+
 function mk
   mkdir $argv && cd $_
 end
