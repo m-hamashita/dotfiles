@@ -297,3 +297,6 @@ repo = "nathanaelkane/vim-indent-guides"
 
 [[plugins]]
 repo = "tpope/vim-surround"
+
+[[plugins]]
+repo = "sjl/gundo.vim"

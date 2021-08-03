@@ -22,6 +22,8 @@ let twitvim_filter_enable = 1
 filetype plugin indent on
 syntax enable
 
+" gundo
+nmap U :<C-u>GundoToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
