@@ -300,3 +300,6 @@ repo = "tpope/vim-surround"
 
 [[plugins]]
 repo = "sjl/gundo.vim"
+
+[[plugins]]
+repo = "chr4/nginx.vim"
