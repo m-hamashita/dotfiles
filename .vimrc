@@ -9,6 +9,9 @@ if has('persistent_undo')
    set undofile
 endif
 
+" jjでnormal modeに
+inoremap <silent> jj <ESC>:<C-u>w<CR>
+
 " 10進数でインクリメントする
 set nrformats=
 "括弧の対応をハイライト
