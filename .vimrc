@@ -139,7 +139,9 @@ inoremap <C-l> <C-o>$
 filetype plugin indent on
 
 
-colorscheme slate
+colorscheme delek
+highlight LineNr ctermfg=244
+highlight Comment ctermfg=gray
 
 "カッコを閉じたとき対応するカッコに一時的に移動
 set nostartofline
