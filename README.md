@@ -28,6 +28,7 @@
   `mkdir -p ~/.nodebrew/src`
   `nodebrew install-binary stable`
 - brew install tree-sitter
+- call dein#update(), call dein#recache_runtimepath() でいい感じに
 
 ## zsh
 
