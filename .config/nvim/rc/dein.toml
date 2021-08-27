@@ -303,3 +303,12 @@ repo = "sjl/gundo.vim"
 
 [[plugins]]
 repo = "chr4/nginx.vim"
+
+[[plugins]]
+repo = "vim-denops/denops.vim"
+
+[[plugins]]
+repo = "vim-denops/denops-helloworld.vim"
+
+[[plugins]]
+repo = "lambdalisue/guise.vim"
