@@ -346,6 +346,27 @@ call defx#custom#column('mark', {
       \ })
 
 
+" nvim-treesitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    disable = {
+      'lua',
+      'ruby',
+      'toml',
+      'c_sharp',
+      'vue',
+    }
+  },
+  ensure_installed = {"go", "python", "lua", "yaml", "json",  "bash", "latex", "fish", "gomod", "html", "toml", "vim", "ruby", "c", "cpp", "c_sharp", "comment", "jsonc", "javascript", "cuda", "scala", "dockerfile", "rust", "query", "julia"},
+  indent = {
+    enable = true,
+  }
+}
+EOF
+
+
 " Vista
 " python file 起動時，Vista finder 起動
 " augroup vistaSettings
