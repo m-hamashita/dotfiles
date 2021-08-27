@@ -27,6 +27,7 @@
   `brew install nodebrew`
   `mkdir -p ~/.nodebrew/src`
   `nodebrew install-binary stable`
+- brew install tree-sitter
 
 ## zsh
 
