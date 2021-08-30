@@ -29,10 +29,19 @@ augroup end
 " vim-go
 augroup goJumpDefinition
   autocmd!
+  autocmd FileType go nmap <silent> gi <Plug>(go-implements)
   autocmd FileType go nnoremap <silent> <C-[> :GoDefPop<CR>
   autocmd FileType go nmap <leader>s <Plug>(go-def-split)
   autocmd FileType go nmap <leader>v <Plug>(go-def-vertical)
 augroup end
+
+augroup quickfixAutocmd
+  autocmd!
+  autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+augroup end
+
+nnoremap <silent> lo :lopen<CR>
+nnoremap <silent> lc :lclose<CR>
 
 " space+. でvimrcを開く
 nnoremap <Space>. :<C-u>tabedit $MYVIMRC<CR>
