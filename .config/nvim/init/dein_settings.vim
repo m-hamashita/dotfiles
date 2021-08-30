@@ -144,9 +144,24 @@ set nofoldenable
 " Coc
 " ===============================================
 " インストールされていなかったら起動時にインストール
-let g:coc_global_extensions = ['coc-pyls', 'coc-python', 'coc-json', 'coc-pairs', 'coc-rls', 'coc-clangd', 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-yaml']
+let g:coc_global_extensions = ['coc-pyls', 'coc-python', 'coc-json', 'coc-pairs', 'coc-rls', 'coc-clangd', 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-yaml', 'coc-git']
 " インストール先を固定するために必要
 let g:coc_data_home = '~/'
+" navigate chunks of current buffer
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+" navigate conflicts of current buffer
+nmap [c <Plug>(coc-git-prevconflict)
+nmap ]c <Plug>(coc-git-nextconflict)
+" show chunk diff at current position
+nmap gs <Plug>(coc-git-chunkinfo)
+" show commit contains current position
+nmap gc <Plug>(coc-git-commit)
+" create text object for git chunks
+omap ig <Plug>(coc-git-chunk-inner)
+xmap ig <Plug>(coc-git-chunk-inner)
+omap ag <Plug>(coc-git-chunk-outer)
+xmap ag <Plug>(coc-git-chunk-outer)
 
 augroup cocRootPattern
   autocmd!
