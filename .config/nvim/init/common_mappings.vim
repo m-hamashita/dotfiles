@@ -37,7 +37,7 @@ augroup end
 
 augroup quickfixAutocmd
   autocmd!
-  autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+  autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>:lclose<CR>
 augroup end
 
 nnoremap <silent> lo :lopen<CR>
