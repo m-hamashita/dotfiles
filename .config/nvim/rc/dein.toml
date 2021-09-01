@@ -312,3 +312,12 @@ repo = "vim-denops/denops-helloworld.vim"
 
 [[plugins]]
 repo = "lambdalisue/guise.vim"
+
+[[plugins]]
+repo = "sainnhe/everforest"
+
+[[plugins]]
+repo = "franbach/miramare"
+
+[[plugins]]
+repo = "jnurmine/Zenburn"

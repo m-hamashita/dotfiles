@@ -7,4 +7,7 @@ runtime init/common_mappings.vim
 runtime init/dein_install.vim
 runtime init/dein_settings.vim
 
-colorscheme wombat256mod
+" colorscheme wombat256mod
+" colorscheme everforest
+" colorscheme miramare
+colorscheme zenburn
