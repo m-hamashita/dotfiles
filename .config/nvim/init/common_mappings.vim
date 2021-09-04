@@ -40,8 +40,8 @@ augroup quickfixAutocmd
   autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>:lclose<CR>
 augroup end
 
-nnoremap <silent> lo :lopen<CR>
-nnoremap <silent> lc :lclose<CR>
+" nnoremap <silent> lo :lopen<CR>
+" nnoremap <silent> lc :lclose<CR>
 
 " space+. でvimrcを開く
 nnoremap <Space>. :<C-u>tabedit $MYVIMRC<CR>
