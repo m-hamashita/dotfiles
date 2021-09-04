@@ -8,6 +8,6 @@ runtime init/dein_install.vim
 runtime init/dein_settings.vim
 
 " colorscheme wombat256mod
-" colorscheme everforest
+colorscheme everforest
 " colorscheme miramare
-colorscheme zenburn
+" colorscheme zenburn
