@@ -22,6 +22,8 @@ tsukae/
 .config/slackcat/
 .config/vim/
 .config/nyaovim/
+.config/slack-term/
+.config/spotify-tui/
 .config/DMM/
 .config/wandb/
 package.json
