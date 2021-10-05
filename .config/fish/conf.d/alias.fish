@@ -33,6 +33,12 @@ function pull
     git pull origin $branch_name
 end
 
+function commitans
+    set problem (pwd | rev | cut -d '/' -f 1,2 | rev | sed -e 's/\// /')
+    echo git commit -m \"$problem\"
+    git commit -m "$problem"
+end
+
 alias :q 'exit'
 alias ref 'source ~/.config/fish/config.fish'
 alias dotfiles 'cd ~/dotfiles/'
