@@ -321,3 +321,9 @@ repo = "franbach/miramare"
 
 [[plugins]]
 repo = "jnurmine/Zenburn"
+
+[[plugins]]
+repo = 'vim-denops/denops.vim'
+
+[[plugins]]
+repo = 'kat0h/dps-bufpreview.vim'
