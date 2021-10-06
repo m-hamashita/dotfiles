@@ -323,6 +323,18 @@ repo = "franbach/miramare"
 repo = "jnurmine/Zenburn"
 
 [[plugins]]
+repo = "ghifarit53/tokyonight-vim"
+
+[[plugins]]
+repo = "novasenco/vulpo"
+
+[[plugins]]
+repo = "raphamorim/lucario"
+
+[[plugins]]
+repo = "bluz71/vim-moonfly-colors"
+
+[[plugins]]
 repo = 'vim-denops/denops.vim'
 
 [[plugins]]
