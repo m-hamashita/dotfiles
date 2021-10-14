@@ -27,7 +27,6 @@ set -x PATH $HOME/bin $PATH
 set -x PATH $HOME/.bin $PATH
 set -x PATH $HOME/.local/bin $PATH
 set -x PATH $HOME/usr/lib/bin $PATH
-set -x PATH $HOME/.cargo/bin $PATH
 set -x PATH /usr/local/bin $PATH
 set -x PATH /usr/local/git/bin $PATH
 set -x PATH $HOME/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin $PATH
