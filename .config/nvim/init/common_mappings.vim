@@ -30,7 +30,7 @@ augroup end
 augroup goJumpDefinition
   autocmd!
   autocmd FileType go nmap <silent> gi <Plug>(go-implements)
-  autocmd FileType go nmap <silent> gr <Plug>(go-referrers)
+  autocmd FileType go nmap <silent> rf <Plug>(go-referrers)
   autocmd FileType go nnoremap <silent> <C-[> :GoDefPop<CR>
   autocmd FileType go nmap <leader>s <Plug>(go-def-split)
   autocmd FileType go nmap <leader>v <Plug>(go-def-vertical)
