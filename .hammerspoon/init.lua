@@ -12,12 +12,19 @@ module.timeFrame = 1
 
 -- what to do when the double tap of ctrl occurs
 module.action = function()
+    local spaces = require("hs._asm.undocumented.spaces")
     local kitty = hs.application.get("kitty")
+
+    local activeSpace = spaces.activeSpace()
+    local win = kitty:focusedWindow()
+    local uuid = win:screen():spacesUUID()
+    local spaceID = spaces.layout()[uuid][activeSpace-2] -- 何故か+2された値が入っているので-2している
     if kitty == nil then
         hs.application.launchOrFocus("/Applications/kitty.app")
     elseif kitty:isFrontmost() then
         kitty:hide()
-    else
+    else -- すでに存在する場合、window を activeSpace に移動させて focus する
+        spaces.moveWindowToSpace(win:id(), spaceID)
         hs.application.launchOrFocus("/Applications/kitty.app")
     end
 end
