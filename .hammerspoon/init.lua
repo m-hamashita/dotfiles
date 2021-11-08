@@ -16,9 +16,18 @@ module.action = function()
     local kitty = hs.application.get("kitty")
 
     local activeSpace = spaces.activeSpace()
+    local spaceArray = spaces.query(spaces.masks.allspaces, true)
+
+    local activeSpaceIndex
+    for i, v in pairs(spaceArray) do
+        if v == activeSpace then
+            activeSpaceIndex = #spaceArray-i+1
+        end
+    end
     local win = kitty:focusedWindow()
     local uuid = win:screen():spacesUUID()
-    local spaceID = spaces.layout()[uuid][activeSpace-2] -- 何故か+2された値が入っているので-2している
+    local spaceID = spaces.layout()[uuid][activeSpaceIndex]
+
     if kitty == nil then
         hs.application.launchOrFocus("/Applications/kitty.app")
     elseif kitty:isFrontmost() then
