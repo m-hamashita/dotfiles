@@ -335,7 +335,20 @@ repo = "raphamorim/lucario"
 repo = "bluz71/vim-moonfly-colors"
 
 [[plugins]]
-repo = 'vim-denops/denops.vim'
+repo = 'kat0h/dps-bufpreview.vim'
 
 [[plugins]]
-repo = 'kat0h/dps-bufpreview.vim'
+repo = 'camspiers/snap'
+
+[[plugins]]
+repo = 'ibhagwan/fzf-lua'
+[[plugins]]
+repo = 'vijaymarupudi/nvim-fzf'
+[[plugins]]
+repo = 'kyazdani42/nvim-web-devicons'
+
+[[plugins]]
+repo = 'mrjones2014/dash.nvim'
+hook_post_update = '''
+    call system('make install')
+'''
