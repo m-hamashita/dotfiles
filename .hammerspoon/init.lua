@@ -19,20 +19,23 @@ module.action = function()
     local spaceArray = spaces.query(spaces.masks.allspaces, true)
 
     local activeSpaceIndex
+    -- hs.alert.show(activeSpace)
     for i, v in pairs(spaceArray) do
+        -- hs.alert.show(v)
         if v == activeSpace then
             activeSpaceIndex = #spaceArray-i+1
         end
     end
-    local win = kitty:focusedWindow()
-    local uuid = win:screen():spacesUUID()
-    local spaceID = spaces.layout()[uuid][activeSpaceIndex]
+    -- hs.alert.show(activeSpaceIndex)
 
     if kitty == nil then
         hs.application.launchOrFocus("/Applications/kitty.app")
     elseif kitty:isFrontmost() then
         kitty:hide()
     else -- すでに存在する場合、window を activeSpace に移動させて focus する
+        local win = kitty:focusedWindow()
+        local uuid = win:screen():spacesUUID()
+        local spaceID = spaces.layout()[uuid][activeSpaceIndex]
         spaces.moveWindowToSpace(win:id(), spaceID)
         hs.application.launchOrFocus("/Applications/kitty.app")
     end
