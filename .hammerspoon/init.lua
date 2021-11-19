@@ -41,6 +41,15 @@ module.action = function()
     end
 end
 
+hs.hotkey.bind({"ctrl"}, ".", function()
+  local vscode = hs.application.find('Code')
+  -- hs.alert.show(vscode)
+  if vscode:isFrontmost() then
+    vscode:hide()
+  else
+    hs.application.launchOrFocus("Visual Studio Code")
+  end
+end)
 
 -- Synopsis:
 
