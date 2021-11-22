@@ -72,8 +72,6 @@ abbr -a .... '../../../'
 abbr -a air 'remo aircon send --name エアコン'
 abbr -a bl 'remo signal send AV機器 bluetooth'
 abbr -a light 'remo signal send light_for_signal'
-abbr -a lighton 'remo signal send light_for_signal on/off'
-abbr -a lightoff 'remo signal send light_for_signal on/off'
 # abbr -a del "git branch --merged | grep -vE '^\\*|master|develop|staging' | xargs -I % git branch -d % && git remote prune origin"
 
 if [ (command -v rmtrash) ]
