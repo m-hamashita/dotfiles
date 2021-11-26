@@ -6,62 +6,46 @@ local eventtap = require("hs.eventtap")
 local events   = eventtap.event.types
 
 local module   = {}
+local spaces = require("hs._asm.undocumented.spaces")
 
 -- how quickly must the two single ctrl taps occur?
 module.timeFrame = 1
 
 -- what to do when the double tap of ctrl occurs
 module.action = function()
-    local spaces = require("hs._asm.undocumented.spaces")
-    local kitty = hs.application.get("kitty")
-
+    local appName = "kitty"
+    local app = hs.application.get(appName)
     local activeSpace = spaces.activeSpace()
-    local spaceArray = spaces.query(spaces.masks.allspaces, true)
 
-    local activeSpaceIndex
-    -- hs.alert.show(activeSpace)
-    for i, v in pairs(spaceArray) do
-        -- hs.alert.show(v)
-        if v == activeSpace then
-            activeSpaceIndex = #spaceArray-i+1
-        end
-    end
-    -- hs.alert.show(activeSpaceIndex)
-
-    if kitty == nil then
-        hs.application.launchOrFocus("/Applications/kitty.app")
-    elseif kitty:isFrontmost() then
-        kitty:hide()
+    if app == nil then
+        hs.application.launchOrFocus(appName)
+    elseif app:isFrontmost() then
+        app:hide()
     else -- すでに存在する場合、window を activeSpace に移動させて focus する
-        local win = kitty:focusedWindow()
-        local uuid = win:screen():spacesUUID()
-        local spaceID = spaces.layout()[uuid][activeSpaceIndex]
-        spaces.moveWindowToSpace(win:id(), spaceID)
-        hs.application.launchOrFocus("/Applications/kitty.app")
+        local win = app:focusedWindow()
+        win:spacesMoveTo(activeSpace)
+        win:focus()
     end
 end
 
 hs.hotkey.bind({"ctrl"}, ".", function()
-  local vscode = hs.application.find('Code')
-  -- hs.alert.show(vscode)
-  if vscode:isFrontmost() then
-    vscode:hide()
-  else
-    hs.application.launchOrFocus("Visual Studio Code")
-  end
+    local appName = "Code"
+    local activeSpace = spaces.activeSpace()
+    local app = hs.application.find(appName)
+    if app == nil then
+        hs.application.launchOrFocus("Visual Studio Code")
+    elseif app:isFrontmost() then
+        app:hide()
+    else
+        local win = app:focusedWindow()
+        win:spacesMoveTo(activeSpace)
+        hs.application.launchOrFocus("Visual Studio Code")
+    end
 end)
 
--- Synopsis:
-
--- what we're looking for is 4 events within a set time period and no intervening other key events:
---  flagsChanged with only ctrl = true
---  flagsChanged with all = false
---  flagsChanged with only ctrl = true
---  flagsChanged with all = false
 
 
 local timeFirstControl, firstDown, secondDown = 0, false, false
-
 -- verify that no keyboard flags are being pressed
 local noFlags = function(ev)
     local result = true
