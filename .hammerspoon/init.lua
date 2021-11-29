@@ -57,6 +57,21 @@ hs.hotkey.bind({"ctrl"}, ",", function()
     end
 end)
 
+hs.hotkey.bind({"ctrl"}, "j", function()
+    local appName = "Google Chrome"
+    local activeSpace = spaces.activeSpace()
+    local app = hs.application.find(appName)
+    if app == nil then
+        hs.application.launchOrFocus(appName)
+    elseif app:isFrontmost() then
+        app:hide()
+    else
+        local win = app:focusedWindow()
+        win:spacesMoveTo(activeSpace)
+        hs.application.launchOrFocus(appName)
+    end
+end)
+
 local timeFirstControl, firstDown, secondDown = 0, false, false
 
 local noFlags = function(ev)
