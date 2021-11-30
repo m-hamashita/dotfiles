@@ -22,6 +22,9 @@ module.action = function()
         app:hide()
     else -- すでに存在する場合、window を activeSpace に移動させて focus する
         local win = app:focusedWindow()
+        win = win:toggleFullScreen()
+        win = win:toggleFullScreen()
+        app:hide()
         win:spacesMoveTo(activeSpace)
         win:focus()
     end
@@ -76,7 +79,7 @@ local timeFirstControl, firstDown, secondDown = 0, false, false
 
 local noFlags = function(ev)
     local result = true
-    for k,v in pairs(ev:getFlags()) do
+    for _, v in pairs(ev:getFlags()) do
         if v then
             result = false
             break
@@ -88,7 +91,7 @@ end
 -- control だけ押されているか確認. 例えば shift+control 等は無視するようにする
 local onlyCtrl = function(ev)
     local result = ev:getFlags().ctrl
-    for k,v in pairs(ev:getFlags()) do
+    for k, v in pairs(ev:getFlags()) do
         if k ~= "ctrl" and v then
             result = false
             break
