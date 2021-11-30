@@ -30,7 +30,7 @@ module.action = function()
     end
 end
 
-hs.hotkey.bind({"ctrl"}, ".", function()
+hs.hotkey.bind({"ctrl"}, "m", function()
     local appName = "Code"
     local activeSpace = spaces.activeSpace()
     local app = hs.application.find(appName)
@@ -60,7 +60,7 @@ hs.hotkey.bind({"ctrl"}, ",", function()
     end
 end)
 
-hs.hotkey.bind({"ctrl"}, "j", function()
+hs.hotkey.bind({"ctrl"}, ".", function()
     local appName = "Google Chrome"
     local activeSpace = spaces.activeSpace()
     local app = hs.application.find(appName)
