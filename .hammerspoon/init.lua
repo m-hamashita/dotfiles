@@ -3,32 +3,37 @@ local timer    = require("hs.timer")
 local eventtap = require("hs.eventtap")
 
 local events   = eventtap.event.types
-
 local module   = {}
 local spaces = require("hs._asm.undocumented.spaces")
 
 -- double tap の間隔[s]
 module.timeFrame = 1
 
+
+function MoveFullScreenWindow(app)
+    local activeSpace = spaces.activeSpace()
+    local win = app:focusedWindow()
+    win = win:toggleFullScreen()
+    win = win:toggleFullScreen()
+    app:hide()
+    win:spacesMoveTo(activeSpace)
+    win:focus()
+end
+
 -- double tap で toggle で kitty を表示/非表示する
 module.action = function()
     local appName = "kitty"
     local app = hs.application.get(appName)
-    local activeSpace = spaces.activeSpace()
 
     if app == nil then
         hs.application.launchOrFocus(appName)
     elseif app:isFrontmost() then
         app:hide()
     else -- すでに存在する場合、window を activeSpace に移動させて focus する
-        local win = app:focusedWindow()
-        win = win:toggleFullScreen()
-        win = win:toggleFullScreen()
-        app:hide()
-        win:spacesMoveTo(activeSpace)
-        win:focus()
+        MoveFullScreenWindow(app)
     end
 end
+
 
 hs.hotkey.bind({"ctrl"}, "m", function()
     local appName = "Code"
@@ -45,6 +50,7 @@ hs.hotkey.bind({"ctrl"}, "m", function()
     end
 end)
 
+
 hs.hotkey.bind({"ctrl"}, ",", function()
     local appName = "Slack"
     local activeSpace = spaces.activeSpace()
@@ -59,6 +65,7 @@ hs.hotkey.bind({"ctrl"}, ",", function()
         hs.application.launchOrFocus(appName)
     end
 end)
+
 
 hs.hotkey.bind({"ctrl"}, ".", function()
     local appName = "Google Chrome"
@@ -75,8 +82,8 @@ hs.hotkey.bind({"ctrl"}, ".", function()
     end
 end)
 
-local timeFirstControl, firstDown, secondDown = 0, false, false
 
+local timeFirstControl, firstDown, secondDown = 0, false, false
 local noFlags = function(ev)
     local result = true
     for _, v in pairs(ev:getFlags()) do
@@ -99,6 +106,7 @@ local onlyCtrl = function(ev)
     end
     return result
 end
+
 
 -- module.timeFrame 秒以内に2回 ctrl を押したらダブルタップとみなす
 module.eventWatcher = eventtap.new({events.flagsChanged, events.keyDown}, function(ev)
