@@ -7,6 +7,7 @@ set -g fish_prompt_pwd_dir_length 0
 
 # コマンドの色を緑に
 set fish_color_command green
+set fish_color_error red
 
 # manに色を付ける
 set -x MANPAGER 'less -R'
