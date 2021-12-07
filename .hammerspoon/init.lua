@@ -1,9 +1,9 @@
 -- https://github.com/ipatch/dotfiles/blob/master/jobs/macos/Users/mr-fancy/hammerspoon/ctrlDoublePress.lua
-local timer    = require("hs.timer")
+local timer = require("hs.timer")
 local eventtap = require("hs.eventtap")
 
-local events   = eventtap.event.types
-local module   = {}
+local events = eventtap.event.types
+local module = {}
 local spaces = require("hs._asm.undocumented.spaces")
 
 -- double tap の間隔[s]
@@ -106,7 +106,6 @@ local onlyCtrl = function(ev)
     end
     return result
 end
-
 
 -- module.timeFrame 秒以内に2回 ctrl を押したらダブルタップとみなす
 module.eventWatcher = eventtap.new({events.flagsChanged, events.keyDown}, function(ev)
