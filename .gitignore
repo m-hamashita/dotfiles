@@ -7,6 +7,7 @@ package-lock.json
 !.config/karabiner/karabiner.json
 !.config/karabiner/kana.json
 !.config/nvim/init.vim
+!.config/nvim/init
 !.config/fish/config.fish
 !.config/fish/conf.d/path.fish
 !.config/fish/conf.d/alias.fish
@@ -15,4 +16,5 @@ package-lock.json
 !.config/fish/functions/tmuxpopup.fish
 !.config/nvim/rc/dein.toml
 !.config/nvim/rc/dein_lazy.toml
+!.config/nvim/rc/colorscheme.toml
 !.config/nvim/rc/plugin.md
