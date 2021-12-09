@@ -328,3 +328,6 @@ repo = 'mrjones2014/dash.nvim'
 hook_post_update = '''
     call system('make install')
 '''
+
+[[plugins]]
+repo = "eiji03aero/quick-notes"

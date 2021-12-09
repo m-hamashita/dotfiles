@@ -447,3 +447,8 @@ function! s:BlameToggle() abort
 endfunction
 
 nmap <silent> <space>gb :call <SID>BlameToggle()<CR>
+
+" directory to place notes and diaries.
+let g:quick_notes_directory = '~/.cache/quick-notes/'
+" suffix used for diaries
+let g:quick_notes_suffix = 'md'
