@@ -1,0 +1,27 @@
+[[plugins]]
+repo = 'vim-scripts/wombat256.vim'
+
+[[plugins]]
+repo = "sainnhe/everforest"
+
+[[plugins]]
+repo = "franbach/miramare"
+
+[[plugins]]
+repo = "jnurmine/Zenburn"
+
+[[plugins]]
+repo = "ghifarit53/tokyonight-vim"
+
+[[plugins]]
+repo = "novasenco/vulpo"
+
+[[plugins]]
+repo = "raphamorim/lucario"
+
+[[plugins]]
+repo = "bluz71/vim-moonfly-colors"
+
+[[plugins]]
+repo = "sonph/onehalf"
+rtp = 'vim/'

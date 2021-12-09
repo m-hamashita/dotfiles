@@ -2,9 +2,6 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'vim-scripts/wombat256.vim'
-
-[[plugins]]
 repo = 'luochen1990/rainbow'
 
 [[plugins]]
@@ -312,27 +309,6 @@ repo = "vim-denops/denops-helloworld.vim"
 
 [[plugins]]
 repo = "lambdalisue/guise.vim"
-
-[[plugins]]
-repo = "sainnhe/everforest"
-
-[[plugins]]
-repo = "franbach/miramare"
-
-[[plugins]]
-repo = "jnurmine/Zenburn"
-
-[[plugins]]
-repo = "ghifarit53/tokyonight-vim"
-
-[[plugins]]
-repo = "novasenco/vulpo"
-
-[[plugins]]
-repo = "raphamorim/lucario"
-
-[[plugins]]
-repo = "bluz71/vim-moonfly-colors"
 
 [[plugins]]
 repo = 'kat0h/dps-bufpreview.vim'
