@@ -331,3 +331,6 @@ hook_post_update = '''
 
 [[plugins]]
 repo = "eiji03aero/quick-notes"
+
+[[plugins]]
+repo = "4513ECHO/vim-readme-viewer"
