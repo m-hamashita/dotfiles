@@ -1,7 +1,7 @@
 scriptencoding utf-8
 
 " lightline
-set laststatus=2
+set laststatus=0
 set showtabline=2
 let g:lightline#bufferline#show_number  = 1
 let g:lightline#bufferline#shorten_path = 0

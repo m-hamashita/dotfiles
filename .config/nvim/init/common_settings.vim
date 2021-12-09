@@ -35,7 +35,7 @@ filetype indent on
 " 行数を表示する
 set number
 " ルーラーを表示
-set ruler
+set noruler
 " バックスペースキーで行頭を削除する
 set backspace=indent,eol,start
 " 改行時に前の行の構文をチェックし次の行のインデントを増減する
