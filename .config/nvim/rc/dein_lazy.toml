@@ -40,3 +40,6 @@ on_ft = ['javascript', 'javascript.jsx']
 [[plugins]]
 repo = 'maxmellon/vim-jsx-pretty'
 on_ft = ['javascript', 'javascript.jsx']
+
+[[plugins]]
+repo = 'skanehira/denops-germanium.vim'
