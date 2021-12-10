@@ -452,3 +452,11 @@ nmap <silent> <space>gb :call <SID>BlameToggle()<CR>
 let g:quick_notes_directory = '~/.cache/quick-notes/'
 " suffix used for diaries
 let g:quick_notes_suffix = 'md'
+
+command! FzReadme call fzf#run(fzf#wrap(#{
+          \ source: values(map(copy(dein#get()), {k,v-> k.' '.get(split(globpath(get(v,'dir',''), '\creadme.*'), '\n'), 0, '')})),
+          \ options: ['--with-nth=1', '--preview', 'bat --color=always --plain {2}'],
+          \ sink: funcref('s:DeinReadmeFzf')}))
+function s:DeinReadmeFzf(name_and_path) abort
+  execute 'DeinReadme' substitute(a:name_and_path, ' .*', '', '')
+endfunction
