@@ -334,3 +334,6 @@ repo = "eiji03aero/quick-notes"
 
 [[plugins]]
 repo = "4513ECHO/vim-readme-viewer"
+
+[[plugins]]
+repo = 'skanehira/denops-germanium.vim'
