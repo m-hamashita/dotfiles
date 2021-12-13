@@ -115,3 +115,5 @@ command Goal e ~/.goal_cheatsheet.md
 command Todo e ~/.todo_cheatsheet.md
 command Refresh :call dein#recache_runtimepath()
 command Path echo expand("%:p")
+command Memo call QuickNotesNew()
+command MemoFzf call QuickNotesFzf()

@@ -101,6 +101,8 @@ hook_add = '''
 	AlterCommand todo Todo
 	AlterCommand path Path
 	AlterCommand refresh Refresh
+    AlterCommand memo Memo
+    AlterCommand memofzf MemoFzf
 '''
 
 # neovim terminal plugin
