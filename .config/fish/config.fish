@@ -2,7 +2,7 @@
 
 # カーソルをプロンプトの次の行にする
 set -g theme_newline_cursor yes
-set -g theme_newline_prompt (set_color green; echo ' $ ')
+set -g theme_newline_prompt (set_color red)"❯"(set_color yellow)"❯"(set_color green)"❯ "
 set -g fish_prompt_pwd_dir_length 0
 
 # コマンドの色を緑に
