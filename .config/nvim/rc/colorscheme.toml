@@ -25,3 +25,6 @@ repo = "bluz71/vim-moonfly-colors"
 [[plugins]]
 repo = "sonph/onehalf"
 rtp = 'vim/'
+
+[[plugins]]
+repo = "savq/melange"
