@@ -339,3 +339,6 @@ repo = "4513ECHO/vim-readme-viewer"
 
 [[plugins]]
 repo = 'skanehira/denops-germanium.vim'
+
+[[plugins]]
+repo = 'jamestthompson3/nvim-remote-containers'
