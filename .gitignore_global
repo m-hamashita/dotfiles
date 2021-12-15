@@ -4,6 +4,7 @@
 .python-version
 .ccls-cache/
 .cquery_cache
+.idea/
 tags
 .ipynb_checkpoints
 loop.sh
