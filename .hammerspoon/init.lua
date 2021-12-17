@@ -35,21 +35,35 @@ module.action = function()
 end
 
 
+-- hs.hotkey.bind({"ctrl"}, "m", function()
+--     local appName = "Code"
+--     local activeSpace = spaces.activeSpace()
+--     local app = hs.application.find(appName)
+--     if app == nil then
+--         hs.application.launchOrFocus("Visual Studio Code")
+--     elseif app:isFrontmost() then
+--         app:hide()
+--     else
+--         local win = app:focusedWindow()
+--         win:spacesMoveTo(activeSpace)
+--         hs.application.launchOrFocus("Visual Studio Code")
+--     end
+-- end)
+
 hs.hotkey.bind({"ctrl"}, "m", function()
-    local appName = "Code"
+    local appName = "Spotify"
     local activeSpace = spaces.activeSpace()
     local app = hs.application.find(appName)
     if app == nil then
-        hs.application.launchOrFocus("Visual Studio Code")
+        hs.application.launchOrFocus(appName)
     elseif app:isFrontmost() then
         app:hide()
     else
         local win = app:focusedWindow()
         win:spacesMoveTo(activeSpace)
-        hs.application.launchOrFocus("Visual Studio Code")
+        hs.application.launchOrFocus(appName)
     end
 end)
-
 
 hs.hotkey.bind({"ctrl"}, ",", function()
     local appName = "Slack"
