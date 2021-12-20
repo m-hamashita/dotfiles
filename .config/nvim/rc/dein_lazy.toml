@@ -40,3 +40,9 @@ on_ft = ['javascript', 'javascript.jsx']
 [[plugins]]
 repo = 'maxmellon/vim-jsx-pretty'
 on_ft = ['javascript', 'javascript.jsx']
+
+[[plugins]]
+repo = 'mrjones2014/dash.nvim'
+hook_post_update = '''
+    call system('make install')
+'''

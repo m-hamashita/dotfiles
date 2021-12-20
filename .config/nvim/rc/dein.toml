@@ -326,12 +326,6 @@ repo = 'vijaymarupudi/nvim-fzf'
 repo = 'kyazdani42/nvim-web-devicons'
 
 [[plugins]]
-repo = 'mrjones2014/dash.nvim'
-hook_post_update = '''
-    call system('make install')
-'''
-
-[[plugins]]
 repo = "eiji03aero/quick-notes"
 
 [[plugins]]
@@ -342,3 +336,6 @@ repo = 'skanehira/denops-germanium.vim'
 
 [[plugins]]
 repo = 'jamestthompson3/nvim-remote-containers'
+
+[[plugins]]
+repo = 'machakann/vim-sandwich'
