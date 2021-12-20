@@ -419,6 +419,9 @@ nnoremap <silent> [ff]d  :<C-u>CocCommand fzf-preview.CocDefinition<CR>
 nnoremap <silent> [ff]t  :<C-u>CocCommand fzf-preview.CocTypeDefinition<CR>
 nnoremap <silent> [ff]o  :<C-u>CocCommand fzf-preview.CocOutline --add-fzf-arg=--exact --add-fzf-arg=--no-sort<CR>
 
+" gelguy/wilder.nvim
+" Key bindings can be changed, see below
+call wilder#setup({'modes': [':', '/', '?']})
 
 " vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1

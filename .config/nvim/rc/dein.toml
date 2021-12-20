@@ -339,3 +339,10 @@ repo = 'jamestthompson3/nvim-remote-containers'
 
 [[plugins]]
 repo = 'machakann/vim-sandwich'
+
+[[plugins]]
+repo = 'gelguy/wilder.nvim'
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
