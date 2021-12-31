@@ -43,3 +43,7 @@
 	prompt = true
 [branch]
 	sort = -authordate
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+[url "ssh://git@github.com/gunosy"]
+	insteadOf = https://github.com/gunosy
