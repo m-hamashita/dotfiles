@@ -58,6 +58,7 @@ alias less 'bat'
 alias digdag '/bin/bash ~/bin/digdag'
 
 # abbr
+abbr k kubectl
 abbr gd git diff
 abbr ga git add
 abbr gp git pull
