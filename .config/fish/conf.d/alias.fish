@@ -40,8 +40,6 @@ function commitans
 end
 
 alias :q 'exit'
-alias ref 'source ~/.config/fish/config.fish'
-alias dotfiles 'cd ~/dotfiles/'
 alias useful 'cd ~/Documents/work/useful/'
 
 alias gcl 'gcloud beta compute ssh --zone "us-west1-b" "global-wheat-detection-vm" --project "euphoric-diode-279610" -- -L 8080:localhost:8080 -L 8081:localhost:8081'
@@ -50,21 +48,28 @@ alias gcl 'gcloud beta compute ssh --zone "us-west1-b" "global-wheat-detection-v
 alias df 'df -h'
 alias vi 'vim'
 alias diff 'colordiff'
-alias del_swap 'rm ~/.local/share/nvim/swap/*'
-alias root 'cd (git rev-parse --show-toplevel)'
-alias gg 'open https://github.(git config remote.origin.url | cut -f2 -d. | tr ':' /)'
 alias cat 'bat'
 alias less 'bat'
 alias digdag '/bin/bash ~/bin/digdag'
 
 # abbr
-abbr k kubectl
-abbr gd git diff
-abbr ga git add
-abbr gp git pull
-abbr -a gc git commit -m
-abbr gs git status
+abbr -a del_swap rm ~/.local/share/nvim/swap/*
+abbr -a ref source ~/.config/fish/config.fish
 abbr -a dc docker-compose
+abbr -a do cd ~/dotfiles/
+abbr -a k kubectl
+abbr -a kg kubectl get pod
+abbr -a root cd (git rev-parse --show-toplevel)
+abbr -a ga git add
+abbr -a gb git branch
+abbr -a gd git diff
+abbr -a gg open https://github.(git config remote.origin.url | cut -f2 -d. | tr ':' /)
+abbr -a gp git pull
+abbr -a gc git commit -m
+abbr -a gs git status
+abbr -a gr git rebase
+abbr -a grh git reset --hard
+abbr -a grhh git reset --hard HEAD
 abbr -a awsdoc "aws ecr get-login-password | docker login --username AWS --password-stdin (aws sts get-caller-identity | jq -cr '.Account').dkr.ecr.ap-northeast-1.amazonaws.com"
 abbr -a one onelogin-aws-login -d 32400 --config-name ads --username (whoami)@gunosy.com --profile default
 abbr -a oneads onelogin-aws-login -d 32400 --config-name ads --username (whoami)@gunosy.com --profile ads
