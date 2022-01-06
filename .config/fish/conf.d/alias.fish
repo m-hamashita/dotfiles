@@ -53,7 +53,7 @@ alias less 'bat'
 alias digdag '/bin/bash ~/bin/digdag'
 
 # abbr
-abbr -a del_swap rm ~/.local/share/nvim/swap/*
+abbr -a del_swap "rm ~/.local/share/nvim/swap/*"
 abbr -a ref source ~/.config/fish/config.fish
 abbr -a dc docker-compose
 abbr -a do cd ~/dotfiles/
