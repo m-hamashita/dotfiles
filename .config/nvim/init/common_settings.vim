@@ -4,6 +4,9 @@ scriptencoding utf-8
 set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
 set fileformats=unix,dos,mac
 
+" Unable netrw
+" let loaded_netrwPlugin = 1
+
 " terminal mode で使用する shell を設定
 set shell=fish
 
