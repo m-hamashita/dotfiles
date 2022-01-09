@@ -93,15 +93,15 @@ if [ (command -v nvim) ]
 else
     echo "neovim is not installed"
 end
-if [ (command -v gcc-10) ]
-    alias gcc '/usr/local/bin/gcc-10'
+if [ (command -v gcc-11) ]
+    alias gcc '/usr/local/bin/gcc-11'
 else
-    echo "gcc-10 is not installed"
+    echo "gcc-11 is not installed"
 end
-if [ (command -v g++-10) ]
-    alias g++ '/usr/local/bin/g++-10'
+if [ (command -v g++-11) ]
+    alias g++ '/usr/local/bin/g++-11 --sysroot=/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk'
 else
-    echo "g++-10 is not installed"
+    echo "g++-11 is not installed"
 end
 if [ (command -v tmux) ]
     alias ta 'tmux a -d'
