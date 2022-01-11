@@ -46,6 +46,7 @@ alias gcl 'gcloud beta compute ssh --zone "us-west1-b" "global-wheat-detection-v
 # alias cd='pushd'
 # alias cdd='popd'
 alias df 'df -h'
+alias gg 'open https://github.(git config remote.origin.url | cut -f2 -d. | tr ':' /)'
 alias vi 'vim'
 alias diff 'colordiff'
 alias cat 'bat'
@@ -63,7 +64,6 @@ abbr -a root cd (git rev-parse --show-toplevel)
 abbr -a ga git add
 abbr -a gb git branch
 abbr -a gd git diff
-abbr -a gg open https://github.(git config remote.origin.url | cut -f2 -d. | tr ':' /)
 abbr -a gp git pull
 abbr -a gc git commit -m
 abbr -a gs git status
