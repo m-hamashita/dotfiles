@@ -12,4 +12,6 @@ runtime init/abbr.vim
 " colorscheme everforest
 " colorscheme miramare
 " colorscheme zenburn
-colorscheme tokyonight
+if !exists('g:vscode')
+  colorscheme tokyonight
+endif

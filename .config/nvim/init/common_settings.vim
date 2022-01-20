@@ -26,7 +26,8 @@ set showmatch
 " 保存時の文字コード
 set fileencoding=utf-8
 " □や○文字が崩れる問題を解決
-set ambiwidth=double
+" if exists('g:vscode')
+"   set ambiwidth=double
 " ヤンクした時にクリップボードにコピーする
 " set clipboard=unnamed,autoselect
 set clipboard+=unnamedplus

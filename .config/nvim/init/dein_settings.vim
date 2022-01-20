@@ -268,100 +268,106 @@ let g:preview_markdown_parser='glow'
 " let NERDTreeShowHidden=1
 
 " defx.nvim
-nnoremap <space>f :Defx<CR>
-augroup defxSettings
-  autocmd!
-  autocmd FileType defx call s:defx_my_settings()
-  " 起動時に Defx 起動
-  " autocmd VimEnter * execute 'Defx'
-  " nnoremap <silent> <Leader>f :<C-u> Defx <CR>
-augroup END
+if !exists('g:vscode')
+  nnoremap <space>f :Defx<CR>
+  augroup defxSettings
+    autocmd!
+    autocmd FileType defx call s:defx_my_settings()
+    " 起動時に Defx 起動
+    " autocmd VimEnter * execute 'Defx'
+    " nnoremap <silent> <Leader>f :<C-u> Defx <CR>
+  augroup END
 
-function! s:defx_my_settings() abort
-  nnoremap <silent><buffer><expr> <CR>
-  \ defx#do_action('drop')
-  nnoremap <silent><buffer><expr> c
-  \ defx#do_action('copy')
-  nnoremap <silent><buffer><expr> m
-  \ defx#do_action('move')
-  nnoremap <silent><buffer><expr> p
-  \ defx#do_action('paste')
-  nnoremap <silent><buffer><expr> l
-  \ defx#do_action('drop')
-  nnoremap <silent><buffer><expr> t
-  \ defx#do_action('open','tabnew')
-  nnoremap <silent><buffer><expr> E
-  \ defx#do_action('drop', 'vsplit')
-  nnoremap <silent><buffer><expr> P
-  \ defx#do_action('drop', 'pedit')
-  nnoremap <silent><buffer><expr> o
-  \ defx#do_action('open_or_close_tree')
-  nnoremap <silent><buffer><expr> K
-  \ defx#do_action('new_directory')
-  nnoremap <silent><buffer><expr> N
-  \ defx#do_action('new_file')
-  nnoremap <silent><buffer><expr> M
-  \ defx#do_action('new_multiple_files')
-  nnoremap <silent><buffer><expr> C
-  \ defx#do_action('toggle_columns',
-  \                'mark:indent:icon:filename:type:size:time')
-  nnoremap <silent><buffer><expr> S
-  \ defx#do_action('toggle_sort', 'time')
-  nnoremap <silent><buffer><expr> d
-  \ defx#do_action('remove')
-  nnoremap <silent><buffer><expr> r
-  \ defx#do_action('rename')
-  nnoremap <silent><buffer><expr> !
-  \ defx#do_action('execute_command')
-  nnoremap <silent><buffer><expr> x
-  \ defx#do_action('execute_system')
-  nnoremap <silent><buffer><expr> yy
-  \ defx#do_action('yank_path')
-  nnoremap <silent><buffer><expr> .
-  \ defx#do_action('toggle_ignored_files')
-  nnoremap <silent><buffer><expr> ;
-  \ defx#do_action('repeat')
-  nnoremap <silent><buffer><expr> h
-  \ defx#do_action('cd', ['..'])
-  nnoremap <silent><buffer><expr> ~
-  \ defx#do_action('cd')
-  nnoremap <silent><buffer><expr> q
-  \ defx#do_action('quit')
-  nnoremap <silent><buffer><expr> <Space>
-  \ defx#do_action('toggle_select') . 'j'
-  nnoremap <silent><buffer><expr> *
-  \ defx#do_action('toggle_select_all')
-  nnoremap <silent><buffer><expr> j
-  \ line('.') == line('$') ? 'gg' : 'j'
-  nnoremap <silent><buffer><expr> k
-  \ line('.') == 1 ? 'G' : 'k'
-  nnoremap <silent><buffer><expr> <C-l>
-  \ defx#do_action('redraw')
-  nnoremap <silent><buffer><expr> <C-g>
-  \ defx#do_action('print')
-  nnoremap <silent><buffer><expr> cd
-  \ defx#do_action('change_vim_cwd')
-endfunction
+  function! s:defx_my_settings() abort
+    nnoremap <silent><buffer><expr> <CR>
+    \ defx#do_action('drop')
+    nnoremap <silent><buffer><expr> c
+    \ defx#do_action('copy')
+    nnoremap <silent><buffer><expr> m
+    \ defx#do_action('move')
+    nnoremap <silent><buffer><expr> p
+    \ defx#do_action('paste')
+    nnoremap <silent><buffer><expr> l
+    \ defx#do_action('drop')
+    nnoremap <silent><buffer><expr> t
+    \ defx#do_action('open','tabnew')
+    nnoremap <silent><buffer><expr> E
+    \ defx#do_action('drop', 'vsplit')
+    nnoremap <silent><buffer><expr> P
+    \ defx#do_action('drop', 'pedit')
+    nnoremap <silent><buffer><expr> o
+    \ defx#do_action('open_or_close_tree')
+    nnoremap <silent><buffer><expr> K
+    \ defx#do_action('new_directory')
+    nnoremap <silent><buffer><expr> N
+    \ defx#do_action('new_file')
+    nnoremap <silent><buffer><expr> M
+    \ defx#do_action('new_multiple_files')
+    nnoremap <silent><buffer><expr> C
+    \ defx#do_action('toggle_columns',
+    \                'mark:indent:icon:filename:type:size:time')
+    nnoremap <silent><buffer><expr> S
+    \ defx#do_action('toggle_sort', 'time')
+    nnoremap <silent><buffer><expr> d
+    \ defx#do_action('remove')
+    nnoremap <silent><buffer><expr> r
+    \ defx#do_action('rename')
+    nnoremap <silent><buffer><expr> !
+    \ defx#do_action('execute_command')
+    nnoremap <silent><buffer><expr> x
+    \ defx#do_action('execute_system')
+    nnoremap <silent><buffer><expr> yy
+    \ defx#do_action('yank_path')
+    nnoremap <silent><buffer><expr> .
+    \ defx#do_action('toggle_ignored_files')
+    nnoremap <silent><buffer><expr> ;
+    \ defx#do_action('repeat')
+    nnoremap <silent><buffer><expr> h
+    \ defx#do_action('cd', ['..'])
+    nnoremap <silent><buffer><expr> ~
+    \ defx#do_action('cd')
+    nnoremap <silent><buffer><expr> q
+    \ defx#do_action('quit')
+    nnoremap <silent><buffer><expr> <Space>
+    \ defx#do_action('toggle_select') . 'j'
+    nnoremap <silent><buffer><expr> *
+    \ defx#do_action('toggle_select_all')
+    nnoremap <silent><buffer><expr> j
+    \ line('.') == line('$') ? 'gg' : 'j'
+    nnoremap <silent><buffer><expr> k
+    \ line('.') == 1 ? 'G' : 'k'
+    nnoremap <silent><buffer><expr> <C-l>
+    \ defx#do_action('redraw')
+    nnoremap <silent><buffer><expr> <C-g>
+    \ defx#do_action('print')
+    nnoremap <silent><buffer><expr> cd
+    \ defx#do_action('change_vim_cwd')
+  endfunction
 
-call defx#custom#option('_', {
-      \ 'winwidth': 30,
-      \ 'split': 'vertical',
-      \ 'direction': 'topleft',
-      \ 'show_ignored_files': 1,
-      \ 'buffer_name': 'explorer',
-      \ 'toggle': 1,
-      \ 'resume': 1,
-      \ 'columns': 'mark:indent:icons:filename',
-      \ 'post_action': 'jump',
-      \ })
+  call defx#custom#option('_', {
+        \ 'winwidth': 30,
+        \ 'split': 'vertical',
+        \ 'direction': 'topleft',
+        \ 'show_ignored_files': 1,
+        \ 'buffer_name': 'explorer',
+        \ 'toggle': 1,
+        \ 'resume': 1,
+        \ 'columns': 'mark:indent:icons:filename',
+        \ 'post_action': 'jump',
+        \ })
 
-call defx#custom#column('mark', {
-      \ 'readonly_icon': '✗',
-      \ 'selected_icon': '✓',
-      \ })
+  call defx#custom#column('mark', {
+        \ 'readonly_icon': '✗',
+        \ 'selected_icon': '✓',
+        \ })
 
+  " gelguy/wilder.nvim
+  " Key bindings can be changed, see below
+  call wilder#setup({'modes': [':', '/', '?']})
+endif
 
 " nvim-treesitter
+if !exists('g:vscode')
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   highlight = {
@@ -373,6 +379,7 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 EOF
+endif
 
 
 " Vista
@@ -418,10 +425,6 @@ nnoremap <silent> [ff]rf :<C-u>CocCommand fzf-preview.CocReferences<CR>
 nnoremap <silent> [ff]d  :<C-u>CocCommand fzf-preview.CocDefinition<CR>
 nnoremap <silent> [ff]t  :<C-u>CocCommand fzf-preview.CocTypeDefinition<CR>
 nnoremap <silent> [ff]o  :<C-u>CocCommand fzf-preview.CocOutline --add-fzf-arg=--exact --add-fzf-arg=--no-sort<CR>
-
-" gelguy/wilder.nvim
-" Key bindings can be changed, see below
-call wilder#setup({'modes': [':', '/', '?']})
 
 " vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
