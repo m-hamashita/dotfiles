@@ -52,6 +52,7 @@ alias diff 'colordiff'
 alias cat 'bat'
 alias less 'bat'
 alias digdag '/bin/bash ~/bin/digdag'
+alias root 'cd (git rev-parse --show-toplevel)'
 
 # abbr
 abbr -a del_swap "rm ~/.local/share/nvim/swap/*"
@@ -60,7 +61,6 @@ abbr -a dc docker-compose
 abbr -a do cd ~/dotfiles/
 abbr -a k kubectl
 abbr -a kg kubectl get pod
-abbr -a root cd (git rev-parse --show-toplevel)
 abbr -a ga git add
 abbr -a gb git branch
 abbr -a gd git diff
