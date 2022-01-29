@@ -80,6 +80,7 @@ abbr -a bl 'remo signal send AV機器 bluetooth'
 abbr -a light 'remo signal send light_for_signal'
 abbr -a temp 'sudo powermetrics --samplers smc | grep "CPU die temperature"'
 abbr -a hg 'history | grep'
+abbr -a cr cargo run
 # abbr -a del "git branch --merged | grep -vE '^\\*|master|develop|staging' | xargs -I % git branch -d % && git remote prune origin"
 
 if [ (command -v rmtrash) ]
