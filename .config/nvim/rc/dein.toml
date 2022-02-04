@@ -346,3 +346,6 @@ repo = 'gelguy/wilder.nvim'
 repo = 'roxma/nvim-yarp'
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
+
+[[plugins]]
+repo = 'kevinhwang91/rnvimr'

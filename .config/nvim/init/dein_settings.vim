@@ -366,6 +366,11 @@ if !exists('g:vscode')
   call wilder#setup({'modes': [':', '/', '?']})
 endif
 
+" rnvimr plugin
+tnoremap <silent> <M-i> <C-\><C-n>:RnvimrResize<CR>
+nnoremap <silent> <M-o> :RnvimrToggle<CR>
+tnoremap <silent> <M-o> <C-\><C-n>:RnvimrToggle<CR>
+
 " nvim-treesitter
 if !exists('g:vscode')
 lua <<EOF
