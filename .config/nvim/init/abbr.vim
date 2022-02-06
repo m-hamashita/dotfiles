@@ -5,4 +5,4 @@ cabbrev ga Git add %:p
 cabbrev gs Gstatus
 cabbrev gc Git commit -m
 cabbrev gd Gdiff
-cabbrev gp Gpush
+cabbrev gp Git push
