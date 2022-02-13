@@ -92,6 +92,7 @@ nnoremap <silent> <space>gc :Git commit<CR>
 " neoterm https://sy-base.com/myrobotics/vim/neovim-neoterm/
 nnoremap <c-t><c-t> :Ttoggle<CR>
 tnoremap <c-t><c-t> <C-¥><C-n>:Ttoggle<CR>
+nnoremap <c-t><c-n> :Tnew<CR>
 
 " コマンドラインモードで履歴を探索
 cnoremap <C-p> <Up>
