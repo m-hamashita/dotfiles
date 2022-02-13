@@ -93,6 +93,8 @@ key_bindings:
   - { key: Key6,      mods: Alt|Shift, chars: "\x1b^"                       } # Alt + ^
   - { key: Backslash, mods: Alt,       chars: "\x1b\\"                      } # Alt + \
   - { key: Backslash, mods: Alt|Shift, chars: "\x1b|"                       } # Alt + |
+  - { key: Q, mods: Control, chars: "\x11" }
+  - { key: "LBracket",       mods: Control,   chars: "\x1b" }
 
 
 # Colors (Gruvbox dark)
