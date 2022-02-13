@@ -19,3 +19,4 @@ package-lock.json
 !.config/nvim/rc/colorscheme.toml
 !.config/nvim/rc/plugin.md
 !.config/ranger/rc.conf
+!.config/lazygit/config.yml
