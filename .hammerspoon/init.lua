@@ -30,7 +30,10 @@ module.action = function()
     elseif app:isFrontmost() then
         app:hide()
     else -- すでに存在する場合、window を activeSpace に移動させて focus する
-        MoveFullScreenWindow(app)
+        local activeSpace = spaces.activeSpace()
+        local win = app:focusedWindow()
+        win:spacesMoveTo(activeSpace)
+        hs.application.launchOrFocus(appName)
     end
 end
 
@@ -50,20 +53,36 @@ end
 --     end
 -- end)
 
-hs.hotkey.bind({"ctrl"}, "m", function()
-    local appName = "Spotify"
-    local activeSpace = spaces.activeSpace()
-    local app = hs.application.find(appName)
-    if app == nil then
-        hs.application.launchOrFocus(appName)
-    elseif app:isFrontmost() then
-        app:hide()
-    else
-        local win = app:focusedWindow()
-        win:spacesMoveTo(activeSpace)
-        hs.application.launchOrFocus(appName)
-    end
-end)
+
+-- module.action = function()
+--     local appName = "Alacritty"
+--     local activeSpace = spaces.activeSpace()
+--     local app = hs.application.find(appName)
+--     if app == nil then
+--         hs.application.launchOrFocus(appName)
+--     elseif app:isFrontmost() then
+--         app:hide()
+--     else
+--         local win = app:focusedWindow()
+--         win:spacesMoveTo(activeSpace)
+--         hs.application.launchOrFocus(appName)
+--     end
+-- end
+
+-- hs.hotkey.bind({"ctrl"}, "m", function()
+--     local appName = "Spotify"
+--     local activeSpace = spaces.activeSpace()
+--     local app = hs.application.find(appName)
+--     if app == nil then
+--         hs.application.launchOrFocus(appName)
+--     elseif app:isFrontmost() then
+--         app:hide()
+--     else
+--         local win = app:focusedWindow()
+--         win:spacesMoveTo(activeSpace)
+--         hs.application.launchOrFocus(appName)
+--     end
+-- end)
 
 hs.hotkey.bind({"ctrl"}, ",", function()
     local appName = "Slack"
