@@ -35,6 +35,11 @@ set -x PATH /usr/local/opt/binutils/bin $PATH
 set -x PATH /usr/local/opt/llvm/bin $PATH
 set -g fish_user_paths "/usr/local/opt/llvm/bin" $fish_user_paths
 
+# ranger
+set -x EDITOR nvim
+set -x VISUAL nvim
+
+
 # pyenv
 set -x PYENV_ROOT $HOME/.pyenv
 set -x PATH $PYENV_ROOT/bin $PATH
