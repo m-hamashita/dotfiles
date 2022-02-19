@@ -15,11 +15,13 @@
       "settings": {}
     }
   },
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.diagnosticMode": "workspace",
   "python.analysis.diagnosticSeverityOverrides": {
     "reportGeneralTypeIssues": "none",
     "reportOptionalMemberAccess": "none"
   },
-  "python.jediEnabled": false,
+  "python.jediEnabled": true,
   "coc.preferences.formatOnType": true,
   "python.analysis.disabled": ["unresolved-import"],
   "eslint.autoFixOnSave": true,
