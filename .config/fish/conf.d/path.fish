@@ -30,6 +30,7 @@ set -x PATH $HOME/usr/lib/bin $PATH
 set -x PATH /usr/local/bin $PATH
 set -x PATH /usr/local/git/bin $PATH
 set -x PATH $HOME/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin $PATH
+set -x PATH $HOME/.poetry/bin $PATH
 set -x PATH /usr/local/opt/binutils/bin $PATH
 
 set -x PATH /usr/local/opt/llvm/bin $PATH
