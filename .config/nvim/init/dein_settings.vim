@@ -88,7 +88,7 @@ let g:ale_keep_list_window_open = 1
 
 " 有効にするlinter
 let g:ale_linters = {
-\   'python': ['flake8'],
+\   'python': ['flake8', 'mypy'],
 \   'cpp': ['clangd'],
 \   'vim': ['vint'],
 \}
@@ -107,6 +107,8 @@ let g:ale_python_flake8_use_global = 1
 " let g:ale_python_isort_options = '-m isort'
 " let g:ale_python_black_executable = g:python3_host_prog
 " let g:ale_python_black_options = '-m black'
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
 
 " ALE用プレフィックス
 nmap [ale] <Nop>
