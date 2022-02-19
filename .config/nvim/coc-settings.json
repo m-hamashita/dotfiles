@@ -15,6 +15,10 @@
       "settings": {}
     }
   },
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportGeneralTypeIssues": "none",
+    "reportOptionalMemberAccess": "none"
+  },
   "python.jediEnabled": false,
   "coc.preferences.formatOnType": true,
   "python.analysis.disabled": ["unresolved-import"],
