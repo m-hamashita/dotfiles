@@ -109,6 +109,9 @@ let g:ale_python_flake8_use_global = 1
 " let g:ale_python_black_options = '-m black'
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
+let g:ale_list_window_size = 5
+nnoremap <space>c :ccl<CR>
+
 
 " ALE用プレフィックス
 nmap [ale] <Nop>
