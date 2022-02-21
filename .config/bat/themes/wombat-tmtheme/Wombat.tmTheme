@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
+<!-- https://github.com/randy3k/Wombat/blob/b42d7850f7e096efc5dc28d9ab00624f70d38659/Wombat.tmTheme -->
 <dict>
 	<key>author</key>
 	<string>Lars H. Nielsen</string>
