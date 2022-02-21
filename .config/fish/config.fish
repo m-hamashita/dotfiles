@@ -22,3 +22,8 @@ function man
 			LESS_TERMCAP_us=(printf "\e[1;32m") \
 			man "$argv[1]"
 end
+
+# for direnv
+# TODO: 場所移動させたい
+eval (direnv hook fish)
+set -x DIRENV_LOG_FORMAT
