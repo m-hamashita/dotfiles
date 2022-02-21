@@ -8,8 +8,6 @@
 repo = 'Shougo/deol.nvim'
 " 【Ctrl + o】 float window でターミナルを表示
 nnoremap <silent><C-o> :<C-u>Deol -split=floating<CR>
-" ターミナルモードから抜ける
-tnoremap <silent>jj <C-\><C-n>
 
 ### vim-fugitive Git クライアントプラグイン
 
