@@ -23,7 +23,6 @@ nnoremap ZQ <Nop>
 nnoremap <silent> <C-j> :bprev<CR>
 nnoremap <silent> <C-k> :bnext<CR>
 
-
 tnoremap <silent><ESC> <C-\><C-n>
 
 " ctags
