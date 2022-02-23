@@ -27,3 +27,9 @@ bind \co 'cop'
 if bind -M insert >/dev/null 2>/dev/null
     bind -M insert \co 'cop'
 end
+
+bind \eo '_ranger'
+if bind -M insert >/dev/null 2>/dev/null
+    bind -M insert \co '_ranger'
+    commandline -f repaint
+end

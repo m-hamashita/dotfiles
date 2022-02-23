@@ -200,6 +200,13 @@ function cdr
     commandline -f repaint
 end
 
+function _ranger
+    ranger
+    echo ""
+    commandline -f repaint
+end
+
+
 function docker-exec
     set name (docker ps --format "{{.Names}}" | fzf)
     docker exec -it $name $argv
