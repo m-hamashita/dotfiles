@@ -116,6 +116,22 @@ nnoremap  <C-c><C-c> :<C-u>nohlsearch<cr><Esc>
 " q: でも閉じる
 map q: :q
 
+" Toggle quickfix
+if exists('g:__QUICKFIX_TOGGLE__')
+    finish
+endif
+let g:__QUICKFIX_TOGGLE__ = 1
+
+function! ToggleQuickfix()
+    let l:nr = winnr('$')
+    cwindow
+    let l:nr2 = winnr('$')
+    if l:nr == l:nr2
+        cclose
+    endif
+endfunction
+nnoremap <script> <silent> <Space>c :call ToggleQuickfix()<CR>
+
 command Tmux e ~/.tmux_cheatsheet.md
 command Work e ~/.work_cheatsheet.md
 command Cheat e ~/.vim_cheatsheet.md
