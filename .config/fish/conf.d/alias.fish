@@ -160,6 +160,16 @@ function fzf-git-vim
   commandline -f repaint
 end
 
+# fzf でリポジトリ以下のディレクトリ名を検索して cd する
+function fzf-git-cd
+  git ls-files | xargs -n 1 dirname | uniq | fzf | read dir
+  if [ $dir ]
+      cd $dir
+  end
+  echo ""
+  commandline -f repaint
+end
+
 function kaggle_python
   docker run -v $PWD:/tmp/working -w=/tmp/working --rm -it kaggle/python python "$argv"
 end

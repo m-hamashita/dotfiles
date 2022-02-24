@@ -32,3 +32,8 @@ bind \eo '_ranger'
 if bind -M insert >/dev/null 2>/dev/null
     bind -M insert \co '_ranger'
 end
+
+bind \cd 'fzf-git-cd'
+if bind -M insert >/dev/null 2>/dev/null
+    bind -M insert \cd 'fzf-git-cd'
+end
