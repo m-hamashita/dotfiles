@@ -38,20 +38,20 @@ module.action = function()
 end
 
 
--- hs.hotkey.bind({"ctrl"}, "m", function()
---     local appName = "Code"
---     local activeSpace = spaces.activeSpace()
---     local app = hs.application.find(appName)
---     if app == nil then
---         hs.application.launchOrFocus("Visual Studio Code")
---     elseif app:isFrontmost() then
---         app:hide()
---     else
---         local win = app:focusedWindow()
---         win:spacesMoveTo(activeSpace)
---         hs.application.launchOrFocus("Visual Studio Code")
---     end
--- end)
+hs.hotkey.bind({"ctrl"}, "m", function()
+    local appName = "Code"
+    local activeSpace = spaces.activeSpace()
+    local app = hs.application.find(appName)
+    if app == nil then
+        hs.application.launchOrFocus("Visual Studio Code")
+    elseif app:isFrontmost() then
+        app:hide()
+    else
+        local win = app:focusedWindow()
+        win:spacesMoveTo(activeSpace)
+        hs.application.launchOrFocus("Visual Studio Code")
+    end
+end)
 
 
 -- module.action = function()
