@@ -17,9 +17,6 @@
 [user]
 	name = m-hamashita
 	email = masakatsu.hamashita@gunosy.com
-[url "github:"]
-	InsteadOf = https://github.com/
-	InsteadOf = git@github.com:
 [color]
 	diff = auto
 	status = auto
@@ -44,9 +41,11 @@
 [branch]
 	sort = -authordate
 [url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
+    insteadOf = https://github.com/
 [url "ssh://git@github.com/gunosy"]
-	insteadOf = https://github.com/gunosy
+    insteadOf = https://github.com/gunosy
+[url "git@github.com:"]
+    insteadOf = https://github.com/
 [secrets]
 	providers = git secrets --aws-provider
 	patterns = (A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
