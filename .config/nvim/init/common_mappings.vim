@@ -43,6 +43,14 @@ augroup goJumpDefinition
   autocmd FileType go nmap <leader>v <Plug>(go-def-vertical)
 augroup end
 
+" TODO: いい感じに Telescope で表示したい
+function! GoReferrersPreview()
+    :GoReferrers
+    sleep 2000m
+    :lclose
+    :CocCommand fzf-preview.LocationList
+endfunction
+
 augroup quickfixAutocmd
   autocmd!
   autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>:lclose<CR>

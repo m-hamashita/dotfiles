@@ -103,8 +103,8 @@ let g:ale_fix_on_save = 1
 let g:ale_python_flake8_executable = g:python3_host_prog
 let g:ale_python_flake8_options = '-m flake8'
 let g:ale_python_flake8_use_global = 1
-" let g:ale_python_isort_executable = g:python3_host_prog
-" let g:ale_python_isort_options = '-m isort'
+let g:ale_python_isort_executable = g:python3_host_prog
+let g:ale_python_isort_options = '-m isort'
 " let g:ale_python_black_executable = g:python3_host_prog
 " let g:ale_python_black_options = '-m black'
 let g:ale_list_window_size = 5
@@ -220,8 +220,8 @@ augroup END
 nmap <leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
-vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+" vmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -440,8 +440,8 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " fzf-preview
-nmap z [ff]
-xmap z [ff]
+nmap <leader>f [ff]
+xmap <leader>f [ff]
 
 let $BAT_THEME                     = 'gruvbox-dark'
 let $FZF_PREVIEW_PREVIEW_BAT_THEME = 'gruvbox-dark'
