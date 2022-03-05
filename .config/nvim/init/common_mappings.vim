@@ -9,17 +9,29 @@ nnoremap sk <C-w>k
 nnoremap sl <C-w>l
 nnoremap sh <C-w>h
 
-" noremap <S-h>   ^ "カーソル移動系shift+hjkl
+" カーソル移動系shift+hjkl
+noremap <S-h>   ^
 " noremap <S-j>   }
 " noremap <S-k>   {
-" noremap <S-l>   $
+noremap <S-l>   $
 noremap <S-j> <Nop>
+
+" 行頭行末移動
+nnoremap <C-a> ^
+inoremap <C-a> <C-o>^
+vnoremap <C-a> ^
+nnoremap <C-e> $
+inoremap <C-e> <C-o>$
+vnoremap <C-e> $
+
+inoremap <silent> ww <Esc>viw
 
 " 使わないので無効化
 nnoremap Q <Nop>
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 
+" buffer 移動
 nnoremap <silent> <C-j> :bprev<CR>
 nnoremap <silent> <C-k> :bnext<CR>
 
@@ -112,12 +124,12 @@ cnoremap <C-p> <Up>
 " 0 で(インデントを含む|含まない)行頭をtoggleで移動できる
 noremap <expr> 0 getline('.')[0 : col('.') - 2] =~# '^\s\+$' ? '0' : '^'
 
-"<Leader>はバックスラッシュ
+" <Leader>はバックスラッシュ
 
-"検索ハイライトを消す
+" 検索ハイライトを消す
 nnoremap  <C-c><C-c> :<C-u>nohlsearch<cr><Esc>
 
-"ctagジャンプ Ctrl-hで横にCtrl-lで縦に分割
+" ctagジャンプ Ctrl-hで横にCtrl-lで縦に分割
 " nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 " nnoremap <C-l> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
