@@ -84,6 +84,7 @@ abbr -a cr cargo run
 abbr -a cb cargo build
 abbr -a mo mob start 15
 abbr -a moi mob start 15 -i
+abbr -a a awsctx
 # abbr -a del "git branch --merged | grep -vE '^\\*|master|develop|staging' | xargs -I % git branch -d % && git remote prune origin"
 
 if [ (command -v rmtrash) ]
@@ -160,6 +161,17 @@ function fzf-git-vim
   end
   echo ""
   commandline -f repaint
+end
+
+function where --argument-names 'cmdname'
+  if test -n "$cmdname"
+    which $cmdname  | sed -E 's/\/[^\/]+$//' | read -l dir
+    if test -n "$dir"
+      cd $dir
+    else
+      echo "$cmdname: command not found"
+    end
+  end
 end
 
 # fzf でリポジトリ以下のディレクトリ名を検索して cd する
