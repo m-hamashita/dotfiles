@@ -114,12 +114,20 @@ else
     echo "tmux is not installed"
 end
 
-if [ (command -v exa) ]
-    alias ls 'exa -a --git'
-    alias tree 'exa --tree'
+
+if [ (command -v lsd) ]
+    alias ls 'lsd -At'
+    alias lsr 'lsd -AR'
+    alias tree 'lsd --tree'
 else
-    alias ls 'ls -at'
-    echo "exa is not installed"
+    echo "lsd is not installed"
+    if [ (command -v exa) ]
+        alias ls 'exa -a --git'
+        alias tree 'exa --tree'
+    else
+        alias ls 'ls -at'
+        echo "exa is not installed"
+    end
 end
 
 if [ -e "/Applications/CotEditor.app" ]
