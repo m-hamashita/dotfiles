@@ -33,10 +33,11 @@ set -x PATH $HOME/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin $P
 set -x PATH $HOME/.poetry/bin $PATH
 set -x PATH /usr/local/opt/binutils/bin $PATH
 
-set -x PATH /usr/local/opt/llvm/bin $PATH
-set -g fish_user_paths "/usr/local/opt/llvm/bin" $fish_user_paths
+# set -x PATH /usr/local/opt/llvm/bin $PATH
+# set -g fish_user_paths "/usr/local/opt/llvm/bin" $fish_user_paths
 
 # ranger
+#
 set -x EDITOR nvim
 set -x VISUAL nvim
 
