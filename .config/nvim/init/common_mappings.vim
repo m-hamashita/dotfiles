@@ -35,7 +35,16 @@ nnoremap ZQ <Nop>
 nnoremap <silent> <C-j> :bprev<CR>
 nnoremap <silent> <C-k> :bnext<CR>
 
+" terminal mode の ESC
 tnoremap <silent><ESC> <C-\><C-n>
+
+" 検索時の移動
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
 
 " ctags
 augroup pythonJumpDefinition
