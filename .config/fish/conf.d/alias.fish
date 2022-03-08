@@ -63,10 +63,11 @@ abbr -a k kubectl
 abbr -a kg kubectl get pod
 abbr -a ga git add
 abbr -a gb git branch
-abbr -a gd git diff
-abbr -a gp git pull
 abbr -a gc git commit -m
 abbr -a gs git status
+abbr -a gd git diff
+abbr -a gh 'git stash; git pull --rebase; git stash pop'
+abbr -a gp git pull
 abbr -a gr git rebase
 abbr -a grh git reset --hard
 abbr -a grhh git reset --hard HEAD
