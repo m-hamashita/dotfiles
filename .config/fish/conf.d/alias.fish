@@ -86,6 +86,8 @@ abbr -a cb cargo build
 abbr -a mo mob start 15
 abbr -a moi mob start 15 -i
 abbr -a a awsctx
+abbr -a mvuntrack backup_untracked
+
 # abbr -a del "git branch --merged | grep -vE '^\\*|master|develop|staging' | xargs -I % git branch -d % && git remote prune origin"
 
 if [ (command -v rmtrash) ]
@@ -237,6 +239,10 @@ function _ranger
     ranger
     echo ""
     commandline -f repaint
+end
+
+function backup_untracked
+    for file in (git ls-files --others --exclude-standard); mkdir -p backup/(dirname $file) ; mv $file backup/$file ; end
 end
 
 
