@@ -9,3 +9,4 @@ tags
 .ipynb_checkpoints
 loop.sh
 .vscode/
+node_modules
