@@ -146,7 +146,7 @@ set nofoldenable
 " Coc
 " ===============================================
 " インストールされていなかったら起動時にインストール
-let g:coc_global_extensions = ['coc-pyright', 'coc-json', 'coc-pairs', 'coc-clangd', 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-yaml', 'coc-git', 'coc-fzf-preview', 'coc-rust-analyzer']
+let g:coc_global_extensions = ['coc-pyright', 'coc-json', 'coc-pairs', 'coc-clangd', 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-yaml', 'coc-git', 'coc-fzf-preview', 'coc-rust-analyzer', 'coc-docker']
 " インストール先を固定するために必要
 let g:coc_data_home = '~/'
 " navigate chunks of current buffer
