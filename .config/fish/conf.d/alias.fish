@@ -1,6 +1,6 @@
 # git checkout branchをfzfで選択
 function co
-    git checkout (git branch -a | tr -d " " |fzf --height 70% --prompt "CHECKOUT BRANCH>" --preview "git log --color=always {}" | head -n 1 | sed -e "s/^\*\s*//g" | perl -pe "s/remotes\/origin\///g")
+    git checkout (git branch -a | tr -d " " | fzf --height 70% --prompt "CHECKOUT BRANCH>" --preview "git log --color=always {}" | head -n 1 | sed -e "s/^\*\s*//g" | perl -pe "s/remotes\/origin\///g")
     echo ""
     commandline -f repaint
 end
