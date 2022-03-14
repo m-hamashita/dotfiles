@@ -23,14 +23,14 @@ if bind -M insert >/dev/null 2>/dev/null
     bind -M insert \cb 'co'
 end
 
-bind \co 'cop'
+bind \cp 'cop'
 if bind -M insert >/dev/null 2>/dev/null
-    bind -M insert \co 'cop'
+    bind -M insert \cp 'cop'
 end
 
 bind \eo '_ranger'
 if bind -M insert >/dev/null 2>/dev/null
-    bind -M insert \co '_ranger'
+    bind -M insert \eo '_ranger'
 end
 
 bind \cd 'fzf-git-cd'
