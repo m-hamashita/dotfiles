@@ -12,9 +12,11 @@ set -x LC_ALL 'ja_JP.UTF-8'
 set -x PGDATA /usr/local/var/postgres
 
 # go
-set -x GOPATH $HOME/go
-set -x GOROOT ( go env GOROOT )
-set -x PATH $GOPATH/bin $PATH
+if [ (command -v go) ]
+    set -x GOPATH $HOME/go
+    set -x GOROOT ( go env GOROOT )
+    set -x PATH $GOPATH/bin $PATH
+end
 
 # ls color
 set -x CLICOLOR 1
@@ -37,10 +39,14 @@ set -x PATH /usr/local/opt/binutils/bin $PATH
 # set -g fish_user_paths "/usr/local/opt/llvm/bin" $fish_user_paths
 
 # ranger
-#
 set -x EDITOR nvim
 set -x VISUAL nvim
 
+# for direnv
+if [ (command -v direnv) ]
+    eval (direnv hook fish)
+    set -x DIRENV_LOG_FORMAT
+end
 
 # pyenv
 set -x PYENV_ROOT $HOME/.pyenv
