@@ -93,27 +93,27 @@ if [ (command -v rmtrash) ]
     alias rm 'rmtrash'
 else
     alias rm 'rm -i'
-    echo "rmtrash is not installed"
+    # echo "rmtrash is not installed"
 end
 if [ (command -v nvim) ]
     alias vim 'nvim'
 else
-    echo "neovim is not installed"
+    # echo "neovim is not installed"
 end
 if [ (command -v gcc-11) ]
     alias gcc '/usr/local/bin/gcc-11'
 else
-    echo "gcc-11 is not installed"
+    # echo "gcc-11 is not installed"
 end
 if [ (command -v g++-11) ]
     alias g++ '/usr/local/bin/g++-11 --sysroot=/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk'
 else
-    echo "g++-11 is not installed"
+    # echo "g++-11 is not installed"
 end
 if [ (command -v tmux) ]
     alias ta 'tmux a -d'
 else
-    echo "tmux is not installed"
+    # echo "tmux is not installed"
 end
 
 
@@ -122,20 +122,20 @@ if [ (command -v lsd) ]
     alias lsr 'lsd -AR'
     alias tree 'lsd --tree'
 else
-    echo "lsd is not installed"
+    # echo "lsd is not installed"
     if [ (command -v exa) ]
         alias ls 'exa -a --git'
         alias tree 'exa --tree'
     else
-        alias ls 'ls -at'
-        echo "exa is not installed"
+        alias ls 'ls -at --color=auto'
+        # echo "exa is not installed"
     end
 end
 
 if [ -e "/Applications/CotEditor.app" ]
   alias cot 'open -a /Applications/'\''CotEditor.app'\'''
 else
-    echo "CotEditer is not installed"
+    # echo "CotEditer is not installed"
 end
 
 function vimrg
