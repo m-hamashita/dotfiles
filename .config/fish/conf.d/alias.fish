@@ -54,6 +54,7 @@ alias less 'bat'
 alias digdag '/bin/bash ~/bin/digdag'
 alias root 'cd (git rev-parse --show-toplevel)'
 
+
 # abbr
 abbr -a del_swap "rm ~/.local/share/nvim/swap/*"
 abbr -a ref source ~/.config/fish/config.fish
@@ -86,6 +87,8 @@ abbr -a mo mob start 15
 abbr -a moi mob start 15 -i
 abbr -a a awsctx
 abbr -a mvuntrack backup_untracked
+abbr -a docf "docker run -it --rm (docker image ls | sed -e '1d' | fzf --height 40% --reverse | awk '{print \$3}') bash"
+abbr -a image "docker image ls | sed -e '1d' | fzf --height 40% --reverse | awk '{print \$3}'"
 
 # abbr -a del "git branch --merged | grep -vE '^\\*|master|develop|staging' | xargs -I % git branch -d % && git remote prune origin"
 
@@ -204,11 +207,18 @@ function fzf-git-cd
   commandline -f repaint
 end
 
+function docker_jupyter
+  docker run -v $PWD:/tmp/workspace -w=/tmp/workspace -p 8988:8888 --rm -it "$argv" jupyter notebook --no-browser --ip="0.0.0.0" --notebook-dir=/tmp/workspace --allow-root
+end
+function docker_run
+  docker run -v $PWD:/tmp/workspace -w=/tmp/workspace -p 8988:8888 --rm -it "$argv" bash
+end
+
 function kaggle_python
-  docker run -v $PWD:/tmp/working -w=/tmp/working --rm -it kaggle/python python "$argv"
+  docker run -v $PWD:/tmp/workspace -w=/tmp/workspace --rm -it kaggle/python python "$argv"
 end
 function kaggle_jupyter
-  docker run -v $PWD:/tmp/working -w=/tmp/working -p 8988:8888 --rm -it kaggle/python jupyter notebook --no-browser --ip="0.0.0.0" --notebook-dir=/tmp/working --allow-root
+  docker run -v $PWD:/tmp/workspace -w=/tmp/workspace -p 8988:8888 --rm -it kaggle/python jupyter notebook --no-browser --ip="0.0.0.0" --notebook-dir=/tmp/workspace --allow-root
 end
 
 function fshow
