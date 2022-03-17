@@ -35,7 +35,8 @@ repo = 'fatih/vim-go'
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
-build = './install.sh nightly'
+source = 'release'
+build = 'coc#util#install()'
 hook_add = '''
 let coc#util#get_data_home = '~/.config/coc'
 '''
