@@ -16,14 +16,6 @@ noremap <S-h>   ^
 noremap <S-l>   $
 noremap <S-j> <Nop>
 
-" 行頭行末移動
-nnoremap <C-a> ^
-inoremap <C-a> <C-o>^
-vnoremap <C-a> ^
-nnoremap <C-e> $
-inoremap <C-e> <C-o>$
-vnoremap <C-e> $
-
 inoremap <silent> ww <Esc>viw
 
 " 使わないので無効化
