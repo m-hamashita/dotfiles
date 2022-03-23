@@ -21,7 +21,7 @@ function push
     git push origin $branch_name
 end
 
-function pushforce
+function fpush
     git rev-parse --abbrev-ref HEAD | read -l branch_name
     echo "git push -f origin $branch_name"
     git push -f origin $branch_name
