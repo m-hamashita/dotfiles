@@ -101,7 +101,7 @@ jupyter nbextension enable vim_binding/vim_binding
 
 ```
 pip install jupyterthemes
-jt -t gruvboxd -vim -T -f meslo -nf latosans -nfs 10 -tfs 10
+jt -t gruvboxd -vim -T -N -f meslo -nf latosans -nfs 10 -tfs 10
 ```
 
 - ~/.jupyter/custom/custom.js に以下を追加
