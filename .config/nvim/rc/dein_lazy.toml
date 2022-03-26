@@ -42,12 +42,6 @@ repo = 'maxmellon/vim-jsx-pretty'
 on_ft = ['javascript', 'javascript.jsx']
 
 [[plugins]]
-repo = 'mrjones2014/dash.nvim'
-hook_post_update = '''
-    call system('make install')
-'''
-
-[[plugins]]
 repo = 'yuki-yano/fuzzy-motion.vim'
 hook_add='''
     nmap <Leader>s :<C-u>FuzzyMotion<CR>
