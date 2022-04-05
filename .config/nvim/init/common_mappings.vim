@@ -52,7 +52,7 @@ augroup goJumpDefinition
   autocmd FileType go nmap <silent> gi <Plug>(go-implements)
   autocmd FileType go nmap <silent> rf <Plug>(go-referrers)
   autocmd FileType go nnoremap <silent> <C-[> :GoDefPop<CR>
-  autocmd FileType go nmap <leader>s <Plug>(go-def-split)
+  " autocmd FileType go nmap <leader>s <Plug>(go-def-split)
   autocmd FileType go nmap <leader>v <Plug>(go-def-vertical)
 augroup end
 
@@ -125,7 +125,8 @@ cnoremap <C-p> <Up>
 " 0 で(インデントを含む|含まない)行頭をtoggleで移動できる
 noremap <expr> 0 getline('.')[0 : col('.') - 2] =~# '^\s\+$' ? '0' : '^'
 
-" <Leader>はバックスラッシュ
+" <Leader> の default はバックスラッシュ
+let mapleader = "\<space>" " space に変更
 
 " 検索ハイライトを消す
 nnoremap  <C-c><C-c> :<C-u>nohlsearch<cr><Esc>
