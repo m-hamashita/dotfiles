@@ -265,9 +265,6 @@ let g:preview_markdown_vertical = 1
 let g:preview_markdown_auto_update = 1
 let g:preview_markdown_parser='glow'
 
-" nnoremap <space>f :NERDTreeToggle<CR>
-" NERDTreeで隠しファイルも表示する
-" let NERDTreeShowHidden=1
 
 " defx.nvim
 if !exists('g:vscode')
@@ -431,6 +428,7 @@ let g:translate_winsize = 5 " set buffer window height size if you doesn't use p
 nmap <space>t <Plug>(Translate)
 vmap <space>t <Plug>(VTranslate)
 
+" TODO: 現状 Telescope と fzf-preview の mapping が重複している
 " telescope.nvim
 "
 " Find files using Telescope command-line sugar.
