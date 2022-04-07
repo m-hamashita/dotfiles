@@ -126,7 +126,7 @@ cnoremap <C-p> <Up>
 noremap <expr> 0 getline('.')[0 : col('.') - 2] =~# '^\s\+$' ? '0' : '^'
 
 " <Leader> の default はバックスラッシュ
-let mapleader = "\<space>" " space に変更
+" let mapleader = "\<space>" " space に変更
 
 " 検索ハイライトを消す
 nnoremap  <C-c><C-c> :<C-u>nohlsearch<cr><Esc>
