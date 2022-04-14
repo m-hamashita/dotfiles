@@ -43,6 +43,25 @@ on_ft = ['javascript', 'javascript.jsx']
 
 [[plugins]]
 repo = 'yuki-yano/fuzzy-motion.vim'
-hook_add='''
+hook_add = '''
     nmap <Leader>s :<C-u>FuzzyMotion<CR>
+'''
+
+[[plugins]]
+repo = 'haya14busa/is.vim'
+on_event = 'VimEnter'
+
+[[plugins]]
+repo = 'haya14busa/vim-asterisk'
+depends = ['is.vim']
+on_map = ['<Plug>(asterisk-']
+hook_post_source  = 'let g:asterisk#keeppos = 1'
+
+[[plugins]]
+repo = 'heavenshell/vim-pydocstring'
+build = 'make install'
+on_ft = ['python']
+hook_add = '''
+    let g:pydocstring_formatter = 'google'
+    nmap <leader>pd <Plug>(pydocstring)
 '''
