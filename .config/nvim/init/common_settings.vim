@@ -94,6 +94,8 @@ set nostartofline
 let g:python_host_prog = '/usr/bin/python2.7'
 " let g:python3_host_prog = system('(type pyenv &>/dev/null && echo $(pyenv root)/versions/3.10.2/bin/python) || echo -n $(which python3)')
 let g:python3_host_prog = '~/.pyenv/shims/python3'
+let g:pip_command_path = '~/.local/bin/'
+
 
 
 augroup fileTypeIndent
