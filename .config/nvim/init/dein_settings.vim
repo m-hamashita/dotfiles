@@ -107,8 +107,8 @@ let g:ale_python_mypy_executable = g:pip_command_path
 let g:ale_python_mypy_options = '-m mypy'
 let g:ale_python_isort_executable = g:pip_command_path
 let g:ale_python_isort_options = '-m isort'
-let g:ale_python_black_executable = g:pip_command_path
-let g:ale_python_black_options = '-m black -t py310'
+" let g:ale_python_black_executable = g:pip_command_path
+" let g:ale_python_black_options = '-m black -t py310'
 let g:ale_list_window_size = 5
 
 
