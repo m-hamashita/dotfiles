@@ -83,8 +83,6 @@ abbr -a temp 'sudo powermetrics --samplers smc | grep "CPU die temperature"'
 abbr -a hg 'history | grep'
 abbr -a cr cargo run
 abbr -a cb cargo build
-abbr -a mo mob start 15
-abbr -a moi mob start 15 -i
 abbr -a a awsctx
 abbr -a mvuntrack backup_untracked
 abbr -a docf "docker run -it --rm (docker image ls | sed -e '1d' | fzf --height 40% --reverse | awk '{print \$3}') bash"
