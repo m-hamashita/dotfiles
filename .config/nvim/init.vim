@@ -15,3 +15,6 @@ runtime init/abbr.vim
 if !exists('g:vscode')
   colorscheme tokyonight
 endif
+
+highlight DiffChange ctermbg=23
+highlight DiffAdd ctermbg=64
