@@ -100,15 +100,15 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 
 " 各ツールの実行オプションを変更してPythonパスを固定
-let g:ale_python_flake8_executable = g:pip_command_path
-let g:ale_python_flake8_options = '-m flake8'
+let g:ale_python_flake8_executable = g:pip_command_path . 'flake8'
+" let g:ale_python_flake8_options = '-m flake8'
 let g:ale_python_flake8_use_global = 1
-let g:ale_python_mypy_executable = g:pip_command_path
-let g:ale_python_mypy_options = '-m mypy'
-let g:ale_python_isort_executable = g:pip_command_path
-let g:ale_python_isort_options = '-m isort'
-" let g:ale_python_black_executable = g:pip_command_path
-" let g:ale_python_black_options = '-m black -t py310'
+let g:ale_python_mypy_executable = g:pip_command_path . 'mypy'
+" let g:ale_python_mypy_options = '-m mypy'
+let g:ale_python_isort_executable = g:pip_command_path . 'isort'
+let g:ale_python_isort_options = '--line-length=110 --ensure-newline-before-comments --force-grid-wrap=0 --trailing-comma --multi-line=3 --use-parentheses'
+let g:ale_python_black_executable = g:pip_command_path . 'black'
+let g:ale_python_black_options = '-t py310 --line-length=110'
 let g:ale_list_window_size = 5
 
 
