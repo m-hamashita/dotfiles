@@ -65,3 +65,6 @@ hook_add = '''
     let g:pydocstring_formatter = 'google'
     nmap <leader>pd <Plug>(pydocstring)
 '''
+
+[[plugins]]
+repo = 'rhysd/conflict-marker.vim'
