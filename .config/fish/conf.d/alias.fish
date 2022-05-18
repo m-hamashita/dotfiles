@@ -42,9 +42,6 @@ end
 alias :q 'exit'
 alias useful 'cd ~/Documents/work/useful/'
 
-alias gcl 'gcloud beta compute ssh --zone "us-west1-b" "global-wheat-detection-vm" --project "euphoric-diode-279610" -- -L 8080:localhost:8080 -L 8081:localhost:8081'
-# alias cd='pushd'
-# alias cdd='popd'
 alias df 'df -h'
 alias gg 'open https://github.(git config remote.origin.url | cut -f2 -d. | tr ':' /)'
 alias vi 'vim'
