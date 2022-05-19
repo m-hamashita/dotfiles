@@ -34,10 +34,6 @@ set ruler
 set backspace=indent,eol,start
 "改行時に前の行の構文をチェックし次の行のインデントを増減する
 set smartindent
-"画面上でタブ文字が占める幅
-set tabstop=2
-" smartindentで増減する幅
-set shiftwidth=2
 "カーソルラインの表示
 set cursorline
 
