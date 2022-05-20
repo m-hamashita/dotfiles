@@ -48,6 +48,15 @@ if [ (command -v direnv) ]
     set -x DIRENV_LOG_FORMAT
 end
 
+# for asdf
+# completion setting
+# mkdir -p ~/.config/fish/completions; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
+if [ -e "$HOME/.asdf/asdf.fish" ]
+    source ~/.asdf/asdf.fish
+else
+    echo "asdf is not installed"
+end
+
 # pyenv
 set -x PYENV_ROOT $HOME/.pyenv
 set -x PATH $PYENV_ROOT/bin $PATH
