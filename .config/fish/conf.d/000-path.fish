@@ -14,7 +14,9 @@ set -x PGDATA /usr/local/var/postgres
 # go
 if [ (command -v go) ]
     set -x GOPATH $HOME/go
-    set -x GOROOT ( go env GOROOT )
+    # TODO: go env で環境変数を設定するようにする
+    # set -x GOROOT ( go env GOROOT )
+    set -x GOROOT /usr/local/Cellar/go/1.18.2/libexec
     set -x PATH $GOPATH/bin $PATH
 end
 
