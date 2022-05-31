@@ -73,3 +73,6 @@ hook_add = '''
     nmap <leader>co :<C-u>ConflictMarkerOurselves<CR>
     nmap <leader>cb :<C-u>ConflictMarkerBoth<CR>
 '''
+
+[[plugins]]
+repo = 'linty-org/key-menu.nvim'
