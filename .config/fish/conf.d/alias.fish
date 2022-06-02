@@ -15,6 +15,15 @@ function cop
  commandline -f repaint
 end
 
+function jira --argument-names 'ID'
+    if test -n "$ID"
+        open "https://gunosy.atlassian.net/browse/$ID"
+    else
+        set ID (git rev-parse --abbrev-ref HEAD | sed "s|^mob/||")
+        open "https://gunosy.atlassian.net/browse/$ID"
+    end
+end
+
 function push
     git rev-parse --abbrev-ref HEAD | read -l branch_name
     echo "git push origin $branch_name"
