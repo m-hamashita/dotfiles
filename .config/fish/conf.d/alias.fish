@@ -174,6 +174,11 @@ function swap
     mv "$argv[1]" $TMPFILE && mv "$argv[2]" "$argv[1]" && mv $TMPFILE "$argv[2]"
 end
 
+# diff があるファイルを開く
+function vd
+  vim (git diff --relative --name-only)
+end
+
 function fzf-git-diff-vim
   git diff --relative --name-only | fzf | read file
   if [ $file ]
