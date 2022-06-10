@@ -219,6 +219,15 @@ function fzf-git-cd
   commandline -f repaint
 end
 
+function fzf-cd
+  fd --type=d | uniq | fzf | read dir
+  if [ $dir ]
+      cd $dir
+  end
+  echo ""
+  commandline -f repaint
+end
+
 function docker_jupyter
   docker run -v $PWD:/tmp/workspace -w=/tmp/workspace -p 8988:8888 --rm -it "$argv" jupyter notebook --no-browser --ip="0.0.0.0" --notebook-dir=/tmp/workspace --allow-root
 end

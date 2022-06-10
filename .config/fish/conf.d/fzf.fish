@@ -9,7 +9,7 @@ if test "$FZF_DISABLE_KEYBINDINGS" -ne 1
     if test "$FZF_LEGACY_KEYBINDINGS" -eq 1
         bind \ct '__fzf_find_file'
         bind \cr '__fzf_reverse_isearch'
-        bind \cf '__fzf_cd'
+        # bind \cf '__fzf_cd'
         # bind \cF '__fzf_cd --hidden'
         bind \cg '__fzf_open'
         bind \co '__fzf_open --editor'
@@ -17,7 +17,7 @@ if test "$FZF_DISABLE_KEYBINDINGS" -ne 1
         if bind -M insert >/dev/null 2>/dev/null
             bind -M insert \ct '__fzf_find_file'
             bind -M insert \cr '__fzf_reverse_isearch'
-            bind -M insert \cf '__fzf_cd'
+            # bind -M insert \cf '__fzf_cd'
             # bind -M insert \cF '__fzf_cd --hidden'
             bind -M insert \cg '__fzf_open'
             bind -M insert \co '__fzf_open --editor'
@@ -25,7 +25,7 @@ if test "$FZF_DISABLE_KEYBINDINGS" -ne 1
     else
         bind \ct '__fzf_find_file'
         bind \cr '__fzf_reverse_isearch'
-        bind \cf '__fzf_cd'
+        # bind \cf '__fzf_cd'
         # bind \cF '__fzf_cd --hidden'
         bind \cO '__fzf_open'
         bind \co '__fzf_open --editor'
@@ -33,7 +33,7 @@ if test "$FZF_DISABLE_KEYBINDINGS" -ne 1
         if bind -M insert >/dev/null 2>/dev/null
             bind -M insert \ct '__fzf_find_file'
             bind -M insert \cr '__fzf_reverse_isearch'
-            bind -M insert \cf '__fzf_cd'
+            # bind -M insert \cf '__fzf_cd'
             # bind -M insert \cF '__fzf_cd --hidden'
             bind -M insert \cO '__fzf_open'
             bind -M insert \co '__fzf_open --editor'
