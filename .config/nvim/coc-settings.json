@@ -4,7 +4,8 @@
     "css",
     "markdown",
     "javascript",
-    "typescript"
+    "typescript",
+    "go"
   ],
   "suggest.noselect": false,
   "languageserver": {

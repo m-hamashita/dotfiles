@@ -48,22 +48,15 @@ augroup pythonJumpDefinition
 augroup end
 
 " vim-go
-augroup goJumpDefinition
-  autocmd!
-  autocmd FileType go nmap <silent> gi <Plug>(go-implements)
-  autocmd FileType go nmap <silent> rf <Plug>(go-referrers)
-  autocmd FileType go nnoremap <silent> <C-[> :GoDefPop<CR>
+" augroup goJumpDefinition
+"   autocmd!
+  " autocmd FileType go nmap <silent> gi <Plug>(go-implements)
+  " autocmd FileType go nmap <silent> rf <Plug>(go-referrers)
+  " autocmd FileType go nnoremap <silent> <C-[> :GoDefPop<CR>
   " autocmd FileType go nmap <leader>s <Plug>(go-def-split)
-  autocmd FileType go nmap <leader>v <Plug>(go-def-vertical)
-augroup end
+  " autocmd FileType go nmap <leader>v <Plug>(go-def-vertical)
+" augroup end
 
-" TODO: いい感じに Telescope で表示したい
-function! GoReferrersPreview()
-    :GoReferrers
-    sleep 2000m
-    :lclose
-    :CocCommand fzf-preview.LocationList
-endfunction
 
 augroup quickfixAutocmd
   autocmd!
