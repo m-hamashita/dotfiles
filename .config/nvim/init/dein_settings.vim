@@ -433,11 +433,36 @@ vmap <space>t <Plug>(VTranslate)
 " TODO: 現状 Telescope と fzf-preview の mapping が重複している
 " telescope.nvim
 "
+lua <<EOF
+  require('telescope').load_extension('cder')
+  require('telescope').setup({
+    extensions = {
+      cder = {
+        dir_command = { 'fd', '--type=d', '.', os.getenv('HOME'), 'Documents/work' },
+        previewer_command =
+          'exa '..
+          '-a '..
+          '--color=always '..
+          '-T '..
+          '--level=3 '..
+          '--icons '..
+          '--git-ignore '..
+          '--long '..
+          '--no-permissions '..
+          '--no-user '..
+          '--no-filesize '..
+          '--git '..
+          '--ignore-glob=.git',
+      },
+    },
+  })
+EOF
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fd <cmd>Telescope cder<cr>
 
 " fzf-preview
 nmap <leader>f [ff]

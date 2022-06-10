@@ -351,3 +351,6 @@ repo = 'roxma/vim-hug-neovim-rpc'
 
 [[plugins]]
 repo = 'kevinhwang91/rnvimr'
+
+[[plugins]]
+repo = 'zane-/cder.nvim'
