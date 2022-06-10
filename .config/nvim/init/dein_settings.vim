@@ -96,6 +96,7 @@ let g:ale_fixers = {
   \   '*': ['remove_trailing_lines', 'trim_whitespace'],
   \   'python': ['black', 'isort'],
   \   'cpp': ['clang-format'],
+  \   'go': ['goimports'],
   \ }
 let g:ale_fix_on_save = 1
 
@@ -141,7 +142,6 @@ let g:vim_markdown_toml_frontmatter=1
 let g:vim_markdown_json_frontmatter=0
 
 set nofoldenable
-
 
 
 " ===============================================
