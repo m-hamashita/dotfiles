@@ -351,3 +351,9 @@ repo = 'kevinhwang91/rnvimr'
 
 [[plugins]]
 repo = 'zane-/cder.nvim'
+
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'
+
+[[plugins]]
+repo = 'SmiteshP/nvim-navic'

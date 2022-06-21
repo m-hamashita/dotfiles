@@ -414,6 +414,16 @@ require'nvim-treesitter.configs'.setup {
 EOF
 endif
 
+" nvim-navic
+" TODO: clangd 以外も追加する
+lua <<EOF
+local navic = require("nvim-navic")
+require("lspconfig").clangd.setup {
+    on_attach = function(client, bufnr)
+        navic.attach(client, bufnr)
+    end
+}
+EOF
 
 " Vista
 " python file 起動時，Vista finder 起動
