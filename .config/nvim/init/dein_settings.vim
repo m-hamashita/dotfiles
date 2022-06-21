@@ -423,6 +423,7 @@ require("lspconfig").clangd.setup {
         navic.attach(client, bufnr)
     end
 }
+require("lspconfig").rust_analyzer.setup {}
 EOF
 
 " Vista
