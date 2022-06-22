@@ -424,6 +424,8 @@ require("lspconfig").clangd.setup {
     end
 }
 require("lspconfig").rust_analyzer.setup {}
+require("lspconfig").gopls.setup {}
+require("lspconfig").pyright.setup {}
 EOF
 
 " Vista
