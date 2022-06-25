@@ -83,9 +83,7 @@ vnoremap j gj
 vnoremap k gk
 
 " jjでnormal modeに
-inoremap <silent> jj <ESC>
-" normal mode 時保存
-" :<C-u>w<CR>
+inoremap <silent> jj <ESC>:<C-u>w<CR>
 
 "行頭へ移動
 inoremap <C-a> <C-o>^
