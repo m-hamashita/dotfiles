@@ -148,8 +148,7 @@ set nofoldenable
 " Coc
 " ===============================================
 " インストールされていなかったら起動時にインストール
-let g:coc_global_extensions = ['coc-json', 'coc-pairs', 'coc-clangd', 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-yaml', 'coc-git', 'coc-fzf-preview', 'coc-docker']
-" let g:coc_global_extensions = ['coc-pyright', 'coc-rust-analyzer', 'coc-go']
+let g:coc_global_extensions = ['coc-json', 'coc-pairs', 'coc-clangd', 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-yaml', 'coc-git', 'coc-fzf-preview', 'coc-docker', 'coc-pyright', 'coc-rust-analyzer', 'coc-go']
 " RUN :CocCommand go.install.gopls
 " インストール先を固定するために必要
 let g:coc_data_home = '~/'
@@ -416,7 +415,6 @@ EOF
 endif
 
 " nvim-navic
-" TODO: clangd 以外も追加する
 lua <<EOF
 local navic = require("nvim-navic")
 require("lspconfig").clangd.setup {
@@ -424,7 +422,10 @@ require("lspconfig").clangd.setup {
         navic.attach(client, bufnr)
     end
 }
-require("lspconfig").rust_analyzer.setup {}
+-- require("lspconfig").rust_analyzer.setup {
+--     on_attach = on_attach,
+--     flags = lsp_flags,
+-- }
 require("lspconfig").gopls.setup {}
 require("lspconfig").pyright.setup {}
 EOF
