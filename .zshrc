@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
 HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export WORKON_HOME=$HOME/.virtualenvs
 
@@ -500,3 +502,6 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 # if (which zprof > /dev/null) ;then
 #   zprof | less
 # fi
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
