@@ -42,12 +42,6 @@ repo = 'maxmellon/vim-jsx-pretty'
 on_ft = ['javascript', 'javascript.jsx']
 
 [[plugins]]
-repo = 'yuki-yano/fuzzy-motion.vim'
-hook_add = '''
-    nmap <Leader>s :<C-u>FuzzyMotion<CR>
-'''
-
-[[plugins]]
 repo = 'haya14busa/is.vim'
 on_event = 'VimEnter'
 

@@ -124,15 +124,6 @@ nmap <silent> [ale]<C-n> <Plug>(ale_next)
 " vim-highlightedyank
 let g:highlightedyank_highlight_duration = 300
 
-" easymotion
-" s{char}{char} to move to {char}{char}
-map <leader>j <Plug>(easymotion-bd-f2)
-nmap <leader>j <Plug>(easymotion-overwin-f2)
-
-" Move to line
-map <leader>l <Plug>(easymotion-bd-jk)
-nmap <leader>l <Plug>(easymotion-overwin-line)
-
 " vim-markdown
 let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_liquid=1
@@ -428,6 +419,41 @@ require("lspconfig").clangd.setup {
 -- }
 require("lspconfig").gopls.setup {}
 require("lspconfig").pyright.setup {}
+EOF
+
+" reacher.nvim
+lua <<EOF
+  -- search in the current window
+  vim.keymap.set({ "n", "x" }, "gs", [[<Cmd>lua require("reacher").start()<CR>]])
+
+  -- search in the all windows in the current tab
+  vim.keymap.set({ "n", "x" }, "gS", [[<Cmd>lua require("reacher").start_multiple()<CR>]])
+
+  -- search in the current line
+  vim.keymap.set({ "n", "x" }, "gl", function()
+    require("reacher").start({
+      first_row = vim.fn.line("."),
+      last_row = vim.fn.line("."),
+    })
+  end)
+
+  local group = "reacher_setting"
+  vim.api.nvim_create_augroup(group, {})
+  vim.api.nvim_create_autocmd({ "FileType" }, {
+    group = group,
+    pattern = { "reacher" },
+    callback = function()
+      vim.keymap.set({ "n", "i" }, "<CR>", [[<Cmd>lua require("reacher").finish()<CR>]], { buffer = true })
+      vim.keymap.set({ "n", "i" }, "<ESC>", [[<Cmd>lua require("reacher").cancel()<CR>]], { buffer = true })
+
+      -- vim.keymap.set("i", "<Tab>", [[<Cmd>lua require("reacher").next()<CR>]], { buffer = true })
+      -- vim.keymap.set("i", "<S-Tab>", [[<Cmd>lua require("reacher").previous()<CR>]], { buffer = true })
+      -- vim.keymap.set("i", "<C-n>", [[<Cmd>lua require("reacher").forward_history()<CR>]], { buffer = true })
+      -- vim.keymap.set("i", "<C-p>", [[<Cmd>lua require("reacher").backward_history()<CR>]], { buffer = true })
+      vim.keymap.set("i", "<C-n>", [[<Cmd>lua require("reacher").next()<CR>]], { buffer = true })
+      vim.keymap.set("i", "<C-p>", [[<Cmd>lua require("reacher").previous()<CR>]], { buffer = true })
+    end,
+  })
 EOF
 
 " Vista

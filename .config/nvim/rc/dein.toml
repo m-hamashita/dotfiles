@@ -227,9 +227,6 @@ nmap <C-n> <Plug>(yankround-next)
 repo = 'skanehira/getpr.vim'
 
 [[plugins]]
-repo = 'easymotion/vim-easymotion'
-
-[[plugins]]
 repo = 'Shougo/defx.nvim'
 
 [[plugins]]
@@ -360,3 +357,6 @@ repo = 'williamboman/nvim-lsp-installer'
 
 [[plugins]]
 repo = 'SmiteshP/nvim-navic'
+
+[[plugins]]
+repo = 'notomo/reacher.nvim'
