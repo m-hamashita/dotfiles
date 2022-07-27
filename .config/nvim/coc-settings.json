@@ -5,7 +5,8 @@
     "markdown",
     "javascript",
     "typescript",
-    "go"
+    "go",
+    "rust"
   ],
   "suggest.noselect": false,
   "languageserver": {

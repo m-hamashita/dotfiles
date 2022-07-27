@@ -263,12 +263,6 @@ repo = 'skanehira/translate.vim'
 repo = 'dag/vim-fish'
 
 [[plugins]]
-repo = 'rust-lang/rust.vim'
-hook_add = '''
-    let g:rustfmt_autosave = 1
-'''
-
-[[plugins]]
 repo = 'nvim-lua/popup.nvim'
 
 [[plugins]]
