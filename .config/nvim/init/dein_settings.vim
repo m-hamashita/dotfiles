@@ -150,7 +150,7 @@ nmap ]g <Plug>(coc-git-nextchunk)
 nmap [c <Plug>(coc-git-prevconflict)
 nmap ]c <Plug>(coc-git-nextconflict)
 " show chunk diff at current position
-nmap gs <Plug>(coc-git-chunkinfo)
+nmap gw <Plug>(coc-git-chunkinfo)
 " show commit contains current position
 nmap gc <Plug>(coc-git-commit)
 " create text object for git chunks
@@ -189,7 +189,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> rf <Plug>(coc-references)
+nmap <silent> gr <Plug>(coc-references)
 " back to definition: <C-o> - jump to original window on list create.
 nmap <silent> gp <C-o>
 
@@ -455,13 +455,6 @@ lua <<EOF
     end,
   })
 EOF
-
-" Vista
-" python file 起動時，Vista finder 起動
-" augroup vistaSettings
-" autocmd!
-" autocmd BufNewFile,BufRead *.py execute 'Vista'
-" augroup END
 
 " translate.vim
 let g:translate_source = 'en'
