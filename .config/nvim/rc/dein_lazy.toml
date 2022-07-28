@@ -2,41 +2,7 @@
 repo = 'Shougo/unite.vim'
 
 [[plugins]]
-repo = 'ujihisa/unite-colorscheme'
-
-[[plugins]]
-repo = 'rking/ag.vim'
-
-[[plugins]]
-repo = 'justmao945/vim-clang'
-
-[[plugins]]
 repo = 'psf/black'
-
-[[plugins]]
-repo = 'cespare/vim-toml'
-
-[[plugins]]
-repo = 'elzr/vim-json'
-on_ft = ['json']
-
-[[plugins]]
-repo = 'yuezk/vim-js'
-on_ft = ['javascript', 'javascript.jsx']
-
-[[plugins]]
-repo = 'maxmellon/vim-jsx-pretty'
-on_ft = ['javascript', 'javascript.jsx']
-
-[[plugins]]
-repo = 'haya14busa/is.vim'
-on_event = 'VimEnter'
-
-[[plugins]]
-repo = 'haya14busa/vim-asterisk'
-depends = ['is.vim']
-on_map = ['<Plug>(asterisk-']
-hook_post_source  = 'let g:asterisk#keeppos = 1'
 
 [[plugins]]
 repo = 'heavenshell/vim-pydocstring'
