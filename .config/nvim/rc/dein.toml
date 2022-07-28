@@ -67,6 +67,10 @@ repo = 'kristijanhusak/defx-icons'
 [[plugins]]
 repo = 'kristijanhusak/defx-git'
 
+# ranger
+[[plugins]]
+repo = 'kevinhwang91/rnvimr'
+
 # Git
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
@@ -231,6 +235,7 @@ hook_add = '''
 	command! NTermMulti8          call NTermMulti(4,2)
 '''
 
+# history of yank register
 [[plugins]]
 repo = 'LeafCage/yankround.vim'
 hook_add = '''
@@ -248,15 +253,15 @@ hook_add = '''
 [[plugins]]
 repo = 'skanehira/getpr.vim'
 
+# completion
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
+[[plugins]]
+repo = 'hashivim/vim-terraform'
 
 [[plugins]]
 repo = 'dbgx/lldb.nvim'
 on_ft = ['c', 'cpp']
-
-[[plugins]]
-repo = 'hashivim/vim-terraform'
 
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
@@ -295,13 +300,7 @@ repo = "nathanaelkane/vim-indent-guides"
 repo = "tpope/vim-surround"
 
 [[plugins]]
-repo = "chr4/nginx.vim"
-
-[[plugins]]
 repo = "vim-denops/denops.vim"
-
-[[plugins]]
-repo = "vim-denops/denops-helloworld.vim"
 
 [[plugins]]
 repo = "lambdalisue/guise.vim"
@@ -330,9 +329,6 @@ repo = "4513ECHO/vim-readme-viewer"
 repo = 'skanehira/denops-germanium.vim'
 
 [[plugins]]
-repo = 'jamestthompson3/nvim-remote-containers'
-
-[[plugins]]
 repo = 'machakann/vim-sandwich'
 
 [[plugins]]
@@ -342,10 +338,7 @@ repo = 'roxma/nvim-yarp'
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
 
-# ranger
-[[plugins]]
-repo = 'kevinhwang91/rnvimr'
-
+# change directory using telescope
 [[plugins]]
 repo = 'zane-/cder.nvim'
 
@@ -356,5 +349,6 @@ repo = 'neovim/nvim-lspconfig'
 [[plugins]]
 repo = 'SmiteshP/nvim-navic'
 
+# displayed range search
 [[plugins]]
 repo = 'notomo/reacher.nvim'
