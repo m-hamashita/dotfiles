@@ -7,8 +7,6 @@ sh install.sh
 sh alias.sh
 ```
 
-を実行するとそこそこいい感じになるかも
-
 ## tmux
 
 - tpm install
@@ -26,8 +24,8 @@ brew install neovim
 pip install neovim
 ```
 
-- init.vim に次を入力
-  `let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n $(pyenv root)/versions/${ここにバージョンを入力}/bin/python) || echo -n $(which python3)')`
+- write to init.vim
+  `let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n $(pyenv root)/versions/${version}/bin/python) || echo -n $(which python3)')`
 - dein install
 
 ```
@@ -51,7 +49,7 @@ nodebrew install-binary stable
 brew install tree-sitter
 ```
 
-- plugin は `:call dein#update()`, `:call dein#recache_runtimepath()` で更新できる
+- plugin can be refresh `:call dein#update()` or `:call dein#recache_runtimepath()`.
 
 ## zsh
 
@@ -75,7 +73,7 @@ brew install fish
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 ```
 
-- 補完を効かせる系を入れる
+- completion for fish
   - ex. `poetry completions fish > ~/.config/fish/completions/poetry.fish`
 
 ## jupyter notebook
@@ -104,7 +102,7 @@ pip install jupyterthemes
 jt -t gruvboxd -vim -T -N -f meslo -nf latosans -nfs 10 -tfs 10
 ```
 
-- ~/.jupyter/custom/custom.js に以下を追加
+- write to ~/.jupyter/custom/custom.js
 
 ```
 // Configure CodeMirror Keymap
