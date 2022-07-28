@@ -1,91 +1,90 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
+# rainbow parenthesis
 [[plugins]]
 repo = 'luochen1990/rainbow'
 
+
+# statusline/tabline
+[[plugins]]
+repo = 'mengelbrecht/lightline-bufferline'
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
-set laststatus=0
-set showtabline=2
-let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ],
-      \             [ 'vista' ],
-      \           ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head',
-      \   'vista': 'NearestMethodOrFunction',
-      \ },
-      \ }
-function! NearestMethodOrFunction() abort
-  return get(b:, 'vista_nearest_method_or_function', '')
-endfunction
+    set laststatus=0
+    set showtabline=2
+    let g:lightline = {
+          \ 'active': {
+          \   'left': [ [ 'mode', 'paste' ],
+          \             [ 'gitbranch', 'readonly', 'filename', 'modified' ],
+          \             [ 'vista' ],
+          \           ]
+          \ },
+          \ 'component_function': {
+          \   'gitbranch': 'fugitive#head',
+          \   'vista': 'NearestMethodOrFunction',
+          \ },
+          \ }
+    function! NearestMethodOrFunction() abort
+      return get(b:, 'vista_nearest_method_or_function', '')
+    endfunction
 
-let g:lightline#bufferline#show_number  = 1
-let g:lightline#bufferline#shorten_path = 0
-let g:lightline#bufferline#unnamed      = '[No Name]'
+    let g:lightline#bufferline#show_number  = 1
+    let g:lightline#bufferline#shorten_path = 0
+    let g:lightline#bufferline#unnamed      = '[No Name]'
 
-let g:lightline = { 'colorscheme': 'tokyonight' }
-let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
-let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-let g:lightline.component_type   = {'buffers': 'tabsel'}
+    let g:lightline = { 'colorscheme': 'tokyonight' }
+    let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
+    let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+    let g:lightline.component_type   = {'buffers': 'tabsel'}
 '''
 
+# syntax checking and semantic errors
 [[plugins]]
 repo = 'dense-analysis/ale'
 
 [[plugins]]
 repo = 'tpope/vim-obsession'
 
+# language server manager
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 build = './install.sh nightly'
 rev = '0fd56dd25fc36606afe2290240aecb6e6ab85092'
 hook_add = '''
-let coc#util#get_data_home = '~/.config/coc'
+    let coc#util#get_data_home = '~/.config/coc'
 '''
 
-[[plugins]]
-repo = 'mengelbrecht/lightline-bufferline'
-
+# Git
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
-
 [[plugins]]
 repo = 'tpope/vim-fugitive'
-
 [[plugins]]
 repo = 'tpope/vim-rhubarb'
 
+# highlight yanked region
 [[plugins]]
 repo = 'machakann/vim-highlightedyank'
+hook_add = '''
+    let g:highlightedyank_highlight_duration = 300
+'''
+
 
 [[plugins]]
 repo = 'simeji/winresizer'
 hook_add = '''
-let g:winresizer_start_key = '<C-w>'
-let g:winresizer_vert_resize = 1
-let g:winresizer_horiz_resize = 1
+    let g:winresizer_start_key = '<C-w>'
+    let g:winresizer_vert_resize = 1
+    let g:winresizer_horiz_resize = 1
 '''
 
 [[plugins]]
 repo = 'junegunn/fzf'
 build = './install --all'
-
 [[plugins]]
 repo = 'junegunn/fzf.vim'
-
-[[plugins]]
-repo = 'liuchengxu/vista.vim'
-depends = ['coc.nvim', 'lightline.vim']
-hook_add = '''
-  nmap <silent> <C-f><C-v> :<C-u>Vista<CR>
-  nmap <silent> <C-f><C-s> :<C-u>Vista finder coc<CR>
-'''
 
 [[plugins]]
 repo = 'Shougo/deol.nvim'
@@ -224,16 +223,17 @@ hook_add = '''
 [[plugins]]
 repo = 'LeafCage/yankround.vim'
 hook_add = '''
-nmap p <Plug>(yankround-p)
-xmap p <Plug>(yankround-p)
-nmap P <Plug>(yankround-P)
-nmap gp <Plug>(yankround-gp)
-xmap gp <Plug>(yankround-gp)
-nmap gP <Plug>(yankround-gP)
-nmap <C-p> <Plug>(yankround-prev)
-nmap <C-n> <Plug>(yankround-next)
+    nmap p <Plug>(yankround-p)
+    xmap p <Plug>(yankround-p)
+    nmap P <Plug>(yankround-P)
+    nmap gp <Plug>(yankround-gp)
+    xmap gp <Plug>(yankround-gp)
+    nmap gP <Plug>(yankround-gP)
+    nmap <C-p> <Plug>(yankround-prev)
+    nmap <C-n> <Plug>(yankround-next)
 '''
 
+# Get PR for line
 [[plugins]]
 repo = 'skanehira/getpr.vim'
 
@@ -288,8 +288,8 @@ repo = 'fannheyward/telescope-coc.nvim'
 [[plugins]]
 repo = "tyru/caw.vim.git"
 hook_add = '''
-          nmap , <Plug>(caw:hatpos:toggle)
-          vmap , <Plug>(caw:hatpos:toggle)
+    nmap , <Plug>(caw:hatpos:toggle)
+    vmap , <Plug>(caw:hatpos:toggle)
 '''
 
 [[plugins]]

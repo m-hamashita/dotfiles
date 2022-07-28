@@ -21,5 +21,14 @@ hook_add = '''
     nmap <leader>cb :<C-u>ConflictMarkerBoth<CR>
 '''
 
+# View and search LSP symbols
+[[plugins]]
+repo = 'liuchengxu/vista.vim'
+depends = ['coc.nvim', 'lightline.vim']
+hook_add = '''
+    nmap <silent> <C-f><C-v> :<C-u>Vista<CR>
+    nmap <silent> <C-f><C-s> :<C-u>Vista finder coc<CR>
+'''
+
 [[plugins]]
 repo = 'linty-org/key-menu.nvim'

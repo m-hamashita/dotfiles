@@ -82,9 +82,6 @@ nmap <silent> [ale]<C-p> <Plug>(ale_previous)
 nmap <silent> [ale]<C-n> <Plug>(ale_next)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" vim-highlightedyank
-let g:highlightedyank_highlight_duration = 300
-
 " vim-markdown
 let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_liquid=1
