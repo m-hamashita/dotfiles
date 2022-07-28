@@ -182,6 +182,20 @@ inoremap <silent><expr> <TAB>
      \ <SID>check_back_space() ? "\<TAB>" :
      \ coc#refresh()
 
+" open github link for dein toml
+" ex. repo = 'neovim/nvim-lspconfig' => https://github.com/neovim/nvim-lspconfig
+function! s:open_repository_from_toml() abort
+  let github_domain = "https://github.com/"
+  let repo = getline('.')
+  let repo = substitute(repo, "repo =", "", "")
+  let repo = substitute(repo, "\'", "", "g")
+  let repo = substitute(repo, '\"', "", "g")
+  let repo = substitute(repo, ' ', "", "g")
+
+  silent exec "!open '" . github_domain . repo . "'"
+endfunction
+nnoremap <silent> tt :call <SID>open_repository_from_toml()<CR>
+
 " use <c-space>for trigger completion
 inoremap <silent><expr> <c-space> coc#refresh()
 
