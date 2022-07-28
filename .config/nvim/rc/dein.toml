@@ -44,6 +44,7 @@ hook_add = '''
 [[plugins]]
 repo = 'dense-analysis/ale'
 
+# save session (use with tmux)
 [[plugins]]
 repo = 'tpope/vim-obsession'
 
@@ -55,6 +56,16 @@ rev = '0fd56dd25fc36606afe2290240aecb6e6ab85092'
 hook_add = '''
     let coc#util#get_data_home = '~/.config/coc'
 '''
+
+# file explorer
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+[[plugins]]
+repo = 'kristijanhusak/defx-icons'
+[[plugins]]
+repo = 'kristijanhusak/defx-git'
 
 # Git
 [[plugins]]
@@ -238,21 +249,6 @@ hook_add = '''
 repo = 'skanehira/getpr.vim'
 
 [[plugins]]
-repo = 'Shougo/defx.nvim'
-
-[[plugins]]
-repo = 'ryanoasis/vim-devicons'
-
-[[plugins]]
-repo = 'kristijanhusak/defx-icons'
-
-[[plugins]]
-repo = 'kristijanhusak/defx-git'
-
-[[plugins]]
-repo = 'skanehira/preview-markdown.vim'
-
-[[plugins]]
 repo = 'plasticboy/vim-markdown'
 
 [[plugins]]
@@ -286,7 +282,7 @@ repo = 'nvim-telescope/telescope.nvim'
 repo = 'fannheyward/telescope-coc.nvim'
 
 [[plugins]]
-repo = "tyru/caw.vim.git"
+repo = "tyru/caw.vim"
 hook_add = '''
     nmap , <Plug>(caw:hatpos:toggle)
     vmap , <Plug>(caw:hatpos:toggle)
@@ -297,9 +293,6 @@ repo = "nathanaelkane/vim-indent-guides"
 
 [[plugins]]
 repo = "tpope/vim-surround"
-
-[[plugins]]
-repo = "sjl/gundo.vim"
 
 [[plugins]]
 repo = "chr4/nginx.vim"
@@ -332,6 +325,7 @@ repo = "eiji03aero/quick-notes"
 [[plugins]]
 repo = "4513ECHO/vim-readme-viewer"
 
+# code screenshot
 [[plugins]]
 repo = 'skanehira/denops-germanium.vim'
 
@@ -348,6 +342,7 @@ repo = 'roxma/nvim-yarp'
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
 
+# ranger
 [[plugins]]
 repo = 'kevinhwang91/rnvimr'
 
@@ -355,11 +350,9 @@ repo = 'kevinhwang91/rnvimr'
 repo = 'zane-/cder.nvim'
 
 [[plugins]]
-repo = 'neovim/nvim-lspconfig'
-
-[[plugins]]
 repo = 'williamboman/nvim-lsp-installer'
-
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'
 [[plugins]]
 repo = 'SmiteshP/nvim-navic'
 
