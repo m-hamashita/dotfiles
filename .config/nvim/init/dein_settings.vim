@@ -1,17 +1,5 @@
 scriptencoding utf-8
 
-" lightline
-set laststatus=0
-set showtabline=2
-let g:lightline#bufferline#show_number  = 1
-let g:lightline#bufferline#shorten_path = 0
-let g:lightline#bufferline#unnamed      = '[No Name]'
-
-let g:lightline = { 'colorscheme': 'tokyonight' }
-let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
-let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-let g:lightline.component_type   = {'buffers': 'tabsel'}
-
 " TwitVim設定
 let twitvim_enable_python = 1
 let twitvim_browser_cmd = 'open'
@@ -34,33 +22,6 @@ call map(dein#check_clean(), "delete(v:val, 'rf')")
 " 括弧に色つけるやつの設定
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 
-" Neco-look 設定
-if !exists('g:neocomplete#text_mode_filetypes')
-		let g:neocomplete#text_mode_filetypes={}
-endif
-let g:neocomplete#text_mode_filetypes={
-		\ 'rst' : 1,
-		\ 'markdown' : 1,
-		\ 'gitrebase' : 1,
-		\ 'gitcommit' : 1,
-		\ 'vcs-commit' : 1,
-		\ 'hybrid' : 1,
-		\ 'text' : 1,
-		\ 'help' : 1,
-		\ 'tex' : 1,
-		\ }
-augroup necolookSetting
-  autocmd!
-  autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mark*} set filetype=markdown
-augroup END
-""Neco-look------
-
-" powerline
-let g:airline_powerline_fonts = 1
-" colortheme
-let g:airline_theme = 'papercolor'
-" tabline
-let g:airline#extensions#tabline#enabled = 1
 
 " ===============================================
 " ALE設定

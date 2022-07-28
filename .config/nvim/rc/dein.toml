@@ -7,6 +7,8 @@ repo = 'luochen1990/rainbow'
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
+set laststatus=0
+set showtabline=2
 let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
@@ -22,6 +24,15 @@ let g:lightline = {
 function! NearestMethodOrFunction() abort
   return get(b:, 'vista_nearest_method_or_function', '')
 endfunction
+
+let g:lightline#bufferline#show_number  = 1
+let g:lightline#bufferline#shorten_path = 0
+let g:lightline#bufferline#unnamed      = '[No Name]'
+
+let g:lightline = { 'colorscheme': 'tokyonight' }
+let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
 '''
 
 [[plugins]]
