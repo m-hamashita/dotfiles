@@ -5,7 +5,6 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'luochen1990/rainbow'
 
-
 # statusline/tabline
 [[plugins]]
 repo = 'mengelbrecht/lightline-bufferline'
@@ -87,6 +86,7 @@ hook_add = '''
 '''
 
 
+# resize window
 [[plugins]]
 repo = 'simeji/winresizer'
 hook_add = '''
@@ -95,6 +95,7 @@ hook_add = '''
     let g:winresizer_horiz_resize = 1
 '''
 
+# fuzzy finder
 [[plugins]]
 repo = 'junegunn/fzf'
 build = './install --all'
@@ -106,9 +107,6 @@ repo = 'Shougo/deol.nvim'
 hook_add = '''
 nnoremap <silent><C-p> :<C-u>Deol -split=floating<CR>
 '''
-
-[[plugins]]
-repo = 'vim-scripts/dbext.vim'
 
 [[plugins]]
 repo = 'kana/vim-altercmd'
@@ -249,7 +247,7 @@ hook_add = '''
     nmap <C-n> <Plug>(yankround-next)
 '''
 
-# Get PR for line
+# Get Pull Request for line
 [[plugins]]
 repo = 'skanehira/getpr.vim'
 
@@ -258,6 +256,8 @@ repo = 'skanehira/getpr.vim'
 repo = 'plasticboy/vim-markdown'
 [[plugins]]
 repo = 'hashivim/vim-terraform'
+[[plugins]]
+repo = 'dag/vim-fish'
 
 [[plugins]]
 repo = 'dbgx/lldb.nvim'
@@ -272,17 +272,12 @@ repo = 'nvim-treesitter/nvim-treesitter-textobjects'
 repo = 'skanehira/translate.vim'
 
 [[plugins]]
-repo = 'dag/vim-fish'
-
-[[plugins]]
 repo = 'nvim-lua/popup.nvim'
-
 [[plugins]]
 repo = 'nvim-lua/plenary.nvim'
 
 [[plugins]]
 repo = 'nvim-telescope/telescope.nvim'
-
 [[plugins]]
 repo = 'fannheyward/telescope-coc.nvim'
 
@@ -296,12 +291,11 @@ hook_add = '''
 [[plugins]]
 repo = "nathanaelkane/vim-indent-guides"
 
-[[plugins]]
-repo = "tpope/vim-surround"
-
+# ecosystem plugin using deno
 [[plugins]]
 repo = "vim-denops/denops.vim"
 
+# support open new tab
 [[plugins]]
 repo = "lambdalisue/guise.vim"
 
@@ -318,6 +312,7 @@ repo = 'vijaymarupudi/nvim-fzf'
 [[plugins]]
 repo = 'kyazdani42/nvim-web-devicons'
 
+# memo
 [[plugins]]
 repo = "eiji03aero/quick-notes"
 
@@ -330,6 +325,8 @@ repo = 'skanehira/denops-germanium.vim'
 
 [[plugins]]
 repo = 'machakann/vim-sandwich'
+[[plugins]]
+repo = "tpope/vim-surround"
 
 [[plugins]]
 repo = 'gelguy/wilder.nvim'
