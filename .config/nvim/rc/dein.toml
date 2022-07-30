@@ -233,20 +233,6 @@ hook_add = '''
 	command! NTermMulti8          call NTermMulti(4,2)
 '''
 
-# history of yank register
-[[plugins]]
-repo = 'LeafCage/yankround.vim'
-hook_add = '''
-    nmap p <Plug>(yankround-p)
-    xmap p <Plug>(yankround-p)
-    nmap P <Plug>(yankround-P)
-    nmap gp <Plug>(yankround-gp)
-    xmap gp <Plug>(yankround-gp)
-    nmap gP <Plug>(yankround-gP)
-    nmap <C-p> <Plug>(yankround-prev)
-    nmap <C-n> <Plug>(yankround-next)
-'''
-
 # Get Pull Request for line
 [[plugins]]
 repo = 'skanehira/getpr.vim'
