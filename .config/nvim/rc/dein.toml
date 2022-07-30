@@ -289,7 +289,7 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = "nathanaelkane/vim-indent-guides"
+repo = "lukas-reineke/indent-blankline.nvim"
 
 # ecosystem plugin using deno
 [[plugins]]

@@ -450,6 +450,14 @@ lua <<EOF
   })
 EOF
 
+" indent-blankline.nvim"
+lua <<EOF
+  vim.opt.list = true
+  require("indent_blankline").setup {
+    show_current_context = true,
+  }
+EOF
+
 " translate.vim
 let g:translate_source = 'en'
 let g:translate_target = 'ja'
