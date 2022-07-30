@@ -1,12 +1,5 @@
 scriptencoding utf-8
 
-" TwitVim設定
-let twitvim_enable_python = 1
-let twitvim_browser_cmd = 'open'
-let twitvim_force_ssl = 1
-let twitvim_count = 40
-let twitvim_filter_enable = 1
-
 filetype plugin indent on
 syntax enable
 
@@ -101,6 +94,7 @@ let g:coc_global_extensions = ['coc-json', 'coc-pairs', 'coc-clangd', 'coc-tsser
 " RUN :CocCommand go.install.gopls
 " インストール先を固定するために必要
 let g:coc_data_home = '~/'
+
 " navigate chunks of current buffer
 nmap [g <Plug>(coc-git-prevchunk)
 nmap ]g <Plug>(coc-git-nextchunk)
@@ -466,7 +460,6 @@ vmap <space>t <Plug>(VTranslate)
 
 " TODO: 現状 Telescope と fzf-preview の mapping が重複している
 " telescope.nvim
-"
 lua <<EOF
   require('telescope').load_extension('cder')
   require('telescope').setup({
