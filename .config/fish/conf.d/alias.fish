@@ -220,7 +220,7 @@ function fzf-git-cd
 end
 
 function fzf-cd
-  fd --type=d -H -E .git | uniq | fzf | read dir
+  fd --type=d -H -I -E .git | uniq | fzf | read dir
   if [ $dir ]
       cd $dir
   end
