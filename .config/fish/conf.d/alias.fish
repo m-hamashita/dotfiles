@@ -220,7 +220,7 @@ function fzf-git-cd
 end
 
 function fzf-cd
-  fd --type=d | uniq | fzf | read dir
+  fd --type=d -H -E .git | uniq | fzf | read dir
   if [ $dir ]
       cd $dir
   end
@@ -262,7 +262,6 @@ function cd
     mkdir -p $HOME/.config/fish/tmp
     touch $HOME/.config/fish/tmp/recent_dir.list
     pwd >> $HOME/.config/fish/tmp/recent_dir.list
-    sort -u $HOME/.config/fish/tmp/recent_dir.list -o $HOME/.config/fish/tmp/recent_dir.list
 end
 function cdr
 	tail -500 $HOME/.config/fish/tmp/recent_dir.list | \
