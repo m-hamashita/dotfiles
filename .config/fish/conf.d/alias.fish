@@ -60,6 +60,8 @@ alias less 'bat'
 alias digdag '/bin/bash ~/bin/digdag'
 alias root 'cd (git rev-parse --show-toplevel)'
 alias grr 'git reset --hard origin/(git rev-parse --abbrev-ref HEAD)'
+# close all pane except current pane
+alias on 'tmux kill-pane -a -t (tmux run "echo #{pane_id}")'
 
 # abbr
 abbr -a del_swap "rm ~/.local/share/nvim/swap/*"
