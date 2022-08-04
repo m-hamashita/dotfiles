@@ -6,6 +6,7 @@ cabbrev gs Git status
 cabbrev gc Git commit -m
 cabbrev gd Gdiff
 cabbrev gp Git push
+cabbrev bdo %bd\|e#\|bd#
 
 augroup abbr_sql
   autocmd FileType sql iabbrev <buffer> select SELECT
