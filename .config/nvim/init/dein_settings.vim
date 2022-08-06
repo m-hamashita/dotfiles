@@ -91,7 +91,7 @@ set nofoldenable
 " Coc
 " ===============================================
 " インストールされていなかったら起動時にインストール
-let g:coc_global_extensions = ['coc-json', 'coc-pairs', 'coc-clangd', 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-yaml', 'coc-git', 'coc-fzf-preview', 'coc-docker', 'coc-pyright'] ", 'coc-rust-analyzer', 'coc-go']
+let g:coc_global_extensions = ['coc-json', 'coc-pairs', 'coc-clangd', 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-yaml', 'coc-git', 'coc-fzf-preview', 'coc-docker', 'coc-pyright', 'coc-rust-analyzer', 'coc-go']
 " RUN :CocCommand go.install.gopls
 " インストール先を固定するために必要
 let g:coc_data_home = '~/'
