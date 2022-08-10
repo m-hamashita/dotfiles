@@ -302,3 +302,19 @@ end
 function __fish_command_not_found_handler --on-event fish_command_not_found
     cd $argv[1]
 end
+
+
+function amazon --argument-names 'amazon_url'
+    if test -n "$amazon_url"
+        echo $amazon_url | egrep --only-matching '/dp/[0-9A-Za-z]+/?' | read -l dp
+        if test -n "$dp"
+            set short_url "https://www.amazon.co.jp$dp"
+            echo $short_url
+            echo $short_url | pbcopy
+        else
+            echo "amazon_url: invalid"
+        end
+    else
+        echo "Please Input Amazon URL."
+    end
+end
