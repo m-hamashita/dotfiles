@@ -332,6 +332,12 @@ repo = 'neovim/nvim-lspconfig'
 [[plugins]]
 repo = 'SmiteshP/nvim-navic'
 
+# rust-tools
+[[plugins]]
+repo = 'simrat39/rust-tools.nvim'
+[[plugins]]
+repo = 'mfussenegger/nvim-dap'
+
 # displayed range search
 [[plugins]]
 repo = 'notomo/reacher.nvim'

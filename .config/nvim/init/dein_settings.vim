@@ -91,7 +91,7 @@ set nofoldenable
 " Coc
 " ===============================================
 " インストールされていなかったら起動時にインストール
-let g:coc_global_extensions = ['coc-json', 'coc-pairs', 'coc-clangd', 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-yaml', 'coc-git', 'coc-fzf-preview', 'coc-docker', 'coc-pyright', 'coc-rust-analyzer', 'coc-go']
+let g:coc_global_extensions = ['coc-json', 'coc-pairs', 'coc-clangd', 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-yaml', 'coc-git', 'coc-fzf-preview', 'coc-docker', 'coc-pyright', 'coc-go', 'coc-rust-analyzer']
 " RUN :CocCommand go.install.gopls
 " インストール先を固定するために必要
 let g:coc_data_home = '~/'
@@ -138,12 +138,12 @@ inoremap <silent><expr> <TAB>
 " open github link for dein toml
 " ex. repo = 'neovim/nvim-lspconfig' => https://github.com/neovim/nvim-lspconfig
 function! s:open_repository_from_toml() abort
-  let github_domain = "https://github.com/"
+  let github_domain = 'https://github.com/'
   let repo = getline('.')
-  let repo = substitute(repo, "repo =", "", "")
-  let repo = substitute(repo, "\'", "", "g")
-  let repo = substitute(repo, '\"', "", "g")
-  let repo = substitute(repo, ' ', "", "g")
+  let repo = substitute(repo, 'repo =', '', '')
+  let repo = substitute(repo, "\'", '', 'g')
+  let repo = substitute(repo, '\"', '', 'g')
+  let repo = substitute(repo, ' ', '', 'g')
 
   silent exec "!open '" . github_domain . repo . "'"
 endfunction
@@ -417,9 +417,9 @@ lua <<EOF
 
   --   -- Mappings.
   --   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  --   local bufopts = { noremap=true, silent=true, buffer=bufnr }
-  --   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-  --   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  -- local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  -- vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   --   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
   --   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
   --   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
@@ -453,6 +453,7 @@ lua <<EOF
   require("lspconfig").gopls.setup {}
   require("lspconfig").pyright.setup {}
 EOF
+
 
 " reacher.nvim
 lua <<EOF
