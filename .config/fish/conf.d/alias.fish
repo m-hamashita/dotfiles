@@ -75,8 +75,8 @@ abbr -a gb git branch
 abbr -a gc git commit -m
 abbr -a gs git status
 abbr -a gd git diff
-abbr -a gh 'git stash; git pull --rebase; git stash pop'
 abbr -a gp git pull
+abbr -a gsh 'git stash; git pull --rebase; git stash pop'
 abbr -a gr git rebase
 abbr -a grh git reset --hard
 abbr -a grhh git reset --hard HEAD
