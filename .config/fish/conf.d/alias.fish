@@ -151,7 +151,7 @@ else
     # echo "CotEditer is not installed"
 end
 
-function vimrg
+function vr
   vim (rg -l $argv)
 end
 
