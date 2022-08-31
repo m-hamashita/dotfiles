@@ -1,0 +1,161 @@
+{
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": false,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4
+  },
+  "[rust]": {
+    "editor.formatOnSave": true
+  },
+  "[sql]": {
+    "editor.formatOnSave": false
+  },
+  "code-runner.runInTerminal": true,
+  "codetour.showMarkers": true,
+  "editor.accessibilitySupport": "off",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.formatOnSave": true,
+  "editor.inlayHints.enabled": "on",
+  "editor.inlayHints.fontSize": 12,
+  "editor.inlineSuggest.enabled": true,
+  "editor.minimap.autohide": true,
+  "editor.minimap.scale": 1,
+  "editor.suggestSelection": "first",
+  "editor.wordWrap": "on",
+  "extensions.ignoreRecommendations": true,
+  "files.autoSave": "onFocusChange",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "files.watcherExclude": {
+    "**/.ammonite": true,
+    "**/.bloop": true,
+    "**/.metals": true
+  },
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "github.copilot.enable": {
+    "*": true,
+    "Go": true,
+    "jsonc": true,
+    "markdown": true,
+    "plaintext": false,
+    "rust": true,
+    "yaml": true
+  },
+  "githubPullRequests.pullBranch": "never",
+  "go.formatTool": "goimports",
+  "go.inlayHints.assignVariableTypes": true,
+  "go.inlayHints.compositeLiteralFields": true,
+  "go.inlayHints.compositeLiteralTypes": true,
+  "go.inlayHints.constantValues": true,
+  "go.inlayHints.functionTypeParameters": true,
+  "go.inlayHints.parameterNames": true,
+  "go.inlayHints.rangeVariableTypes": true,
+  "go.toolsManagement.autoUpdate": true,
+  "go.useLanguageServer": true,
+  "gopls": {
+    "experimentalWorkspaceModule": true
+  },
+  "javascript.inlayHints.parameterNames.enabled": "all",
+  "mssql.connections": [
+    {
+      "database": "{{put-database-name-here}}",
+      "password": "",
+      "server": "{{put-server-name-here}}",
+      "user": "{{put-username-here}}"
+    }
+  ],
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "python.analysis.inlayHints.variableTypes": true,
+  "python.analysis.typeCheckingMode": "off",
+  "python.formatting.blackPath": "/Users/masakatsu.hamashita/.pyenv/shims/black",
+  "python.formatting.provider": "black",
+  "python.languageServer": "Pylance",
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.lintOnSave": true,
+  "python.linting.pylintEnabled": false,
+  "python.sortImports.path": "/Users/masakatsu.hamashita/.pyenv/shims/isort",
+  "remote.SSH.connectTimeout": 120,
+  "rust-analyzer.checkOnSave.command": "clippy",
+  "rust-analyzer.checkOnSave.extraArgs": [
+    "--all",
+    "--all-targets",
+    "--",
+    "-D",
+    "warnings"
+  ],
+  "sync.autoDownload": true,
+  "sync.autoUpload": true,
+  "sync.gist": "df73c85695bf359d2465af3337aec7d1",
+  "terminal.integrated.defaultProfile.linux": "fish",
+  "terminal.integrated.defaultProfile.osx": "fish",
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  },
+  "terminal.integrated.fontFamily": "Menlo,Hack Nerd Font",
+  "terminal.integrated.macOptionIsMeta": true,
+  "terminal.integrated.scrollback": 10000,
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]"
+  ],
+  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "after": ["<Esc>"],
+      "before": ["j", "j"]
+    }
+  ],
+  "vim.mouseSelectionGoesIntoVisualMode": false,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["g", "p"],
+      "commands": ["extension.vim_ctrl+o"]
+    },
+    {
+      "before": ["g", "o"],
+      "commands": ["workbench.action.navigateForwardInNavigationLocations"]
+    },
+    {
+      "before": ["<leader>", "o", "n"],
+      "commands": ["workbench.action.closeOtherEditors"]
+    },
+    {
+      "before": ["<leader>", "r"],
+      "commands": ["editor.action.rename"]
+    },
+    {
+      "before": ["<C-c>", "<C-c>"],
+      "commands": [":nohl"]
+    }
+  ],
+  "vim.useSystemClipboard": true,
+  "vim.vimrc.enable": true,
+  "vim.vimrc.path": "~/.vimrc",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "window.openFilesInNewWindow": "off",
+  "window.zoomLevel": 3,
+  "workbench.colorCustomizations": {
+    "editorLineNumber.foreground": "#c0c0c0"
+  },
+  "workbench.colorTheme": "Kary Pro Colors － Dark",
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.editor.tabSizing": "fit",
+  "workbench.startupEditor": "none",
+  "workbench.tree.indent": 28,
+  "workbench.tree.renderIndentGuides": "always"
+}
