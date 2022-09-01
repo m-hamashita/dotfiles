@@ -1,8 +1,8 @@
 # vim のキーバインドでターミナルを操作
 # fish_vi_key_bindings
-set -U fish_key_bindings fish_default_key_bindings
+# set -U fish_key_bindings fish_default_key_bindings
 # jj で normal に
-#set fish_key_bindings fish_user_key_bindings
+# set fish_key_bindings fish_user_key_bindings
 
 set -x LANG ja_JP.UTF-8
 set -x LC_CTYPE ja_JP.UTF-8

@@ -174,10 +174,5 @@
         "key": "cmd+d",
         "command": "-extension.vim_cmd+d",
         "when": "editorTextFocus && vim.active && vim.use<D-d> && !inDebugRepl"
-    },
-    {
-        "key": "ctrl+r",
-        "command": "-extension.vim_ctrl+r",
-        "when": "editorTextFocus && vim.active && vim.use<C-r> && !inDebugRepl"
     }
 ]
