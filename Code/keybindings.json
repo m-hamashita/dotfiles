@@ -1,4 +1,3 @@
-// 既定値を上書きするには、このファイル内にキー バインドを挿入しますauto[]
 [
     {
         "key": "alt+r",
@@ -174,5 +173,20 @@
         "key": "cmd+d",
         "command": "-extension.vim_cmd+d",
         "when": "editorTextFocus && vim.active && vim.use<D-d> && !inDebugRepl"
+    },
+    {
+        "key": "shift+k",
+        "command": "workbench.action.showTreeHover",
+        "when": "customTreeView && listFocus && !inputFocus"
+    },
+    {
+        "key": "shift+k",
+        "command": "editor.action.showHover",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+k",
+        "command": "editor.debug.action.showDebugHover",
+        "when": "editorTextFocus && inDebugMode"
     }
 ]
