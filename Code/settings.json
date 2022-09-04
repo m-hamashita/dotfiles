@@ -188,5 +188,7 @@
   "workbench.editor.tabSizing": "fit",
   "workbench.startupEditor": "none",
   "workbench.tree.indent": 24,
-  "workbench.tree.renderIndentGuides": "always"
+  "workbench.tree.renderIndentGuides": "always",
+  "outline-map.expandOutlineMethod": "hover",
+  "outline-map.follow": "cursor",
 }
