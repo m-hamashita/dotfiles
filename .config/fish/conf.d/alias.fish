@@ -155,6 +155,10 @@ function vr
   vim (rg -l $argv)
 end
 
+function vf
+  vim (fd $argv)
+end
+
 function mk
   mkdir $argv && cd $_
 end
