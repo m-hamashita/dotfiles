@@ -62,6 +62,7 @@ alias root 'cd (git rev-parse --show-toplevel)'
 alias grr 'git reset --hard origin/(git rev-parse --abbrev-ref HEAD)'
 # close all pane except current pane
 alias on 'tmux kill-pane -a -t (tmux run "echo #{pane_id}")'
+alias bazel 'bazelisk'
 
 # abbr
 abbr -a del_swap "rm ~/.local/share/nvim/swap/*"
@@ -149,6 +150,10 @@ if [ -e "/Applications/CotEditor.app" ]
   alias cot 'open -a /Applications/'\''CotEditor.app'\'''
 else
     # echo "CotEditer is not installed"
+end
+
+function gvm
+  bass source ~/.gvm/scripts/gvm ';' gvm $argv
 end
 
 function vr
