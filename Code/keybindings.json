@@ -157,12 +157,12 @@
     {
         "key": "shift+k",
         "command": "editor.action.triggerParameterHints",
-        "when": "editorHasSignatureHelpProvider && editorTextFocus"
+        "when": "editorHasSignatureHelpProvider && editorTextFocus && vim.mode == 'Normal'"
     },
     {
         "key": "shift+k",
         "command": "closeParameterHints",
-        "when": "editorFocus && parameterHintsVisible"
+        "when": "editorFocus && parameterHintsVisible && vim.mode == 'Normal'"
     },
     {
         "key": "cmd+enter",
@@ -177,16 +177,81 @@
     {
         "key": "shift+k",
         "command": "workbench.action.showTreeHover",
-        "when": "customTreeView && listFocus && !inputFocus"
+        "when": "customTreeView && listFocus && !inputFocus && vim.mode == 'Normal'"
     },
     {
         "key": "shift+k",
         "command": "editor.action.showHover",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus&& vim.mode == 'Normal'"
     },
     {
         "key": "shift+k",
         "command": "editor.debug.action.showDebugHover",
-        "when": "editorTextFocus && inDebugMode"
+        "when": "editorTextFocus && inDebugMode && vim.mode == 'Normal'"
+    },
+    {
+        "key": "z f",
+        "command": "editor.fold",
+        "when": "editorTextFocus && foldingEnabled && vim.mode == 'Normal'"
+    },
+    {
+        "key": "cmd+k cmd+]",
+        "command": "editor.unfoldRecursively",
+        "when": "editorTextFocus && foldingEnabled && vim.mode == 'Normal'"
+    },
+    {
+        "key": "cmd+k cmd+]",
+        "command": "-editor.unfoldRecursively",
+        "when": "editorTextFocus && foldingEnabled"
+    },
+    {
+        "key": "z o",
+        "command": "editor.unfoldRecursively",
+        "when": "editorTextFocus && foldingEnabled && vim.mode == 'Normal'"
+    },
+    {
+        "key": "z r",
+        "command": "editor.unfoldAll",
+        "when": "editorTextFocus && foldingEnabled && vim.mode == 'Normal'"
+    },
+    {
+        "key": "z m",
+        "command": "editor.foldAll",
+        "when": "editorTextFocus && foldingEnabled && vim.mode == 'Normal'"
+    },
+    {
+        "key": "z 2",
+        "command": "editor.foldLevel2",
+        "when": "editorTextFocus && foldingEnabled && vim.mode == 'Normal'"
+    },
+    {
+        "key": "z 3",
+        "command": "editor.foldLevel3",
+        "when": "editorTextFocus && foldingEnabled && vim.mode == 'Normal'"
+    },
+    {
+        "key": "z 4",
+        "command": "editor.foldLevel4",
+        "when": "editorTextFocus && foldingEnabled && vim.mode == 'Normal'"
+    },
+    {
+        "key": "z 5",
+        "command": "editor.foldLevel5",
+        "when": "editorTextFocus && foldingEnabled && vim.mode == 'Normal'"
+    },
+    {
+        "key": "z 6",
+        "command": "editor.foldLevel6",
+        "when": "editorTextFocus && foldingEnabled && vim.mode == 'Normal'"
+    },
+    {
+        "key": "z 7",
+        "command": "editor.foldLevel7",
+        "when": "editorTextFocus && foldingEnabled && vim.mode == 'Normal'"
+    },
+    {
+        "key": "z 1",
+        "command": "editor.foldLevel1",
+        "when": "editorTextFocus && foldingEnabled && vim.mode == 'Normal'"
     }
 ]
