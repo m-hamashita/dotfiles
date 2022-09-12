@@ -454,6 +454,10 @@ lua <<EOF
   require("lspconfig").pyright.setup {}
 EOF
 
+" tint.nvim
+" lua <<EOF
+"   require("tint").setup()
+" EOF
 
 " reacher.nvim
 lua <<EOF

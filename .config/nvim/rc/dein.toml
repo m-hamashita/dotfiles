@@ -341,3 +341,6 @@ repo = 'mfussenegger/nvim-dap'
 # displayed range search
 [[plugins]]
 repo = 'notomo/reacher.nvim'
+
+[[plugins]]
+repo = 'levouh/tint.nvim'
