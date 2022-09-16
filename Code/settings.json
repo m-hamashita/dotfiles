@@ -191,4 +191,7 @@
   "workbench.tree.renderIndentGuides": "always",
   "outline-map.expandOutlineMethod": "hover",
   "outline-map.follow": "cursor",
+  "bazel.buildifierExecutable": "/Users/masakatsu.hamashita/go/bin/buildifier",
+  "terminal.external.osxExec": "kitty.app",
+  "workbench.activityBar.visible": false,
 }
