@@ -87,6 +87,8 @@ let g:vim_markdown_json_frontmatter=0
 set nofoldenable
 
 
+
+
 " ===============================================
 " Coc
 " ===============================================
@@ -565,6 +567,18 @@ nnoremap <silent> [ff]rf :<C-u>CocCommand fzf-preview.CocReferences<CR>
 nnoremap <silent> [ff]d  :<C-u>CocCommand fzf-preview.CocDefinition<CR>
 nnoremap <silent> [ff]t  :<C-u>CocCommand fzf-preview.CocTypeDefinition<CR>
 nnoremap <silent> [ff]o  :<C-u>CocCommand fzf-preview.CocOutline --add-fzf-arg=--exact --add-fzf-arg=--no-sort<CR>
+
+" move.nvim
+nnoremap <silent> <A-j> :MoveLine(1)<CR>
+nnoremap <silent> <A-k> :MoveLine(-1)<CR>
+vnoremap <silent> <A-j> :MoveBlock(1)<CR>
+vnoremap <silent> <A-k> :MoveBlock(-1)<CR>
+
+nnoremap <silent> <A-l> :MoveHChar(1)<CR>
+nnoremap <silent> <A-h> :MoveHChar(-1)<CR>
+vnoremap <silent> <A-l> :MoveHBlock(1)<CR>
+vnoremap <silent> <A-h> :MoveHBlock(-1)<CR>
+
 
 " vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1

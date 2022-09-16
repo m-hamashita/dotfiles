@@ -346,3 +346,9 @@ repo = 'notomo/reacher.nvim'
 
 [[plugins]]
 repo = 'levouh/tint.nvim'
+
+[[plugins]]
+repo = 'sindrets/diffview.nvim'
+
+[[plugins]]
+repo = 'fedepujol/move.nvim'
