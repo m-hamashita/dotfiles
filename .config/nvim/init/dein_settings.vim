@@ -569,15 +569,15 @@ nnoremap <silent> [ff]t  :<C-u>CocCommand fzf-preview.CocTypeDefinition<CR>
 nnoremap <silent> [ff]o  :<C-u>CocCommand fzf-preview.CocOutline --add-fzf-arg=--exact --add-fzf-arg=--no-sort<CR>
 
 " move.nvim
-nnoremap <silent> <A-j> :MoveLine(1)<CR>
-nnoremap <silent> <A-k> :MoveLine(-1)<CR>
-vnoremap <silent> <A-j> :MoveBlock(1)<CR>
-vnoremap <silent> <A-k> :MoveBlock(-1)<CR>
+nnoremap <silent> <A-Down> :MoveLine(1)<CR>
+nnoremap <silent> <A-Up> :MoveLine(-1)<CR>
+vnoremap <silent> <A-Down> :MoveBlock(1)<CR>
+vnoremap <silent> <A-Up> :MoveBlock(-1)<CR>
 
-nnoremap <silent> <A-l> :MoveHChar(1)<CR>
-nnoremap <silent> <A-h> :MoveHChar(-1)<CR>
-vnoremap <silent> <A-l> :MoveHBlock(1)<CR>
-vnoremap <silent> <A-h> :MoveHBlock(-1)<CR>
+nnoremap <silent> <A-Right> :MoveHChar(1)<CR>
+nnoremap <silent> <A-Left> :MoveHChar(-1)<CR>
+vnoremap <silent> <A-Right> :MoveHBlock(1)<CR>
+vnoremap <silent> <A-Left> :MoveHBlock(-1)<CR>
 
 
 " vim-indent-guides
