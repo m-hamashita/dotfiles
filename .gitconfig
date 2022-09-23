@@ -35,7 +35,7 @@
 	required = true
 	clean = git-lfs clean -- %f
 [ghq]
-	root = ~/Documents/work
+	root = ~/work
 [difftool]
 	prompt = false
 [branch]
