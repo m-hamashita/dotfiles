@@ -96,7 +96,7 @@ set nofoldenable
 let g:coc_global_extensions = ['coc-json', 'coc-pairs', 'coc-clangd', 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-yaml', 'coc-git', 'coc-fzf-preview', 'coc-docker', 'coc-pyright', 'coc-go', 'coc-rust-analyzer']
 " RUN :CocCommand go.install.gopls
 " インストール先を固定するために必要
-let g:coc_data_home = '~/'
+" let g:coc_data_home = '~/'
 
 " navigate chunks of current buffer
 nmap [g <Plug>(coc-git-prevchunk)

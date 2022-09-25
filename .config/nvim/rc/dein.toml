@@ -51,7 +51,6 @@ repo = 'tpope/vim-obsession'
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 build = './install.sh nightly'
-rev = '0fd56dd25fc36606afe2290240aecb6e6ab85092'
 hook_add = '''
     let coc#util#get_data_home = '~/.config/coc'
 '''
