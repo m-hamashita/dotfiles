@@ -1,8 +1,8 @@
 #!/bin/sh
 # shells
-ln -sf ~/dotfiles/.bash_profile ~/.bash_profile
-ln -sf ~/dotfiles/.bashrc ~/.bashrc
-ln -sf ~/dotfiles/.zshrc ~/.zshrc
+ln -sf ~/dotfiles/unused/.bash_profile ~/.bash_profile
+ln -sf ~/dotfiles/unused/.bashrc ~/.bashrc
+ln -sf ~/dotfiles/unused/.zshrc ~/.zshrc
 
 # vim
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
@@ -13,7 +13,6 @@ ln -sf ~/dotfiles/.gitignore_global ~/.gitignore_global
 
 # tmux
 ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
-ln -sf ~/dotfiles/.tmux ~/.tmux
 
 # ssh
 mkdir -p ~/.ssh
@@ -24,3 +23,9 @@ ln -sf ~/dotfiles/.config/ ~/.config
 
 #.tigrc
 ln -sf ~/dotfiles/.tigrc ~/.tigrc
+
+# .pythonstartup
+ln -sf ~/dotfiles/.pythonstartup ~/.pythonstartup
+
+# .hammerspoon
+ln -sf ~/dotfiles/.hammerspoon ~/.hammerspoon
