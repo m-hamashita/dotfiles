@@ -29,3 +29,6 @@ ln -sf ~/dotfiles/.pythonstartup ~/.pythonstartup
 
 # .hammerspoon
 ln -sf ~/dotfiles/.hammerspoon ~/.hammerspoon
+
+# compile_flags.txt
+ln -sf ~/dotfiles/compile_flags.txt ~/compile_flags.txt
