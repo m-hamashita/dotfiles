@@ -5,6 +5,7 @@ tsukae/
 .ssh
 package.json
 package-lock.json
+yarn.lock
 !.ssh/config
 !.config/karabiner/karabiner.json
 !.config/karabiner/kana.json
