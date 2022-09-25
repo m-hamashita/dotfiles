@@ -15,8 +15,9 @@ set -x PGDATA /usr/local/var/postgres
 if [ (command -v go) ]
     set -x GOPATH $HOME/go
     # TODO: go env で環境変数を設定するようにする
-    # set -x GOROOT ( go env GOROOT )
-    set -x GOROOT /usr/local/Cellar/go/1.18.2/libexec
+    set -x GOROOT ( go env GOROOT )
+    # set -x GOROOT /usr/local/Cellar/go/1.18.2/libexec
+    # set -x GOROOT /usr/local/go/bin/go
     set -x PATH $GOPATH/bin $PATH
 end
 
@@ -36,6 +37,9 @@ set -x PATH /usr/local/git/bin $PATH
 set -x PATH $HOME/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin $PATH
 set -x PATH $HOME/.poetry/bin $PATH
 set -x PATH /usr/local/opt/binutils/bin $PATH
+set -x PATH /opt/homebrew/bin $PATH
+set -x DENO_INSTALL /Users/masakatsu.hamashita/.deno
+set -x PATH $DENO_INSTALL/bin $PATH
 
 # set -x PATH /usr/local/opt/llvm/bin $PATH
 # set -g fish_user_paths "/usr/local/opt/llvm/bin" $fish_user_paths
