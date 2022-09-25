@@ -4,7 +4,12 @@ local eventtap = require("hs.eventtap")
 
 local events = eventtap.event.types
 local module = {}
-local spaces = require("hs._asm.undocumented.spaces")
+
+raw_arch_name = io.popen('uname -m','r'):read('*l')
+local spaces = require("hs._asm.undocumented.spaces_x86_64")
+if raw_arch_name == 'arm64' then
+    local spaces = require("hs._asm.undocumented.spaces") -- for arm64(M1)
+end
 
 -- double tap の間隔[s]
 module.timeFrame = 1
