@@ -81,6 +81,7 @@
   "python.linting.lintOnSave": true,
   "python.linting.pylintEnabled": false,
   "python.sortImports.path": "/Users/masakatsu.hamashita/.pyenv/shims/isort",
+  "metals.javaHome": "/Users/masakatsu.hamashita/.jabba/jdk/adopt@1.11.0-7/Contents/Home",
   "remote.SSH.connectTimeout": 120,
   "rust-analyzer.checkOnSave.command": "clippy",
   "rust-analyzer.checkOnSave.extraArgs": [
@@ -98,7 +99,6 @@
   "terminal.integrated.env.osx": {
     "FIG_NEW_SESSION": "1"
   },
-  "terminal.integrated.fontFamily": "Menlo,Hack Nerd Font",
   "terminal.integrated.macOptionIsMeta": true,
   "terminal.integrated.scrollback": 10000,
   "todo-tree.general.tags": [
@@ -178,7 +178,6 @@
   "vim.vimrc.path": "~/.vimrc",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.openFilesInNewWindow": "off",
-  "window.zoomLevel": 3,
   "workbench.colorCustomizations": {
     "editorLineNumber.foreground": "#c0c0c0"
   },
@@ -191,7 +190,10 @@
   "workbench.tree.renderIndentGuides": "always",
   "outline-map.expandOutlineMethod": "hover",
   "outline-map.follow": "cursor",
-  "bazel.buildifierExecutable": "/Users/masakatsu.hamashita/go/bin/buildifier",
   "terminal.external.osxExec": "kitty.app",
+  "markdown-preview-enhanced.previewTheme": "github-dark.css",
+  "window.zoomLevel": 1,
+  "terminal.integrated.fontFamily": "Meslo LG S for Powerline,Hack Nerd Font",
+  "bazel.buildifierExecutable": "/Users/masakatsu.hamashita/go/bin/buildifier",
   "workbench.activityBar.visible": false,
 }
