@@ -9,21 +9,20 @@ function kubectl_status
   set -l config $KUBECONFIG
   [ -z "$config" ]; and set -l config "$HOME/.kube/config"
   if [ ! -f $config ]
-    echo (set_color red)$KUBECTL_PROMPT_ICON" "(set_color white)"no config"
-    return
+    set -g ctx "no config"
   end
 
   if [ (command -v kubectl) ]
     set -g ctx (kubectl config current-context 2>/dev/null)
     if [ $status -ne 0 ]
-      echo (set_color red)$KUBECTL_PROMPT_ICON" "(set_color white)"no context"
-      return
+      set -g ctx "no context"
+      set -g ns 'default'
+    else
+      set -g ns (kubectl config view -o "jsonpath={.contexts[?(@.name==\"$ctx\")].context.namespace}")
+      [ -z $ns ]; and set -g ns 'default'
     end
-
-    set -g ns (kubectl config view -o "jsonpath={.contexts[?(@.name==\"$ctx\")].context.namespace}")
-    [ -z $ns ]; and set -g ns 'default'
   end
-    echo (set_color cyan)$KUBECTL_PROMPT_ICON" "(set_color white)"($ctx$KUBECTL_PROMPT_SEPARATOR$ns$KUBECTL_PROMPT_SEPARATOR$awsctx_profile)"
+  echo (set_color cyan)$KUBECTL_PROMPT_ICON" "(set_color white)"($ctx$KUBECTL_PROMPT_SEPARATOR$ns$KUBECTL_PROMPT_SEPARATOR$awsctx_profile)"
 
 end
 
