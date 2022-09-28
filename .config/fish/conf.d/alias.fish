@@ -100,13 +100,18 @@ abbr -a docf "docker run -it --rm (docker image ls | sed -e '1d' | fzf --height 
 abbr -a image "docker image ls | sed -e '1d' | fzf --height 40% --reverse | awk '{print \$3}'"
 abbr -a jupyterssh "jupyter notebook --no-browser --ip="0.0.0.0" --allow-root"
 abbr -a work "cd ~/work/"
+abbr -a tmp "cd ~/tmp/"
 
 # abbr -a del "git branch --merged | grep -vE '^\\*|master|develop|staging' | xargs -I % git branch -d % && git remote prune origin"
 
 if [ (command -v rmtrash) ]
     alias rm 'rmtrash'
 else
-    alias rm 'rm -i'
+    if [ (command -v trash) ]
+        alias rm 'trash'
+    else
+        alias rm 'rm -i'
+    end
     # echo "rmtrash is not installed"
 end
 if [ (command -v nvim) ]

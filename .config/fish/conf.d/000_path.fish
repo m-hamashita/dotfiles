@@ -40,6 +40,7 @@ set -x PATH /usr/local/opt/binutils/bin $PATH
 set -x PATH /opt/homebrew/bin $PATH
 set -x DENO_INSTALL /Users/masakatsu.hamashita/.deno
 set -x PATH $DENO_INSTALL/bin $PATH
+set -x PATH $HOME/.local/share/aquaproj-aqua/bin $PATH
 
 # set -x PATH /usr/local/opt/llvm/bin $PATH
 # set -g fish_user_paths "/usr/local/opt/llvm/bin" $fish_user_paths
@@ -76,6 +77,6 @@ set -x HOMEBREW_CASK_OPTS "--appdir=/Applications"
 set -x CPLUS_INCLUDE_PATH $CPLUS_INCLUDE_PATH:/usr/local/include/c++/9.2.0/x86_64-apple-darwin18/
 
 # cd, pwd などは history に登録しない
-set -x HISTORY_IGNORE "(cd|pwd|ls)"
+set -x HISTORY_IGNORE "(cd *|pwd|ls)"
 
 set -x FZF_DEFAULT_OPTS '--height 70% --layout=reverse --preview "bat --style=numbers --color=always --line-range :300 {}"'
