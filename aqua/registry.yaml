@@ -1,0 +1,7 @@
+packages:
+- type: github_release
+  repo_owner: bazelbuild
+  repo_name: bazelisk
+  asset: 'bazelisk-{{.OS}}-{{.Arch}}'
+  description: bazelbuild/bazelisk
+  format: raw
