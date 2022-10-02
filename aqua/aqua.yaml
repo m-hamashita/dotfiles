@@ -27,3 +27,4 @@ packages:
   registry: local
 - name: sharkdp/bat@v0.22.1
 - name: junegunn/fzf@0.34.0
+- name: ahmetb/kubectx@v0.9.4
