@@ -14,3 +14,16 @@ packages:
 - name: BurntSushi/ripgrep@13.0.0
 - name: CircleCI-Public/circleci-cli@v0.1.21812
 - name: Peltoche/lsd@0.23.1
+- name: stedolan/jq@jq-1.6
+- name: sharkdp/fd@v8.4.0
+- name: sharkdp/hyperfine@v1.15.0
+- name: XAMPPRocky/tokei@v12.1.2
+- name: Wilfred/difftastic@0.36.1
+- name: dalance/procs@v0.13.1
+- name: x-motemen/ghq@v1.3.0
+- name: remotemobprogramming/mob@v3.2.0
+  registry: local
+- name: bazelbuild/buildtools@5.1.0
+  registry: local
+- name: sharkdp/bat@v0.22.1
+- name: junegunn/fzf@0.34.0
