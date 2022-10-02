@@ -3,5 +3,19 @@ packages:
   repo_owner: bazelbuild
   repo_name: bazelisk
   asset: 'bazelisk-{{.OS}}-{{.Arch}}'
-  description: bazelbuild/bazelisk
+  description: A user-friendly launcher for Bazel
   format: raw
+- type: github_release
+  repo_owner: bazelbuild
+  repo_name: buildtools
+  asset: 'buildifier-{{.OS}}-{{.Arch}}'
+  description: tool for formatting bazel BUILD and .bzl files with a standard convention
+  format: raw
+  files:
+    - name: buildifier
+- type: github_release
+  repo_owner: remotemobprogramming
+  repo_name: mob
+  asset: 'mob_{{.Version}}_{{.OS}}_amd64.{{.Format}}'
+  description: Tool for smooth git handover
+  format: tar.gz
