@@ -4,7 +4,7 @@
 
 ```
 sh install.sh
-sh alias.sh
+sh symlink.sh
 ```
 
 ## tmux
