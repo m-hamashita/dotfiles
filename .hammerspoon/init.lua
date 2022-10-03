@@ -29,13 +29,13 @@ end
 module.action = function()
     local appName = "kitty"
     local app = hs.application.get(appName)
-
     if app == nil then
         hs.application.launchOrFocus(appName)
     elseif app:isFrontmost() then
         app:hide()
     else -- すでに存在する場合、window を activeSpace に移動させて focus する
         local activeSpace = spaces.activeSpace()
+        -- hs.alert.show(activeSpace)
         local win = app:focusedWindow()
         win:spacesMoveTo(activeSpace)
         hs.application.launchOrFocus(appName)
