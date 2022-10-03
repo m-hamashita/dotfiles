@@ -253,5 +253,9 @@
         "key": "z 1",
         "command": "editor.foldLevel1",
         "when": "editorTextFocus && foldingEnabled && vim.mode == 'Normal'"
+    },
+    {
+        "key": "cmd+j",
+        "command": "workbench.files.action.collapseExplorerFolders"
     }
 ]
