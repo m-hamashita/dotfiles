@@ -452,8 +452,10 @@ lua <<EOF
   --     on_attach = on_attach,
   --     flags = lsp_flags,
   -- }
-  require("lspconfig").gopls.setup {}
-  require("lspconfig").pyright.setup {}
+  -- :LspInstall gopls
+  -- :LspInstall pyright
+  -- require("lspconfig").gopls.setup {}
+  -- require("lspconfig").pyright.setup {}
 EOF
 
 " tint.nvim
