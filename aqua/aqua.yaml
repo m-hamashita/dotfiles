@@ -30,3 +30,5 @@ packages:
 - name: ahmetb/kubectx@v0.9.4
 - name: cli/cli@v2.16.1
 - name: rust-lang/rust-analyzer@2022-10-03
+- name: matsuyoshi30/germanium@v1.2.3
+  registry: local

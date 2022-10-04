@@ -19,3 +19,9 @@ packages:
   asset: 'mob_{{.Version}}_{{.OS}}_amd64.{{.Format}}'
   description: Tool for smooth git handover
   format: tar.gz
+- type: github_release
+  repo_owner: matsuyoshi30
+  repo_name: germanium
+  asset: 'germanium_{{trimV .Version}}_{{.OS}}_{{.Arch}}.tar.gz'
+  descriptsion: Generate image from source code
+  format: tar.gz
