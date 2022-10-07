@@ -34,27 +34,27 @@ module.action = function()
     elseif app:isFrontmost() then
         app:hide()
     else -- すでに存在する場合、window を activeSpace に移動させて focus する
-        local activeSpace = spaces.activeSpace()
+        local activeSpace = hs.spaces.focusedSpace()
         -- hs.alert.show(activeSpace)
         local win = app:focusedWindow()
-        win:spacesMoveTo(activeSpace)
-        hs.application.launchOrFocus(appName)
+        hs.spaces.moveWindowToSpace(win, activeSpace)
+        app:setFrontmost()
     end
 end
 
 
 hs.hotkey.bind({"ctrl"}, "m", function()
     local appName = "Code"
-    local activeSpace = spaces.activeSpace()
     local app = hs.application.find(appName)
     if app == nil then
         hs.application.launchOrFocus("Visual Studio Code")
     elseif app:isFrontmost() then
         app:hide()
     else
+        local activeSpace = hs.spaces.focusedSpace()
         local win = app:focusedWindow()
-        win:spacesMoveTo(activeSpace)
-        hs.application.launchOrFocus("Visual Studio Code")
+        hs.spaces.moveWindowToSpace(win, activeSpace)
+        app:setFrontmost()
     end
 end)
 
@@ -76,47 +76,47 @@ end)
 
 -- hs.hotkey.bind({"ctrl"}, "m", function()
 --     local appName = "Spotify"
---     local activeSpace = spaces.activeSpace()
 --     local app = hs.application.find(appName)
 --     if app == nil then
 --         hs.application.launchOrFocus(appName)
 --     elseif app:isFrontmost() then
 --         app:hide()
 --     else
+--         local activeSpace = hs.spaces.focusedSpace()
 --         local win = app:focusedWindow()
---         win:spacesMoveTo(activeSpace)
---         hs.application.launchOrFocus(appName)
+--         hs.spaces.moveWindowToSpace(win, activeSpace)
+--         app:setFrontmost()
 --     end
 -- end)
 
 hs.hotkey.bind({"ctrl"}, ",", function()
     local appName = "Slack"
-    local activeSpace = spaces.activeSpace()
     local app = hs.application.find(appName)
     if app == nil then
         hs.application.launchOrFocus(appName)
     elseif app:isFrontmost() then
         app:hide()
     else
+        local activeSpace = hs.spaces.focusedSpace()
         local win = app:focusedWindow()
-        win:spacesMoveTo(activeSpace)
-        hs.application.launchOrFocus(appName)
+        hs.spaces.moveWindowToSpace(win, activeSpace)
+        app:setFrontmost()
     end
 end)
 
 
 hs.hotkey.bind({"ctrl"}, ".", function()
     local appName = "Google Chrome"
-    local activeSpace = spaces.activeSpace()
     local app = hs.application.find(appName)
     if app == nil then
         hs.application.launchOrFocus(appName)
     elseif app:isFrontmost() then
         app:hide()
     else
+        local activeSpace = hs.spaces.focusedSpace()
         local win = app:focusedWindow()
-        win:spacesMoveTo(activeSpace)
-        hs.application.launchOrFocus(appName)
+        hs.spaces.moveWindowToSpace(win, activeSpace)
+        app:setFrontmost()
     end
 end)
 
