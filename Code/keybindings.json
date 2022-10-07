@@ -257,5 +257,9 @@
     {
         "key": "cmd+j",
         "command": "workbench.files.action.collapseExplorerFolders"
+    },
+    {
+        "key": "ctrl+;",
+        "command": "workbench.action.focusFirstEditorGroup"
     }
 ]

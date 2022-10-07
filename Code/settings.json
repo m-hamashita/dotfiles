@@ -59,7 +59,7 @@
   "go.toolsManagement.autoUpdate": true,
   "go.useLanguageServer": true,
   "gopls": {
-    "experimentalWorkspaceModule": true
+    "experimentalWorkspaceModule": false
   },
   "javascript.inlayHints.parameterNames.enabled": "all",
   "mssql.connections": [
@@ -188,11 +188,11 @@
   "workbench.tree.renderIndentGuides": "always",
   "outline-map.expandOutlineMethod": "hover",
   "outline-map.follow": "cursor",
+  "bazel.buildifierExecutable": "/Users/masakatsu.hamashita/.local/share/aquaproj-aqua/bin/buildifier",
   "terminal.external.osxExec": "kitty.app",
   "markdown-preview-enhanced.previewTheme": "github-dark.css",
-  "window.zoomLevel": 2,
+  "window.zoomLevel": 4,
   "terminal.integrated.fontFamily": "Meslo LG S for Powerline,Hack Nerd Font",
-  "bazel.buildifierExecutable": "/Users/masakatsu.hamashita/go/bin/buildifier",
   "sync.forceUpload": true,
   "python.linting.flake8Path": "/Users/masakatsu.hamashita/.local/bin/flake8",
   "python.linting.mypyPath": "/Users/masakatsu.hamashita/.local/bin/mypy",
