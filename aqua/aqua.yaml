@@ -33,3 +33,4 @@ packages:
 - name: matsuyoshi30/germanium@v1.2.3
   registry: local
 - name: helm/helm@v3.10.0
+- name: GoogleContainerTools/skaffold@v1.39.2
