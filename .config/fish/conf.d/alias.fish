@@ -57,7 +57,7 @@ alias vi 'vim'
 alias diff 'colordiff'
 alias cat 'bat'
 alias less 'bat'
-alias digdag '/bin/bash ~/bin/digdag'
+alias digdag '/bin/bash /usr/local/bin/digdag'
 alias root 'cd (git rev-parse --show-toplevel)'
 alias grr 'git reset --hard origin/(git rev-parse --abbrev-ref HEAD)'
 # close all pane except current pane
@@ -92,6 +92,7 @@ abbr -a bl 'remo signal send AV機器 bluetooth'
 abbr -a light 'remo signal send light_for_signal'
 abbr -a temp 'sudo powermetrics --samplers smc | grep "CPU die temperature"'
 abbr -a hg 'history | grep'
+abbr -a history "history --show-time='%Y/%m/%d %H:%M:%S '"
 abbr -a cr cargo run
 abbr -a cb cargo build
 abbr -a a awsctx

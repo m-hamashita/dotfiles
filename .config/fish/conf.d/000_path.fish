@@ -38,6 +38,7 @@ set -x PATH $HOME/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin $P
 set -x PATH $HOME/.poetry/bin $PATH
 set -x PATH /usr/local/opt/binutils/bin $PATH
 set -x PATH /opt/homebrew/bin $PATH
+set -x PATH /opt/homebrew/opt/openjdk@11/bin $PATH # for openjdk@11(for digdag)
 set -x DENO_INSTALL /Users/masakatsu.hamashita/.deno
 set -x PATH $DENO_INSTALL/bin $PATH
 set -x PATH ~/.fzf/bin $PATH
