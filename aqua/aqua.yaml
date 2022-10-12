@@ -32,3 +32,4 @@ packages:
 - name: rust-lang/rust-analyzer@2022-10-03
 - name: matsuyoshi30/germanium@v1.2.3
   registry: local
+- name: helm/helm@v3.10.0
