@@ -74,6 +74,7 @@ abbr -a kg kubectl get pod
 abbr -a ga git add
 abbr -a gb git branch
 abbr -a gc git commit -m
+abbr -a gca git commit --amend
 abbr -a gs git status
 abbr -a gd git diff
 abbr -a gp git pull
