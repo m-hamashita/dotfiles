@@ -7,6 +7,14 @@ packages:
   format: raw
 - type: github_release
   repo_owner: bazelbuild
+  repo_name: bazel
+  asset: 'bazel-{{trimV .Version}}-{{.OS}}-{{.Arch}}'
+  description: bazelbuild/bazel
+  format: raw
+  replacements:
+    amd64: x86_64
+- type: github_release
+  repo_owner: bazelbuild
   repo_name: buildtools
   asset: 'buildifier-{{.OS}}-{{.Arch}}'
   description: tool for formatting bazel BUILD and .bzl files with a standard convention
