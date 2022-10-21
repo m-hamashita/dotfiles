@@ -196,4 +196,5 @@
   "sync.forceUpload": true,
   "python.linting.flake8Path": "/Users/masakatsu.hamashita/.local/bin/flake8",
   "python.linting.mypyPath": "/Users/masakatsu.hamashita/.local/bin/mypy",
+  "git.ignoreRebaseWarning": true,
 }
