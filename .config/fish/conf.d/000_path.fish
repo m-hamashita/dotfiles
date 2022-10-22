@@ -63,11 +63,11 @@ end
 # for asdf
 # completion setting
 # mkdir -p ~/.config/fish/completions; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
-if [ -e "$HOME/.asdf/asdf.fish" ]
-    source ~/.asdf/asdf.fish
-else
-    echo "asdf is not installed"
-end
+# if [ -e "$HOME/.asdf/asdf.fish" ]
+#     source ~/.asdf/asdf.fish
+# else
+#     echo "asdf is not installed"
+# end
 
 # pyenv
 set -x PYENV_ROOT $HOME/.pyenv
