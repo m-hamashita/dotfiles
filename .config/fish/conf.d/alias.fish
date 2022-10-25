@@ -232,12 +232,17 @@ end
 
 # fzf でリポジトリ以下のディレクトリ名を検索して cd する
 function fzf-git-cd
-  git ls-files | xargs -n 1 dirname | uniq | fzf | read dir
+  git ls-files | sed 's:\(.*\)/.*:\1:' | uniq | fzf | read dir
   if [ $dir ]
       cd $dir
   end
   echo ""
   commandline -f repaint
+end
+
+function get_directory
+  # /hoge/fuga/piyo -> /hoge/fuga
+  echo $argv | sed -E 's/\/[^\/]+$//'
 end
 
 function fzf-cd
