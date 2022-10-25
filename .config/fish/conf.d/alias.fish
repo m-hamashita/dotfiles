@@ -71,6 +71,8 @@ abbr -a dc docker-compose
 abbr -a do cd ~/dotfiles/
 abbr -a k kubectl
 abbr -a kg kubectl get pod
+abbr -a kd "kubectl get pod | fzf | cut -d ' ' -f 1 | xargs kubectl describe pod | less"
+abbr -a kl "kubectl get pod | fzf | cut -d ' ' -f 1 | xargs kubectl logs | less"
 abbr -a ga git add
 abbr -a gb git branch
 abbr -a gc git commit -m
@@ -230,12 +232,17 @@ end
 
 # fzf でリポジトリ以下のディレクトリ名を検索して cd する
 function fzf-git-cd
-  git ls-files | xargs -n 1 dirname | uniq | fzf | read dir
+  git ls-files | sed 's:\(.*\)/.*:\1:' | uniq | fzf | read dir
   if [ $dir ]
       cd $dir
   end
   echo ""
   commandline -f repaint
+end
+
+function get_directory
+  # /hoge/fuga/piyo -> /hoge/fuga
+  echo $argv | sed -E 's/\/[^\/]+$//'
 end
 
 function fzf-cd
