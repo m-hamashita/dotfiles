@@ -71,6 +71,8 @@ abbr -a dc docker-compose
 abbr -a do cd ~/dotfiles/
 abbr -a k kubectl
 abbr -a kg kubectl get pod
+abbr -a kd "kubectl get pod | fzf | cut -d ' ' -f 1 | xargs kubectl describe pod | less"
+abbr -a kl "kubectl get pod | fzf | cut -d ' ' -f 1 | xargs kubectl logs | less"
 abbr -a ga git add
 abbr -a gb git branch
 abbr -a gc git commit -m
