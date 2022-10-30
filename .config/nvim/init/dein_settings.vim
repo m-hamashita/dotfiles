@@ -87,7 +87,12 @@ let g:vim_markdown_json_frontmatter=0
 set nofoldenable
 
 
-
+" Copilot
+let g:copilot_filetypes = {
+      \ '*': 1,
+      \ 'markdown': 1,
+      \ 'yaml': 1,
+      \ }
 
 " ===============================================
 " Coc

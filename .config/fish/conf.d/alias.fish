@@ -240,11 +240,6 @@ function fzf-git-cd
   commandline -f repaint
 end
 
-function get_directory
-  # /hoge/fuga/piyo -> /hoge/fuga
-  echo $argv | sed -E 's/\/[^\/]+$//'
-end
-
 function fzf-cd
   fd --type=d -H -I -E .git | uniq | fzf | read dir
   if [ $dir ]
