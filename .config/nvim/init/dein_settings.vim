@@ -89,6 +89,7 @@ set nofoldenable
 
 " Copilot
 let g:copilot_filetypes = {
+      \ '*': 1,
       \ 'markdown': 1,
       \ 'yaml': 1,
       \ }
