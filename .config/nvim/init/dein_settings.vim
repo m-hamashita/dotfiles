@@ -46,6 +46,7 @@ let g:ale_linters = {
   \   'cpp': ['clangd'],
   \   'vim': ['vint'],
   \   'rust': [],
+  \   'markdown': ['textlint'],
   \}
 let g:ale_fixers = {
   \   '*': ['remove_trailing_lines', 'trim_whitespace'],
