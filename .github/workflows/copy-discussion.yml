@@ -1,0 +1,18 @@
+name: copy-discussions
+on:
+  workflow_dispatch:
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+        with:
+          go-version: "1.18.0"
+      - name: Install dependencies
+        run: GO111MODULE=on go get github.com/rerost/issue-creator
+      - name: Publish a report
+        run: |
+          issue-creator create \
+            --GithubAccesstoken ${{ secrets.GITHUB_TOKEN }} \
+            https://github.com/m-hamashita/dotfiles/discussions/53
