@@ -29,7 +29,7 @@ packages:
 - name: rust-lang/rust-analyzer@2022-10-03
 - name: matsuyoshi30/germanium@v1.2.3
   registry: local
-- name: helm/helm@v3.10.1
+- name: helm/helm@v3.10.2
 - name: GoogleContainerTools/skaffold@v2.0.1
 - name: sbstp/kubie@v0.19.0
 - name: rancher/k3d@v5.4.6
