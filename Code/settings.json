@@ -178,7 +178,11 @@
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.openFilesInNewWindow": "off",
   "workbench.colorCustomizations": {
-    "editorLineNumber.foreground": "#c0c0c0"
+    "editorLineNumber.foreground": "#c0c0c0",
+    "editorInlayHint.background": "#282828",
+    "editorInlayHint.foreground": "#a0a0a0",
+    "editorInlayHint.typeBackground": "#282828",
+    "editorInlayHint.typeForeground": "#a0a0a0",
   },
   "workbench.colorTheme": "Kary Pro Colors － Dark",
   "workbench.editor.enablePreview": false,
@@ -192,7 +196,7 @@
   "bazel.buildifierExecutable": "/Users/masakatsu.hamashita/.local/share/aquaproj-aqua/bin/buildifier",
   "terminal.external.osxExec": "kitty.app",
   "markdown-preview-enhanced.previewTheme": "github-dark.css",
-  "window.zoomLevel": 3,
+  "window.zoomLevel": 2,
   "terminal.integrated.fontFamily": "Meslo LG S for Powerline,Hack Nerd Font",
   "sync.forceUpload": true,
   "python.linting.flake8Path": "/Users/masakatsu.hamashita/.local/bin/flake8",
