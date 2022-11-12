@@ -31,7 +31,7 @@ packages:
   registry: local
 - name: helm/helm@v3.10.2
 - name: GoogleContainerTools/skaffold@v2.0.1
-- name: sbstp/kubie@v0.19.0
+- name: sbstp/kubie@v0.19.1
 - name: rancher/k3d@v5.4.6
 - name: argoproj/argo-rollouts@v1.3.1
 - name: blacknon/hwatch@0.3.7
