@@ -6,7 +6,8 @@
     "javascript",
     "typescript",
     "go",
-    "rust"
+    "rust",
+    "cpp"
   ],
   "suggest.noselect": false,
   "languageserver": {
@@ -29,10 +30,18 @@
     "reportGeneralTypeIssues": "none",
     "reportOptionalMemberAccess": "none"
   },
-  "python.jediEnabled": true,
   "coc.preferences.formatOnType": true,
-  "python.analysis.disabled": ["unresolved-import"],
   "eslint.autoFixOnSave": true,
-  "pyls.plugins.pyflakes.enabled": false,
-  "pyls.plugins.pycodestyle.enabled": false
+  "go.goplsOptions": {
+    "hints": {
+      "assignVariableTypes": true,
+      "compositeLiteralFields": true,
+      "compositeLiteralTypes": true,
+      "constantValues": true,
+      "functionTypeParameters": true,
+      "parameterNames": true,
+      "rangeVariableTypes": true
+    },
+    "usePlaceholders": true
+  }
 }
