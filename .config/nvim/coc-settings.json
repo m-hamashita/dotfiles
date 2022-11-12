@@ -6,7 +6,8 @@
     "javascript",
     "typescript",
     "go",
-    "rust"
+    "rust",
+    "cpp"
   ],
   "suggest.noselect": false,
   "languageserver": {
