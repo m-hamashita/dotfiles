@@ -24,7 +24,7 @@ packages:
 - name: remotemobprogramming/mob@v4.0.0
   registry: local
 - name: sharkdp/bat@v0.22.1
-- name: junegunn/fzf@0.34.0
+- name: junegunn/fzf@0.35.0
 - name: cli/cli@v2.18.1
 - name: rust-lang/rust-analyzer@2022-10-03
 - name: matsuyoshi30/germanium@v1.2.3
