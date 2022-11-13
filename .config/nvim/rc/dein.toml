@@ -48,12 +48,12 @@ repo = 'dense-analysis/ale'
 repo = 'tpope/vim-obsession'
 
 # language server manager
-[[plugins]]
-repo = 'neoclide/coc.nvim'
-build = './install.sh nightly'
-hook_add = '''
-    let coc#util#get_data_home = '~/.config/coc'
-'''
+# [[plugins]]
+# repo = 'neoclide/coc.nvim'
+# build = './install.sh nightly'
+# hook_add = '''
+#     let coc#util#get_data_home = '~/.config/coc'
+# '''
 
 # file explorer
 [[plugins]]
@@ -353,8 +353,8 @@ repo = 'sindrets/diffview.nvim'
 repo = 'fedepujol/move.nvim'
 
 # Semantic language support
-[[plugins]]
-repo = 'neovim/nvim-lspconfig'
+# [[plugins]]
+# repo = 'neovim/nvim-lspconfig'
 [[plugins]]
 repo = 'nvim-lua/lsp_extensions.nvim'
 [[plugins]]
