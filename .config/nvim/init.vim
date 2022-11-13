@@ -6,6 +6,7 @@ runtime init/common_settings.vim
 runtime init/common_mappings.vim
 runtime init/dein_install.vim
 runtime init/dein_settings.vim
+runtime init/lsp_settings.vim
 runtime init/abbr.vim
 runtime init/coc.vim
 runtime init/linter.vim
