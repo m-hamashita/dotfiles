@@ -18,7 +18,7 @@ packages:
 - name: sharkdp/fd@v8.5.2
 - name: sharkdp/hyperfine@v1.15.0
 - name: XAMPPRocky/tokei@v12.1.2
-- name: Wilfred/difftastic@0.37.0
+- name: Wilfred/difftastic@0.38.0
 - name: dalance/procs@v0.13.3
 - name: x-motemen/ghq@v1.3.0
 - name: remotemobprogramming/mob@v4.0.0
