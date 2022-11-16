@@ -326,8 +326,8 @@ repo = 'roxma/vim-hug-neovim-rpc'
 [[plugins]]
 repo = 'zane-/cder.nvim'
 
-[[plugins]]
-repo = 'williamboman/nvim-lsp-installer'
+# [[plugins]]
+# repo = 'williamboman/nvim-lsp-installer'
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
 [[plugins]]
@@ -369,3 +369,8 @@ repo = 'hrsh7th/nvim-cmp'
 repo = 'ray-x/lsp_signature.nvim'
 [[plugins]]
 repo = 'rust-lang/rust.vim'
+
+[[plugins]]
+repo = 'williamboman/mason.nvim'
+[[plugins]]
+repo = 'williamboman/mason-lspconfig.nvim'

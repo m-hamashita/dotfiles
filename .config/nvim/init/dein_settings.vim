@@ -328,25 +328,17 @@ lua <<EOF
   --   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
   -- end
 
-  local lsp_flags = {
-    -- This is the default in Nvim 0.7+
-    debounce_text_changes = 150,
-  }
-  -- nvim-navic
-  local navic = require("nvim-navic")
-  require("lspconfig").clangd.setup {
-      on_attach = function(client, bufnr)
-          navic.attach(client, bufnr)
-      end
-  }
-  -- require("lspconfig").rust_analyzer.setup {
-  --     on_attach = on_attach,
-  --     flags = lsp_flags,
+  -- local lsp_flags = {
+  --   -- This is the default in Nvim 0.7+
+  --   debounce_text_changes = 150,
   -- }
-  -- :LspInstall gopls
-  -- :LspInstall pyright
-  -- require("lspconfig").gopls.setup {}
-  -- require("lspconfig").pyright.setup {}
+  -- -- nvim-navic
+  -- local navic = require("nvim-navic")
+  -- require("lspconfig").clangd.setup {
+  --     on_attach = function(client, bufnr)
+  --         navic.attach(client, bufnr)
+  --     end
+  -- }
 EOF
 
 " tint.nvim
@@ -358,10 +350,8 @@ EOF
 lua <<EOF
   -- search in the current window
   vim.keymap.set({ "n", "x" }, "gs", [[<Cmd>lua require("reacher").start()<CR>]])
-
   -- search in the all windows in the current tab
   vim.keymap.set({ "n", "x" }, "gS", [[<Cmd>lua require("reacher").start_multiple()<CR>]])
-
   -- search in the current line
   vim.keymap.set({ "n", "x" }, "gl", function()
     require("reacher").start({
