@@ -196,7 +196,7 @@
   "bazel.buildifierExecutable": "/Users/masakatsu.hamashita/.local/share/aquaproj-aqua/bin/buildifier",
   "terminal.external.osxExec": "kitty.app",
   "markdown-preview-enhanced.previewTheme": "github-dark.css",
-  "window.zoomLevel": 3,
+  "window.zoomLevel": 2,
   "terminal.integrated.fontFamily": "Meslo LG S for Powerline,Hack Nerd Font",
   "sync.forceUpload": true,
   "python.linting.flake8Path": "/Users/masakatsu.hamashita/.local/bin/flake8",
