@@ -39,3 +39,4 @@ packages:
 - name: fullstorydev/grpcurl@v1.8.7
 - name: stern/stern@v1.22.0
 - name: dandavison/delta@0.14.0
+- name: chmln/sd@v0.7.6
