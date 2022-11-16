@@ -35,6 +35,6 @@ packages:
 - name: rancher/k3d@v5.4.6
 - name: argoproj/argo-rollouts@v1.3.1
 - name: blacknon/hwatch@0.3.7
-- name: istio/istio/istioctl@1.15.3
+- name: istio/istio/istioctl@1.16.0
 - name: fullstorydev/grpcurl@v1.8.7
 - name: stern/stern@v1.22.0
