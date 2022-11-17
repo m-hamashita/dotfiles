@@ -7,11 +7,10 @@ runtime init/common_mappings.vim
 runtime init/dein_install.vim
 runtime init/dein_settings.vim
 runtime init/abbr.vim
+runtime init/coc.vim
+runtime init/linter.vim
+runtime init/filer.vim
 
-" colorscheme wombat256mod
-" colorscheme everforest
-" colorscheme miramare
-" colorscheme zenburn
 if !exists('g:vscode')
   colorscheme tokyonight
 endif
