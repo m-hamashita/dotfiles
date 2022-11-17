@@ -76,7 +76,6 @@ set -x PATH $HOME/.pyenv/shims $PATH
 set -x WORKON_HOME $HOME/.virtualenvs
 
 set -x PYTHONPATH /Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Resources/Python $PYTHONPATH
-set -x PYTHONSTARTUP ~/.pythonstartup
 
 set -x HOMEBREW_CASK_OPTS "--appdir=/Applications"
 set -x CPLUS_INCLUDE_PATH $CPLUS_INCLUDE_PATH:/usr/local/include/c++/9.2.0/x86_64-apple-darwin18/
