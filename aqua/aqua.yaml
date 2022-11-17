@@ -15,7 +15,7 @@ packages:
 - name: CircleCI-Public/circleci-cli@v0.1.22426
 - name: Peltoche/lsd@0.23.1
 - name: stedolan/jq@jq-1.6
-- name: sharkdp/fd@v8.5.2
+- name: sharkdp/fd@v8.5.3
 - name: sharkdp/hyperfine@v1.15.0
 - name: XAMPPRocky/tokei@v12.1.2
 - name: Wilfred/difftastic@0.38.0
