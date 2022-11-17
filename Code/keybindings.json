@@ -130,10 +130,6 @@
     "command": "workbench.action.gotoSymbol"
   },
   {
-    "key": "shift+cmd+o",
-    "command": "-workbench.action.gotoSymbol"
-  },
-  {
     "key": "ctrl+o",
     "command": "-lineBreakInsert",
     "when": "textInputFocus && !editorReadonly"
@@ -285,5 +281,5 @@
     "key": "ctrl+r",
     "command": "-extension.vim_ctrl+r",
     "when": "editorTextFocus && vim.active && vim.use<C-r> && !inDebugRepl"
-  }
+  },
 ]
