@@ -9,6 +9,7 @@ runtime init/dein_settings.vim
 runtime init/abbr.vim
 runtime init/coc.vim
 runtime init/linter.vim
+runtime init/filer.vim
 
 if !exists('g:vscode')
   colorscheme tokyonight
