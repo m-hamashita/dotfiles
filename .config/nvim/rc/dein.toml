@@ -6,37 +6,39 @@ repo = 'Shougo/dein.vim'
 repo = 'luochen1990/rainbow'
 
 # statusline/tabline
+# buffer 表示するための plugin
 [[plugins]]
 repo = 'mengelbrecht/lightline-bufferline'
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
-    set laststatus=0
+    set laststatus=2
     set showtabline=2
     let g:lightline = {
+          \ 'colorscheme': 'tokyonight',
+          \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+          \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
           \ 'active': {
           \   'left': [ [ 'mode', 'paste' ],
           \             [ 'gitbranch', 'readonly', 'filename', 'modified' ],
-          \             [ 'vista' ],
-          \           ]
+          \           ],
+          \   'right': [
+          \     [ 'lineinfo' ],
+          \     [ 'filetype', 'percent' ]
+          \   ],
           \ },
           \ 'component_function': {
-          \   'gitbranch': 'fugitive#head',
-          \   'vista': 'NearestMethodOrFunction',
+          \   'gitbranch': 'FugitiveHead',
+          \ },
+          \ 'component_type': {
+          \   'buffers': 'tabsel',
           \ },
           \ }
-    function! NearestMethodOrFunction() abort
-      return get(b:, 'vista_nearest_method_or_function', '')
-    endfunction
-
     let g:lightline#bufferline#show_number  = 1
     let g:lightline#bufferline#shorten_path = 0
     let g:lightline#bufferline#unnamed      = '[No Name]'
 
-    let g:lightline = { 'colorscheme': 'tokyonight' }
-    let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
     let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-    let g:lightline.component_type   = {'buffers': 'tabsel'}
 '''
 
 # syntax checking and semantic errors
