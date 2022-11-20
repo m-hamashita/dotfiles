@@ -8,7 +8,6 @@ runtime init/plugin_install.vim
 runtime init/plugin_settings.vim
 runtime init/lsp_settings.vim
 runtime init/abbr.vim
-runtime init/coc.vim
 runtime init/linter.vim
 runtime init/filer.vim
 
