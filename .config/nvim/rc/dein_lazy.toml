@@ -21,27 +21,6 @@ hook_add = '''
     nmap <leader>cb :<C-u>ConflictMarkerBoth<CR>
 '''
 
-# View and search LSP symbols
-[[plugins]]
-repo = 'liuchengxu/vista.vim'
-depends = ['coc.nvim', 'lightline.vim']
-hook_add = '''
-    function! s:VistaToggle() abort
-      let found = 0
-      for winnr in range(1, winnr('$'))
-        if getbufvar(winbufnr(winnr), '&filetype') ==# 'vista'
-          exe winnr . 'close'
-          let found = 1
-        endif
-      endfor
-      if !found
-        Vista
-      endif
-    endfunction
-    nmap <silent> <C-f><C-v> :call <SID>VistaToggle()<CR>
-    nmap <silent> <C-f><C-s> :<C-u>Vista finder coc<CR>
-'''
-
 [[plugins]]
 repo = 'linty-org/key-menu.nvim'
 
