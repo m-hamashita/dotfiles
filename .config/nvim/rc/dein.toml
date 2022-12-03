@@ -266,11 +266,6 @@ repo = 'nvim-lua/popup.nvim'
 repo = 'nvim-lua/plenary.nvim'
 
 [[plugins]]
-repo = 'nvim-telescope/telescope.nvim'
-[[plugins]]
-repo = 'fannheyward/telescope-coc.nvim'
-
-[[plugins]]
 repo = "tyru/caw.vim"
 hook_add = '''
     nmap , <Plug>(caw:hatpos:toggle)
@@ -324,10 +319,6 @@ repo = 'roxma/nvim-yarp'
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
 
-# change directory using telescope
-[[plugins]]
-repo = 'zane-/cder.nvim'
-
 [[plugins]]
 repo = 'williamboman/nvim-lsp-installer'
 [[plugins]]
@@ -353,3 +344,6 @@ repo = 'sindrets/diffview.nvim'
 
 [[plugins]]
 repo = 'fedepujol/move.nvim'
+
+[[plugins]]
+repo = 'dstein64/vim-startuptime'

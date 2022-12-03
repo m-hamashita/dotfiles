@@ -44,3 +44,47 @@ hook_add = '''
 
 [[plugins]]
 repo = 'linty-org/key-menu.nvim'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope.nvim'
+on_cmd = 'Telescope'
+hook_add = '''
+    nnoremap <leader>ff <cmd>Telescope find_files<cr>
+    nnoremap <leader>gg <cmd>Telescope git_files<cr>
+    nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+    nnoremap <leader>fb <cmd>Telescope buffers<cr>
+    nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+    nnoremap <leader>fd <cmd>Telescope cder<cr>
+'''
+hook_source = '''
+lua <<EOF
+  require('telescope').load_extension('cder')
+  require('telescope').setup({
+    extensions = {
+      cder = {
+        dir_command = { 'fd', '--type=d', '.', os.getenv('HOME'), 'Documents/work' },
+        previewer_command =
+          'exa '..
+          '-a '..
+          '--color=always '..
+          '-T '..
+          '--level=3 '..
+          '--icons '..
+          '--git-ignore '..
+          '--long '..
+          '--no-permissions '..
+          '--no-user '..
+          '--no-filesize '..
+          '--git '..
+          '--ignore-glob=.git',
+      },
+    },
+  })
+EOF
+'''
+[[plugins]]
+repo = 'fannheyward/telescope-coc.nvim'
+# change directory using telescope
+[[plugins]]
+repo = 'zane-/cder.nvim'
+on_cmd = 'Telescope'
