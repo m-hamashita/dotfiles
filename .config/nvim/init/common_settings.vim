@@ -89,7 +89,8 @@ set nostartofline
 
 
 let g:python_host_prog = '/usr/bin/python2.7'
-let g:python3_host_prog = system('type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(cat $(pyenv root)/version | head -n 1)/bin/python" || echo -n $(which python)')
+" let g:python3_host_prog = system('type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(cat $(pyenv root)/version | head -n 1)/bin/python" || echo -n $(which python)')
+let g:python3_host_prog = '~/.pyenv/versions/3.8.14/bin/python'
 let g:pip_command_path = '~/.local/bin/'
 
 
