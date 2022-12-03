@@ -154,6 +154,12 @@ on_event = 'VimEnter'
 [[plugins]]
 repo = "eiji03aero/quick-notes"
 on_event = 'VimEnter'
+hook_add = '''
+" directory to place notes and diaries.
+let g:quick_notes_directory = '~/.cache/quick-notes/'
+" suffix used for diaries
+let g:quick_notes_suffix = 'md'
+'''
 
 [[plugins]]
 repo = "tyru/caw.vim"
@@ -250,7 +256,9 @@ EOF
 [[plugins]]
 repo = 'luochen1990/rainbow'
 on_event = 'VimEnter'
-
+hook_add = '''
+let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
+'''
 
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
@@ -291,4 +299,86 @@ endif
 '''
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter-textobjects'
+on_event = 'VimEnter'
+
+[[plugins]]
+repo = 'fedepujol/move.nvim'
+on_event = 'VimEnter'
+hook_add = '''
+    nnoremap <silent> <A-Down> :MoveLine(1)<CR>
+    nnoremap <silent> <A-Up> :MoveLine(-1)<CR>
+    vnoremap <silent> <A-Down> :MoveBlock(1)<CR>
+    vnoremap <silent> <A-Up> :MoveBlock(-1)<CR>
+
+    nnoremap <silent> <A-Right> :MoveHChar(1)<CR>
+    nnoremap <silent> <A-Left> :MoveHChar(-1)<CR>
+    vnoremap <silent> <A-Right> :MoveHBlock(1)<CR>
+    vnoremap <silent> <A-Left> :MoveHBlock(-1)<CR>
+'''
+
+[[plugins]]
+repo = 'sindrets/diffview.nvim'
+on_event = 'VimEnter'
+
+# Get Pull Request for line
+[[plugins]]
+repo = 'skanehira/getpr.vim'
+on_event = 'VimEnter'
+
+# completion
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_event = 'VimEnter'
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+on_event = 'VimEnter'
+[[plugins]]
+repo = 'dag/vim-fish'
+on_event = 'VimEnter'
+
+[[plugins]]
+repo = 'kana/vim-altercmd'
+hook_add = '''
+	call altercmd#load()
+	AlterCommand tmux Tmux
+	AlterCommand work Work
+	AlterCommand cheat Cheat
+	AlterCommand shell Shell
+	AlterCommand prog Prog
+	AlterCommand goal Goal
+	AlterCommand todo Todo
+	AlterCommand path Path
+	AlterCommand refresh Refresh
+    AlterCommand memo Memo
+    AlterCommand memofzf MemoFzf
+'''
+on_event = 'VimEnter'
+
+# resize window
+[[plugins]]
+repo = 'simeji/winresizer'
+on_event = 'VimEnter'
+hook_add = '''
+    let g:winresizer_start_key = '<C-w>'
+    let g:winresizer_vert_resize = 1
+    let g:winresizer_horiz_resize = 1
+'''
+
+# file explorer
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+on_event = 'VimEnter'
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+on_event = 'VimEnter'
+[[plugins]]
+repo = 'kristijanhusak/defx-icons'
+on_event = 'VimEnter'
+[[plugins]]
+repo = 'kristijanhusak/defx-git'
+on_event = 'VimEnter'
+
+# ranger
+[[plugins]]
+repo = 'kevinhwang91/rnvimr'
 on_event = 'VimEnter'

@@ -9,17 +9,6 @@ syntax enable
 " dein#recache_runtimepath()を実行すると良いらしい
 call map(dein#check_clean(), "delete(v:val, 'rf')")
 
-" 括弧に色つけるやつの設定
-let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
-
-" vim-markdown
-let g:vim_markdown_folding_disabled=1
-let g:vim_markdown_liquid=1
-let g:vim_markdown_math=0
-let g:vim_markdown_frontmatter=1
-let g:vim_markdown_toml_frontmatter=1
-let g:vim_markdown_json_frontmatter=0
-
 set nofoldenable
 
 " Copilot
@@ -64,35 +53,6 @@ vmap <space>t <Plug>(VTranslate)
 let $BAT_THEME                     = 'gruvbox-dark'
 let $FZF_PREVIEW_PREVIEW_BAT_THEME = 'gruvbox-dark'
 
-" move.nvim
-nnoremap <silent> <A-Down> :MoveLine(1)<CR>
-nnoremap <silent> <A-Up> :MoveLine(-1)<CR>
-vnoremap <silent> <A-Down> :MoveBlock(1)<CR>
-vnoremap <silent> <A-Up> :MoveBlock(-1)<CR>
-
-nnoremap <silent> <A-Right> :MoveHChar(1)<CR>
-nnoremap <silent> <A-Left> :MoveHChar(-1)<CR>
-vnoremap <silent> <A-Right> :MoveHBlock(1)<CR>
-vnoremap <silent> <A-Left> :MoveHBlock(-1)<CR>
-
-
-" vim-indent-guides
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_default_mapping = 0
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_guide_size = 1
-let g:indent_guides_exclude_filetypes = ['help', 'man', 'startify', 'go']
-
-function! s:myIndentGuideHighlight()
-  highlight IndentGuidesOdd guibg=NONE
-  highlight IndentGuidesEven guibg=green ctermbg=235
-  " https://h2plus.biz/hiromitsu/entry/674
-endfunction
-
-augroup indentGuideHighlight
-  autocmd!
-  autocmd VimEnter,ColorScheme * call s:myIndentGuideHighlight()
-augroup END
 
 " git-fugitive
 function! s:GstatusToggle() abort
@@ -124,11 +84,6 @@ function! s:BlameToggle() abort
 endfunction
 
 nmap <silent> <space>gb :call <SID>BlameToggle()<CR>
-
-" directory to place notes and diaries.
-let g:quick_notes_directory = '~/.cache/quick-notes/'
-" suffix used for diaries
-let g:quick_notes_suffix = 'md'
 
 command! FzReadme call fzf#run(fzf#wrap(#{
           \ source: values(map(copy(dein#get()), {k,v-> k.' '.get(split(globpath(get(v,'dir',''), '\creadme.*'), '\n'), 0, '')})),
