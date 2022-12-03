@@ -364,21 +364,79 @@ hook_add = '''
     let g:winresizer_horiz_resize = 1
 '''
 
-# file explorer
-[[plugins]]
-repo = 'Shougo/defx.nvim'
-on_event = 'VimEnter'
-[[plugins]]
-repo = 'ryanoasis/vim-devicons'
-on_event = 'VimEnter'
-[[plugins]]
-repo = 'kristijanhusak/defx-icons'
-on_event = 'VimEnter'
-[[plugins]]
-repo = 'kristijanhusak/defx-git'
-on_event = 'VimEnter'
-
 # ranger
 [[plugins]]
 repo = 'kevinhwang91/rnvimr'
+on_event = 'VimEnter'
+
+# fuzzy finder
+[[plugins]]
+repo = 'junegunn/fzf'
+on_event = 'VimEnter'
+build = './install --all'
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+on_event = 'VimEnter'
+
+# language server manager
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+on_event = 'VimEnter'
+build = './install.sh nightly'
+hook_add = '''
+    let coc#util#get_data_home = '~/.config/coc'
+'''
+
+# statusline/tabline
+# buffer display
+[[plugins]]
+repo = 'mengelbrecht/lightline-bufferline'
+on_event = 'VimEnter'
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+on_event = 'VimEnter'
+hook_add = '''
+    set laststatus=2
+    set showtabline=2
+    let g:lightline = {
+          \ 'colorscheme': 'tokyonight',
+          \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+          \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
+          \ 'active': {
+          \   'left': [ [ 'mode', 'paste' ],
+          \             [ 'gitbranch', 'readonly', 'filename', 'modified' ],
+          \           ],
+          \   'right': [
+          \     [ 'lineinfo' ],
+          \     [ 'filetype', 'percent' ]
+          \   ],
+          \ },
+          \ 'component_function': {
+          \   'gitbranch': 'FugitiveHead',
+          \ },
+          \ 'component_type': {
+          \   'buffers': 'tabsel',
+          \ },
+          \ }
+    let g:lightline#bufferline#show_number  = 1
+    let g:lightline#bufferline#shorten_path = 0
+    let g:lightline#bufferline#unnamed      = '[No Name]'
+    let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
+    let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+'''
+
+# syntax checking and semantic errors
+[[plugins]]
+repo = 'dense-analysis/ale'
+on_event = 'VimEnter'
+
+# Git
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+on_event = 'VimEnter'
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+on_event = 'VimEnter'
+[[plugins]]
+repo = 'tpope/vim-rhubarb'
 on_event = 'VimEnter'

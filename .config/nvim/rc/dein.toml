@@ -1,65 +1,10 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-# statusline/tabline
-# buffer display
-[[plugins]]
-repo = 'mengelbrecht/lightline-bufferline'
-[[plugins]]
-repo = 'itchyny/lightline.vim'
-hook_add = '''
-    set laststatus=2
-    set showtabline=2
-    let g:lightline = {
-          \ 'colorscheme': 'tokyonight',
-          \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-          \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
-          \ 'active': {
-          \   'left': [ [ 'mode', 'paste' ],
-          \             [ 'gitbranch', 'readonly', 'filename', 'modified' ],
-          \           ],
-          \   'right': [
-          \     [ 'lineinfo' ],
-          \     [ 'filetype', 'percent' ]
-          \   ],
-          \ },
-          \ 'component_function': {
-          \   'gitbranch': 'FugitiveHead',
-          \ },
-          \ 'component_type': {
-          \   'buffers': 'tabsel',
-          \ },
-          \ }
-    let g:lightline#bufferline#show_number  = 1
-    let g:lightline#bufferline#shorten_path = 0
-    let g:lightline#bufferline#unnamed      = '[No Name]'
-    let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
-    let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-'''
-
-# syntax checking and semantic errors
-[[plugins]]
-repo = 'dense-analysis/ale'
 
 # save session (use with tmux)
 [[plugins]]
 repo = 'tpope/vim-obsession'
-
-# language server manager
-[[plugins]]
-repo = 'neoclide/coc.nvim'
-build = './install.sh nightly'
-hook_add = '''
-    let coc#util#get_data_home = '~/.config/coc'
-'''
-
-# Git
-[[plugins]]
-repo = 'airblade/vim-gitgutter'
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-[[plugins]]
-repo = 'tpope/vim-rhubarb'
 
 # highlight yanked region
 [[plugins]]
@@ -68,12 +13,6 @@ hook_add = '''
     let g:highlightedyank_highlight_duration = 300
 '''
 
-# fuzzy finder
-[[plugins]]
-repo = 'junegunn/fzf'
-build = './install --all'
-[[plugins]]
-repo = 'junegunn/fzf.vim'
 
 [[plugins]]
 repo = 'Shougo/deol.nvim'
@@ -139,3 +78,13 @@ repo = 'mfussenegger/nvim-dap'
 
 [[plugins]]
 repo = 'levouh/tint.nvim'
+
+# file explorer
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+[[plugins]]
+repo = 'kristijanhusak/defx-icons'
+[[plugins]]
+repo = 'kristijanhusak/defx-git'
