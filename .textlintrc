@@ -2,12 +2,28 @@
   "filters": {},
   "rules": {
     "preset-ja-technical-writing": {
-      "ja-no-weak-phrase": false,
-      "ja-no-mixed-period": false,
+      "ja-no-weak-phrase": true,
       "no-exclamation-question-mark": false,
       "max-kanji-continuous-len": {
         "max": 8
-      }
+      },
+      "no-mix-dearu-desumasu": {
+        "preferInHeader": "",
+        "preferInBody": "ですます",
+        "preferInList": "である",
+        "strict": true
+      },
+      "no-doubled-conjunction": true,
+      "ja-no-abusage": true,
+      "ja-no-redundant-expression": true,
+      "no-unmatched-pair": true,
+      "no-nfd": true,
+      "no-dropping-the-ra": true,
+      "no-double-negative-ja": true,
+      "ja-no-mixed-period": {
+        "periodMark": "。"
+      },
+      "arabic-kanji-numbers": true
     },
     "jtf-style/3.1.1.全角文字と半角文字の間": false,
     "preset-jtf-style": {
@@ -16,6 +32,10 @@
       "2.1.6.カタカナの長音": true,
       "2.2.1.ひらがなと漢字の使い分け": true,
       "2.2.3.一部の助数詞の表記": true
-    }
+    },
+    "en-spell": true,
+    "ja-no-inappropriate-words": true,
+    "ja-hiragana-keishikimeishi": true,
+    "ja-hiragana-fukushi": true
   }
 }
