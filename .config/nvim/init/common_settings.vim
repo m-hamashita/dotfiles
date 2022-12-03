@@ -109,11 +109,13 @@ augroup fileTypeIndent
 augroup END
 
 
-" digdag
-augroup digdagSettings
+augroup filetypes
   autocmd!
+  " digdag
   autocmd BufNewFile,BufRead *.dig set filetype=yaml
   autocmd Syntax yaml setl indentkeys-=<:>
+  " textlint
+  autocmd BufRead,BufNewFile .textlintrc setlocal filetype=json
 augroup END
 
 " 全角スペースの可視化
