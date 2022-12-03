@@ -2,7 +2,7 @@
 repo = 'Shougo/dein.vim'
 
 # statusline/tabline
-# buffer 表示するための plugin
+# buffer display
 [[plugins]]
 repo = 'mengelbrecht/lightline-bufferline'
 [[plugins]]
@@ -137,13 +137,6 @@ repo = 'dag/vim-fish'
 [[plugins]]
 repo = 'dbgx/lldb.nvim'
 on_ft = ['c', 'cpp']
-
-[[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter'
-# https://discourse.nixos.org/t/cant-get-nvim-treesitter-neovim-plugin-to-work-properly/21368
-rev = "501db1459a7a46cb0766b3c56e9a6904bbcbcc97"
-[[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter-textobjects'
 
 [[plugins]]
 repo = 'skanehira/translate.vim'

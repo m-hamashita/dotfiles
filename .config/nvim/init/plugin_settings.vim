@@ -46,37 +46,6 @@ nnoremap <silent> tt :call <SID>open_repository_from_toml()<CR>
 " back to definition: <C-o> - jump to original window on list create.
 nmap <silent> gp <C-o>
 
-" nvim-treesitter
-if !exists('g:vscode')
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-  },
-  ensure_installed = {"go", "python", "lua", "yaml", "json",  "bash", "latex", "fish", "gomod", "html", "toml", "vim", "ruby", "c", "cpp", "c_sharp", "comment", "jsonc", "javascript", "cuda", "scala", "dockerfile", "rust", "query", "julia", "lua"},
-  indent = {
-    enable = true,
-  },
-  textobjects = {
-    select = {
-      enable = true,
-
-      -- Automatically jump forward to textobj, similar to targets.vim
-      lookahead = true,
-
-      keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
-      },
-    },
-  },
-}
-EOF
-endif
-
 
 " tint.nvim
 " lua <<EOF
