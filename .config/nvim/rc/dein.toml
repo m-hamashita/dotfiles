@@ -353,3 +353,6 @@ repo = 'sindrets/diffview.nvim'
 
 [[plugins]]
 repo = 'fedepujol/move.nvim'
+
+[[plugins]]
+repo = 'dstein64/vim-startuptime'
