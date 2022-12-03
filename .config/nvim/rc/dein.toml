@@ -1,10 +1,6 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-# rainbow parenthesis
-[[plugins]]
-repo = 'luochen1990/rainbow'
-
 # statusline/tabline
 # buffer 表示するための plugin
 [[plugins]]
@@ -157,9 +153,6 @@ repo = 'nvim-lua/popup.nvim'
 [[plugins]]
 repo = 'nvim-lua/plenary.nvim'
 
-[[plugins]]
-repo = "lukas-reineke/indent-blankline.nvim"
-
 # ecosystem plugin using deno
 [[plugins]]
 repo = "vim-denops/denops.vim"
@@ -197,22 +190,11 @@ repo = 'roxma/nvim-yarp'
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
 
-[[plugins]]
-repo = 'williamboman/nvim-lsp-installer'
-[[plugins]]
-repo = 'neovim/nvim-lspconfig'
-[[plugins]]
-repo = 'SmiteshP/nvim-navic'
-
 # rust-tools
 [[plugins]]
 repo = 'simrat39/rust-tools.nvim'
 [[plugins]]
 repo = 'mfussenegger/nvim-dap'
-
-# displayed range search
-[[plugins]]
-repo = 'notomo/reacher.nvim'
 
 [[plugins]]
 repo = 'levouh/tint.nvim'
