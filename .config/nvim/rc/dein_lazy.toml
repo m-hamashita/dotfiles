@@ -364,11 +364,6 @@ hook_add = '''
     let g:winresizer_horiz_resize = 1
 '''
 
-# ranger
-[[plugins]]
-repo = 'kevinhwang91/rnvimr'
-on_event = 'VimEnter'
-
 # fuzzy finder
 [[plugins]]
 repo = 'junegunn/fzf'
