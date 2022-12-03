@@ -2,6 +2,7 @@ set encoding=utf-8
 scriptencoding utf-8
 
 " 各ファイルを読み込む
+runtime init/pre_load.vim
 runtime init/common_settings.vim
 runtime init/common_mappings.vim
 runtime init/plugin_install.vim
