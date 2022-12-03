@@ -36,6 +36,12 @@
     "en-spell": true,
     "ja-no-inappropriate-words": true,
     "ja-hiragana-keishikimeishi": true,
-    "ja-hiragana-fukushi": true
+    "ja-hiragana-fukushi": true,
+    "ja-hiragana-hojodoushi": true,
+    "ja-hiragana-daimeishi": true,
+    "prefer-tari-tari": true,
+    "@textlint-ja/no-synonyms": true,
+    "ja-no-orthographic-variants": true,
+    "no-hoso-kinshi-yogo": true
   }
 }
