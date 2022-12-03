@@ -1,0 +1,12 @@
+{
+    "filters": {},
+    "rules":{
+      "preset-ja-technical-writing": {
+              "ja-no-weak-phrase": false,
+              "ja-no-mixed-period": false,
+              "no-exclamation-question-mark": false,
+          },
+          "jtf-style/3.1.1.全角文字と半角文字の間": false,
+          "preset-jtf-style": true,
+    }
+}
