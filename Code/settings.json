@@ -114,62 +114,31 @@
   "vim.hlsearch": true,
   "vim.insertModeKeyBindings": [
     {
-      "after": [
-        "<Esc>"
-      ],
-      "before": [
-        "j",
-        "j"
-      ]
+      "after": ["<Esc>"],
+      "before": ["j", "j"]
     }
   ],
   "vim.mouseSelectionGoesIntoVisualMode": false,
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "g",
-        "p"
-      ],
-      "commands": [
-        "extension.vim_ctrl+o"
-      ]
+      "before": ["g", "p"],
+      "commands": ["extension.vim_ctrl+o"]
     },
     {
-      "before": [
-        "g",
-        "o"
-      ],
-      "commands": [
-        "workbench.action.navigateForwardInNavigationLocations"
-      ]
+      "before": ["g", "o"],
+      "commands": ["workbench.action.navigateForwardInNavigationLocations"]
     },
     {
-      "before": [
-        "<leader>",
-        "o",
-        "n"
-      ],
-      "commands": [
-        "workbench.action.closeOtherEditors"
-      ]
+      "before": ["<leader>", "o", "n"],
+      "commands": ["workbench.action.closeOtherEditors"]
     },
     {
-      "before": [
-        "<leader>",
-        "r"
-      ],
-      "commands": [
-        "editor.action.rename"
-      ]
+      "before": ["<leader>", "r"],
+      "commands": ["editor.action.rename"]
     },
     {
-      "before": [
-        "<C-c>",
-        "<C-c>"
-      ],
-      "commands": [
-        ":nohl"
-      ]
+      "before": ["<C-c>", "<C-c>"],
+      "commands": [":nohl"]
     }
   ],
   "vim.useSystemClipboard": true,
@@ -182,7 +151,7 @@
     "editorInlayHint.background": "#282828",
     "editorInlayHint.foreground": "#a0a0a0",
     "editorInlayHint.typeBackground": "#282828",
-    "editorInlayHint.typeForeground": "#a0a0a0",
+    "editorInlayHint.typeForeground": "#a0a0a0"
   },
   "workbench.colorTheme": "Kary Pro Colors － Dark",
   "workbench.editor.enablePreview": false,
@@ -201,5 +170,5 @@
   "sync.forceUpload": true,
   "python.linting.flake8Path": "/Users/masakatsu.hamashita/.local/bin/flake8",
   "python.linting.mypyPath": "/Users/masakatsu.hamashita/.local/bin/mypy",
-  "git.ignoreRebaseWarning": true,
+  "git.ignoreRebaseWarning": true
 }

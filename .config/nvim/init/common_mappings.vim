@@ -16,7 +16,6 @@ noremap <S-h>   ^
 noremap <S-l>   $
 noremap <S-j> <Nop>
 
-inoremap <silent> ww <Esc>viw
 inoremap <C-x> <Nop>
 
 " 使わないので無効化
