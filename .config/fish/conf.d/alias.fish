@@ -65,7 +65,7 @@ alias on 'tmux kill-pane -a -t (tmux run "echo #{pane_id}")'
 alias bazel 'bazelisk'
 
 # abbr
-abbr -a del_swap "rm ~/.local/share/nvim/swap/*"
+abbr -a del_swap "rm ~/.local/state/nvim/swap/*"
 abbr -a ref source ~/.config/fish/config.fish
 abbr -a dc docker-compose
 abbr -a do cd ~/dotfiles/
