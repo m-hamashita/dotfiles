@@ -1,83 +1,9 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-# rainbow parenthesis
-[[plugins]]
-repo = 'luochen1990/rainbow'
-
-# statusline/tabline
-# buffer 表示するための plugin
-[[plugins]]
-repo = 'mengelbrecht/lightline-bufferline'
-[[plugins]]
-repo = 'itchyny/lightline.vim'
-hook_add = '''
-    set laststatus=2
-    set showtabline=2
-    let g:lightline = {
-          \ 'colorscheme': 'tokyonight',
-          \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-          \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
-          \ 'active': {
-          \   'left': [ [ 'mode', 'paste' ],
-          \             [ 'gitbranch', 'readonly', 'filename', 'modified' ],
-          \           ],
-          \   'right': [
-          \     [ 'lineinfo' ],
-          \     [ 'filetype', 'percent' ]
-          \   ],
-          \ },
-          \ 'component_function': {
-          \   'gitbranch': 'FugitiveHead',
-          \ },
-          \ 'component_type': {
-          \   'buffers': 'tabsel',
-          \ },
-          \ }
-    let g:lightline#bufferline#show_number  = 1
-    let g:lightline#bufferline#shorten_path = 0
-    let g:lightline#bufferline#unnamed      = '[No Name]'
-    let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
-    let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-'''
-
-# syntax checking and semantic errors
-[[plugins]]
-repo = 'dense-analysis/ale'
-
 # save session (use with tmux)
 [[plugins]]
 repo = 'tpope/vim-obsession'
-
-# language server manager
-[[plugins]]
-repo = 'neoclide/coc.nvim'
-build = './install.sh nightly'
-hook_add = '''
-    let coc#util#get_data_home = '~/.config/coc'
-'''
-
-# file explorer
-[[plugins]]
-repo = 'Shougo/defx.nvim'
-[[plugins]]
-repo = 'ryanoasis/vim-devicons'
-[[plugins]]
-repo = 'kristijanhusak/defx-icons'
-[[plugins]]
-repo = 'kristijanhusak/defx-git'
-
-# ranger
-[[plugins]]
-repo = 'kevinhwang91/rnvimr'
-
-# Git
-[[plugins]]
-repo = 'airblade/vim-gitgutter'
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-[[plugins]]
-repo = 'tpope/vim-rhubarb'
 
 # highlight yanked region
 [[plugins]]
@@ -86,23 +12,6 @@ hook_add = '''
     let g:highlightedyank_highlight_duration = 300
 '''
 
-
-# resize window
-[[plugins]]
-repo = 'simeji/winresizer'
-hook_add = '''
-    let g:winresizer_start_key = '<C-w>'
-    let g:winresizer_vert_resize = 1
-    let g:winresizer_horiz_resize = 1
-'''
-
-# fuzzy finder
-[[plugins]]
-repo = 'junegunn/fzf'
-build = './install --all'
-[[plugins]]
-repo = 'junegunn/fzf.vim'
-
 [[plugins]]
 repo = 'Shougo/deol.nvim'
 hook_add = '''
@@ -110,44 +19,8 @@ nnoremap <silent><C-p> :<C-u>Deol -split=floating<CR>
 '''
 
 [[plugins]]
-repo = 'kana/vim-altercmd'
-hook_add = '''
-	call altercmd#load()
-	AlterCommand tmux Tmux
-	AlterCommand work Work
-	AlterCommand cheat Cheat
-	AlterCommand shell Shell
-	AlterCommand prog Prog
-	AlterCommand goal Goal
-	AlterCommand todo Todo
-	AlterCommand path Path
-	AlterCommand refresh Refresh
-    AlterCommand memo Memo
-    AlterCommand memofzf MemoFzf
-'''
-
-# Get Pull Request for line
-[[plugins]]
-repo = 'skanehira/getpr.vim'
-
-# completion
-[[plugins]]
-repo = 'plasticboy/vim-markdown'
-[[plugins]]
-repo = 'hashivim/vim-terraform'
-[[plugins]]
-repo = 'dag/vim-fish'
-
-[[plugins]]
 repo = 'dbgx/lldb.nvim'
 on_ft = ['c', 'cpp']
-
-[[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter'
-# https://discourse.nixos.org/t/cant-get-nvim-treesitter-neovim-plugin-to-work-properly/21368
-rev = "501db1459a7a46cb0766b3c56e9a6904bbcbcc97"
-[[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter-textobjects'
 
 [[plugins]]
 repo = 'skanehira/translate.vim'
@@ -157,9 +30,6 @@ repo = 'nvim-lua/popup.nvim'
 [[plugins]]
 repo = 'nvim-lua/plenary.nvim'
 
-[[plugins]]
-repo = "lukas-reineke/indent-blankline.nvim"
-
 # ecosystem plugin using deno
 [[plugins]]
 repo = "vim-denops/denops.vim"
@@ -167,9 +37,6 @@ repo = "vim-denops/denops.vim"
 # support open new tab
 [[plugins]]
 repo = "lambdalisue/guise.vim"
-
-[[plugins]]
-repo = 'kat0h/dps-bufpreview.vim'
 
 [[plugins]]
 repo = 'camspiers/snap'
@@ -197,28 +64,21 @@ repo = 'roxma/nvim-yarp'
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
 
-[[plugins]]
-repo = 'williamboman/nvim-lsp-installer'
-[[plugins]]
-repo = 'neovim/nvim-lspconfig'
-[[plugins]]
-repo = 'SmiteshP/nvim-navic'
-
 # rust-tools
 [[plugins]]
 repo = 'simrat39/rust-tools.nvim'
 [[plugins]]
 repo = 'mfussenegger/nvim-dap'
 
-# displayed range search
-[[plugins]]
-repo = 'notomo/reacher.nvim'
-
 [[plugins]]
 repo = 'levouh/tint.nvim'
 
+# file explorer
 [[plugins]]
-repo = 'sindrets/diffview.nvim'
-
+repo = 'Shougo/defx.nvim'
 [[plugins]]
-repo = 'fedepujol/move.nvim'
+repo = 'ryanoasis/vim-devicons'
+[[plugins]]
+repo = 'kristijanhusak/defx-icons'
+[[plugins]]
+repo = 'kristijanhusak/defx-git'
