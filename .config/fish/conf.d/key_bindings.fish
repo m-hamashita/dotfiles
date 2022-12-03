@@ -42,3 +42,13 @@ bind \cf 'fzf-cd'
 if bind -M insert >/dev/null 2>/dev/null
     bind -M insert \cf 'fzf-cd'
 end
+
+bind \eH 'backward-word'
+if bind -M insert >/dev/null 2>/dev/null
+    bind -M insert \eH 'backward-word'
+end
+
+bind \eL 'forward-word'
+if bind -M insert >/dev/null 2>/dev/null
+    bind -M insert \eL 'forward-word'
+end
