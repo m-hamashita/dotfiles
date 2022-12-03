@@ -192,39 +192,6 @@ let g:translate_winsize = 5 " set buffer window height size if you doesn't use p
 nmap <space>t <Plug>(Translate)
 vmap <space>t <Plug>(VTranslate)
 
-" telescope.nvim
-lua <<EOF
-  require('telescope').load_extension('cder')
-  require('telescope').setup({
-    extensions = {
-      cder = {
-        dir_command = { 'fd', '--type=d', '.', os.getenv('HOME'), 'Documents/work' },
-        previewer_command =
-          'exa '..
-          '-a '..
-          '--color=always '..
-          '-T '..
-          '--level=3 '..
-          '--icons '..
-          '--git-ignore '..
-          '--long '..
-          '--no-permissions '..
-          '--no-user '..
-          '--no-filesize '..
-          '--git '..
-          '--ignore-glob=.git',
-      },
-    },
-  })
-EOF
-" Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>gg <cmd>Telescope git_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <leader>fd <cmd>Telescope cder<cr>
-
 let $BAT_THEME                     = 'gruvbox-dark'
 let $FZF_PREVIEW_PREVIEW_BAT_THEME = 'gruvbox-dark'
 
