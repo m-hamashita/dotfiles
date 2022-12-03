@@ -1,7 +1,6 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-
 # save session (use with tmux)
 [[plugins]]
 repo = 'tpope/vim-obsession'
@@ -13,13 +12,11 @@ hook_add = '''
     let g:highlightedyank_highlight_duration = 300
 '''
 
-
 [[plugins]]
 repo = 'Shougo/deol.nvim'
 hook_add = '''
 nnoremap <silent><C-p> :<C-u>Deol -split=floating<CR>
 '''
-
 
 [[plugins]]
 repo = 'dbgx/lldb.nvim'
@@ -40,9 +37,6 @@ repo = "vim-denops/denops.vim"
 # support open new tab
 [[plugins]]
 repo = "lambdalisue/guise.vim"
-
-[[plugins]]
-repo = 'kat0h/dps-bufpreview.vim'
 
 [[plugins]]
 repo = 'camspiers/snap'
