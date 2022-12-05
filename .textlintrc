@@ -28,20 +28,21 @@
     "jtf-style/3.1.1.全角文字と半角文字の間": false,
     "preset-jtf-style": {
       "2.1.2.漢字": true,
-      "2.1.5.カタカナ": true,
-      "2.1.6.カタカナの長音": true,
+      "2.1.5.カタカナ": false,
+      "2.1.6.カタカナの長音": false,
       "2.2.1.ひらがなと漢字の使い分け": true,
       "2.2.3.一部の助数詞の表記": true
     },
-    "en-spell": true,
     "ja-no-inappropriate-words": true,
     "ja-hiragana-keishikimeishi": true,
     "ja-hiragana-fukushi": true,
     "ja-hiragana-hojodoushi": true,
     "ja-hiragana-daimeishi": true,
     "prefer-tari-tari": true,
-    "@textlint-ja/no-synonyms": true,
     "ja-no-orthographic-variants": true,
-    "no-hoso-kinshi-yogo": true
+    "no-hoso-kinshi-yogo": true,
+    "no-dropping-the-ra": true,
+    "@textlint-ja/textlint-rule-no-dropping-i": true,
+    "@textlint-ja/no-synonyms": true
   }
 }
