@@ -90,3 +90,35 @@ build = './install.sh nightly'
 hook_add = '''
     let coc#util#get_data_home = '~/.config/coc'
 '''
+
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'
+on_event = 'VimEnter'
+[[plugins]]
+repo = 'SmiteshP/nvim-navic'
+on_event = 'VimEnter'
+hook_source = '''
+" TODO: coc から lspconfig(mason) に移行する
+lua <<EOF
+  local lsp_flags = {
+    -- This is the default in Nvim 0.7+
+    debounce_text_changes = 150,
+  }
+  -- nvim-navic
+  local navic = require("nvim-navic")
+  require("lspconfig").clangd.setup {
+      on_attach = function(client, bufnr)
+          navic.attach(client, bufnr)
+      end
+  }
+  -- require("lspconfig").rust_analyzer.setup {
+  --     on_attach = on_attach,
+  --     flags = lsp_flags,
+  -- }
+EOF
+'''
+
+[[plugins]]
+repo = 'williamboman/mason.nvim'
+[[plugins]]
+repo = 'williamboman/mason-lspconfig.nvim'

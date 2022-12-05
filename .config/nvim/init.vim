@@ -10,6 +10,7 @@ runtime init/plugin_settings.vim
 runtime init/abbr.vim
 runtime init/coc.vim
 runtime init/filer.vim
+runtime init/lsp.vim
 
 if !exists('g:vscode')
   colorscheme tokyonight
