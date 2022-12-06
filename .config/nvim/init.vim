@@ -8,9 +8,9 @@ runtime init/common_mappings.vim
 runtime init/plugin_install.vim
 runtime init/plugin_settings.vim
 runtime init/abbr.vim
-runtime init/coc.vim
+" runtime init/coc.vim
 runtime init/filer.vim
-runtime init/lsp.vim
+runtime init/lsp.lua
 
 if !exists('g:vscode')
   colorscheme tokyonight
