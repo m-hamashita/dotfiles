@@ -114,31 +114,71 @@
   "vim.hlsearch": true,
   "vim.insertModeKeyBindings": [
     {
-      "after": ["<Esc>"],
-      "before": ["j", "j"]
+      "after": [
+        "<Esc>"
+      ],
+      "before": [
+        "j",
+        "j"
+      ]
     }
   ],
   "vim.mouseSelectionGoesIntoVisualMode": false,
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["g", "p"],
-      "commands": ["extension.vim_ctrl+o"]
+      "before": [
+        "g",
+        "p"
+      ],
+      "commands": [
+        "extension.vim_ctrl+o"
+      ]
     },
     {
-      "before": ["g", "o"],
-      "commands": ["workbench.action.navigateForwardInNavigationLocations"]
+      "before": [
+        "g",
+        "o"
+      ],
+      "commands": [
+        "workbench.action.navigateForwardInNavigationLocations"
+      ]
     },
     {
-      "before": ["<leader>", "o", "n"],
-      "commands": ["workbench.action.closeOtherEditors"]
+      "before": [
+        "g",
+        "i"
+      ],
+      "commands": [
+        "editor.action.goToImplementation"
+      ]
     },
     {
-      "before": ["<leader>", "r"],
-      "commands": ["editor.action.rename"]
+      "before": [
+        "<leader>",
+        "o",
+        "n"
+      ],
+      "commands": [
+        "workbench.action.closeOtherEditors"
+      ]
     },
     {
-      "before": ["<C-c>", "<C-c>"],
-      "commands": [":nohl"]
+      "before": [
+        "<leader>",
+        "r"
+      ],
+      "commands": [
+        "editor.action.rename"
+      ]
+    },
+    {
+      "before": [
+        "<C-c>",
+        "<C-c>"
+      ],
+      "commands": [
+        ":nohl"
+      ]
     }
   ],
   "vim.useSystemClipboard": true,
