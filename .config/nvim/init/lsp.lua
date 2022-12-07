@@ -25,3 +25,27 @@ lspconfig.setup_handlers({ function(server_name)
   end
   nvim_lsp[server_name].setup(opts)
 end })
+
+
+-- null-ls
+local null_ls = require("null-ls")
+null_ls.setup {
+  on_attach = function(_, bufnr)
+    local bufopts = { buffer = bufnr }
+    vim.keymap.set('n', 'gk', function()
+      vim.lsp.buf.format { async = true }
+    end, bufopts)
+  end,
+  sources = {
+    null_ls.builtins.diagnostics.textlint.with {
+      filetypes = { 'markdown' },
+      prefer_local = 'node_modules/.bin',
+    },
+    null_ls.builtins.formatting.textlint.with {
+      filetypes = { 'markdown' },
+      prefer_local = 'node_modules/.bin',
+    },
+    null_ls.builtins.formatting.yamlfmt,
+  },
+}
+

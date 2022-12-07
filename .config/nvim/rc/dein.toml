@@ -122,3 +122,6 @@ EOF
 repo = 'williamboman/mason.nvim'
 [[plugins]]
 repo = 'williamboman/mason-lspconfig.nvim'
+
+[[plugins]]
+repo = 'jose-elias-alvarez/null-ls.nvim'
