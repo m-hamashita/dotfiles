@@ -46,6 +46,9 @@ null_ls.setup {
       prefer_local = 'node_modules/.bin',
     },
     null_ls.builtins.formatting.yamlfmt,
+    null_ls.builtins.formatting.black.with {
+        filetypes = { 'python' },
+        prefer_local = 'venv/bin',
+    },
   },
 }
-

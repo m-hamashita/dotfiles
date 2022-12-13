@@ -11,6 +11,7 @@ runtime init/abbr.vim
 " runtime init/coc.vim
 runtime init/filer.vim
 runtime init/lsp.lua
+runtime init/lsp_lines.lua
 
 if !exists('g:vscode')
   colorscheme tokyonight
