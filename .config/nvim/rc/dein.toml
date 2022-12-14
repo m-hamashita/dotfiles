@@ -125,3 +125,12 @@ repo = 'williamboman/mason-lspconfig.nvim'
 
 [[plugins]]
 repo = 'jose-elias-alvarez/null-ls.nvim'
+
+[[plugins]]
+repo = 'lvimuser/lsp-inlayhints.nvim'
+[[plugins]]
+repo = "hrsh7th/nvim-cmp"
+[[plugins]]
+repo = "hrsh7th/cmp-nvim-lsp"
+[[plugins]]
+repo = "hrsh7th/vim-vsnip"
