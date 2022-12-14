@@ -11,7 +11,7 @@ vim.diagnostic.config({
 
 vim.keymap.set(
   "n",
-  "<leader>l",
+  "<leader><leader>",
   require("lsp_lines").toggle,
   { desc = "Toggle lsp_lines" }
 )

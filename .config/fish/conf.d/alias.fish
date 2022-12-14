@@ -68,6 +68,7 @@ alias bazel 'bazelisk'
 abbr -a del_swap "rm ~/.local/state/nvim/swap/*"
 abbr -a ref source ~/.config/fish/config.fish
 abbr -a dc docker-compose
+abbr -a dokcer docker
 abbr -a do cd ~/dotfiles/
 abbr -a k kubectl
 abbr -a kg kubectl get pod
