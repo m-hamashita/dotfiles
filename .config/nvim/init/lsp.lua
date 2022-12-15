@@ -90,11 +90,12 @@ null_ls.setup {
   sources = {
     null_ls.builtins.diagnostics.textlint.with {
       filetypes = { 'markdown' },
-      prefer_local = 'node_modules/.bin',
     },
     null_ls.builtins.formatting.textlint.with {
       filetypes = { 'markdown' },
-      prefer_local = 'node_modules/.bin',
+    },
+    null_ls.builtins.formatting.prettier.with {
+      filetypes = { 'javascript', 'typescript', 'json', 'yaml', 'markdown', 'graphql'},
     },
     null_ls.builtins.formatting.yamlfmt,
     null_ls.builtins.formatting.black.with {
