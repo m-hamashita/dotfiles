@@ -1,8 +1,4 @@
 [[plugins]]
-repo = 'Shougo/unite.vim'
-on_event = 'VimEnter'
-
-[[plugins]]
 repo = 'psf/black'
 on_event = 'VimEnter'
 
