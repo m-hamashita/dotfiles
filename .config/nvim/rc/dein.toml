@@ -134,3 +134,6 @@ repo = "hrsh7th/nvim-cmp"
 repo = "hrsh7th/cmp-nvim-lsp"
 [[plugins]]
 repo = "hrsh7th/vim-vsnip"
+
+[[plugins]]
+repo = 'nvim-lualine/lualine.nvim'

@@ -348,44 +348,6 @@ build = './install --all'
 repo = 'junegunn/fzf.vim'
 on_event = 'VimEnter'
 
-# statusline/tabline
-# buffer display
-[[plugins]]
-repo = 'mengelbrecht/lightline-bufferline'
-on_event = 'VimEnter'
-[[plugins]]
-repo = 'itchyny/lightline.vim'
-on_event = 'VimEnter'
-hook_add = '''
-    set laststatus=2
-    set showtabline=2
-    let g:lightline = {
-          \ 'colorscheme': 'tokyonight',
-          \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-          \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
-          \ 'active': {
-          \   'left': [ [ 'mode', 'paste' ],
-          \             [ 'gitbranch', 'readonly', 'filename', 'modified' ],
-          \           ],
-          \   'right': [
-          \     [ 'lineinfo' ],
-          \     [ 'filetype', 'percent' ]
-          \   ],
-          \ },
-          \ 'component_function': {
-          \   'gitbranch': 'FugitiveHead',
-          \ },
-          \ 'component_type': {
-          \   'buffers': 'tabsel',
-          \ },
-          \ }
-    let g:lightline#bufferline#show_number  = 1
-    let g:lightline#bufferline#shorten_path = 0
-    let g:lightline#bufferline#unnamed      = '[No Name]'
-    let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
-    let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-'''
-
 # Git
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
