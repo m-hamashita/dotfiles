@@ -73,15 +73,6 @@ repo = 'mfussenegger/nvim-dap'
 [[plugins]]
 repo = 'levouh/tint.nvim'
 
-# file explorer
-[[plugins]]
-repo = 'Shougo/defx.nvim'
-[[plugins]]
-repo = 'ryanoasis/vim-devicons'
-[[plugins]]
-repo = 'kristijanhusak/defx-icons'
-[[plugins]]
-repo = 'kristijanhusak/defx-git'
 
 # language server manager
 [[plugins]]
@@ -132,3 +123,28 @@ repo = "hrsh7th/vim-vsnip"
 
 [[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
+
+# file explorer
+[[plugins]]
+repo = 'lambdalisue/fern.vim'
+hook_add = '''
+    nnoremap <space>f :<C-u>Fern . -drawer -toggle<CR>
+'''
+[[plugins]]
+repo = 'lambdalisue/fern-renderer-nerdfont.vim'
+hook_add = '''
+    let g:fern#renderer = "nerdfont"
+'''
+[[plugins]]
+repo = 'lambdalisue/nerdfont.vim'
+[[plugins]]
+repo = 'lambdalisue/glyph-palette.vim'
+hook_add = '''
+    augroup glyph-palette
+      autocmd! *
+      autocmd FileType fern call glyph_palette#apply()
+      autocmd FileType nerdtree,startify call glyph_palette#apply()
+    augroup END
+'''
+[[plugins]]
+repo = 'lambdalisue/fern-git-status.vim'
