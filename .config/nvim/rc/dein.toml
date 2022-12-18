@@ -98,7 +98,6 @@ on_event = 'VimEnter'
 repo = 'SmiteshP/nvim-navic'
 on_event = 'VimEnter'
 hook_source = '''
-" TODO: coc から lspconfig(mason) に移行する
 lua <<EOF
   local lsp_flags = {
     -- This is the default in Nvim 0.7+
@@ -111,10 +110,6 @@ lua <<EOF
           navic.attach(client, bufnr)
       end
   }
-  -- require("lspconfig").rust_analyzer.setup {
-  --     on_attach = on_attach,
-  --     flags = lsp_flags,
-  -- }
 EOF
 '''
 
