@@ -50,18 +50,23 @@ mason.setup({
 })
 local nvim_lsp = require('lspconfig')
 local lspconfig = require('mason-lspconfig')
+local navic = require('nvim-navic')
+local on_attach = function(client, bufnr)
+  if client.server_capabilities.documentSymbolProvider then
+      navic.attach(client, bufnr)
+  end
+  local bufopts = { silent = true, buffer = bufnr }
+  vim.keymap.set('n', 'gtD', vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set('n', 'grf', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', '<space>p', vim.lsp.buf.format, bufopts)
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+end
 lspconfig.setup_handlers({ function(server_name)
   local opts = {}
-  opts.on_attach = function(_, bufnr)
-    local bufopts = { silent = true, buffer = bufnr }
-    vim.keymap.set('n', 'gtD', vim.lsp.buf.type_definition, bufopts)
-    vim.keymap.set('n', 'grf', vim.lsp.buf.references, bufopts)
-    vim.keymap.set('n', '<space>p', vim.lsp.buf.format, bufopts)
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  end
+  opts.on_attach = on_attach
   nvim_lsp[server_name].setup(opts)
 end })
 
@@ -102,6 +107,10 @@ null_ls.setup {
         prefer_local = 'venv/bin',
     },
     null_ls.builtins.formatting.gofumpt,
+    null_ls.builtins.formatting.stylua.with {
+        filetypes = { 'lua' },
+        -- args = { '--config-path', vim.fn.stdpath('config') .. '/stylua.toml' },
+    },
     -- null_ls.builtins.formatting.rustfmt,
   },
 }
