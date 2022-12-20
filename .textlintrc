@@ -33,7 +33,6 @@
       "2.2.1.ひらがなと漢字の使い分け": true,
       "2.2.3.一部の助数詞の表記": true
     },
-    "ja-no-inappropriate-words": true,
     "ja-hiragana-keishikimeishi": true,
     "ja-hiragana-fukushi": true,
     "ja-hiragana-hojodoushi": true,
@@ -41,8 +40,6 @@
     "prefer-tari-tari": true,
     "ja-no-orthographic-variants": true,
     "no-hoso-kinshi-yogo": true,
-    "no-dropping-the-ra": true,
-    "@textlint-ja/textlint-rule-no-dropping-i": true,
-    "@textlint-ja/no-synonyms": true
+    "no-dropping-the-ra": true
   }
 }
