@@ -1,29 +1,6 @@
 [[plugins]]
-repo = 'Shougo/dein.vim'
-
-# save session (use with tmux)
-[[plugins]]
-repo = 'tpope/vim-obsession'
-
-# highlight yanked region
-[[plugins]]
-repo = 'machakann/vim-highlightedyank'
-hook_add = '''
-    let g:highlightedyank_highlight_duration = 300
-'''
-
-[[plugins]]
-repo = 'Shougo/deol.nvim'
-hook_add = '''
-nnoremap <silent><C-p> :<C-u>Deol -split=floating<CR>
-'''
-
-[[plugins]]
 repo = 'dbgx/lldb.nvim'
 on_ft = ['c', 'cpp']
-
-[[plugins]]
-repo = 'skanehira/translate.vim'
 
 [[plugins]]
 repo = 'nvim-lua/popup.nvim'
@@ -34,10 +11,6 @@ repo = 'nvim-lua/plenary.nvim'
 [[plugins]]
 repo = "vim-denops/denops.vim"
 
-# support open new tab
-[[plugins]]
-repo = "lambdalisue/guise.vim"
-
 [[plugins]]
 repo = 'camspiers/snap'
 
@@ -45,106 +18,17 @@ repo = 'camspiers/snap'
 repo = 'ibhagwan/fzf-lua'
 [[plugins]]
 repo = 'vijaymarupudi/nvim-fzf'
-[[plugins]]
-repo = 'kyazdani42/nvim-web-devicons'
 
-# code screenshot
-[[plugins]]
-repo = 'skanehira/denops-germanium.vim'
-
-[[plugins]]
-repo = 'machakann/vim-sandwich'
-[[plugins]]
-repo = "tpope/vim-surround"
-
-[[plugins]]
-repo = 'gelguy/wilder.nvim'
-[[plugins]]
-repo = 'roxma/nvim-yarp'
-[[plugins]]
-repo = 'roxma/vim-hug-neovim-rpc'
-
-# rust-tools
-[[plugins]]
-repo = 'simrat39/rust-tools.nvim'
-[[plugins]]
-repo = 'mfussenegger/nvim-dap'
-
-[[plugins]]
-repo = 'levouh/tint.nvim'
 
 
 # language server manager
-[[plugins]]
-repo = 'neoclide/coc.nvim'
-build = './install.sh nightly'
-hook_add = '''
-    let coc#util#get_data_home = '~/.config/coc'
-'''
+# [[plugins]]
+# repo = 'neoclide/coc.nvim'
+# build = './install.sh nightly'
+# hook_add = '''
+#     let coc#util#get_data_home = '~/.config/coc'
+# '''
 
-[[plugins]]
-repo = 'neovim/nvim-lspconfig'
-on_event = 'VimEnter'
-[[plugins]]
-repo = 'SmiteshP/nvim-navic'
-on_event = 'VimEnter'
-hook_source = '''
-lua <<EOF
-  local lsp_flags = {
-    -- This is the default in Nvim 0.7+
-    debounce_text_changes = 150,
-  }
-  -- nvim-navic
-  local navic = require("nvim-navic")
-  require("lspconfig").clangd.setup {
-      on_attach = function(client, bufnr)
-          navic.attach(client, bufnr)
-      end
-  }
-EOF
-'''
 
-[[plugins]]
-repo = 'williamboman/mason.nvim'
-[[plugins]]
-repo = 'williamboman/mason-lspconfig.nvim'
 
-[[plugins]]
-repo = 'jose-elias-alvarez/null-ls.nvim'
 
-[[plugins]]
-repo = 'lvimuser/lsp-inlayhints.nvim'
-[[plugins]]
-repo = "hrsh7th/nvim-cmp"
-[[plugins]]
-repo = "hrsh7th/cmp-nvim-lsp"
-[[plugins]]
-repo = "hrsh7th/vim-vsnip"
-
-[[plugins]]
-repo = 'nvim-lualine/lualine.nvim'
-
-# file explorer
-[[plugins]]
-repo = 'lambdalisue/fern.vim'
-hook_add = '''
-    nnoremap <space>f :<C-u>Fern . -drawer -toggle<CR>
-'''
-[[plugins]]
-repo = 'lambdalisue/fern-renderer-nerdfont.vim'
-hook_add = '''
-    let g:fern#renderer = "nerdfont"
-'''
-[[plugins]]
-repo = 'lambdalisue/nerdfont.vim'
-[[plugins]]
-repo = 'lambdalisue/glyph-palette.vim'
-hook_add = '''
-    augroup glyph-palette
-      autocmd! *
-      autocmd FileType fern call glyph_palette#apply()
-      autocmd FileType nerdtree,startify call glyph_palette#apply()
-    augroup END
-'''
-[[plugins]]
-repo = 'lambdalisue/fern-git-status.vim'

@@ -5,7 +5,6 @@ if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
 
   call dein#load_toml('~/.config/nvim/rc/dein.toml', {'lazy': 0})
-  call dein#load_toml('~/.config/nvim/rc/colorscheme.toml', {'lazy': 0})
   call dein#load_toml('~/.config/nvim/rc/dein_lazy.toml', {'lazy': 1})
 
   call dein#end()
