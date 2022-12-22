@@ -16,16 +16,16 @@ vim.g.mapleader = " " -- make sure to set `mapleader` before lazy so your mappin
 
 require("lazy").setup({
 	-- colorscheme
-	"vim-scripts/wombat256.vim",
-	"sainnhe/everforest",
-	"franbach/miramare",
-	"jnurmine/Zenburn",
+	{ "vim-scripts/wombat256.vim", lazy = false },
+	{ "sainnhe/everforest", lazy = false },
+	{ "franbach/miramare", lazy = false },
+	{ "jnurmine/Zenburn", lazy = false },
 	{ "ghifarit53/tokyonight-vim", lazy = false },
-	"novasenco/vulpo",
-	"raphamorim/lucario",
-	"bluz71/vim-moonfly-colors",
-	"sonph/onehalf",
-	"savq/melange",
+	{ "novasenco/vulpo", lazy = false },
+	{ "raphamorim/lucario", lazy = false },
+	{ "bluz71/vim-moonfly-colors", lazy = false },
+	{ "sonph/onehalf", lazy = false },
+	{ "savq/melange", lazy = false },
 	{
 		"machakann/vim-highlightedyank",
 		config = require("config.plugins.vim-highlightedyank").config(),
