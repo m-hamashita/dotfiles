@@ -117,6 +117,13 @@ require("lazy").setup({
     "mfussenegger/nvim-dap",
     "simrat39/rust-tools.nvim",
     "kyazdani42/nvim-web-devicons",
+    -- {
+    --     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    --     config = function()
+    --         require("config.plugins.lsp_lines").setup()
+    --     end,
+    --     dependencies = { "neovim/nvim-lspconfig" },
+    -- },
 }, {
     defaults = { lazy = false },
 })
