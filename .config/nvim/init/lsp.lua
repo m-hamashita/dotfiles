@@ -66,9 +66,22 @@ local on_attach = function(client, bufnr)
 end
 lspconfig.setup_handlers({
 	function(server_name)
-		local opts = {}
-		opts.on_attach = on_attach
-		nvim_lsp[server_name].setup(opts)
+		if server_name == "sumneko_lua" then
+			nvim_lsp[server_name].setup({
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = { "vim" },
+						},
+					},
+				},
+				on_attach = on_attach,
+			})
+		else
+			nvim_lsp[server_name].setup({
+				on_attach = on_attach,
+			})
+		end
 	end,
 })
 
@@ -79,13 +92,13 @@ null_ls.setup({
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
 			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-			-- vim.api.nvim_create_autocmd("BufWritePre", {
-			--     group = augroup,
-			--     buffer = bufnr,
-			--     callback = function()
-			--         vim.lsp.buf.format({ bufnr = bufnr })
-			--     end,
-			-- })
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				group = augroup,
+				buffer = bufnr,
+				callback = function()
+					vim.lsp.buf.format({ bufnr = bufnr })
+				end,
+			})
 		end
 		local bufopts = { buffer = bufnr }
 		vim.keymap.set("n", "gk", function()

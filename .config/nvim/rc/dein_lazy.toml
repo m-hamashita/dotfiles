@@ -1,8 +1,4 @@
 [[plugins]]
-repo = 'psf/black'
-on_event = 'VimEnter'
-
-[[plugins]]
 repo = 'heavenshell/vim-pydocstring'
 build = 'make install'
 on_ft = ['python']

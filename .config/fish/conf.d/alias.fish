@@ -53,6 +53,7 @@ alias useful 'cd ~/Documents/work/useful/'
 
 alias df 'df -h'
 alias gg 'open https://github.(git config remote.origin.url | cut -f2 -d. | tr ':' /)'
+alias ci 'open https://app.circleci.com/pipelines/github/(git config remote.origin.url | cut -f2 -d. | cut -f2 -d:)'
 alias vi 'vim'
 alias diff 'colordiff'
 alias cat 'bat'
@@ -124,16 +125,16 @@ if [ (command -v nvim) ]
 else
     # echo "neovim is not installed"
 end
-if [ (command -v gcc-11) ]
-    alias gcc '/usr/local/bin/gcc-11'
-else
-    # echo "gcc-11 is not installed"
-end
-if [ (command -v g++-11) ]
-    alias g++ '/usr/local/bin/g++-11 --sysroot=/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk'
-else
-    # echo "g++-11 is not installed"
-end
+# if [ (command -v gcc-12) ]
+#     alias gcc '/opt/homebrew/bin/gcc-12'
+# else
+#     # echo "gcc-11 is not installed"
+# end
+# if [ (command -v g++-12) ]
+#     alias g++ '/opt/homebrew/bin/g++-12 --sysroot=/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk'
+# else
+#     # echo "g++-11 is not installed"
+# end
 if [ (command -v tmux) ]
     alias ta 'tmux a -d'
 else
