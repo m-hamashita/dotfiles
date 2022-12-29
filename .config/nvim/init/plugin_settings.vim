@@ -92,3 +92,6 @@ command! FzReadme call fzf#run(fzf#wrap(#{
 function s:DeinReadmeFzf(name_and_path) abort
   execute 'DeinReadme' substitute(a:name_and_path, ' .*', '', '')
 endfunction
+
+" for copilot.vim
+let g:copilot_node_command = "~/.nodebrew/node/v17.9.1/bin/node"
