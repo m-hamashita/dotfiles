@@ -10,9 +10,6 @@ runtime init/plugin_install.vim
 runtime init/plugin_settings.vim
 runtime init/abbr.vim
 " runtime init/coc.vim
-runtime init/lsp.lua
-runtime init/lsp_lines.lua
-runtime init/lualine.lua
 
 if !exists('g:vscode')
   colorscheme tokyonight
