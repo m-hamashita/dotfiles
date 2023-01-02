@@ -94,13 +94,13 @@ require("lazy").setup({
     {
         "lvimuser/lsp-inlayhints.nvim",
         config = function()
-            require("config.plugins.lsp-inlayhints")
+            require("config.plugins.lsp-inlayhints").config()
         end,
     },
     {
         "hrsh7th/nvim-cmp",
         config = function()
-            require("config.plugins.nvim-cmp")
+            require("config.plugins.nvim-cmp").config()
         end,
     },
     "hrsh7th/cmp-nvim-lsp",
@@ -108,7 +108,7 @@ require("lazy").setup({
     {
         "nvim-lualine/lualine.nvim",
         config = function()
-            require("config.plugins.lualine")
+            require("config.plugins.lualine").config()
         end,
     },
     {
@@ -125,7 +125,7 @@ require("lazy").setup({
             "nvim-lua/popup.nvim",
         },
         config = function()
-            require("config.plugins.telescope")
+            require("config.plugins.telescope").config()
         end,
     },
     "dstein64/vim-startuptime",
@@ -146,14 +146,14 @@ require("lazy").setup({
         -- https://discourse.nixos.org/t/cant-get-nvim-treesitter-neovim-plugin-to-work-properly/21368
         commit = "501db1459a7a46cb0766b3c56e9a6904bbcbcc97",
         config = function()
-            require("config.plugins.nvim-treesitter")
+            require("config.plugins.nvim-treesitter").config()
         end,
     },
     "nvim-treesitter/nvim-treesitter-textobjects",
     {
         "kassio/neoterm",
         config = function()
-            require("config.plugins.neoterm")
+            require("config.plugins.neoterm").config()
         end,
     },
     {
@@ -161,14 +161,14 @@ require("lazy").setup({
         branch = "release",
         run = "yarn install --frozen-lockfile",
         config = function()
-            require("config.plugins.coc")
+            require("config.plugins.coc").config()
         end,
     },
     "linty-org/key-menu.nvim",
     {
         "tyru/caw.vim",
         config = function()
-            require("config.plugins.caw")
+            require("config.plugins.caw").config()
         end,
     },
     "sindrets/diffview.nvim",
@@ -179,55 +179,55 @@ require("lazy").setup({
     {
         "luochen1990/rainbow",
         config = function()
-            require("config.plugins.rainbow")
+            require("config.plugins.rainbow").config()
         end,
     },
     {
         "lukas-reineke/indent-blankline.nvim",
         config = function()
-            require("config.plugins.indent-blankline")
+            require("config.plugins.indent-blankline").config()
         end,
     },
     {
         "notomo/reacher.nvim",
         config = function()
-            require("config.plugins.reacher")
+            require("config.plugins.reacher").config()
         end,
     },
     {
         "eiji03aero/quick-notes",
         config = function()
-            require("config.plugins.quick-notes")
+            require("config.plugins.quick-notes").config()
         end,
     },
     {
         "simeji/winresizer",
         config = function()
-            require("config.plugins.winresizer")
+            require("config.plugins.winresizer").config()
         end,
     },
     {
         "fedepujol/move.nvim",
         config = function()
-            require("config.plugins.move")
+            require("config.plugins.move").config()
         end,
     },
     {
         "rhysd/conflict-marker.vim",
         config = function()
-            require("config.plugins.conflict-marker")
+            require("config.plugins.conflict-marker").config()
         end,
     },
     {
         "heavenshell/vim-pydocstring",
         config = function()
-            require("config.plugins.vim-pydocstring")
+            require("config.plugins.vim-pydocstring").config()
         end,
     },
     {
         "kana/vim-altercmd",
         config = function()
-            require("config.plugins.vim-altercmd")
+            require("config.plugins.vim-altercmd").config()
         end,
     },
 }, {
