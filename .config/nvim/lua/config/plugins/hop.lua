@@ -5,7 +5,7 @@ function M.config()
 	local hop = require("hop")
 	hop.setup({
 		keys = "asdfghjkl",
-		uppercase_labels = true,
+		uppercase_labels = false,
 		quit_key = "q",
 	})
 
