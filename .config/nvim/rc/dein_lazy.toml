@@ -1,119 +1,3 @@
-[[plugins]]
-repo = 'heavenshell/vim-pydocstring'
-build = 'make install'
-on_ft = ['python']
-hook_add = '''
-    let g:pydocstring_formatter = 'google'
-    nmap <leader>pd <Plug>(pydocstring)
-'''
-
-[[plugins]]
-repo = 'rhysd/conflict-marker.vim'
-on_event = 'VimEnter'
-hook_add = '''
-    nmap <leader>ct :<C-u>ConflictMarkerThemselves<CR>
-    nmap <leader>co :<C-u>ConflictMarkerOurselves<CR>
-    nmap <leader>cb :<C-u>ConflictMarkerBoth<CR>
-'''
-
-[[plugins]]
-repo = 'linty-org/key-menu.nvim'
-on_event = 'VimEnter'
-
-# [[plugins]]
-# repo = 'nvim-telescope/telescope.nvim'
-# on_cmd = 'Telescope'
-# hook_add = '''
-#     nnoremap <leader>ff <cmd>Telescope find_files<cr>
-#     nnoremap <leader>gg <cmd>Telescope git_files<cr>
-#     nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-#     nnoremap <leader>fb <cmd>Telescope buffers<cr>
-#     nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-# '''
-# [[plugins]]
-# repo = 'fannheyward/telescope-coc.nvim'
-
-
-# memo
-[[plugins]]
-repo = "eiji03aero/quick-notes"
-on_event = 'VimEnter'
-hook_add = '''
-" directory to place notes and diaries.
-let g:quick_notes_directory = '~/.cache/quick-notes/'
-" suffix used for diaries
-let g:quick_notes_suffix = 'md'
-'''
-
-[[plugins]]
-repo = "tyru/caw.vim"
-hook_add = '''
-    nmap , <Plug>(caw:hatpos:toggle)
-    vmap , <Plug>(caw:hatpos:toggle)
-'''
-on_event = 'VimEnter'
-
-
-# displayed range search
-[[plugins]]
-repo = 'notomo/reacher.nvim'
-on_event = 'VimEnter'
-hook_source = '''
-lua <<EOF
-  -- search in the current window
-  vim.keymap.set({ "n", "x" }, "gs", [[<Cmd>lua require("reacher").start()<CR>]])
-
-  -- search in the all windows in the current tab
-  vim.keymap.set({ "n", "x" }, "gS", [[<Cmd>lua require("reacher").start_multiple()<CR>]])
-
-  -- search in the current line
-  vim.keymap.set({ "n", "x" }, "gl", function()
-    require("reacher").start({
-      first_row = vim.fn.line("."),
-      last_row = vim.fn.line("."),
-    })
-  end)
-
-  local group = "reacher_setting"
-  vim.api.nvim_create_augroup(group, {})
-  vim.api.nvim_create_autocmd({ "FileType" }, {
-    group = group,
-    pattern = { "reacher" },
-    callback = function()
-      vim.keymap.set({ "n", "i" }, "<CR>", [[<Cmd>lua require("reacher").finish()<CR>]], { buffer = true })
-      vim.keymap.set({ "n", "i" }, "<ESC>", [[<Cmd>lua require("reacher").cancel()<CR>]], { buffer = true })
-
-      vim.keymap.set("n", "gg", [[<Cmd>lua require("reacher").first()<CR>]], { buffer = true })
-      vim.keymap.set("n", "G", [[<Cmd>lua require("reacher").last()<CR>]], { buffer = true })
-
-      vim.keymap.set({ "n", "i" }, "<C-n>", [[<Cmd>lua require("reacher").next()<CR>]], { buffer = true })
-      vim.keymap.set({ "n", "i" }, "<C-p>", [[<Cmd>lua require("reacher").previous()<CR>]], { buffer = true })
-      vim.keymap.set("i", "<Down>", [[<Cmd>lua require("reacher").next()<CR>]], { buffer = true })
-      vim.keymap.set("i", "<Up>", [[<Cmd>lua require("reacher").previous()<CR>]], { buffer = true })
-    end,
-  })
-EOF
-'''
-
-[[plugins]]
-repo = "lukas-reineke/indent-blankline.nvim"
-on_event = 'VimEnter'
-hook_source = '''
-lua <<EOF
-  vim.opt.list = true
-  require("indent_blankline").setup {
-    show_current_context = true,
-  }
-EOF
-'''
-
-# rainbow parenthesis
-[[plugins]]
-repo = 'luochen1990/rainbow'
-on_event = 'VimEnter'
-hook_add = '''
-let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
-'''
 
 # [[plugins]]
 # repo = 'nvim-treesitter/nvim-treesitter'
@@ -152,78 +36,24 @@ let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 # EOF
 # endif
 # '''
-[[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter-textobjects'
-on_event = 'VimEnter'
 
-[[plugins]]
-repo = 'fedepujol/move.nvim'
-on_event = 'VimEnter'
-hook_add = '''
-    nnoremap <silent> <A-Down> :MoveLine(1)<CR>
-    nnoremap <silent> <A-Up> :MoveLine(-1)<CR>
-    vnoremap <silent> <A-Down> :MoveBlock(1)<CR>
-    vnoremap <silent> <A-Up> :MoveBlock(-1)<CR>
-
-    nnoremap <silent> <A-Right> :MoveHChar(1)<CR>
-    nnoremap <silent> <A-Left> :MoveHChar(-1)<CR>
-    vnoremap <silent> <A-Right> :MoveHBlock(1)<CR>
-    vnoremap <silent> <A-Left> :MoveHBlock(-1)<CR>
-'''
-
-[[plugins]]
-repo = 'sindrets/diffview.nvim'
-on_event = 'VimEnter'
-
-# Get Pull Request for line
-[[plugins]]
-repo = 'skanehira/getpr.vim'
-on_event = 'VimEnter'
-
-# completion
-[[plugins]]
-repo = 'plasticboy/vim-markdown'
-on_event = 'VimEnter'
-[[plugins]]
-repo = 'hashivim/vim-terraform'
-on_event = 'VimEnter'
-[[plugins]]
-repo = 'dag/vim-fish'
-on_event = 'VimEnter'
-
-[[plugins]]
-repo = 'kana/vim-altercmd'
-hook_add = '''
-	call altercmd#load()
-	AlterCommand tmux Tmux
-	AlterCommand work Work
-	AlterCommand cheat Cheat
-	AlterCommand shell Shell
-	AlterCommand prog Prog
-	AlterCommand goal Goal
-	AlterCommand todo Todo
-	AlterCommand path Path
-	AlterCommand refresh Refresh
-    AlterCommand memo Memo
-    AlterCommand memofzf MemoFzf
-'''
-on_event = 'VimEnter'
 
 # resize window
-[[plugins]]
-repo = 'simeji/winresizer'
-on_event = 'VimEnter'
-hook_add = '''
-    let g:winresizer_start_key = '<C-w>'
-    let g:winresizer_vert_resize = 1
-    let g:winresizer_horiz_resize = 1
-'''
+# [[plugins]]
+# repo = 'simeji/winresizer'
+# on_event = 'VimEnter'
+# hook_add = '''
+#     let g:winresizer_start_key = '<C-w>'
+#     let g:winresizer_vert_resize = 1
+#     let g:winresizer_horiz_resize = 1
+# '''
 
 # fuzzy finder
-[[plugins]]
-repo = 'junegunn/fzf'
-on_event = 'VimEnter'
-build = './install --all'
-[[plugins]]
-repo = 'junegunn/fzf.vim'
-on_event = 'VimEnter'
+# 使ってるかわからない
+# [[plugins]]
+# repo = 'junegunn/fzf'
+# on_event = 'VimEnter'
+# build = './install --all'
+# [[plugins]]
+# repo = 'junegunn/fzf.vim'
+# on_event = 'VimEnter'
