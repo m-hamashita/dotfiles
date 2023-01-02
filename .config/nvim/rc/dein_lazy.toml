@@ -20,131 +20,19 @@ hook_add = '''
 repo = 'linty-org/key-menu.nvim'
 on_event = 'VimEnter'
 
-[[plugins]]
-repo = 'nvim-telescope/telescope.nvim'
-on_cmd = 'Telescope'
-hook_add = '''
-    nnoremap <leader>ff <cmd>Telescope find_files<cr>
-    nnoremap <leader>gg <cmd>Telescope git_files<cr>
-    nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-    nnoremap <leader>fb <cmd>Telescope buffers<cr>
-    nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-'''
-[[plugins]]
-repo = 'fannheyward/telescope-coc.nvim'
+# [[plugins]]
+# repo = 'nvim-telescope/telescope.nvim'
+# on_cmd = 'Telescope'
+# hook_add = '''
+#     nnoremap <leader>ff <cmd>Telescope find_files<cr>
+#     nnoremap <leader>gg <cmd>Telescope git_files<cr>
+#     nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+#     nnoremap <leader>fb <cmd>Telescope buffers<cr>
+#     nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+# '''
+# [[plugins]]
+# repo = 'fannheyward/telescope-coc.nvim'
 
-[[plugins]]
-repo = 'dstein64/vim-startuptime'
-on_event = 'VimEnter'
-
-# neovim terminal plugin
-[[plugins]]
-repo = 'kassio/neoterm'
-hook_add = '''
-	let g:neoterm_autoinsert = 1
-	let g:neoterm_autoscroll = 1
-	" # let g:neoterm_split_on_tnew = 1
-	let g:neoterm_default_mod = "belowright"
-
-	function! NTermInNewTab()
-		let l:tmp = g:neoterm_default_mod
-		let g:neoterm_default_mod = "tab"
-		Tnew
-		let g:neoterm_default_mod = l:tmp
-	endfunction
-
-	function! NTermCurrentDir()
-		let l:cmd = "cd " .expand("%:p:h")
-		call neoterm#exec({ 'cmd': [ cmd , '' ] })
-		Topen
-	endfunction
-
-	function! NTermPython( ... )
-		if expand("%:e") != 'py'
-			echo '[error] Invalid file extension.'
-			return
-		endif
-		let l:cmd = "python " .expand("%:p")
-		for arg in a:000
-			let l:cmd = l:cmd . " " . arg
-			"let l:cmd.cmd = [ l:cmd.cmd, arg ]
-		endfor
-		call neoterm#exec({ 'cmd': [ cmd ] })
-		"T python l:cmd
-		Topen
-	endfunction
-
-
-	function! GitPush( comment )
-		let l:cmd = "cd " .expand("%:p:h")
-		let l:cmd = l:cmd . " && source ~/.config/nvim/scripts/GitPush.sh " . a:comment
-		call neoterm#exec({ 'cmd': [ cmd , '' ] })
-		Topen
-	endfunction
-
-	function! UpdateConfig()
-		let l:cmd = "cd ~/.config/nvim"
-		let l:cmd = l:cmd . " && git pull"
-		call neoterm#exec({ 'cmd': [ cmd , '' ] })
-		Topen
-		" execute "source ~/.config/nvim/init.vim"
-	endfunction
-
-	function! NTermMulti( v_num, h_num )
-		let l:tmp = g:neoterm_default_mod
-		let g:neoterm_default_mod = "tab"
-		Tnew
-		" # vertical split
-		let g:neoterm_default_mod = "vertical"
-		for i in range( a:h_num - 1 )
-			Tnew
-		endfor
-		" # holizontal split
-		let g:neoterm_default_mod = "aboveleft"
-		for i in range( a:h_num )
-			for i in range( a:v_num - 1 )
-				Tnew
-			endfor
-			" # move to left window
-			execute "winc l"
-		endfor
-		" # move to top-left window
-		execute "winc t"
-		let g:neoterm_default_mod = l:tmp
-	endfunction
-
-	function! NTermHolizontalSplit()
-		let l:tmp = g:neoterm_default_mod
-		let g:neoterm_default_mod = "aboveleft"
-		Tnew
-		let g:neoterm_default_mod = l:tmp
-	endfunction
-
-	function! NTermVerticalSplit()
-		let l:tmp = g:neoterm_default_mod
-		let g:neoterm_default_mod = "vertical"
-		Tnew
-		let g:neoterm_default_mod = l:tmp
-	endfunction
-
-	nnoremap <silent> <c-t><c-t> :Ttoggle<CR>
-	tnoremap <silent> <c-t><c-t> <C-\><C-n>:Ttoggle<CR>
-	nnoremap <c-t><c-h> :call NTermHolizontalSplit()<CR>
-	nnoremap <c-t><c-v> :call NTermVerticalSplit()<CR>
-
-	command! CMake                call NTermCMake()
-	command! CatkinMake           call NTermCatkinMake()
-	command! -nargs=* Python      call NTermPython(<f-args>)
-	"command! -nargs=* Python      :T python %:p <f-args>
-	command! TexCompile           call NTermTexCompile()
-	command! UpdateConfig         call UpdateConfig()
-	command! -nargs=1 GitPush     call GitPush(<f-args>)
-	command! -nargs=+ NTermMulti  call NTermMulti(<f-args>)
-	command! NTermMulti4          call NTermMulti(2,2)
-	command! NTermMulti6          call NTermMulti(3,2)
-	command! NTermMulti8          call NTermMulti(4,2)
-'''
-on_event = 'VimEnter'
 
 # memo
 [[plugins]]
@@ -227,43 +115,43 @@ hook_add = '''
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 '''
 
-[[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter'
-# https://discourse.nixos.org/t/cant-get-nvim-treesitter-neovim-plugin-to-work-properly/21368
-rev = "501db1459a7a46cb0766b3c56e9a6904bbcbcc97"
-on_event = 'VimEnter'
-hook_source = '''
-" nvim-treesitter
-if !exists('g:vscode')
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-  },
-  ensure_installed = {"go", "python", "lua", "yaml", "json",  "bash", "latex", "fish", "gomod", "html", "toml", "vim", "ruby", "c", "cpp", "c_sharp", "comment", "jsonc", "javascript", "cuda", "scala", "dockerfile", "rust", "query", "julia", "lua"},
-  indent = {
-    enable = true,
-  },
-  textobjects = {
-    select = {
-      enable = true,
-
-      -- Automatically jump forward to textobj, similar to targets.vim
-      lookahead = true,
-
-      keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
-      },
-    },
-  },
-}
-EOF
-endif
-'''
+# [[plugins]]
+# repo = 'nvim-treesitter/nvim-treesitter'
+# # https://discourse.nixos.org/t/cant-get-nvim-treesitter-neovim-plugin-to-work-properly/21368
+# rev = "501db1459a7a46cb0766b3c56e9a6904bbcbcc97"
+# on_event = 'VimEnter'
+# hook_source = '''
+# " nvim-treesitter
+# if !exists('g:vscode')
+# lua <<EOF
+# require'nvim-treesitter.configs'.setup {
+#   highlight = {
+#     enable = true,
+#   },
+#   ensure_installed = {"go", "python", "lua", "yaml", "json",  "bash", "latex", "fish", "gomod", "html", "toml", "vim", "ruby", "c", "cpp", "c_sharp", "comment", "jsonc", "javascript", "cuda", "scala", "dockerfile", "rust", "query", "julia", "lua"},
+#   indent = {
+#     enable = true,
+#   },
+#   textobjects = {
+#     select = {
+#       enable = true,
+# 
+#       -- Automatically jump forward to textobj, similar to targets.vim
+#       lookahead = true,
+# 
+#       keymaps = {
+#         -- You can use the capture groups defined in textobjects.scm
+#         ["af"] = "@function.outer",
+#         ["if"] = "@function.inner",
+#         ["ac"] = "@class.outer",
+#         ["ic"] = "@class.inner",
+#       },
+#     },
+#   },
+# }
+# EOF
+# endif
+# '''
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter-textobjects'
 on_event = 'VimEnter'
@@ -338,15 +226,4 @@ on_event = 'VimEnter'
 build = './install --all'
 [[plugins]]
 repo = 'junegunn/fzf.vim'
-on_event = 'VimEnter'
-
-# Git
-[[plugins]]
-repo = 'airblade/vim-gitgutter'
-on_event = 'VimEnter'
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-on_event = 'VimEnter'
-[[plugins]]
-repo = 'tpope/vim-rhubarb'
 on_event = 'VimEnter'

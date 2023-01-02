@@ -11,13 +11,13 @@ repo = 'nvim-lua/plenary.nvim'
 [[plugins]]
 repo = "vim-denops/denops.vim"
 
-[[plugins]]
-repo = 'camspiers/snap'
+# [[plugins]]
+# repo = 'camspiers/snap'
 
-[[plugins]]
-repo = 'ibhagwan/fzf-lua'
-[[plugins]]
-repo = 'vijaymarupudi/nvim-fzf'
+# [[plugins]]
+# repo = 'ibhagwan/fzf-lua'
+# [[plugins]]
+# repo = 'vijaymarupudi/nvim-fzf'
 
 
 
