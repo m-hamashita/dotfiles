@@ -11,9 +11,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
--- example using a list of specs with the default options
-vim.g.mapleader = " " -- make sure to set `mapleader` before lazy so your mappings are correct
-
 require("lazy").setup({
     -- colorscheme
     { "vim-scripts/wombat256.vim", lazy = false },
@@ -30,13 +27,13 @@ require("lazy").setup({
         "machakann/vim-highlightedyank",
         config = require("config.plugins.vim-highlightedyank").config(),
     },
-    {
-        "phaazon/hop.nvim",
-        branch = "v2",
-        config = function()
-            require("config.plugins.hop").config()
-        end,
-    },
+    -- {
+    --     "phaazon/hop.nvim",
+    --     branch = "v2",
+    --     config = function()
+    --         require("config.plugins.hop").config()
+    --     end,
+    -- },
     {
         -- file explorer
         "lambdalisue/fern.vim",
@@ -114,9 +111,26 @@ require("lazy").setup({
             require("config.plugins.lualine")
         end,
     },
-    "mfussenegger/nvim-dap",
-    "simrat39/rust-tools.nvim",
+    {
+        "simrat39/rust-tools.nvim",
+        dependencies = {
+            "mfussenegger/nvim-dap",
+        },
+    },
     "kyazdani42/nvim-web-devicons",
+    {
+        "nvim-telescope/telescope.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+        config = function()
+            require("config.plugins.telescope")
+        end,
+    },
+    "dstein64/vim-startuptime",
+    "tpope/vim-rhubarb",
+    "tpope/vim-fugitive",
+    "airblade/vim-gitgutter",
     -- {
     --     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     --     config = function()
@@ -124,6 +138,31 @@ require("lazy").setup({
     --     end,
     --     dependencies = { "neovim/nvim-lspconfig" },
     -- },
+    "vijaymarupudi/nvim-fzf",
+    "vim-denops/denops.vim",
+    "nvim-lua/popup.nvim",
+    "dbgx/lldb.nvim",
+    {
+        "nvim-treesitter/nvim-treesitter",
+        -- https://discourse.nixos.org/t/cant-get-nvim-treesitter-neovim-plugin-to-work-properly/21368
+        commit = "501db1459a7a46cb0766b3c56e9a6904bbcbcc97",
+        config = function()
+            require("config.plugins.nvim-treesitter")
+        end,
+    },
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    {
+        "kassio/neoterm",
+        config = function()
+            require("config.plugins.neoterm")
+        end,
+    },
 }, {
     defaults = { lazy = false },
+    debug = true,
+})
+require("nvim-treesitter.configs").setup({
+    highlight = {
+        enable = true,
+    },
 })
