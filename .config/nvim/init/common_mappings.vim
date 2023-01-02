@@ -81,10 +81,6 @@ inoremap <C-l> <C-o>$
 
 " 新しいタブ
 nnoremap st :<C-u>tabnew<CR>
-" Unite
-nnoremap sT :<C-u>Unite tab<CR>
-nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
-nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 
 
 " git-fugitive
@@ -93,11 +89,6 @@ nnoremap <silent> <Space>gd :Gdiff<CR>
 " nnoremap <silent> <Space>gs :Gstatus<CR>
 nnoremap <silent> <space>ga :Gwrite<CR>
 nnoremap <silent> <space>gc :Git commit<CR>
-
-" neoterm https://sy-base.com/myrobotics/vim/neovim-neoterm/
-nnoremap <c-t><c-t> :Ttoggle<CR>
-tnoremap <c-t><c-t> <C-¥><C-n>:Ttoggle<CR>
-nnoremap <c-t><c-n> :Tnew<CR>
 
 " コマンドラインモードで履歴を探索
 cnoremap <C-p> <Up>

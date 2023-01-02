@@ -7,7 +7,7 @@ syntax enable
 
 " dein.vimでのプラグイン削除, :call
 " dein#recache_runtimepath()を実行すると良いらしい
-call map(dein#check_clean(), "delete(v:val, 'rf')")
+" call map(dein#check_clean(), "delete(v:val, 'rf')")
 
 set nofoldenable
 
