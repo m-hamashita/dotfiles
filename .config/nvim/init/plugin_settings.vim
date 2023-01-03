@@ -1,5 +1,6 @@
 scriptencoding utf-8
 
+filetype off
 filetype plugin indent on
 syntax enable
 
