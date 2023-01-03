@@ -132,13 +132,13 @@ require("lazy").setup({
     "tpope/vim-rhubarb",
     "tpope/vim-fugitive",
     "airblade/vim-gitgutter",
-    -- {
-    --     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    --     config = function()
-    --         require("config.plugins.lsp_lines").setup()
-    --     end,
-    --     dependencies = { "neovim/nvim-lspconfig" },
-    -- },
+    {
+        "Maan2003/lsp_lines.nvim",
+        config = function()
+            require("config.plugins.lsp_lines").config()
+        end,
+        dependencies = { "neovim/nvim-lspconfig" },
+    },
     "vijaymarupudi/nvim-fzf",
     "vim-denops/denops.vim",
     {
