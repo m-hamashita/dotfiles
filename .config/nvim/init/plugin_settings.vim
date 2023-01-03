@@ -1,5 +1,6 @@
 scriptencoding utf-8
 
+filetype off
 filetype plugin indent on
 syntax enable
 
@@ -7,7 +8,7 @@ syntax enable
 
 " dein.vimでのプラグイン削除, :call
 " dein#recache_runtimepath()を実行すると良いらしい
-call map(dein#check_clean(), "delete(v:val, 'rf')")
+" call map(dein#check_clean(), "delete(v:val, 'rf')")
 
 set nofoldenable
 
@@ -92,3 +93,6 @@ command! FzReadme call fzf#run(fzf#wrap(#{
 function s:DeinReadmeFzf(name_and_path) abort
   execute 'DeinReadme' substitute(a:name_and_path, ' .*', '', '')
 endfunction
+
+" for copilot.vim
+let g:copilot_node_command = "~/.nodebrew/node/v17.9.1/bin/node"

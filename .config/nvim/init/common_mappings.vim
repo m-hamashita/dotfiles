@@ -81,10 +81,6 @@ inoremap <C-l> <C-o>$
 
 " 新しいタブ
 nnoremap st :<C-u>tabnew<CR>
-" Unite
-nnoremap sT :<C-u>Unite tab<CR>
-nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
-nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 
 
 " git-fugitive
@@ -93,11 +89,6 @@ nnoremap <silent> <Space>gd :Gdiff<CR>
 " nnoremap <silent> <Space>gs :Gstatus<CR>
 nnoremap <silent> <space>ga :Gwrite<CR>
 nnoremap <silent> <space>gc :Git commit<CR>
-
-" neoterm https://sy-base.com/myrobotics/vim/neovim-neoterm/
-nnoremap <c-t><c-t> :Ttoggle<CR>
-tnoremap <c-t><c-t> <C-¥><C-n>:Ttoggle<CR>
-nnoremap <c-t><c-n> :Tnew<CR>
 
 " コマンドラインモードで履歴を探索
 cnoremap <C-p> <Up>
@@ -130,13 +121,6 @@ function! ToggleQuickfix()
 endfunction
 nnoremap <script> <silent> <Space>c :call ToggleQuickfix()<CR>
 
-command Tmux e ~/.tmux_cheatsheet.md
-command Work e ~/.work_cheatsheet.md
-command Cheat e ~/.vim_cheatsheet.md
-command Shell e ~/.shell_cheatsheet.md
-command Prog e ~/.prog_cheatsheet.md
-command Goal e ~/.goal_cheatsheet.md
-command Todo e ~/.todo_cheatsheet.md
 command Refresh :call dein#recache_runtimepath()
 command Path echo expand("%:p")
 command Memo call QuickNotesNew()

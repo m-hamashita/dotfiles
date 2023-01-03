@@ -5,14 +5,9 @@ scriptencoding utf-8
 runtime init/pre_load.vim
 runtime init/common_settings.vim
 runtime init/common_mappings.vim
-runtime init/plugin_install.vim
+runtime lua/config/lazy.lua
 runtime init/plugin_settings.vim
 runtime init/abbr.vim
-runtime init/coc.vim
-runtime init/filer.vim
-runtime init/lsp.lua
-runtime init/lsp_lines.lua
-runtime init/lualine.lua
 
 if !exists('g:vscode')
   colorscheme tokyonight
