@@ -3,13 +3,11 @@ scriptencoding utf-8
 
 " 各ファイルを読み込む
 runtime init/pre_load.vim
-runtime lua/config/lazy.lua
 runtime init/common_settings.vim
 runtime init/common_mappings.vim
-runtime init/plugin_install.vim
+runtime lua/config/lazy.lua
 runtime init/plugin_settings.vim
 runtime init/abbr.vim
-" runtime init/coc.vim
 
 if !exists('g:vscode')
   colorscheme tokyonight
