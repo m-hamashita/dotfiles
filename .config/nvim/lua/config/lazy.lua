@@ -85,6 +85,20 @@ require("lazy").setup({
 			"williamboman/mason.nvim",
 		},
 	},
+	"github/copilot.vim",
+	-- {
+	-- 	"zbirenbaum/copilot.lua",
+	-- 	event = "InsertEnter",
+	-- 	config = function()
+	-- 		vim.defer_fn(function()
+	-- 			require("config.plugins.copilot").config()
+	-- 		end, 100)
+	-- 	end,
+	-- },
+	-- {
+	-- 	"zbirenbaum/copilot-cmp",
+	-- 	after = { "zbirenbaum/copilot.lua" },
+	-- },
 	{
 		"jose-elias-alvarez/null-ls.nvim",
 		config = function()
