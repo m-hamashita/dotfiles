@@ -114,7 +114,7 @@ if [ (command -v rmtrash) ]
     alias rm 'rmtrash'
 else
     if [ (command -v trash) ]
-        alias rm 'trash'
+        alias rm 'trash -r'
     else
         alias rm 'rm -i'
     end
