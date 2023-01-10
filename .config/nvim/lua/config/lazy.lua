@@ -124,6 +124,7 @@ require("lazy").setup({
     "hrsh7th/vim-vsnip",
     {
         "nvim-lualine/lualine.nvim",
+        event = "VimEnter",
         config = function()
             require("config.plugins.lualine").config()
         end,
@@ -151,6 +152,7 @@ require("lazy").setup({
     "airblade/vim-gitgutter",
     {
         "Maan2003/lsp_lines.nvim",
+        event = "VimEnter",
         config = function()
             require("config.plugins.lsp_lines").config()
         end,
@@ -160,6 +162,7 @@ require("lazy").setup({
     "vim-denops/denops.vim",
     {
         "nvim-treesitter/nvim-treesitter",
+        event = "VimEnter",
         -- https://discourse.nixos.org/t/cant-get-nvim-treesitter-neovim-plugin-to-work-properly/21368
         commit = "501db14",
         config = function()
