@@ -81,10 +81,10 @@ require("lazy").setup({
 			require("config.plugins.deol").config()
 		end,
 	},
-	{ "williamboman/mason.nvim", event = "VimEnter" },
+	{ "williamboman/mason.nvim" },
 	{
 		"williamboman/mason-lspconfig.nvim",
-		event = "VimEnter",
+		lazy = false,
 		config = function()
 			require("config.plugins.mason").config()
 		end,
@@ -126,13 +126,12 @@ require("lazy").setup({
 	},
 	{
 		"hrsh7th/nvim-cmp",
-		lazy = false,
 		event = "VimEnter",
 		config = function()
 			require("config.plugins.nvim-cmp").config()
 		end,
 	},
-	{ "hrsh7th/cmp-nvim-lsp", lazy = false, event = "VimEnter" },
+	{ "hrsh7th/cmp-nvim-lsp", event = "VimEnter" },
 	{ "hrsh7th/vim-vsnip", event = "VimEnter" },
 	{
 		"nvim-lualine/lualine.nvim",
@@ -273,6 +272,6 @@ require("lazy").setup({
 		end,
 	},
 }, {
-	defaults = { lazy = false },
+	defaults = { lazy = true },
 	-- debug = true,
 })
