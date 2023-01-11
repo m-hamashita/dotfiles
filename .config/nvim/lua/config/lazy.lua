@@ -271,6 +271,13 @@ require("lazy").setup({
 			require("config.plugins.vim-altercmd").config()
 		end,
 	},
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("config.plugins.todo-comments").config()
+		end,
+	},
 }, {
 	defaults = { lazy = true },
 	-- debug = true,
