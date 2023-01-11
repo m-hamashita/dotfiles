@@ -23,8 +23,10 @@ require("lazy").setup({
 	{ "bluz71/vim-moonfly-colors", lazy = false },
 	{ "sonph/onehalf", lazy = false },
 	{ "savq/melange", lazy = false },
+	{ "kyoh86/momiji", lazy = false },
 	{
 		"machakann/vim-highlightedyank",
+		event = "VimEnter",
 		config = require("config.plugins.vim-highlightedyank").config(),
 	},
 	-- {
@@ -37,6 +39,7 @@ require("lazy").setup({
 	{
 		-- file explorer
 		"lambdalisue/fern.vim",
+		event = "VimEnter",
 		config = function()
 			require("config.plugins.fern").config()
 		end,
@@ -49,14 +52,16 @@ require("lazy").setup({
 	},
 	{
 		"skanehira/denops-germanium.vim",
+		event = "VimEnter",
 		dependencies = {
 			"vim-denops/denops.vim",
 		},
 	},
-	"machakann/vim-sandwich",
-	"tpope/vim-surround",
+	{ "machakann/vim-sandwich", event = "VimEnter" },
+	{ "tpope/vim-surround", event = "VimEnter" },
 	{
 		"gelguy/wilder.nvim",
+		event = "VimEnter",
 		config = function()
 			require("config.plugins.wilder").config()
 		end,
@@ -64,19 +69,22 @@ require("lazy").setup({
 	{
 		-- support open new tab
 		"lambdalisue/guise.vim",
+		event = "VimEnter",
 		dependencies = {
 			"vim-denops/denops.vim",
 		},
 	},
 	{
 		"Shougo/deol.nvim",
+		event = "VimEnter",
 		config = function()
 			require("config.plugins.deol").config()
 		end,
 	},
-	"williamboman/mason.nvim",
+	{ "williamboman/mason.nvim" },
 	{
 		"williamboman/mason-lspconfig.nvim",
+		lazy = false,
 		config = function()
 			require("config.plugins.mason").config()
 		end,
@@ -85,7 +93,10 @@ require("lazy").setup({
 			"williamboman/mason.nvim",
 		},
 	},
-	"github/copilot.vim",
+	{
+		"github/copilot.vim",
+		event = "InsertEnter",
+	},
 	-- {
 	-- 	"zbirenbaum/copilot.lua",
 	-- 	event = "InsertEnter",
@@ -101,39 +112,45 @@ require("lazy").setup({
 	-- },
 	{
 		"jose-elias-alvarez/null-ls.nvim",
+		event = "VimEnter",
 		config = function()
 			require("config.plugins.null-ls").config()
 		end,
 	},
 	{
 		"lvimuser/lsp-inlayhints.nvim",
+		event = "VimEnter",
 		config = function()
 			require("config.plugins.lsp-inlayhints").config()
 		end,
 	},
 	{
 		"hrsh7th/nvim-cmp",
+		event = "VimEnter",
 		config = function()
 			require("config.plugins.nvim-cmp").config()
 		end,
 	},
-	"hrsh7th/cmp-nvim-lsp",
-	"hrsh7th/vim-vsnip",
+	{ "hrsh7th/cmp-nvim-lsp", event = "VimEnter" },
+	{ "hrsh7th/vim-vsnip", event = "VimEnter" },
 	{
 		"nvim-lualine/lualine.nvim",
+		event = "VimEnter",
 		config = function()
 			require("config.plugins.lualine").config()
 		end,
 	},
 	{
 		"simrat39/rust-tools.nvim",
+		event = "VimEnter",
 		dependencies = {
 			"mfussenegger/nvim-dap",
 		},
 	},
-	"kyazdani42/nvim-web-devicons",
+	{ "kyazdani42/nvim-web-devicons", event = "VimEnter" },
 	{
 		"nvim-telescope/telescope.nvim",
+		event = "VimEnter",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-lua/popup.nvim",
@@ -142,21 +159,23 @@ require("lazy").setup({
 			require("config.plugins.telescope").config()
 		end,
 	},
-	"dstein64/vim-startuptime",
-	"tpope/vim-rhubarb",
-	"tpope/vim-fugitive",
-	"airblade/vim-gitgutter",
+	{ "dstein64/vim-startuptime", event = "VimEnter" },
+	{ "tpope/vim-rhubarb", event = "VimEnter" },
+	{ "tpope/vim-fugitive", event = "VimEnter" },
+	{ "airblade/vim-gitgutter", event = "VimEnter" },
 	{
 		"Maan2003/lsp_lines.nvim",
+		event = "VimEnter",
 		config = function()
 			require("config.plugins.lsp_lines").config()
 		end,
 		dependencies = { "neovim/nvim-lspconfig" },
 	},
-	"vijaymarupudi/nvim-fzf",
-	"vim-denops/denops.vim",
+	{ "vijaymarupudi/nvim-fzf", event = "VimEnter" },
+	{ "vim-denops/denops.vim", event = "VimEnter" },
 	{
 		"nvim-treesitter/nvim-treesitter",
+		event = "VimEnter",
 		-- https://discourse.nixos.org/t/cant-get-nvim-treesitter-neovim-plugin-to-work-properly/21368
 		commit = "501db14",
 		config = function()
@@ -168,77 +187,91 @@ require("lazy").setup({
 	},
 	{
 		"kassio/neoterm",
+		event = "VimEnter",
 		config = function()
 			require("config.plugins.neoterm").config()
 		end,
 	},
-	"linty-org/key-menu.nvim",
+	{
+		"linty-org/key-menu.nvim",
+		event = "VimEnter",
+	},
 	{
 		"tyru/caw.vim",
+		event = "VimEnter",
 		config = function()
 			require("config.plugins.caw").config()
 		end,
 	},
-	"sindrets/diffview.nvim",
-	"plasticboy/vim-markdown",
-	"hashivim/vim-terraform",
-	"dag/vim-fish",
-	"skanehira/getpr.vim",
+	{ "sindrets/diffview.nvim", event = "VimEnter" },
+	{ "plasticboy/vim-markdown", event = "VimEnter" },
+	{ "hashivim/vim-terraform", event = "VimEnter" },
+	{ "dag/vim-fish", event = "VimEnter" },
+	{ "skanehira/getpr.vim", event = "VimEnter" },
 	{
 		"luochen1990/rainbow",
+		event = "VimEnter",
 		config = function()
 			require("config.plugins.rainbow").config()
 		end,
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
+		event = "VimEnter",
 		config = function()
 			require("config.plugins.indent-blankline").config()
 		end,
 	},
 	{
 		"notomo/reacher.nvim",
+		event = "VimEnter",
 		config = function()
 			require("config.plugins.reacher").config()
 		end,
 	},
 	{
 		"eiji03aero/quick-notes",
+		event = "VimEnter",
 		config = function()
 			require("config.plugins.quick-notes").config()
 		end,
 	},
 	{
 		"simeji/winresizer",
+		event = "VimEnter",
 		config = function()
 			require("config.plugins.winresizer").config()
 		end,
 	},
 	{
 		"fedepujol/move.nvim",
+		event = "VimEnter",
 		config = function()
 			require("config.plugins.move").config()
 		end,
 	},
 	{
 		"rhysd/conflict-marker.vim",
+		event = "VimEnter",
 		config = function()
 			require("config.plugins.conflict-marker").config()
 		end,
 	},
 	{
 		"heavenshell/vim-pydocstring",
+		event = "VimEnter",
 		config = function()
 			require("config.plugins.vim-pydocstring").config()
 		end,
 	},
 	{
 		"kana/vim-altercmd",
+		event = "VimEnter",
 		config = function()
 			require("config.plugins.vim-altercmd").config()
 		end,
 	},
 }, {
-	defaults = { lazy = false },
-	debug = true,
+	defaults = { lazy = true },
+	-- debug = true,
 })

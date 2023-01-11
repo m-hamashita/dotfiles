@@ -53,7 +53,6 @@ alias useful 'cd ~/Documents/work/useful/'
 
 alias df 'df -h'
 alias gg 'open https://github.(git config remote.origin.url | cut -f2 -d. | tr ':' /)'
-alias ci 'open https://app.circleci.com/pipelines/github/(git config remote.origin.url | cut -f2 -d. | cut -f2 -d:)'
 alias vi 'vim'
 alias diff 'colordiff'
 alias cat 'bat'
@@ -114,7 +113,7 @@ if [ (command -v rmtrash) ]
     alias rm 'rmtrash'
 else
     if [ (command -v trash) ]
-        alias rm 'trash'
+        alias rm 'trash -r'
     else
         alias rm 'rm -i'
     end
@@ -161,6 +160,16 @@ if [ -e "/Applications/CotEditor.app" ]
   alias cot 'open -a /Applications/'\''CotEditor.app'\'''
 else
     # echo "CotEditer is not installed"
+end
+
+function ci
+  set url (git config --get remote.origin.url)
+  if test (echo $url | grep -c "https")
+    set repo (echo $url | awk -F/ '{print $4"/"$5}')
+  else
+    set repo (echo $url | cut -f2 -d: | cut -f1 -d.)
+  end
+  open https://app.circleci.com/pipelines/github/(echo $repo)
 end
 
 function gvm
