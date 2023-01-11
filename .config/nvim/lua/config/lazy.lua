@@ -146,6 +146,9 @@ require("lazy").setup({
 		dependencies = {
 			"mfussenegger/nvim-dap",
 		},
+		config = function()
+			require("config.plugins.rust-tools").config()
+		end,
 	},
 	{ "kyazdani42/nvim-web-devicons", event = "VimEnter" },
 	{
