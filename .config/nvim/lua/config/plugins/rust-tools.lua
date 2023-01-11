@@ -5,7 +5,6 @@ function M.config()
 	if not status_ok then
 		return
 	end
-	-- import cmp-nvim-lsp plugin safely
 	local cmp_nvim_lsp_status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 	if not cmp_nvim_lsp_status then
 		return
@@ -17,8 +16,8 @@ function M.config()
 		local opts = { noremap = true, silent = true, buffer = bufnr }
 		-- vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
 		-- set keybinds
-		vim.keymap.set("n", "gd", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
-		vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
+		vim.keymap.set("n", "gd", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+		vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 		-- Hover actions
 		vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
 		-- Code action groups
@@ -28,12 +27,10 @@ function M.config()
 		tools = {
 			executor = require("rust-tools/executors").termopen, -- can be quickfix or termopen
 			reload_workspace_from_cargo_toml = true,
-			-- autoSetHints = true,
-			-- hover_action_automatic_focus = true,
 			inlay_hints = {
 				auto = true,
 				only_current_line = false,
-				show_parameter_hints = false,
+				show_parameter_hints = true,
 				parameter_hints_prefix = "  ",
 				other_hints_prefix = "  ",
 				max_len_align = false,
@@ -60,29 +57,9 @@ function M.config()
 			on_attach = on_attach,
 			settings = {
 				["rust-analyzer"] = {
-					-- assist = {
-					--     importGranularity = "module",
-					--     importEnforceGranularity = true
-					-- },
-					-- cargo = {
-					--     loadOutDirsFromCheck = true
-					-- },
-					-- procMacro = {
-					--     enable = true
-					-- },
 					checkOnSave = {
 						command = "clippy",
 					},
-					-- experimental = {
-					--     procAttrMacros = true
-					-- },
-					-- hoverActions = {
-					--     references = true
-					-- },
-					-- lens = {
-					--     methodReferences = true,
-					--     references = true
-					-- }
 				},
 			},
 		},
