@@ -146,6 +146,9 @@ require("lazy").setup({
 		dependencies = {
 			"mfussenegger/nvim-dap",
 		},
+		config = function()
+			require("config.plugins.rust-tools").config()
+		end,
 	},
 	{ "kyazdani42/nvim-web-devicons", event = "VimEnter" },
 	{
@@ -269,6 +272,13 @@ require("lazy").setup({
 		event = "VimEnter",
 		config = function()
 			require("config.plugins.vim-altercmd").config()
+		end,
+	},
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("config.plugins.todo-comments").config()
 		end,
 	},
 }, {
