@@ -109,21 +109,28 @@ abbr -a tmp "cd ~/tmp/"
 
 # abbr -a del "git branch --merged | grep -vE '^\\*|master|develop|staging' | xargs -I % git branch -d % && git remote prune origin"
 
-if [ (command -v rmtrash) ]
-    alias rm 'rmtrash'
+if [ (command -v gomi) ]
+    alias rm 'gomi'
 else
     if [ (command -v trash) ]
         alias rm 'trash -r'
     else
         alias rm 'rm -i'
     end
-    # echo "rmtrash is not installed"
 end
 if [ (command -v nvim) ]
     alias vim 'nvim'
 else
     # echo "neovim is not installed"
 end
+
+if [ (command -v pbgopy) ]
+    alias pbcopy 'pbgopy'
+    alias pbpaste 'pbgopy paste'
+else
+    # echo "pbgopy is not installed"
+end
+
 # if [ (command -v gcc-12) ]
 #     alias gcc '/opt/homebrew/bin/gcc-12'
 # else
