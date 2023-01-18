@@ -1,35 +1,43 @@
 packages:
-- type: github_release
-  repo_owner: bazelbuild
-  repo_name: bazelisk
-  asset: 'bazelisk-{{.OS}}-{{.Arch}}'
-  description: A user-friendly launcher for Bazel
-  format: raw
-- type: github_release
-  repo_owner: bazelbuild
-  repo_name: bazel
-  asset: 'bazel-{{trimV .Version}}-{{.OS}}-{{.Arch}}'
-  description: bazelbuild/bazel
-  format: raw
-  replacements:
-    amd64: x86_64
-- type: github_release
-  repo_owner: bazelbuild
-  repo_name: buildtools
-  asset: 'buildifier-{{.OS}}-{{.Arch}}'
-  description: tool for formatting bazel BUILD and .bzl files with a standard convention
-  format: raw
-  files:
-    - name: buildifier
-- type: github_release
-  repo_owner: remotemobprogramming
-  repo_name: mob
-  asset: 'mob_{{.Version}}_{{.OS}}_amd64.{{.Format}}'
-  description: Tool for smooth git handover
-  format: tar.gz
-- type: github_release
-  repo_owner: matsuyoshi30
-  repo_name: germanium
-  asset: 'germanium_{{trimV .Version}}_{{.OS}}_{{.Arch}}.tar.gz'
-  descriptsion: Generate image from source code
-  format: tar.gz
+  - type: github_release
+    repo_owner: bazelbuild
+    repo_name: bazelisk
+    asset: "bazelisk-{{.OS}}-{{.Arch}}"
+    description: A user-friendly launcher for Bazel
+    format: raw
+  - type: github_release
+    repo_owner: bazelbuild
+    repo_name: bazel
+    asset: "bazel-{{trimV .Version}}-{{.OS}}-{{.Arch}}"
+    description: bazelbuild/bazel
+    format: raw
+    replacements:
+      amd64: x86_64
+  - type: github_release
+    repo_owner: bazelbuild
+    repo_name: buildtools
+    asset: "buildifier-{{.OS}}-{{.Arch}}"
+    description: tool for formatting bazel BUILD and .bzl files with a standard convention
+    format: raw
+    files:
+      - name: buildifier
+  - type: github_release
+    repo_owner: remotemobprogramming
+    repo_name: mob
+    asset: "mob_{{.Version}}_{{.OS}}_amd64.{{.Format}}"
+    description: Tool for smooth git handover
+    format: tar.gz
+  - type: github_release
+    repo_owner: matsuyoshi30
+    repo_name: germanium
+    asset: "germanium_{{trimV .Version}}_{{.OS}}_{{.Arch}}.tar.gz"
+    descriptsion: Generate image from source code
+    format: tar.gz
+  - type: github_release
+    repo_owner: nakabonne
+    repo_name: pbgopy
+    asset: "pbgopy_{{trimV .Version}}_{{.OS}}_{{.Arch}}.{{.Format}}"
+    description: Copy and paste between devices
+    format: tar.gz
+    replacements:
+      arm64: amd64
