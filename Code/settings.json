@@ -179,6 +179,44 @@
       "commands": [
         ":nohl"
       ]
+    },
+    {
+      "before": [
+        "j"
+      ],
+      "after": [
+        "g",
+        "j"
+      ]
+    },
+    {
+      "before": [
+        "k"
+      ],
+      "after": [
+        "g",
+        "k"
+      ]
+    },
+    {
+      "before": [
+        "Y"
+      ],
+      "after": [
+        "y",
+        "$"
+      ]
+    },
+    {
+      "before": [
+        "x"
+      ],
+      "after": [
+        "\"",
+        "_",
+        "x",
+        "p"
+      ]
     }
   ],
   "vim.useSystemClipboard": true,
@@ -205,10 +243,10 @@
   "bazel.buildifierExecutable": "/Users/masakatsu.hamashita/.local/share/aquaproj-aqua/bin/buildifier",
   "terminal.external.osxExec": "kitty.app",
   "markdown-preview-enhanced.previewTheme": "github-dark.css",
-  "window.zoomLevel": 2,
   "terminal.integrated.fontFamily": "Meslo LG S for Powerline,Hack Nerd Font",
   "sync.forceUpload": true,
   "python.linting.flake8Path": "/Users/masakatsu.hamashita/.local/bin/flake8",
   "python.linting.mypyPath": "/Users/masakatsu.hamashita/.local/bin/mypy",
-  "git.ignoreRebaseWarning": true
+  "git.ignoreRebaseWarning": true,
+  "window.zoomLevel": 3
 }

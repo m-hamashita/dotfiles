@@ -1,7 +1,7 @@
 scriptencoding utf-8
 
 " x で削除した時にコピーしない
-noremap x "_x
+nnoremap x "_x
 
 nnoremap s <Nop>
 nnoremap sj <C-w>j "タブ移動系
