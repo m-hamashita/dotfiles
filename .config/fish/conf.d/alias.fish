@@ -124,13 +124,6 @@ else
     # echo "neovim is not installed"
 end
 
-if [ (command -v pbgopy) ]
-    alias pbcopy 'pbgopy'
-    alias pbpaste 'pbgopy paste'
-else
-    # echo "pbgopy is not installed"
-end
-
 # if [ (command -v gcc-12) ]
 #     alias gcc '/opt/homebrew/bin/gcc-12'
 # else
