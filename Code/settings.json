@@ -20,15 +20,12 @@
   "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.enabled": true,
   "editor.formatOnSave": true,
-  "editor.inlayHints.enabled": "on",
   "editor.inlayHints.fontSize": 12,
   "editor.inlineSuggest.enabled": true,
   "editor.minimap.autohide": true,
   "editor.minimap.scale": 1,
   "editor.suggestSelection": "first",
-  "editor.wordWrap": "on",
   "extensions.ignoreRecommendations": true,
-  "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "files.watcherExclude": {
@@ -247,5 +244,13 @@
   "python.linting.flake8Path": "/Users/masakatsu.hamashita/.local/bin/flake8",
   "python.linting.mypyPath": "/Users/masakatsu.hamashita/.local/bin/mypy",
   "git.ignoreRebaseWarning": true,
-  "window.zoomLevel": 3
+  "window.zoomLevel": 3,
+  "errorLens.enabledDiagnosticLevels": [
+    "error",
+    "warning",
+    "info"
+  ],
+  "files.autoSave": "onFocusChange",
+  "editor.inlayHints.enabled": "onUnlessPressed",
+  "editor.wordWrapColumn": 120
 }
