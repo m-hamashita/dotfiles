@@ -12,14 +12,8 @@ yarn.lock
 !.config/nvim/init.vim
 !.config/nvim/init
 !.config/fish/config.fish
-!.config/fish/conf.d/path.fish
-!.config/fish/conf.d/alias.fish
-!.config/fish/conf.d/key_bindings.fish
+!.config/fish/conf.d
 !.config/fish/functions/fish_user_key_bindings.fish
 !.config/fish/functions/tmuxpopup.fish
-!.config/nvim/rc/dein.toml
-!.config/nvim/rc/dein_lazy.toml
-!.config/nvim/rc/colorscheme.toml
-!.config/nvim/rc/plugin.md
 !.config/ranger/rc.conf
 !.config/lazygit/config.yml

@@ -95,7 +95,7 @@ require("lazy").setup({
 	},
 	{
 		"github/copilot.vim",
-		event = "InsertEnter",
+		event = "VimEnter",
 	},
 	-- {
 	-- 	"zbirenbaum/copilot.lua",
@@ -178,7 +178,6 @@ require("lazy").setup({
 	{ "vim-denops/denops.vim", event = "VimEnter" },
 	{
 		"nvim-treesitter/nvim-treesitter",
-		event = "VimEnter",
 		-- https://discourse.nixos.org/t/cant-get-nvim-treesitter-neovim-plugin-to-work-properly/21368
 		commit = "501db14",
 		config = function()
@@ -187,6 +186,8 @@ require("lazy").setup({
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
 		},
+		-- if lazy, caw.vim's uncomment is not working
+		lazy = false,
 	},
 	{
 		"kassio/neoterm",
