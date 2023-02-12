@@ -4,6 +4,8 @@
 # jj で normal に
 # set fish_key_bindings fish_user_key_bindings
 
+set -x theme_color_scheme gruvbox
+
 set -x LANG ja_JP.UTF-8
 set -x LC_CTYPE ja_JP.UTF-8
 set -x LC_ALL 'ja_JP.UTF-8'
