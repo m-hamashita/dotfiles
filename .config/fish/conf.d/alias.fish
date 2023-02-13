@@ -61,7 +61,6 @@ alias digdag '/bin/bash /usr/local/bin/digdag'
 alias root 'cd (git rev-parse --show-toplevel)'
 alias grr 'git reset --hard origin/(git rev-parse --abbrev-ref HEAD)'
 # close all pane except current pane
-alias on 'tmux kill-pane -a -t (tmux run "echo #{pane_id}")'
 alias bazel 'bazelisk'
 
 # abbr
@@ -88,6 +87,7 @@ abbr -a grhh git reset --hard HEAD
 abbr -a rmbranch 'git branch --merged | grep -v master | grep -v production | grep -v "*" | xargs -I % git branch -d % && git remote prune origin'
 abbr -a todo 'rg "TODO:|FIXME:"'
 abbr -a awsdoc "aws ecr get-login-password | docker login --username AWS --password-stdin (aws sts get-caller-identity | jq -cr '.Account').dkr.ecr.ap-northeast-1.amazonaws.com"
+abbr -a on tmux kill-pane -a -t
 abbr -a one onelogin-aws-login -d 32400 --username (whoami)@gunosy.com --config-name ads --profile default
 abbr -a ... '../../'
 abbr -a .... '../../../'
