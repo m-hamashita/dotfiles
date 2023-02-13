@@ -221,6 +221,35 @@
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.openFilesInNewWindow": "off",
   "workbench.colorCustomizations": {
+    // https://github.com/jdinhify/vscode-theme-gruvbox/blob/main/themes/gruvbox-dark-hard.json
+    // TABS
+    "tab.border": "#1d202100",
+    "tab.activeBorder": "#689d6a",
+    "tab.activeBackground": "#32302f",
+    "tab.activeForeground": "#ebdbb2",
+    "tab.inactiveForeground": "#a89984",
+    "tab.inactiveBackground": "#1d2021",
+    "tab.unfocusedActiveForeground": "#a89984",
+    "tab.unfocusedActiveBorder": "#1d202100",
+    "tab.unfocusedInactiveForeground": "#928374",
+    "terminal.background": "#242424",
+    "statusBar.background": "#242424",
+    "statusBar.border": "#3c3836",
+    "statusBar.foreground": "#ebdbb2",
+    "statusBar.debuggingBackground": "#fe8019",
+    "statusBar.debuggingForeground": "#242424",
+    "statusBar.debuggingBorder": "#24242400",
+    "statusBar.noFolderBackground": "#242424",
+    "statusBar.noFolderBorder": "#24242400",
+    "statusBar.prominentBackground": "#689d6a",
+    "statusBar.prominentHoverBackground": "#689d6a70",
+    "panel.border": "#3c3836",
+    "panelTitle.activeForeground": "#ebdbb2",
+    "panel.background": "#242424",
+    "titleBar.activeBackground": "#242424",
+    "titleBar.activeForeground": "#ebdbb2",
+    "titleBar.inactiveBackground": "#242424",
+    // other settings
     "editorLineNumber.foreground": "#c0c0c0",
     "editorInlayHint.background": "#282828",
     "editorInlayHint.foreground": "#a0a0a0",
@@ -244,7 +273,7 @@
   "python.linting.flake8Path": "/Users/masakatsu.hamashita/.local/bin/flake8",
   "python.linting.mypyPath": "/Users/masakatsu.hamashita/.local/bin/mypy",
   "git.ignoreRebaseWarning": true,
-  "window.zoomLevel": 3,
+  "window.zoomLevel": 1,
   "errorLens.enabledDiagnosticLevels": [
     "error",
     "warning",
@@ -252,5 +281,6 @@
   ],
   "files.autoSave": "onFocusChange",
   "editor.inlayHints.enabled": "onUnlessPressed",
-  "editor.wordWrapColumn": 120
+  "editor.wordWrapColumn": 120,
+  "workbench.preferredDarkColorTheme": "Kary Pro Colors － Dark"
 }
