@@ -20,7 +20,7 @@ packages:
   - name: Wilfred/difftastic@0.38.0
   - name: dalance/procs@v0.13.3
   - name: x-motemen/ghq@v1.3.0
-  - name: remotemobprogramming/mob@v4.1.1
+  - name: remotemobprogramming/mob@v4.3.0
     registry: local
   - name: sharkdp/bat@v0.22.1
   - name: junegunn/fzf@0.35.1
