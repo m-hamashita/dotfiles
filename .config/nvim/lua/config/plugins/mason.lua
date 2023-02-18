@@ -31,7 +31,7 @@ function M.config()
 					settings = {
 						Lua = {
 							diagnostics = {
-								globals = { "vim" },
+								globals = { "vim", "hs" },
 							},
 						},
 					},
