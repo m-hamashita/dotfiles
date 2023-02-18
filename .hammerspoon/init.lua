@@ -26,6 +26,7 @@ end
 
 -- double tap で toggle で kitty を表示/非表示する
 module.action = function()
+	local targetScreenUUID = hs.screen.primaryScreen():getUUID()
 	local appName = "kitty"
 	local app = hs.application.get(appName)
 	if app == nil then
@@ -33,11 +34,17 @@ module.action = function()
 	elseif app:isFrontmost() then
 		app:hide()
 	else -- すでに存在する場合、window を activeSpace に移動させて focus する
-		local activeSpace = hs.spaces.focusedSpace()
-		-- hs.alert.show(activeSpace)
-		local win = app:focusedWindow()
-		hs.spaces.moveWindowToSpace(win, activeSpace)
-		app:setFrontmost()
+		local activeSpace = spaces.activeSpace()
+		-- primaryScreen のときは、activeSpace に移動させる
+		if spaces.spaceScreenUUID(activeSpace) == targetScreenUUID then
+			local win = app:focusedWindow()
+			hs.spaces.moveWindowToSpace(win, activeSpace)
+			app:setFrontmost()
+		else
+			app:unhide()
+			app:activate()
+			app:setFrontmost(true)
+		end
 	end
 end
 
