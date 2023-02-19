@@ -62,6 +62,7 @@ alias root 'cd (git rev-parse --show-toplevel)'
 alias grr 'git reset --hard origin/(git rev-parse --abbrev-ref HEAD)'
 # close all pane except current pane
 alias bazel 'bazelisk'
+alias devcon 'docker exec -it -u vscode -w "/workspaces/$(basename $(pwd))" $(devcontainer up --workspace-folder . | jq -r .containerId)'
 
 # abbr
 abbr -a del_swap "rm ~/.local/state/nvim/swap/*"
