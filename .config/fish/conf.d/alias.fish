@@ -107,6 +107,7 @@ abbr -a jupyterssh "jupyter notebook --no-browser --ip="0.0.0.0" --allow-root"
 abbr -a work "cd ~/work/"
 abbr -a tmp "cd ~/tmp/"
 abbr -a run "$HOME/osbook/devenv/run_qemu.sh"
+abbr -a home "cd /workspaces/mikanos-devcontainer"
 
 # abbr -a del "git branch --merged | grep -vE '^\\*|master|develop|staging' | xargs -I % git branch -d % && git remote prune origin"
 
