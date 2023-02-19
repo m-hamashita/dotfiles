@@ -45,9 +45,11 @@ set -x DENO_INSTALL /Users/masakatsu.hamashita/.deno
 set -x PATH $DENO_INSTALL/bin $PATH
 set -x PATH ~/.fzf/bin $PATH
 
-set -x XDG_DATA_HOME $HOME/.local/share
+set -x XDG_DATA_HOME $HOME/.config
 set -x AQUA_GLOBAL_CONFIG $XDG_DATA_HOME/aquaproj-aqua/aqua.yaml
 set -x PATH $XDG_DATA_HOME/aquaproj-aqua/bin $PATH
+
+set -x OS_DIR /workspaces/mikanos-devcontainer/mikanos
 
 # set -x PATH /usr/local/opt/llvm/bin $PATH
 # set -g fish_user_paths "/usr/local/opt/llvm/bin" $fish_user_paths
