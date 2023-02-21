@@ -266,14 +266,13 @@
   "outline-map.expandOutlineMethod": "hover",
   "outline-map.follow": "cursor",
   "bazel.buildifierExecutable": "/Users/masakatsu.hamashita/.local/share/aquaproj-aqua/bin/buildifier",
-  "terminal.external.osxExec": "kitty.app",
+  "terminal.external.osxExec": "terminal.app",
   "markdown-preview-enhanced.previewTheme": "github-dark.css",
   "terminal.integrated.fontFamily": "Meslo LG S for Powerline,Hack Nerd Font",
   "sync.forceUpload": true,
   "python.linting.flake8Path": "/Users/masakatsu.hamashita/.local/bin/flake8",
   "python.linting.mypyPath": "/Users/masakatsu.hamashita/.local/bin/mypy",
   "git.ignoreRebaseWarning": true,
-  "window.zoomLevel": 1,
   "errorLens.enabledDiagnosticLevels": [
     "error",
     "warning",
@@ -282,5 +281,10 @@
   "files.autoSave": "onFocusChange",
   "editor.inlayHints.enabled": "onUnlessPressed",
   "editor.wordWrapColumn": 120,
-  "workbench.preferredDarkColorTheme": "Kary Pro Colors － Dark"
+  "workbench.preferredDarkColorTheme": "Kary Pro Colors － Dark",
+  "window.zoomLevel": 3,
+  "hexeditor.columnWidth": 16,
+  "hexeditor.showDecodedText": true,
+  "hexeditor.defaultEndianness": "little",
+  "hexeditor.inspectorType": "aside"
 }
