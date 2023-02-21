@@ -286,5 +286,8 @@
   "hexeditor.columnWidth": 16,
   "hexeditor.showDecodedText": true,
   "hexeditor.defaultEndianness": "little",
-  "hexeditor.inspectorType": "aside"
+  "hexeditor.inspectorType": "aside",
+  "gitlens.defaultDateStyle": "absolute",
+  "gitlens.defaultDateFormat": "YYYY-MM-DD HH:mm",
+  "gitlens.blame.format": "${message|20?} ${agoOrDate|10-}"
 }
