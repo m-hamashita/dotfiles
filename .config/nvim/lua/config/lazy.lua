@@ -282,6 +282,7 @@ require("lazy").setup({
 			require("config.plugins.todo-comments").config()
 		end,
 	},
+	{ "dkarter/bullets.vim", ft = "markdown" },
 }, {
 	defaults = { lazy = true },
 	-- debug = true,

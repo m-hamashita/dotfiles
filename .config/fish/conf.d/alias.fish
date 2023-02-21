@@ -62,6 +62,7 @@ alias root 'cd (git rev-parse --show-toplevel)'
 alias grr 'git reset --hard origin/(git rev-parse --abbrev-ref HEAD)'
 # close all pane except current pane
 alias bazel 'bazelisk'
+alias devcon 'docker exec -it -u vscode -w "/workspaces/$(basename $(pwd))" $(devcontainer up --workspace-folder . | jq -r .containerId)'
 
 # abbr
 abbr -a del_swap "rm ~/.local/state/nvim/swap/*"
@@ -106,6 +107,7 @@ abbr -a image "docker image ls | sed -e '1d' | fzf --height 40% --reverse | awk 
 abbr -a jupyterssh "jupyter notebook --no-browser --ip="0.0.0.0" --allow-root"
 abbr -a work "cd ~/work/"
 abbr -a tmp "cd ~/tmp/"
+abbr -a hobby "cd ~/work/hobby/"
 
 # abbr -a del "git branch --merged | grep -vE '^\\*|master|develop|staging' | xargs -I % git branch -d % && git remote prune origin"
 
