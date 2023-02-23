@@ -111,15 +111,15 @@ abbr -a home "cd /workspaces/mikanos-devcontainer"
 
 # abbr -a del "git branch --merged | grep -vE '^\\*|master|develop|staging' | xargs -I % git branch -d % && git remote prune origin"
 
-if [ (command -v gomi) ]
-    alias rm 'gomi'
-else
-    if [ (command -v trash) ]
-        alias rm 'trash -r'
-    else
-        alias rm 'rm -i'
-    end
-end
+# if [ (command -v gomi) ]
+#     alias rm 'gomi'
+# else
+#     if [ (command -v trash) ]
+#         alias rm 'trash -r'
+#     else
+#         alias rm 'rm -i'
+#     end
+# end
 if [ (command -v nvim) ]
     alias vim 'nvim'
 else
