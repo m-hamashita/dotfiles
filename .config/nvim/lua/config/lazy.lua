@@ -24,6 +24,11 @@ require("lazy").setup({
 	{ "sonph/onehalf", lazy = false },
 	{ "savq/melange", lazy = false },
 	{ "kyoh86/momiji", lazy = false },
+	{ "rebelot/kanagawa.nvim", lazy = false },
+	{ "tobi-wan-kenobi/zengarden", lazy = false },
+	{ "AlessandroYorba/Alduin", lazy = false },
+	{ "lifepillar/vim-gruvbox8", lazy = false },
+	{ "ayu-theme/ayu-vim", lazy = false },
 	{
 		"machakann/vim-highlightedyank",
 		event = "VimEnter",
