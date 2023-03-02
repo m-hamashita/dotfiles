@@ -283,6 +283,21 @@ require("lazy").setup({
 		end,
 	},
 	{ "dkarter/bullets.vim", ft = "markdown" },
+	{
+		"folke/noice.nvim",
+		event = "VimEnter",
+		config = function()
+			require("config.plugins.noice").config()
+		end,
+		dependencies = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+			-- OPTIONAL:
+			--   `nvim-notify` is only needed, if you want to use the notification view.
+			--   If not available, we use `mini` as the fallback
+			"rcarriga/nvim-notify",
+		},
+	},
 }, {
 	defaults = { lazy = true },
 	-- debug = true,
