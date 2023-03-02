@@ -24,17 +24,6 @@ brew install neovim
 pip install neovim
 ```
 
-- write to init.vim
-  `let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n $(pyenv root)/versions/${version}/bin/python) || echo -n $(which python3)')`
-- dein install
-
-```
-mkdir -p ~/.cache/dein
-cd ~/.cache/dein
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-sh ./installer.sh ~/.cache/dein
-```
-
 - node install
 
 ```
