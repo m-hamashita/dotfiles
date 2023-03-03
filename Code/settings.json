@@ -314,4 +314,5 @@
   "blockman.n20CustomColorOfDepth0Border": "none",
   "window.zoomLevel": 2,
   "workbench.activityBar.visible": false,
+  "vim.smartRelativeLine": true,
 }
