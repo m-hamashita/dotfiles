@@ -315,4 +315,6 @@
   "window.zoomLevel": 2,
   "workbench.activityBar.visible": false,
   "vim.smartRelativeLine": true,
+  "blockman.n03MaxDepth": 6,
+  "blockman.n16EnableFocus": false,
 }
