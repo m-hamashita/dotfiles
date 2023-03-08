@@ -13,7 +13,7 @@ runtime init/plugin_settings.vim
 runtime init/abbr.vim
 
 if !exists('g:vscode')
-  colorscheme melange
+  colorscheme gruvbox-material
 endif
 
 highlight DiffChange ctermbg=23
