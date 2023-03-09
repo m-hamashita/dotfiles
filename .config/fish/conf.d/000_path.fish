@@ -44,6 +44,7 @@ set -x PATH /opt/homebrew/opt/openjdk@11/bin $PATH # for openjdk@11(for digdag)
 set -x DENO_INSTALL /Users/masakatsu.hamashita/.deno
 set -x PATH $DENO_INSTALL/bin $PATH
 set -x PATH ~/.fzf/bin $PATH
+set -x PATH ~/.gvm/bin $PATH
 
 set -x XDG_DATA_HOME $HOME/.local/share
 set -x AQUA_GLOBAL_CONFIG $XDG_DATA_HOME/aquaproj-aqua/aqua.yaml
