@@ -47,3 +47,5 @@ packages:
   - name: aristocratos/btop@v1.2.13
   - name: bcicen/ctop@v0.7.7
   - name: ninja-build/ninja@v1.11.1
+  - name: chroju/nature-remo-cli@v0.3.0
+    registry: local

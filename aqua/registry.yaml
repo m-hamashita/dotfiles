@@ -41,3 +41,11 @@ packages:
     format: tar.gz
     replacements:
       arm64: amd64
+  - type: github_release
+    repo_owner: chroju
+    repo_name: nature-remo-cli
+    asset: "nature-remo-cli_{{trimV .Version}}_{{.OS}}_{{.Arch}}.{{.Format}}"
+    description: Unofficial command line Interface for Nature Remo
+    format: tar.gz
+    files:
+      - name: remo
