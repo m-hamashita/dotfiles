@@ -53,6 +53,14 @@ function M.config()
 					},
 					on_attach = on_attach,
 				})
+			elseif server_name == "clangd" then
+				-- if offsetEncoding not set, messages: "warning: multiple different client offset_encodings detected for buffer, this is not supported yet."
+				local capabilities = vim.lsp.protocol.make_client_capabilities()
+				capabilities.offsetEncoding = { "utf-16" }
+				nvim_lsp[server_name].setup({
+					capabilities = capabilities,
+					on_attach = on_attach,
+				})
 			else
 				nvim_lsp[server_name].setup({
 					on_attach = on_attach,

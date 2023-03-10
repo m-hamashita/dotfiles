@@ -36,3 +36,6 @@ ln -sf ~/dotfiles/compile_flags.txt ~/compile_flags.txt
 # aqua.yaml
 ln -sf ~/dotfiles/aqua.yaml ~/.local/share/aquaproj-aqua/aqua.yaml
 ln -sf ~/dotfiles/registry.yaml ~/.local/share/aquaproj-aqua/registry.yaml
+
+# .textlintrc
+ln -sf ~/dotfiles/.textlintrc ~/.textlintrc

@@ -10,8 +10,8 @@ function M.config()
 		return
 	end
 	-- used to enable autocompletion (assign to every lsp server config)
-	local capabilities = cmp_nvim_lsp.default_capabilities()
-	local on_attach = function(client, bufnr)
+	-- local capabilities = cmp_nvim_lsp.default_capabilities()
+	local on_attach = function(_, bufnr)
 		-- keybind options
 		local opts = { noremap = true, silent = true, buffer = bufnr }
 		-- vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")

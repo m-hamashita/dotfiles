@@ -17,8 +17,8 @@ set -x PGDATA /usr/local/var/postgres
 if [ (command -v go) ]
     set -x GOPATH $HOME/go
     # TODO: go env で環境変数を設定するようにする
-    # set -x GOROOT ( go env GOROOT )
-    set -x GOROOT /opt/homebrew/Cellar/go/1.19.4/libexec
+    set -x GOROOT ( go env GOROOT )
+    # set -x GOROOT /opt/homebrew/Cellar/go/1.19.4/libexec
     # set -x GOROOT /usr/local/go/bin/go
     set -x PATH $GOPATH/bin $PATH
 end
@@ -44,6 +44,7 @@ set -x PATH /opt/homebrew/opt/openjdk@11/bin $PATH # for openjdk@11(for digdag)
 set -x DENO_INSTALL /Users/masakatsu.hamashita/.deno
 set -x PATH $DENO_INSTALL/bin $PATH
 set -x PATH ~/.fzf/bin $PATH
+set -x PATH ~/.gvm/bin $PATH
 
 set -x XDG_DATA_HOME $HOME/.local/share
 set -x AQUA_GLOBAL_CONFIG $XDG_DATA_HOME/aquaproj-aqua/aqua.yaml
