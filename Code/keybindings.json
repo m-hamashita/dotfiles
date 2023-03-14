@@ -281,5 +281,10 @@
     "key": "ctrl+r",
     "command": "-extension.vim_ctrl+r",
     "when": "editorTextFocus && vim.active && vim.use<C-r> && !inDebugRepl"
+  },
+  {
+    "key": "ctrl+x ctrl+x",
+    "command": "settings.cycle.copilot.inlineSuggest",
+    "when": "editorFocus"
   }
 ]
