@@ -313,8 +313,22 @@
   "blockman.n17CustomColorOfFocusedBlock": "same",
   "blockman.n20CustomColorOfDepth0Border": "none",
   "window.zoomLevel": 2,
-  "workbench.activityBar.visible": false,
   "vim.smartRelativeLine": true,
   "blockman.n03MaxDepth": 6,
   "blockman.n16EnableFocus": false,
+  "settings.cycle": [
+    {
+      "id": "copilot.inlineSuggest",
+      "overrideWorkspaceSettings": true,
+      "values": [
+        {
+          "github.copilot.inlineSuggest.enable": false
+        },
+        {
+          "github.copilot.inlineSuggest.enable": true
+        }
+      ]
+    },
+  ],
+  "github.copilot.inlineSuggest.enable": true
 }
