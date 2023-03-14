@@ -66,7 +66,7 @@ require("lazy").setup({
 	},
 	{
 		"skanehira/denops-germanium.vim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		dependencies = {
 			"vim-denops/denops.vim",
 		},
@@ -156,7 +156,7 @@ require("lazy").setup({
 	},
 	{
 		"simrat39/rust-tools.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		dependencies = {
 			"mfussenegger/nvim-dap",
 		},
@@ -167,7 +167,7 @@ require("lazy").setup({
 	{ "kyazdani42/nvim-web-devicons", event = "VimEnter" },
 	{
 		"nvim-telescope/telescope.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-lua/popup.nvim",
