@@ -312,6 +312,14 @@ require("lazy").setup({
 			"rcarriga/nvim-notify",
 		},
 	},
+	{
+		"tversteeg/registers.nvim",
+		name = "registers",
+		config = function()
+			require("config.plugins.registers").config()
+		end,
+		cmd = "Registers",
+	},
 }, {
 	defaults = { lazy = true },
 	-- debug = true,
