@@ -12,7 +12,7 @@ if raw_arch_name == "arm64" then
 end
 
 -- double tap の間隔[s]
-module.timeFrame = 1
+module.timeFrame = 0.3
 
 function MoveFullScreenWindow(app)
 	local activeSpace = spaces.activeSpace()

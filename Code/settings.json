@@ -7,7 +7,8 @@
     "editor.formatOnSave": true,
     "editor.formatOnType": false,
     "editor.insertSpaces": true,
-    "editor.tabSize": 4
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "ms-python.black-formatter"
   },
   "[rust]": {
     "editor.formatOnSave": true
@@ -312,8 +313,6 @@
   "blockman.n15CustomColorOfDepth10": "none",
   "blockman.n17CustomColorOfFocusedBlock": "same",
   "blockman.n20CustomColorOfDepth0Border": "none",
-  "window.zoomLevel": 2,
-  "vim.smartRelativeLine": true,
   "blockman.n03MaxDepth": 6,
   "blockman.n16EnableFocus": false,
   "settings.cycle": [
@@ -330,5 +329,6 @@
       ]
     },
   ],
-  "github.copilot.inlineSuggest.enable": true
+  "github.copilot.inlineSuggest.enable": true,
+  "window.zoomLevel": 2
 }

@@ -11,3 +11,4 @@ loop.sh
 .vscode/
 node_modules
 a.out
+__pycache__
