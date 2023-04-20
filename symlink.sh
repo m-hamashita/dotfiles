@@ -9,7 +9,6 @@ ln -sf ~/dotfiles/.vimrc ~/.vimrc
 
 # git
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
-ln -sf ~/dotfiles/.gitignore_global ~/.gitignore_global
 
 # tmux
 ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
