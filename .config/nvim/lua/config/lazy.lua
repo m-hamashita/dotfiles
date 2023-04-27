@@ -99,6 +99,7 @@ require("lazy").setup({
 	{
 		"williamboman/mason-lspconfig.nvim",
 		lazy = false,
+		event = "VeryLazy",
 		config = function()
 			require("config.plugins.mason").config()
 		end,
