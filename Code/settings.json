@@ -75,21 +75,20 @@
   "python.formatting.provider": "black",
   "python.languageServer": "Pylance",
   "python.linting.enabled": true,
-  "python.linting.flake8Enabled": true,
   "python.linting.lintOnSave": true,
   "python.linting.pylintEnabled": false,
   "python.sortImports.path": "/Users/masakatsu.hamashita/.local/bin/isort",
   "python.terminal.activateEnvironment": false,
   "metals.javaHome": "/Users/masakatsu.hamashita/.jabba/jdk/adopt@1.11.0-7/Contents/Home",
   "remote.SSH.connectTimeout": 120,
-  "rust-analyzer.checkOnSave.command": "clippy",
-  "rust-analyzer.checkOnSave.extraArgs": [
-    "--all",
-    "--all-targets",
-    "--",
-    "-D",
-    "warnings"
-  ],
+  // "rust-analyzer.checkOnSave.command": "clippy",
+  // "rust-analyzer.checkOnSave.extraArgs": [
+  //   "--all",
+  //   "--all-targets",
+  //   "--",
+  //   "-D",
+  //   "warnings"
+  // ],
   "sync.gist": "df73c85695bf359d2465af3337aec7d1",
   "terminal.integrated.defaultProfile.linux": "tmux",
   "terminal.integrated.defaultProfile.osx": "fish",
@@ -263,7 +262,6 @@
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.tabSizing": "fit",
-  "workbench.startupEditor": "none",
   "workbench.tree.indent": 24,
   "workbench.tree.renderIndentGuides": "always",
   "outline-map.expandOutlineMethod": "hover",
@@ -330,5 +328,9 @@
     },
   ],
   "github.copilot.inlineSuggest.enable": true,
-  "window.zoomLevel": 2
+  "git.openRepositoryInParentFolders": "never",
+  "circleci.hostUrl": "",
+  "python.linting.flake8Args": [
+    "--ignore=E501"
+  ],
 }
