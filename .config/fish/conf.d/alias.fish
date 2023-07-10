@@ -107,6 +107,7 @@ abbr -a image "docker image ls | sed -e '1d' | fzf --height 40% --reverse | awk 
 abbr -a jupyterssh "jupyter notebook --no-browser --ip="0.0.0.0" --allow-root"
 abbr -a work "cd ~/work/"
 abbr -a tmp "cd ~/tmp/"
+abbr -a tn tmux new-session -s 
 abbr -a hobby "cd ~/work/hobby/"
 
 # abbr -a del "git branch --merged | grep -vE '^\\*|master|develop|staging' | xargs -I % git branch -d % && git remote prune origin"

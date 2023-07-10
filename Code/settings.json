@@ -259,7 +259,6 @@
     "editor.lineHighlightBackground": "#1073cf2d",
   },
   "workbench.colorTheme": "Kary Pro Colors － Dark",
-  "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.tabSizing": "fit",
   "workbench.tree.indent": 24,

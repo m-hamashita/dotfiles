@@ -9,6 +9,16 @@ function M.config()
 	})
 
 	vim.cmd([[
+        function! s:init_fern() abort
+          nmap <silent><buffer><nowait> < <Plug>(fern-action-leave)
+          nmap <silent><buffer><nowait> > <Plug>(fern-action-enter)
+        endfunction
+
+        augroup fern-custom
+          autocmd! *
+	      autocmd FileType fern call s:init_fern()
+        augroup END
+
 	    augroup glyph-palette
 	      autocmd! *
 	      autocmd FileType fern call glyph_palette#apply()
