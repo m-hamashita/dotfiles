@@ -59,7 +59,7 @@ alias cat 'bat'
 alias less 'bat'
 alias digdag '/bin/bash /usr/local/bin/digdag'
 alias root 'cd (git rev-parse --show-toplevel)'
-alias grr 'git reset --hard origin/(git rev-parse --abbrev-ref HEAD)'
+alias grr 'echo "git reset --hard origin/"(git rev-parse --abbrev-ref HEAD) && git reset --hard origin/(git rev-parse --abbrev-ref HEAD)'
 # close all pane except current pane
 alias bazel 'bazelisk'
 alias devcon 'docker exec -it -u vscode -w "/workspaces/$(basename $(pwd))" $(devcontainer up --workspace-folder . | jq -r .containerId)'
