@@ -350,3 +350,22 @@ function amazon --argument-names 'amazon_url'
         echo "Please Input Amazon URL."
     end
 end
+
+function memp
+    ps -axo "rss,comm" |
+    awk '
+      {
+        process = substr($0, index($0,$2));
+        memUsage[process] += $1;
+        totalMemUsage += $1
+      }
+      END {
+        for (i in memUsage) {
+          if(memUsage[i]/1024 > 50) {
+            printf("%d MB - %s\n", memUsage[i]/1024, i)
+          }
+        }
+        printf("\nTotal memory usage: %d MB\n", totalMemUsage/1024)
+      }
+    ' | sort -rn
+end
