@@ -145,9 +145,8 @@ require("lazy").setup({
 		config = function()
 			require("config.plugins.nvim-cmp").config()
 		end,
+		dependencies = { "hrsh7th/cmp-nvim-lsp", "hrsh7th/vim-vsnip" },
 	},
-	{ "hrsh7th/cmp-nvim-lsp", event = "UIEnter" },
-	{ "hrsh7th/vim-vsnip", event = "UIEnter" },
 	{
 		"nvim-lualine/lualine.nvim",
 		event = "UIEnter",
@@ -201,8 +200,6 @@ require("lazy").setup({
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
 		},
-		-- if lazy, caw.vim's uncomment is not working
-		lazy = false,
 	},
 	{
 		"kassio/neoterm",
@@ -216,11 +213,11 @@ require("lazy").setup({
 		event = "UIEnter",
 	},
 	{
-		"tyru/caw.vim",
-		event = "UIEnter",
+		"numToStr/Comment.nvim",
 		config = function()
-			require("config.plugins.caw").config()
+			require("config.plugins.comment").config()
 		end,
+		lazy = false,
 	},
 	{ "sindrets/diffview.nvim", event = "UIEnter" },
 	{ "plasticboy/vim-markdown", event = "UIEnter" },
