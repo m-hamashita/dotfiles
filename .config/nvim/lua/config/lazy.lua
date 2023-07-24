@@ -206,10 +206,10 @@ require("lazy").setup({
 	},
 	{
 		"numToStr/Comment.nvim",
+		event = "UIEnter",
 		config = function()
 			require("config.plugins.comment").config()
 		end,
-		lazy = false,
 	},
 	{ "sindrets/diffview.nvim", event = "UIEnter" },
 	{ "plasticboy/vim-markdown", event = "UIEnter" },
