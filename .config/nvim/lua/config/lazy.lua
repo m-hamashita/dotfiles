@@ -184,11 +184,10 @@ require("lazy").setup({
 	{ "vim-denops/denops.vim", event = "UIEnter" },
 	{
 		"nvim-treesitter/nvim-treesitter",
-		-- https://discourse.nixos.org/t/cant-get-nvim-treesitter-neovim-plugin-to-work-properly/21368
-		commit = "501db14",
 		config = function()
 			require("config.plugins.nvim-treesitter").config()
 		end,
+		build = ":TSUpdate",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
 		},
