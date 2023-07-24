@@ -285,7 +285,7 @@
     "when": "editorTextFocus && vim.active && vim.use<C-r> && !inDebugRepl"
   },
   {
-    "key": "ctrl+x ctrl+x",
+    "key": "\\ \\",
     "command": "settings.cycle.copilot.inlineSuggest",
     "when": "editorFocus"
   },

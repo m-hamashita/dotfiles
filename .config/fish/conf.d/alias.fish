@@ -59,7 +59,7 @@ alias cat 'bat'
 alias less 'bat'
 alias digdag '/bin/bash /usr/local/bin/digdag'
 alias root 'cd (git rev-parse --show-toplevel)'
-alias grr 'git reset --hard origin/(git rev-parse --abbrev-ref HEAD)'
+alias grr 'echo "git reset --hard origin/"(git rev-parse --abbrev-ref HEAD) && git reset --hard origin/(git rev-parse --abbrev-ref HEAD)'
 # close all pane except current pane
 alias bazel 'bazelisk'
 alias devcon 'docker exec -it -u vscode -w "/workspaces/$(basename $(pwd))" $(devcontainer up --workspace-folder . | jq -r .containerId)'
@@ -349,4 +349,23 @@ function amazon --argument-names 'amazon_url'
     else
         echo "Please Input Amazon URL."
     end
+end
+
+function memp
+    ps -axo "rss,comm" |
+    awk '
+      {
+        process = substr($0, index($0,$2));
+        memUsage[process] += $1;
+        totalMemUsage += $1
+      }
+      END {
+        for (i in memUsage) {
+          if(memUsage[i]/1024 > 50) {
+            printf("%d MB - %s\n", memUsage[i]/1024, i)
+          }
+        }
+        printf("\nTotal memory usage: %d MB\n", totalMemUsage/1024)
+      }
+    ' | sort -rn
 end

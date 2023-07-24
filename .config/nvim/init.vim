@@ -8,6 +8,7 @@ set termguicolors
 runtime init/pre_load.vim
 runtime init/common_settings.vim
 runtime init/common_mappings.vim
+runtime init/common_settings.lua
 runtime lua/config/lazy.lua
 runtime init/plugin_settings.vim
 runtime init/abbr.vim

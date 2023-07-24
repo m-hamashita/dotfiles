@@ -13,47 +13,39 @@ vim.opt.runtimepath:prepend(lazypath)
 
 require("lazy").setup({
 	-- colorscheme
-	{ "vim-scripts/wombat256.vim", lazy = false },
-	{ "sainnhe/everforest", lazy = false },
-	{ "franbach/miramare", lazy = false },
-	{ "jnurmine/Zenburn", lazy = false },
-	{ "ghifarit53/tokyonight-vim", lazy = false },
-	{ "novasenco/vulpo", lazy = false },
-	{ "raphamorim/lucario", lazy = false },
-	{ "bluz71/vim-moonfly-colors", lazy = false },
-	{ "sonph/onehalf", lazy = false },
-	{ "savq/melange", lazy = false },
-	{ "kyoh86/momiji", lazy = false },
-	{ "rebelot/kanagawa.nvim", lazy = false },
-	{ "tobi-wan-kenobi/zengarden", lazy = false },
-	{ "AlessandroYorba/Alduin", lazy = false },
-	{ "ayu-theme/ayu-vim", lazy = false },
-	{ "glepnir/zephyr-nvim", lazy = false },
-	{ "sainnhe/edge", lazy = false },
-	{ "npxbr/gruvbox.nvim", lazy = false },
-	{ "sainnhe/sonokai", lazy = false },
+	{ "vim-scripts/wombat256.vim" },
+	{ "sainnhe/everforest" },
+	{ "franbach/miramare" },
+	{ "jnurmine/Zenburn" },
+	{ "ghifarit53/tokyonight-vim" },
+	{ "novasenco/vulpo" },
+	{ "raphamorim/lucario" },
+	{ "bluz71/vim-moonfly-colors" },
+	{ "sonph/onehalf" },
+	{ "savq/melange" },
+	{ "kyoh86/momiji" },
+	{ "rebelot/kanagawa.nvim" },
+	{ "tobi-wan-kenobi/zengarden" },
+	{ "AlessandroYorba/Alduin" },
+	{ "ayu-theme/ayu-vim" },
+	{ "glepnir/zephyr-nvim" },
+	{ "sainnhe/edge" },
+	{ "npxbr/gruvbox.nvim" },
+	{ "sainnhe/sonokai" },
 	{
 		"elianiva/gruvy.nvim",
-		lazy = false,
 		dependencies = { "rktjmp/lush.nvim" },
 	},
 	{ "sainnhe/gruvbox-material", lazy = false },
 	{
 		"machakann/vim-highlightedyank",
-		event = "VimEnter",
+		event = "UIEnter",
 		config = require("config.plugins.vim-highlightedyank").config(),
 	},
-	-- {
-	--     "phaazon/hop.nvim",
-	--     branch = "v2",
-	--     config = function()
-	--         require("config.plugins.hop").config()
-	--     end,
-	-- },
 	{
 		-- file explorer
 		"lambdalisue/fern.vim",
-		event = "VimEnter",
+		event = "UIEnter",
 		config = function()
 			require("config.plugins.fern").config()
 		end,
@@ -71,11 +63,11 @@ require("lazy").setup({
 			"vim-denops/denops.vim",
 		},
 	},
-	{ "machakann/vim-sandwich", event = "VimEnter" },
-	{ "tpope/vim-surround", event = "VimEnter" },
+	{ "machakann/vim-sandwich", event = "UIEnter" },
+	{ "tpope/vim-surround", event = "UIEnter" },
 	{
 		"gelguy/wilder.nvim",
-		event = "VimEnter",
+		event = "UIEnter",
 		config = function()
 			require("config.plugins.wilder").config()
 		end,
@@ -83,14 +75,14 @@ require("lazy").setup({
 	{
 		-- support open new tab
 		"lambdalisue/guise.vim",
-		event = "VimEnter",
+		event = "UIEnter",
 		dependencies = {
 			"vim-denops/denops.vim",
 		},
 	},
 	{
 		"Shougo/deol.nvim",
-		event = "VimEnter",
+		event = "UIEnter",
 		config = function()
 			require("config.plugins.deol").config()
 		end,
@@ -110,7 +102,7 @@ require("lazy").setup({
 	},
 	{
 		"github/copilot.vim",
-		event = "VimEnter",
+		event = "UIEnter",
 	},
 	-- {
 	-- 	"zbirenbaum/copilot.lua",
@@ -127,30 +119,29 @@ require("lazy").setup({
 	-- },
 	{
 		"jose-elias-alvarez/null-ls.nvim",
-		event = "VimEnter",
+		event = "UIEnter",
 		config = function()
 			require("config.plugins.null-ls").config()
 		end,
 	},
 	{
 		"lvimuser/lsp-inlayhints.nvim",
-		event = "VimEnter",
+		event = "UIEnter",
 		config = function()
 			require("config.plugins.lsp-inlayhints").config()
 		end,
 	},
 	{
 		"hrsh7th/nvim-cmp",
-		event = "VimEnter",
+		event = "UIEnter",
 		config = function()
 			require("config.plugins.nvim-cmp").config()
 		end,
+		dependencies = { "hrsh7th/cmp-nvim-lsp", "hrsh7th/vim-vsnip" },
 	},
-	{ "hrsh7th/cmp-nvim-lsp", event = "VimEnter" },
-	{ "hrsh7th/vim-vsnip", event = "VimEnter" },
 	{
 		"nvim-lualine/lualine.nvim",
-		event = "VimEnter",
+		event = "UIEnter",
 		config = function()
 			require("config.plugins.lualine").config()
 		end,
@@ -165,7 +156,7 @@ require("lazy").setup({
 			require("config.plugins.rust-tools").config()
 		end,
 	},
-	{ "kyazdani42/nvim-web-devicons", event = "VimEnter" },
+	{ "kyazdani42/nvim-web-devicons", event = "UIEnter" },
 	{
 		"nvim-telescope/telescope.nvim",
 		event = "VeryLazy",
@@ -177,115 +168,112 @@ require("lazy").setup({
 			require("config.plugins.telescope").config()
 		end,
 	},
-	{ "dstein64/vim-startuptime", event = "VimEnter" },
-	{ "tpope/vim-rhubarb", event = "VimEnter" },
-	{ "tpope/vim-fugitive", event = "VimEnter" },
-	{ "airblade/vim-gitgutter", event = "VimEnter" },
+	{ "dstein64/vim-startuptime", event = "UIEnter" },
+	{ "tpope/vim-rhubarb", event = "UIEnter" },
+	{ "tpope/vim-fugitive", event = "UIEnter" },
+	{ "airblade/vim-gitgutter", event = "UIEnter" },
 	{
 		"Maan2003/lsp_lines.nvim",
-		event = "VimEnter",
+		event = "UIEnter",
 		config = function()
 			require("config.plugins.lsp_lines").config()
 		end,
 		dependencies = { "neovim/nvim-lspconfig" },
 	},
-	{ "vijaymarupudi/nvim-fzf", event = "VimEnter" },
-	{ "vim-denops/denops.vim", event = "VimEnter" },
+	{ "vijaymarupudi/nvim-fzf", event = "UIEnter" },
+	{ "vim-denops/denops.vim", event = "UIEnter" },
 	{
 		"nvim-treesitter/nvim-treesitter",
-		-- https://discourse.nixos.org/t/cant-get-nvim-treesitter-neovim-plugin-to-work-properly/21368
-		commit = "501db14",
 		config = function()
 			require("config.plugins.nvim-treesitter").config()
 		end,
+		build = ":TSUpdate",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
 		},
-		-- if lazy, caw.vim's uncomment is not working
-		lazy = false,
 	},
 	{
 		"kassio/neoterm",
-		event = "VimEnter",
+		event = "UIEnter",
 		config = function()
 			require("config.plugins.neoterm").config()
 		end,
 	},
 	{
 		"linty-org/key-menu.nvim",
-		event = "VimEnter",
+		event = "UIEnter",
 	},
 	{
-		"tyru/caw.vim",
-		event = "VimEnter",
+		"numToStr/Comment.nvim",
+		event = "UIEnter",
 		config = function()
-			require("config.plugins.caw").config()
+			require("config.plugins.comment").config()
 		end,
 	},
-	{ "sindrets/diffview.nvim", event = "VimEnter" },
-	{ "plasticboy/vim-markdown", event = "VimEnter" },
-	{ "hashivim/vim-terraform", event = "VimEnter" },
-	{ "dag/vim-fish", event = "VimEnter" },
-	{ "skanehira/getpr.vim", event = "VimEnter" },
+	{ "sindrets/diffview.nvim", event = "UIEnter" },
+	{ "plasticboy/vim-markdown", event = "UIEnter" },
+	{ "hashivim/vim-terraform", event = "UIEnter" },
+	{ "dag/vim-fish", event = "UIEnter" },
+	{ "skanehira/getpr.vim", event = "UIEnter" },
 	{
 		"luochen1990/rainbow",
-		event = "VimEnter",
+		event = "UIEnter",
 		config = function()
 			require("config.plugins.rainbow").config()
 		end,
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		event = "VimEnter",
+		event = "UIEnter",
 		config = function()
 			require("config.plugins.indent-blankline").config()
 		end,
 	},
 	{
 		"notomo/reacher.nvim",
-		event = "VimEnter",
+		event = "UIEnter",
 		config = function()
 			require("config.plugins.reacher").config()
 		end,
 	},
 	{
 		"eiji03aero/quick-notes",
-		event = "VimEnter",
+		event = "UIEnter",
 		config = function()
 			require("config.plugins.quick-notes").config()
 		end,
 	},
 	{
 		"simeji/winresizer",
-		event = "VimEnter",
+		event = "UIEnter",
 		config = function()
 			require("config.plugins.winresizer").config()
 		end,
 	},
 	{
 		"fedepujol/move.nvim",
-		event = "VimEnter",
+		event = "UIEnter",
 		config = function()
 			require("config.plugins.move").config()
 		end,
 	},
 	{
 		"rhysd/conflict-marker.vim",
-		event = "VimEnter",
+		event = "UIEnter",
 		config = function()
 			require("config.plugins.conflict-marker").config()
 		end,
 	},
 	{
 		"heavenshell/vim-pydocstring",
-		event = "VimEnter",
+		event = "UIEnter",
 		config = function()
 			require("config.plugins.vim-pydocstring").config()
 		end,
 	},
 	{
 		"kana/vim-altercmd",
-		event = "VimEnter",
+		event = "UIEnter",
 		config = function()
 			require("config.plugins.vim-altercmd").config()
 		end,
@@ -300,7 +288,7 @@ require("lazy").setup({
 	{ "dkarter/bullets.vim", ft = "markdown" },
 	{
 		"folke/noice.nvim",
-		event = "VimEnter",
+		event = "UIEnter",
 		config = function()
 			require("config.plugins.noice").config()
 		end,

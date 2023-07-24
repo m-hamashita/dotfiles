@@ -211,7 +211,7 @@
       "after": [
         "\"",
         "_",
-        "x",
+        "x"
       ]
     }
   ],
@@ -256,7 +256,7 @@
     "editorInlayHint.typeBackground": "#282828",
     "editorInlayHint.typeForeground": "#a0a0a0",
     "editor.lineHighlightBorder": "#9fced11f",
-    "editor.lineHighlightBackground": "#1073cf2d",
+    "editor.lineHighlightBackground": "#1073cf2d"
   },
   "workbench.colorTheme": "Kary Pro Colors － Dark",
   "workbench.editor.enablePreviewFromQuickOpen": false,
@@ -324,12 +324,17 @@
           "github.copilot.inlineSuggest.enable": true
         }
       ]
-    },
+    }
   ],
   "github.copilot.inlineSuggest.enable": true,
   "git.openRepositoryInParentFolders": "never",
   "circleci.hostUrl": "",
+  "leetcode.hint.configWebviewMarkdown": false,
+  "leetcode.workspaceFolder": "~/work/hobby/competitive-programming/leetcode",
+  "leetcode.hint.commandShortcut": false,
   "python.linting.flake8Args": [
     "--ignore=E501"
   ],
+  "window.zoomLevel": 2,
+  "workbench.sideBar.location": "right"
 }
