@@ -330,11 +330,12 @@
   "git.openRepositoryInParentFolders": "never",
   "circleci.hostUrl": "",
   "leetcode.hint.configWebviewMarkdown": false,
-  "leetcode.workspaceFolder": "~/work/hobby/competitive-programming/leetcode",
+  "leetcode.workspaceFolder": "/Users/masakatsu.hamashita/work/hobby/competitive-programming/leetcode",
   "leetcode.hint.commandShortcut": false,
   "python.linting.flake8Args": [
     "--ignore=E501"
   ],
-  "window.zoomLevel": 2,
-  "workbench.sideBar.location": "right"
+  "window.zoomLevel": 1,
+  "workbench.sideBar.location": "right",
+  "leetcode.defaultLanguage": "rust"
 }

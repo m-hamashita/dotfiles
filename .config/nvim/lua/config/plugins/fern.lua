@@ -3,7 +3,8 @@ local M = {}
 function M.config()
 	vim.g["fern#renderer"] = "nerdfont"
 	vim.g["fern#default_hidden"] = 1
-	vim.api.nvim_set_keymap("n", "<space>w", ":<C-u>Fern . -drawer -toggle<CR>", {
+	vim.g["fern#drawer_width"] = 40
+	vim.api.nvim_set_keymap("n", "<space>w", ":<C-u>Fern . -drawer -right -toggle<CR>", {
 		noremap = true,
 		silent = true,
 	})
