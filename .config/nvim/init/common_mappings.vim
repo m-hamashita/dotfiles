@@ -121,6 +121,8 @@ function! ToggleQuickfix()
 endfunction
 nnoremap <script> <silent> <Space>c :call ToggleQuickfix()<CR>
 
+cnoreabbrev <expr> s getcmdtype() .. getcmdline() ==# ':s' ? [getchar(), ''][1] .. "%s///g<Left><Left>" : 's'
+
 command Refresh :call dein#recache_runtimepath()
 command Path echo expand("%:p")
 command Memo call QuickNotesNew()
