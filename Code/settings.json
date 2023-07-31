@@ -337,5 +337,6 @@
   ],
   "window.zoomLevel": 1,
   "workbench.sideBar.location": "right",
-  "leetcode.defaultLanguage": "rust"
+  "leetcode.defaultLanguage": "rust",
+  "leetcode.showDescription": "In File Comment"
 }
