@@ -134,6 +134,8 @@ inoremap <C-l> <C-o>$
 
 filetype plugin indent on
 
+" s+<space>で置換
+cnoreabbrev <expr> s getcmdtype() .. getcmdline() ==# ':s' ? [getchar(), ''][1] .. "%s///g<Left><Left>" : 's'
 
 colorscheme delek
 highlight LineNr ctermfg=244
