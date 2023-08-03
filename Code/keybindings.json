@@ -70,11 +70,6 @@
     "command": "workbench.action.toggleActivityBarVisibility"
   },
   {
-    "key": "ctrl+f ctrl+v",
-    "command": "workbench.action.toggleAuxiliaryBar",
-    "when": "editorTextFocus"
-  },
-  {
     "key": "alt+h",
     "command": "-git.viewFileHistory"
   },
@@ -124,7 +119,7 @@
   {
     "key": "space w",
     "command": "workbench.action.toggleSidebarVisibility",
-    "when": "editorTextFocus && !terminalFocus && vim.mode == 'Normal'"
+    "when": "((editorTextFocus && vim.mode == 'Normal') || (sideBarFocus)) && !terminalFocus "
   },
   {
     "key": "ctrl+f ctrl+s",
@@ -292,5 +287,15 @@
   {
     "key": "shift+cmd+t",
     "command": "-workbench.view.extension.bazel-explorer"
+  },
+  {
+    "key": "ctrl+f ctrl+v",
+    "command": "workbench.view.extension.outline-map",
+    "when": "editorTextFocus && !terminalFocus && vim.mode == 'Normal'"
+  },
+  {
+    "key": "ctrl+f ctrl+v",
+    "command": "workbench.action.closeSidebar",
+    "when": "sideBarVisible"
   }
 ]
