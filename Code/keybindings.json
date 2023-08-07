@@ -58,7 +58,7 @@
     "command": "workbench.action.createTerminalEditor"
   },
   {
-    "key": "ctrl+t ctrl+t",
+    "key": "ctrl+t",
     "command": "workbench.action.togglePanel"
   },
   {
@@ -297,5 +297,10 @@
     "key": "ctrl+f ctrl+v",
     "command": "workbench.action.closeSidebar",
     "when": "sideBarVisible"
+  },
+  {
+    "key": "ctrl+t",
+    "command": "-extension.vim_ctrl+t",
+    "when": "editorTextFocus && vim.active && vim.use<C-t> && !inDebugRepl"
   }
 ]
