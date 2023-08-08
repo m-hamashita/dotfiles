@@ -356,6 +356,10 @@ function memp
     awk '
       {
         process = substr($0, index($0,$2));
+        if (match(process, "^/Applications/[^/]*\\.app")) {
+          split(process, parts, "/");
+          process = parts[3];
+        }
         memUsage[process] += $1;
         totalMemUsage += $1
       }
