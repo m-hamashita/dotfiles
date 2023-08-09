@@ -28,6 +28,7 @@ set -x CLICOLOR 1
 set -x LSCOLORS DxGxcxdxCxegedabagacad
 
 # PATH
+set -x PATH ~/.rye/shims $PATH
 set -x PATH $HOME/.nodebrew/current/bin $PATH
 set -x PATH $HOME/.cargo/bin $PATH
 set -x PATH $HOME/bin $PATH

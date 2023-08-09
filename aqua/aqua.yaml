@@ -51,3 +51,4 @@ packages:
     registry: local
   - name: hashicorp/terraform@v1.4.5
   - name: snyk/cli@v1.1183.0
+  - name: tfutils/tfenv@v3.0.0
