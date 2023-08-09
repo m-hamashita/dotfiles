@@ -335,7 +335,7 @@
   "python.linting.flake8Args": [
     "--ignore=E501"
   ],
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 3,
   "workbench.sideBar.location": "right",
   "leetcode.defaultLanguage": "rust",
   "leetcode.showDescription": "In File Comment",
