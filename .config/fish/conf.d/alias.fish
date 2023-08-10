@@ -71,6 +71,7 @@ abbr -a kd "kubectl get pod | fzf | cut -d ' ' -f 1 | xargs kubectl describe pod
 abbr -a kl "kubectl get pod | fzf | cut -d ' ' -f 1 | xargs kubectl logs"
 abbr -a ga git add
 abbr -a gb git switch -c 
+abbr -a gbd git branch -D
 abbr -a gc git commit -m
 abbr -a gca git commit --amend
 abbr -a gs git status
