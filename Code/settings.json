@@ -56,9 +56,6 @@
   "go.inlayHints.rangeVariableTypes": true,
   "go.toolsManagement.autoUpdate": true,
   "go.useLanguageServer": true,
-  "gopls": {
-    "experimentalWorkspaceModule": false
-  },
   "javascript.inlayHints.parameterNames.enabled": "all",
   "mssql.connections": [
     {
@@ -335,9 +332,9 @@
   "python.linting.flake8Args": [
     "--ignore=E501"
   ],
-  "window.zoomLevel": 3,
   "workbench.sideBar.location": "right",
   "leetcode.defaultLanguage": "rust",
   "leetcode.showDescription": "In File Comment",
-  "leetcode.enableStatusBar": false
+  "leetcode.enableStatusBar": false,
+  "workbench.activityBar.visible": false
 }
