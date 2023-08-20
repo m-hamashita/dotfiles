@@ -294,6 +294,31 @@ function fshow
 FZF-EOF"
 end
 
+function AZ --argument-names 'node_type'
+  if test -n "$node_type"
+      kubectl get nodes $(kubectl get pods -o wide | grep $node_type | awk '{print $7}' | uniq) --show-labels | perl -nle 'print $1 if /.*=(.+)/' | sort | uniq -c
+  end
+end
+
+function nodegroup --argument-names 'nodegroup'
+  if test -n "$nodegroup"
+    kubectl get nodes -o=jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.eks\.amazonaws\.com/nodegroup}{"\n"}{end}' | grep $nodegroup | sort -t'\t' -k2
+  end
+end
+
+function nodepod --argument-names 'nodegroup'
+  if test -n "$nodegroup"
+    set nodes (kubectl get nodes -o=jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.eks\.amazonaws\.com/nodegroup}{"\n"}{end}' | grep $nodegroup | sort -t'\t' -k2)
+    for node in $nodes
+        set node_name (echo $node | awk '{print $1}')
+        set node_group (echo $node | awk '{print $2}')
+        echo $node_name $node_group
+        kubectl get pods --field-selector spec.nodeName=$node_name -o custom-columns=NAME:.metadata.name --no-headers | tr '\n' ' '
+        echo -e "\n"
+    end
+  end
+end
+
 
 # https://github.com/fish-shell/fish-shell/issues/4869#issuecomment-377850086
 # cd - を使うための設定 builtin cd の代わりに使用
