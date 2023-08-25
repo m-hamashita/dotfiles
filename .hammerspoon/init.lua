@@ -100,6 +100,24 @@ hs.hotkey.bind({ "ctrl" }, ".", function()
 	FocusApp(app)
 end)
 
+local function inspectActiveWindow()
+	local win = hs.window.focusedWindow()
+	if not win then
+		hs.alert("No active window found!")
+		return
+	end
+
+	local frame = win:frame()
+	print("x:", frame.x, "y:", frame.y, "w:", frame.w, "h:", frame.h)
+	local application = win:application()
+	print("application:", application:name())
+	print("applidcation path:", application:path())
+	print("bundleID:", application:bundleID())
+	print("window title:", win:title())
+end
+
+-- hs.hotkey.bind({ "cmd", "shift" }, "I", inspectActiveWindow)
+
 local timeFirstControl, firstDown, secondDown = 0, false, false
 local noFlags = function(ev)
 	local result = true
