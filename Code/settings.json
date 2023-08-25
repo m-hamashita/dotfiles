@@ -335,6 +335,5 @@
   "workbench.sideBar.location": "right",
   "leetcode.defaultLanguage": "rust",
   "leetcode.showDescription": "In File Comment",
-  "leetcode.enableStatusBar": false,
-  "workbench.activityBar.visible": false
+  "leetcode.enableStatusBar": false
 }

@@ -274,7 +274,7 @@
   {
     "key": "\\ \\",
     "command": "settings.cycle.copilot.inlineSuggest",
-    "when": "editorFocus"
+    "when": "editorFocus && vim.mode == 'Normal'"
   },
   {
     "key": "shift+cmd+t",
@@ -304,5 +304,10 @@
     "key": "ctrl+`",
     "command": "-workbench.action.terminal.toggleTerminal",
     "when": "terminal.active"
+  },
+  {
+    "key": "\\ r",
+    "command": "editor.action.rename",
+    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
   }
 ]
