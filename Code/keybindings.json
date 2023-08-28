@@ -308,6 +308,6 @@
   {
     "key": "\\ r",
     "command": "editor.action.rename",
-    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly && vim.mode == 'Normal'"
   }
 ]
