@@ -69,8 +69,10 @@ abbr -a k kubectl
 abbr -a kg kubectl get pod
 abbr -a kd "kubectl get pod | fzf | cut -d ' ' -f 1 | xargs kubectl describe pod"
 abbr -a kl "kubectl get pod | fzf | cut -d ' ' -f 1 | xargs kubectl logs"
+abbr -a fd fd -H
 abbr -a ga git add
 abbr -a gb git switch -c 
+abbr -a gbd git branch -D
 abbr -a gc git commit -m
 abbr -a gca git commit --amend
 abbr -a gs git status
@@ -81,7 +83,8 @@ abbr -a gr git rebase
 abbr -a grh git reset --hard
 abbr -a grhh git reset --hard HEAD
 abbr -a rmbranch 'git branch --merged | grep -v master | grep -v production | grep -v "*" | xargs -I % git branch -d % && git remote prune origin'
-abbr -a todo 'rg "TODO:|FIXME:"'
+abbr -a todo 'rg -uu "TODO:|FIXME:"'
+abbr -a rg 'rg -uu'
 abbr -a awsdoc "aws ecr get-login-password | docker login --username AWS --password-stdin (aws sts get-caller-identity | jq -cr '.Account').dkr.ecr.ap-northeast-1.amazonaws.com"
 abbr -a on tmux kill-pane -a -t
 abbr -a one onelogin-aws-login -d 32400 --username (whoami)@gunosy.com --config-name ads --profile default
@@ -185,11 +188,11 @@ function gvm
 end
 
 function vr
-  vim (rg -l $argv)
+  vim (rg -uu -l $argv)
 end
 
 function vf
-  vim (fd $argv)
+  vim (fd -H $argv)
 end
 
 function mk
@@ -291,6 +294,31 @@ function fshow
                 xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
                 {}
 FZF-EOF"
+end
+
+function AZ --argument-names 'node_type'
+  if test -n "$node_type"
+      kubectl get nodes $(kubectl get pods -o wide | grep $node_type | awk '{print $7}' | uniq) --show-labels | perl -nle 'print $1 if /.*=(.+)/' | sort | uniq -c
+  end
+end
+
+function nodegroup --argument-names 'nodegroup'
+  if test -n "$nodegroup"
+    kubectl get nodes -o=jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.eks\.amazonaws\.com/nodegroup}{"\n"}{end}' | grep $nodegroup | sort -t'\t' -k2
+  end
+end
+
+function nodepod --argument-names 'nodegroup'
+  if test -n "$nodegroup"
+    set nodes (kubectl get nodes -o=jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.eks\.amazonaws\.com/nodegroup}{"\n"}{end}' | grep $nodegroup | sort -t'\t' -k2)
+    for node in $nodes
+        set node_name (echo $node | awk '{print $1}')
+        set node_group (echo $node | awk '{print $2}')
+        echo $node_name $node_group
+        kubectl get pods --field-selector spec.nodeName=$node_name -o custom-columns=NAME:.metadata.name --no-headers | tr '\n' ' '
+        echo -e "\n"
+    end
+  end
 end
 
 

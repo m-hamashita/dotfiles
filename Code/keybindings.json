@@ -58,14 +58,6 @@
     "command": "workbench.action.createTerminalEditor"
   },
   {
-    "key": "ctrl+t",
-    "command": "workbench.action.togglePanel"
-  },
-  {
-    "key": "cmd+j",
-    "command": "-workbench.action.togglePanel"
-  },
-  {
     "key": "cmd+;",
     "command": "workbench.action.toggleActivityBarVisibility"
   },
@@ -282,7 +274,7 @@
   {
     "key": "\\ \\",
     "command": "settings.cycle.copilot.inlineSuggest",
-    "when": "editorFocus"
+    "when": "editorFocus && vim.mode == 'Normal'"
   },
   {
     "key": "shift+cmd+t",
@@ -302,5 +294,20 @@
     "key": "ctrl+t",
     "command": "-extension.vim_ctrl+t",
     "when": "editorTextFocus && vim.active && vim.use<C-t> && !inDebugRepl"
+  },
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "terminal.active"
+  },
+  {
+    "key": "ctrl+`",
+    "command": "-workbench.action.terminal.toggleTerminal",
+    "when": "terminal.active"
+  },
+  {
+    "key": "\\ r",
+    "command": "editor.action.rename",
+    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly && vim.mode == 'Normal'"
   }
 ]
