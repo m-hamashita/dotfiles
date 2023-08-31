@@ -114,9 +114,25 @@ local function inspectActiveWindow()
 	print("applidcation path:", application:path())
 	print("bundleID:", application:bundleID())
 	print("window title:", win:title())
+	print("window size:", win:size())
 end
-
 -- hs.hotkey.bind({ "cmd", "shift" }, "I", inspectActiveWindow)
+
+local function maximizeActiveWindow()
+	local win = hs.window.focusedWindow()
+	if not win then
+		hs.alert("No active window found!")
+		return
+	end
+
+	local frame = win:frame()
+	frame.x = 0
+	frame.y = 25
+	frame.w = 2160
+	frame.h = 1920
+	win:setFrame(frame)
+end
+hs.hotkey.bind({ "cmd", "shift" }, "M", maximizeActiveWindow)
 
 local timeFirstControl, firstDown, secondDown = 0, false, false
 local noFlags = function(ev)
