@@ -127,9 +127,9 @@ local function maximizeActiveWindow()
 
 	local frame = win:frame()
 	frame.x = 0
-	frame.y = 25
+	-- frame.y = 25
 	frame.w = 2160
-	frame.h = 1920
+	-- frame.h = 1920
 	win:setFrame(frame)
 end
 hs.hotkey.bind({ "cmd", "shift" }, "M", maximizeActiveWindow)
