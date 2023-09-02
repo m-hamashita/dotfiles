@@ -16,6 +16,9 @@
   "[sql]": {
     "editor.formatOnSave": false
   },
+  "[markdown]": {
+    "editor.formatOnSave": false
+  },
   "code-runner.runInTerminal": true,
   "codetour.showMarkers": true,
   "editor.accessibilitySupport": "off",
@@ -57,14 +60,6 @@
   "go.toolsManagement.autoUpdate": true,
   "go.useLanguageServer": true,
   "javascript.inlayHints.parameterNames.enabled": "all",
-  "mssql.connections": [
-    {
-      "database": "{{put-database-name-here}}",
-      "password": "",
-      "server": "{{put-server-name-here}}",
-      "user": "{{put-username-here}}"
-    }
-  ],
   "python.analysis.inlayHints.functionReturnTypes": true,
   "python.analysis.inlayHints.variableTypes": true,
   "python.analysis.typeCheckingMode": "off",
@@ -335,5 +330,8 @@
   "workbench.sideBar.location": "right",
   "leetcode.defaultLanguage": "rust",
   "leetcode.showDescription": "In File Comment",
-  "leetcode.enableStatusBar": false
+  "leetcode.enableStatusBar": false,
+  "workbench.activityBar.visible": false,
+  "window.zoomLevel": 1,
+  "workbench.editor.wrapTabs": true
 }

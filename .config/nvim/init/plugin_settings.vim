@@ -19,20 +19,6 @@ let g:copilot_filetypes = {
       \ 'yaml': 1,
       \ }
 
-" open github link for dein toml
-" ex. repo = 'neovim/nvim-lspconfig' => https://github.com/neovim/nvim-lspconfig
-function! s:open_repository_from_toml() abort
-  let github_domain = 'https://github.com/'
-  let repo = getline('.')
-  let repo = substitute(repo, 'repo =', '', '')
-  let repo = substitute(repo, "\'", '', 'g')
-  let repo = substitute(repo, '\"', '', 'g')
-  let repo = substitute(repo, ' ', '', 'g')
-
-  silent exec "!open '" . github_domain . repo . "'"
-endfunction
-nnoremap <silent> tt :call <SID>open_repository_from_toml()<CR>
-
 " back to definition: <C-o> - jump to original window on list create.
 nmap <silent> gp <C-o>
 
