@@ -332,6 +332,5 @@
   "leetcode.showDescription": "In File Comment",
   "leetcode.enableStatusBar": false,
   "workbench.activityBar.visible": false,
-  "window.zoomLevel": 1,
   "workbench.editor.wrapTabs": true
 }
