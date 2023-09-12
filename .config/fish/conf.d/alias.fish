@@ -75,6 +75,7 @@ abbr -a gb git switch -c
 abbr -a gbd git branch -D
 abbr -a gc git commit -m
 abbr -a gca git commit --amend
+abbr -a gf git fetch
 abbr -a gs git status
 abbr -a gd git diff
 abbr -a gp git pull
