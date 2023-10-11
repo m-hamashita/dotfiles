@@ -53,3 +53,5 @@ packages:
   - name: snyk/cli@v1.1183.0
   - name: tfutils/tfenv@v3.0.0
   - name: derailed/k9s@v0.27.4
+  - name: mikefarah/yq@v4.35.1
+  - name: jez/as-tree@0.12.0
