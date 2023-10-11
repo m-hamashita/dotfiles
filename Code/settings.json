@@ -331,6 +331,7 @@
   "leetcode.defaultLanguage": "rust",
   "leetcode.showDescription": "In File Comment",
   "leetcode.enableStatusBar": false,
-  "workbench.activityBar.visible": false,
-  "workbench.editor.wrapTabs": true
+  "workbench.editor.wrapTabs": true,
+  "explorer.confirmDelete": false,
+  "window.zoomLevel": 1
 }

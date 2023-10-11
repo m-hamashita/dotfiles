@@ -288,7 +288,7 @@
   {
     "key": "ctrl+f ctrl+v",
     "command": "workbench.action.closeSidebar",
-    "when": "sideBarVisible"
+    "when": "sideBarVisible && !terminalFocus"
   },
   {
     "key": "ctrl+t",
