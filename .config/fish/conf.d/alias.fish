@@ -190,7 +190,7 @@ function gvm
 end
 
 function vr
-  vim (rg -uu -l $argv)
+  vim (rg -l $argv)
 end
 
 function vf
