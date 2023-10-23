@@ -321,8 +321,21 @@
     "when": "filesExplorerFocus && !terminalFocus || editorTextFocus && !terminalFocus && vim.mode == 'Normal'"
   },
   {
+    "key": "alt+l",
+    "command": "workbench.action.moveEditorToNextGroup"
+  },
+  {
+    "key": "alt+h",
+    "command": "workbench.action.moveEditorToPreviousGroup"
+  },
+  {
     "key": "shift+cmd+e",
-    "command": "workbench.action.closeSidebar",
-    "when": "sideBarVisible"
+    "command": "workbench.view.explorer",
+    "when": "viewContainer.workbench.view.explorer.enabled && !filesExplorerFocus"
+  },
+  {
+    "key": "shift+cmd+e",
+    "command": "-workbench.view.explorer",
+    "when": "viewContainer.workbench.view.explorer.enabled"
   }
 ]

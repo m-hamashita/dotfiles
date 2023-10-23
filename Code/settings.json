@@ -333,5 +333,11 @@
   "leetcode.enableStatusBar": false,
   "workbench.editor.wrapTabs": true,
   "explorer.confirmDelete": false,
-  "window.zoomLevel": 1
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "window.zoomLevel": -2,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
