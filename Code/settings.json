@@ -144,8 +144,7 @@
     {
       "before": [
         "<leader>",
-        "o",
-        "n"
+        "o"
       ],
       "commands": [
         "workbench.action.closeOtherEditors"
@@ -336,8 +335,9 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "window.zoomLevel": -2,
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "leetcode.hint.commentDescription": false,
+  "leetcode.endpoint": "leetcode"
 }
