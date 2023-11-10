@@ -260,9 +260,6 @@
   "terminal.external.osxExec": "terminal.app",
   "markdown-preview-enhanced.previewTheme": "github-dark.css",
   "terminal.integrated.fontFamily": "Meslo LG S for Powerline,Hack Nerd Font",
-  "sync.forceUpload": true,
-  "python.linting.flake8Path": "/Users/masakatsu.hamashita/.local/bin/flake8",
-  "python.linting.mypyPath": "/Users/masakatsu.hamashita/.local/bin/mypy",
   "git.ignoreRebaseWarning": true,
   "errorLens.enabledDiagnosticLevels": [
     "error",
@@ -309,23 +306,20 @@
       "overrideWorkspaceSettings": true,
       "values": [
         {
-          "github.copilot.inlineSuggest.enable": false
+          "github.copilot.editor.enableAutoCompletions": false
         },
         {
-          "github.copilot.inlineSuggest.enable": true
+          "github.copilot.editor.enableAutoCompletions": true
         }
       ]
     }
   ],
-  "github.copilot.inlineSuggest.enable": true,
+  "github.copilot.editor.enableAutoCompletions": true,
   "git.openRepositoryInParentFolders": "never",
   "circleci.hostUrl": "",
   "leetcode.hint.configWebviewMarkdown": false,
   "leetcode.workspaceFolder": "/Users/masakatsu.hamashita/work/hobby/competitive-programming/leetcode/src",
   "leetcode.hint.commandShortcut": false,
-  "python.linting.flake8Args": [
-    "--ignore=E501"
-  ],
   "workbench.sideBar.location": "right",
   "leetcode.defaultLanguage": "rust",
   "leetcode.showDescription": "In File Comment",
@@ -339,5 +333,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "leetcode.hint.commentDescription": false,
-  "leetcode.endpoint": "leetcode"
+  "leetcode.endpoint": "leetcode",
+  "window.zoomLevel": 2
 }
