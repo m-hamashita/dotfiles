@@ -1,7 +1,8 @@
 {
   "[python]": {
     "editor.codeActionsOnSave": {
-      "source.organizeImports": true
+      "source.organizeImports.ruff": true,
+      "source.fixAll.ruff": true
     },
     "editor.formatOnPaste": false,
     "editor.formatOnSave": true,
@@ -22,7 +23,6 @@
   "code-runner.runInTerminal": true,
   "codetour.showMarkers": true,
   "editor.accessibilitySupport": "off",
-  "editor.bracketPairColorization.enabled": true,
   "editor.formatOnSave": true,
   "editor.inlayHints.fontSize": 12,
   "editor.inlineSuggest.enabled": true,
@@ -280,8 +280,6 @@
   "gitlens.blame.format": "${message|20?} ${agoOrDate|10-}",
   "editor.glyphMargin": false,
   "terminal.integrated.customGlyphs": false,
-  "editor.guides.indentation": false,
-  "editor.guides.bracketPairs": false,
   "editor.wordWrap": "off",
   "diffEditor.wordWrap": "off",
   // "blockman.n24AnalyzeRoundBrackets": true,
@@ -334,5 +332,5 @@
   },
   "leetcode.hint.commentDescription": false,
   "leetcode.endpoint": "leetcode",
-  "window.zoomLevel": 2
+  "editor.guides.indentation": false,
 }
