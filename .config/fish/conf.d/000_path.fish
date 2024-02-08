@@ -49,8 +49,10 @@ set -x PATH ~/.gvm/bin $PATH
 
 set -x XDG_DATA_HOME $HOME/.local/share
 set -x PATH $XDG_DATA_HOME/aquaproj-aqua/bin $PATH
-set -x AQUA_GLOBAL_CONFIG $(aqua root-dir)/aqua.yaml
-set -x AQUA_POLICY_CONFIG $(aqua root-dir)/aqua-policy.yaml
+# set -x AQUA_GLOBAL_CONFIG $(aqua root-dir)/aqua.yaml
+set -x AQUA_GLOBAL_CONFIG ~/dotfiles/aqua/aqua.yaml
+set -x AQUA_POLICY_CONFIG ~/dotfiles/aqua/aqua-policy.yaml
+
 
 # set -x PATH /usr/local/opt/llvm/bin $PATH
 # set -g fish_user_paths "/usr/local/opt/llvm/bin" $fish_user_paths
