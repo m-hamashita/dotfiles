@@ -1,4 +1,5 @@
 {
+  "editor.formatOnSave": true,
   "[python]": {
     "editor.codeActionsOnSave": {
       "source.organizeImports.ruff": true,
@@ -18,12 +19,21 @@
     "editor.formatOnSave": false
   },
   "[markdown]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.formatOnSave": true
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": true
   },
   "code-runner.runInTerminal": true,
   "codetour.showMarkers": true,
   "editor.accessibilitySupport": "off",
-  "editor.formatOnSave": true,
   "editor.inlayHints.fontSize": 12,
   "editor.inlineSuggest.enabled": true,
   "editor.minimap.scale": 1,
@@ -62,7 +72,7 @@
   "javascript.inlayHints.parameterNames.enabled": "all",
   "python.analysis.inlayHints.functionReturnTypes": true,
   "python.analysis.inlayHints.variableTypes": true,
-  "python.analysis.typeCheckingMode": "off",
+  "python.analysis.typeCheckingMode": "basic",
   "python.formatting.blackPath": "/Users/masakatsu.hamashita/.local/bin/black",
   "python.formatting.provider": "black",
   "python.languageServer": "Pylance",
@@ -328,9 +338,11 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
   },
   "leetcode.hint.commentDescription": false,
   "leetcode.endpoint": "leetcode",
   "editor.guides.indentation": false,
+  "deno.enable": false,
 }
