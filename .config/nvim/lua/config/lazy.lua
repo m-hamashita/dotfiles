@@ -199,10 +199,10 @@ require("lazy").setup({
 			require("config.plugins.neoterm").config()
 		end,
 	},
-	{
-		"linty-org/key-menu.nvim",
-		event = "UIEnter",
-	},
+	-- {
+	-- 	"linty-org/key-menu.nvim",
+	-- 	event = "UIEnter",
+	-- },
 	{
 		"numToStr/Comment.nvim",
 		event = "UIEnter",
@@ -222,13 +222,13 @@ require("lazy").setup({
 			require("config.plugins.rainbow").config()
 		end,
 	},
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		event = "UIEnter",
-		config = function()
-			require("config.plugins.indent-blankline").config()
-		end,
-	},
+	-- {
+	-- 	"lukas-reineke/indent-blankline.nvim",
+	-- 	event = "UIEnter",
+	-- 	config = function()
+	-- 		require("config.plugins.indent-blankline").config()
+	-- 	end,
+	-- },
 	{
 		"notomo/reacher.nvim",
 		event = "UIEnter",
