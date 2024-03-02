@@ -25,6 +25,9 @@ packages:
     repo_owner: remotemobprogramming
     repo_name: mob
     asset: "mob_{{.Version}}_{{.OS}}_amd64.{{.Format}}"
+    overrides:
+      - goos: darwin
+        asset: "mob_{{.Version}}_{{.OS}}_universal.{{.Format}}"
     description: Tool for smooth git handover
     format: tar.gz
   - type: github_release

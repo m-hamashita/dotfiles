@@ -1,7 +1,9 @@
 {
+  "editor.formatOnSave": true,
   "[python]": {
     "editor.codeActionsOnSave": {
-      "source.organizeImports": true
+      "source.organizeImports.ruff": "explicit",
+      "source.fixAll.ruff": "explicit"
     },
     "editor.formatOnPaste": false,
     "editor.formatOnSave": true,
@@ -17,13 +19,21 @@
     "editor.formatOnSave": false
   },
   "[markdown]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.formatOnSave": true
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": true
   },
   "code-runner.runInTerminal": true,
   "codetour.showMarkers": true,
   "editor.accessibilitySupport": "off",
-  "editor.bracketPairColorization.enabled": true,
-  "editor.formatOnSave": true,
   "editor.inlayHints.fontSize": 12,
   "editor.inlineSuggest.enabled": true,
   "editor.minimap.scale": 1,
@@ -62,7 +72,7 @@
   "javascript.inlayHints.parameterNames.enabled": "all",
   "python.analysis.inlayHints.functionReturnTypes": true,
   "python.analysis.inlayHints.variableTypes": true,
-  "python.analysis.typeCheckingMode": "off",
+  "python.analysis.typeCheckingMode": "basic",
   "python.formatting.blackPath": "/Users/masakatsu.hamashita/.local/bin/black",
   "python.formatting.provider": "black",
   "python.languageServer": "Pylance",
@@ -144,8 +154,7 @@
     {
       "before": [
         "<leader>",
-        "o",
-        "n"
+        "o"
       ],
       "commands": [
         "workbench.action.closeOtherEditors"
@@ -235,6 +244,14 @@
     "statusBar.noFolderBorder": "#24242400",
     "statusBar.prominentBackground": "#689d6a",
     "statusBar.prominentHoverBackground": "#689d6a70",
+    "statusBarItem.prominentForeground": "#ebdbb2",
+    "statusBarItem.prominentBackground": "#242424",
+    "statusBarItem.hoverForeground": "#ebdbb2",
+    "statusBarItem.prominentHoverForeground": "#ebdbb2",
+    "statusBarItem.remoteForeground": "#ebdbb2",
+    "statusBarItem.remoteHoverForeground": "#ebdbb2",
+    "statusBarItem.offlineForeground": "#ebdbb2",
+    "statusBar.noFolderForeground": "#ebdbb2",
     "panel.border": "#3c3836",
     "panelTitle.activeForeground": "#ebdbb2",
     "panel.background": "#242424",
@@ -258,12 +275,8 @@
   "outline-map.expandOutlineMethod": "hover",
   "outline-map.follow": "cursor",
   "bazel.buildifierExecutable": "/Users/masakatsu.hamashita/.local/share/aquaproj-aqua/bin/buildifier",
-  "terminal.external.osxExec": "terminal.app",
   "markdown-preview-enhanced.previewTheme": "github-dark.css",
   "terminal.integrated.fontFamily": "Meslo LG S for Powerline,Hack Nerd Font",
-  "sync.forceUpload": true,
-  "python.linting.flake8Path": "/Users/masakatsu.hamashita/.local/bin/flake8",
-  "python.linting.mypyPath": "/Users/masakatsu.hamashita/.local/bin/mypy",
   "git.ignoreRebaseWarning": true,
   "errorLens.enabledDiagnosticLevels": [
     "error",
@@ -284,8 +297,6 @@
   "gitlens.blame.format": "${message|20?} ${agoOrDate|10-}",
   "editor.glyphMargin": false,
   "terminal.integrated.customGlyphs": false,
-  "editor.guides.indentation": false,
-  "editor.guides.bracketPairs": false,
   "editor.wordWrap": "off",
   "diffEditor.wordWrap": "off",
   // "blockman.n24AnalyzeRoundBrackets": true,
@@ -310,27 +321,36 @@
       "overrideWorkspaceSettings": true,
       "values": [
         {
-          "github.copilot.inlineSuggest.enable": false
+          "github.copilot.editor.enableAutoCompletions": false
         },
         {
-          "github.copilot.inlineSuggest.enable": true
+          "github.copilot.editor.enableAutoCompletions": true
         }
       ]
     }
   ],
-  "github.copilot.inlineSuggest.enable": true,
+  "github.copilot.editor.enableAutoCompletions": true,
   "git.openRepositoryInParentFolders": "never",
   "circleci.hostUrl": "",
   "leetcode.hint.configWebviewMarkdown": false,
   "leetcode.workspaceFolder": "/Users/masakatsu.hamashita/work/hobby/competitive-programming/leetcode/src",
   "leetcode.hint.commandShortcut": false,
-  "python.linting.flake8Args": [
-    "--ignore=E501"
-  ],
   "workbench.sideBar.location": "right",
   "leetcode.defaultLanguage": "rust",
   "leetcode.showDescription": "In File Comment",
   "leetcode.enableStatusBar": false,
-  "workbench.activityBar.visible": false,
-  "workbench.editor.wrapTabs": true
+  "workbench.editor.wrapTabs": true,
+  "explorer.confirmDelete": false,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "leetcode.hint.commentDescription": false,
+  "leetcode.endpoint": "leetcode",
+  "editor.guides.indentation": false,
+  "deno.enable": false,
+  "terminal.external.osxExec": "kitty.app",
 }

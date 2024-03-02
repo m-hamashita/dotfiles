@@ -1,7 +1,7 @@
 # tmux
 function attach_tmux_session_if_needed
-    set ID (tmux list-sessions)
-    if test -z "$ID"
+    set existing_sessions (tmux list-sessions | cut -d: -f1)
+    if test -z "$existing_sessions"
         tmux new-session
         return
     end
@@ -11,10 +11,15 @@ function attach_tmux_session_if_needed
     if test "$TERM_PROGRAM" = "vscode"
         set ID vscode
     end
-    if test "$ID" = "$new_session"
-        tmux new-session
-    else if test -n "$ID"
+    # if test "$ID" = "$new_session"
+    #     tmux new-session
+    # else if test -n "$ID"
+    #     tmux attach-session -t "$ID"
+    # end
+    if contains $ID $existing_sessions
         tmux attach-session -t "$ID"
+    else
+        tmux new-session -s $ID
     end
 end
 

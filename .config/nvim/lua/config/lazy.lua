@@ -200,10 +200,6 @@ require("lazy").setup({
 		end,
 	},
 	{
-		"linty-org/key-menu.nvim",
-		event = "UIEnter",
-	},
-	{
 		"numToStr/Comment.nvim",
 		event = "UIEnter",
 		config = function()
@@ -225,9 +221,8 @@ require("lazy").setup({
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = "UIEnter",
-		config = function()
-			require("config.plugins.indent-blankline").config()
-		end,
+		main = "ibl",
+		opts = {},
 	},
 	{
 		"notomo/reacher.nvim",
