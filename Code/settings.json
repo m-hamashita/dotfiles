@@ -2,8 +2,8 @@
   "editor.formatOnSave": true,
   "[python]": {
     "editor.codeActionsOnSave": {
-      "source.organizeImports.ruff": true,
-      "source.fixAll.ruff": true
+      "source.organizeImports.ruff": "explicit",
+      "source.fixAll.ruff": "explicit"
     },
     "editor.formatOnPaste": false,
     "editor.formatOnSave": true,
@@ -244,6 +244,14 @@
     "statusBar.noFolderBorder": "#24242400",
     "statusBar.prominentBackground": "#689d6a",
     "statusBar.prominentHoverBackground": "#689d6a70",
+    "statusBarItem.prominentForeground": "#ebdbb2",
+    "statusBarItem.prominentBackground": "#242424",
+    "statusBarItem.hoverForeground": "#ebdbb2",
+    "statusBarItem.prominentHoverForeground": "#ebdbb2",
+    "statusBarItem.remoteForeground": "#ebdbb2",
+    "statusBarItem.remoteHoverForeground": "#ebdbb2",
+    "statusBarItem.offlineForeground": "#ebdbb2",
+    "statusBar.noFolderForeground": "#ebdbb2",
     "panel.border": "#3c3836",
     "panelTitle.activeForeground": "#ebdbb2",
     "panel.background": "#242424",
@@ -267,7 +275,6 @@
   "outline-map.expandOutlineMethod": "hover",
   "outline-map.follow": "cursor",
   "bazel.buildifierExecutable": "/Users/masakatsu.hamashita/.local/share/aquaproj-aqua/bin/buildifier",
-  "terminal.external.osxExec": "terminal.app",
   "markdown-preview-enhanced.previewTheme": "github-dark.css",
   "terminal.integrated.fontFamily": "Meslo LG S for Powerline,Hack Nerd Font",
   "git.ignoreRebaseWarning": true,
@@ -345,4 +352,5 @@
   "leetcode.endpoint": "leetcode",
   "editor.guides.indentation": false,
   "deno.enable": false,
+  "terminal.external.osxExec": "kitty.app",
 }
