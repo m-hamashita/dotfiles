@@ -23,9 +23,6 @@ ln -sf ~/dotfiles/.config/ ~/.config
 #.tigrc
 ln -sf ~/dotfiles/.tigrc ~/.tigrc
 
-# .pythonstartup
-ln -sf ~/dotfiles/.pythonstartup ~/.pythonstartup
-
 # .hammerspoon
 ln -sf ~/dotfiles/.hammerspoon ~/.hammerspoon
 
