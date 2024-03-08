@@ -269,7 +269,6 @@
   },
   "workbench.colorTheme": "Kary Pro Colors － Dark",
   "workbench.editor.enablePreviewFromQuickOpen": false,
-  "workbench.editor.tabSizing": "fit",
   "workbench.tree.indent": 24,
   "workbench.tree.renderIndentGuides": "always",
   "outline-map.expandOutlineMethod": "hover",
@@ -388,8 +387,25 @@
     }
   },
   "C_Cpp.default.includePath": [
-      "${workspaceFolder}/**",
-      "/opt/homebrew/include/**",
-      "/usr/local/include/**",
+    "${workspaceFolder}/**",
+    "/opt/homebrew/include/**",
+    "/usr/local/include/**"
+  ],
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "workbench.editor.tabSizing": "shrink",
+  "github.copilot.chat.localeOverride": "en",
+  "remote.SSH.defaultExtensions": [
+    "eamodio.gitlens",
+    "GitHub.copilot",
+    "GitHub.copilot-chat",
+    "esbenp.prettier-vscode",
+    "rust-lang.rust-analyzer",
+    "hashicorp.terraform",
+    "GitHub.vscode-pull-request-github",
+    "donjayamanne.githistory",
+    "samuelcolvin.jinjahtml",
+    "BazelBuild.vscode-byubazel",
+    "Gruntfuggly.todo-tree",
+    "googlecloudtools.cloudcode",
   ],
 }
