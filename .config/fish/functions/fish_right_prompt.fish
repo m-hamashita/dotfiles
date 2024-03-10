@@ -22,7 +22,8 @@ function kubectl_status
   echo (set_color cyan)$KUBECTL_PROMPT_ICON" "(set_color white)"$ctx$KUBECTL_PROMPT_SEPARATOR$ns"
 
 end
-function awsctx 
+
+function aws_context 
   if [ (command -v awsctx) ]
       set -g awsctx_profile (awsctx active-context)
   end
@@ -37,5 +38,5 @@ function gcloud_config
 end
 
 function fish_right_prompt
-  echo "("(kubectl_status)"/"(awsctx)"/"(gcloud_config)")"
+  echo "("(kubectl_status)"/"(aws_context)"/"(gcloud_config)")"
 end
