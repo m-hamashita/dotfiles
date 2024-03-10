@@ -93,5 +93,5 @@ set -x HISTORY_IGNORE "(cd *|pwd|ls|rm *)"
 set -x FZF_DEFAULT_OPTS '--height 70% --layout=reverse --preview-window="wrap" --preview "bat --style=numbers --color=always --line-range :300 {}"'
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/masakatsu.hamashita/local/google-cloud-sdk/path.fish.inc' ]; . '/Users/masakatsu.hamashita/local/google-cloud-sdk/path.fish.inc'; end
+if [ -f '/Users/masakatsu.hamashita/.local/google-cloud-sdk/path.fish.inc' ]; . '/Users/masakatsu.hamashita/.local/google-cloud-sdk/path.fish.inc'; end
 
