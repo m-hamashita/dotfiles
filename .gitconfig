@@ -15,7 +15,7 @@
     cmd = "nvim -d -c \"4wincmd w | wincmd J\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"  \"$MERGED\""
 [user]
 	name = m-hamashita
-	email = masakatsu.hamashita@gunosy.com
+	email = masakatsu.hamashita@legalontech.jp
 [color]
 	diff = auto
 	status = auto

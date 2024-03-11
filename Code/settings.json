@@ -93,7 +93,7 @@
   // ],
   "sync.gist": "df73c85695bf359d2465af3337aec7d1",
   "terminal.integrated.defaultProfile.linux": "tmux",
-  "terminal.integrated.defaultProfile.osx": "fish",
+  "terminal.integrated.defaultProfile.osx": "fish (2)",
   "terminal.integrated.env.osx": {
     "FIG_NEW_SESSION": "1"
   },
@@ -269,7 +269,6 @@
   },
   "workbench.colorTheme": "Kary Pro Colors － Dark",
   "workbench.editor.enablePreviewFromQuickOpen": false,
-  "workbench.editor.tabSizing": "fit",
   "workbench.tree.indent": 24,
   "workbench.tree.renderIndentGuides": "always",
   "outline-map.expandOutlineMethod": "hover",
@@ -353,4 +352,60 @@
   "editor.guides.indentation": false,
   "deno.enable": false,
   "terminal.external.osxExec": "kitty.app",
+  "editor.stickyScroll.enabled": false,
+  "explorer.confirmDragAndDrop": false,
+  "terminal.integrated.profiles.osx": {
+    "bash": {
+      "path": "bash",
+      "args": [
+        "-l"
+      ],
+      "icon": "terminal-bash"
+    },
+    "zsh": {
+      "path": "zsh",
+      "args": [
+        "-l"
+      ]
+    },
+    "fish": {
+      "path": "fish",
+      "args": [
+        "-l"
+      ]
+    },
+    "tmux": {
+      "path": "tmux",
+      "icon": "terminal-tmux"
+    },
+    "pwsh": {
+      "path": "pwsh",
+      "icon": "terminal-powershell"
+    },
+    "fish (2)": {
+      "path": "/opt/homebrew/bin/fish"
+    }
+  },
+  "C_Cpp.default.includePath": [
+    "${workspaceFolder}/**",
+    "/opt/homebrew/include/**",
+    "/usr/local/include/**"
+  ],
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "workbench.editor.tabSizing": "shrink",
+  "github.copilot.chat.localeOverride": "en",
+  "remote.SSH.defaultExtensions": [
+    "eamodio.gitlens",
+    "GitHub.copilot",
+    "GitHub.copilot-chat",
+    "esbenp.prettier-vscode",
+    "rust-lang.rust-analyzer",
+    "hashicorp.terraform",
+    "GitHub.vscode-pull-request-github",
+    "donjayamanne.githistory",
+    "samuelcolvin.jinjahtml",
+    "BazelBuild.vscode-byubazel",
+    "Gruntfuggly.todo-tree",
+    "googlecloudtools.cloudcode",
+  ],
 }

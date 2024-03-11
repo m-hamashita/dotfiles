@@ -2,9 +2,6 @@
 function kubectl_status
   [ -z "$KUBECTL_PROMPT_ICON" ]; and set -l KUBECTL_PROMPT_ICON "⎈"
   [ -z "$KUBECTL_PROMPT_SEPARATOR" ]; and set -l KUBECTL_PROMPT_SEPARATOR "/"
-  if [ (command -v awsctx) ]
-      set -g awsctx_profile (awsctx active-context)
-  end
 
   set -l config $KUBECONFIG
   [ -z "$config" ]; and set -l config "$HOME/.kube/config"
@@ -22,10 +19,24 @@ function kubectl_status
       [ -z $ns ]; and set -g ns 'default'
     end
   end
-  echo (set_color cyan)$KUBECTL_PROMPT_ICON" "(set_color white)"($ctx$KUBECTL_PROMPT_SEPARATOR$ns$KUBECTL_PROMPT_SEPARATOR$awsctx_profile)"
+  echo (set_color cyan)$KUBECTL_PROMPT_ICON" "(set_color white)"$ctx$KUBECTL_PROMPT_SEPARATOR$ns"
 
 end
 
+function aws_context 
+  if [ (command -v awsctx) ]
+      set -g awsctx_profile (awsctx active-context)
+  end
+  echo (set_color white)$awsctx_profile
+end 
+
+function gcloud_config
+  if [ (command -v gcloud) ]
+      set -g gcloud_project (cat ~/.config/gcloud/active_config)
+  end
+  echo (set_color white)"$gcloud_project"
+end
+
 function fish_right_prompt
-  echo (kubectl_status)
+  echo "("(kubectl_status)"/"(aws_context)"/"(gcloud_config)")"
 end

@@ -136,16 +136,12 @@ else
     # echo "neovim is not installed"
 end
 
-# if [ (command -v gcc-12) ]
-#     alias gcc '/opt/homebrew/bin/gcc-12'
-# else
-#     # echo "gcc-11 is not installed"
-# end
-# if [ (command -v g++-12) ]
-#     alias g++ '/opt/homebrew/bin/g++-12 --sysroot=/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk'
-# else
-#     # echo "g++-11 is not installed"
-# end
+if [ (command -v gcc-13) ]
+    alias gcc '/opt/homebrew/bin/gcc-13'
+end
+if [ (command -v g++-13) ]
+    alias g++ '/opt/homebrew/bin/g++-13 --sysroot=/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk'
+end
 if [ (command -v tmux) ]
     abbr -a ta 'tmux a -d'
     abbr -a tn tmux new-session -s 
