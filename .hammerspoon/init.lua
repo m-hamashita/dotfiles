@@ -95,7 +95,7 @@ hs.hotkey.bind({ "ctrl" }, ",", function()
 end)
 
 hs.hotkey.bind({ "ctrl" }, ".", function()
-	local appName = "Google Chrome"
+	local appName = "Notion"
 	local app = hs.application.find(appName)
 	FocusApp(app)
 end)
