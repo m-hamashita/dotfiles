@@ -17,10 +17,10 @@ end
 
 function jira --argument-names 'ID'
     if test -n "$ID"
-        open "https://gunosy.atlassian.net/browse/$ID"
+        open "https://$ORGANIZATION.atlassian.net/browse/$ID"
     else
         set ID (git rev-parse --abbrev-ref HEAD | sed "s|^mob/||")
-        open "https://gunosy.atlassian.net/browse/$ID"
+        open "https://$ORGANIZATION/browse/$ID"
     end
 end
 
@@ -87,7 +87,7 @@ abbr -a rmbranch 'git branch --merged | grep -v master | grep -v production | gr
 abbr -a todo 'rg "TODO:|FIXME:"'
 abbr -a awsdoc "aws ecr get-login-password | docker login --username AWS --password-stdin (aws sts get-caller-identity | jq -cr '.Account').dkr.ecr.ap-northeast-1.amazonaws.com"
 abbr -a on tmux kill-pane -a -t
-abbr -a one onelogin-aws-login -d 32400 --username (whoami)@gunosy.com --config-name ads --profile default
+abbr -a one onelogin-aws-login -d 32400 --username (whoami)@$ORGANIZATION.com --config-name ads --profile default
 abbr -a ... '../../'
 abbr -a .... '../../../'
 abbr -a air 'remo aircon send --name エアコン'
@@ -202,8 +202,8 @@ end
 
 function o --argument-names 'context'
     if test -n "$context"
-        echo "onelogin-aws-login -d 32400 --username (whoami)@gunosy.com --config-name $context --profile $context | awsctx use-context $context"
-        onelogin-aws-login -d 32400 --username (whoami)@gunosy.com --config-name $context --profile $context
+        echo "onelogin-aws-login -d 32400 --username (whoami)@$ORGANIZATION.com --config-name $context --profile $context | awsctx use-context $context"
+        onelogin-aws-login -d 32400 --username (whoami)@$ORGANIZATION.com --config-name $context --profile $context
         awsctx use-context --profile $context
     else
         echo "Please Input context for onelogin."
