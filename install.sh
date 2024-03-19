@@ -12,12 +12,6 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
     rm nvim
 fi
 
-# dein install
-mkdir -p ~/.cache/dein
-cd ~/.cache/dein
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-sh ./installer.sh
-
 # fish install
 brew install fish
 echo "Please add `/usr/local/bin/fish` to /etc/shells "
@@ -29,3 +23,6 @@ echo "Font: menlo for powerline"
 echo "Non-ASCII: Hack Nerd Font Mono for defx.nvim"
 
 chsh -s /usr/local/bin/fish
+
+# aqua install
+curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v2.3.0/aqua-installer | bash
