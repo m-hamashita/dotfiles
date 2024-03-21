@@ -15,9 +15,7 @@
   "[rust]": {
     "editor.formatOnSave": true
   },
-  "[sql]": {
-    "editor.formatOnSave": false
-  },
+  "[sql]": { "editor.formatOnSave": false },
   "[markdown]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -113,107 +111,51 @@
   "vim.hlsearch": true,
   "vim.insertModeKeyBindings": [
     {
-      "after": [
-        "<Esc>"
-      ],
-      "before": [
-        "j",
-        "j"
-      ]
+      "after": ["<Esc>"],
+      "before": ["j", "j"]
     }
   ],
   "vim.mouseSelectionGoesIntoVisualMode": false,
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "g",
-        "p"
-      ],
-      "commands": [
-        "extension.vim_ctrl+o"
-      ]
+      "before": ["g", "p"],
+      "commands": ["extension.vim_ctrl+o"]
     },
     {
-      "before": [
-        "g",
-        "o"
-      ],
-      "commands": [
-        "workbench.action.navigateForwardInNavigationLocations"
-      ]
+      "before": ["g", "o"],
+      "commands": ["workbench.action.navigateForwardInNavigationLocations"]
     },
     {
-      "before": [
-        "g",
-        "i"
-      ],
-      "commands": [
-        "editor.action.goToImplementation"
-      ]
+      "before": ["g", "i"],
+      "commands": ["editor.action.goToImplementation"]
     },
     {
-      "before": [
-        "<leader>",
-        "o"
-      ],
-      "commands": [
-        "workbench.action.closeOtherEditors"
-      ]
+      "before": ["<leader>", "o"],
+      "commands": ["workbench.action.closeOtherEditors"]
     },
     {
-      "before": [
-        "<leader>",
-        "r"
-      ],
-      "commands": [
-        "editor.action.rename"
-      ]
+      "before": ["<leader>", "r"],
+      "commands": ["editor.action.rename"]
     },
     {
-      "before": [
-        "<C-c>",
-        "<C-c>"
-      ],
-      "commands": [
-        ":nohl"
-      ]
+      "before": ["<C-c>", "<C-c>"],
+      "commands": [":nohl"]
     },
     {
-      "before": [
-        "j"
-      ],
-      "after": [
-        "g",
-        "j"
-      ]
+      "before": ["j"],
+      "after": ["g", "j"]
     },
     {
-      "before": [
-        "k"
-      ],
-      "after": [
-        "g",
-        "k"
-      ]
+      "before": ["k"],
+      "after": ["g", "k"]
     },
     {
-      "before": [
-        "Y"
-      ],
-      "after": [
-        "y",
-        "$"
-      ]
+      "before": ["Y"],
+      "after": ["y", "$"]
     },
     {
-      "before": [
-        "x"
-      ],
-      "after": [
-        "\"",
-        "_",
-        "x"
-      ]
+      "before": ["x"],
+      "after": ["\"", "_", "x"]
     }
   ],
   "vim.useSystemClipboard": true,
@@ -277,11 +219,7 @@
   "markdown-preview-enhanced.previewTheme": "github-dark.css",
   "terminal.integrated.fontFamily": "Meslo LG S for Powerline,Hack Nerd Font",
   "git.ignoreRebaseWarning": true,
-  "errorLens.enabledDiagnosticLevels": [
-    "error",
-    "warning",
-    "info"
-  ],
+  "errorLens.enabledDiagnosticLevels": ["error", "warning", "info"],
   "files.autoSave": "onFocusChange",
   "editor.inlayHints.enabled": "onUnlessPressed",
   // "editor.inlayHints.enabled": "off",
@@ -357,22 +295,16 @@
   "terminal.integrated.profiles.osx": {
     "bash": {
       "path": "bash",
-      "args": [
-        "-l"
-      ],
+      "args": ["-l"],
       "icon": "terminal-bash"
     },
     "zsh": {
       "path": "zsh",
-      "args": [
-        "-l"
-      ]
+      "args": ["-l"]
     },
     "fish": {
       "path": "fish",
-      "args": [
-        "-l"
-      ]
+      "args": ["-l"]
     },
     "tmux": {
       "path": "tmux",
@@ -407,5 +339,7 @@
     "BazelBuild.vscode-byubazel",
     "Gruntfuggly.todo-tree",
     "googlecloudtools.cloudcode",
+    "ms-python.python"
   ],
+  "workbench.editor.enablePreview": false
 }
