@@ -20,7 +20,7 @@ function jira --argument-names 'ID'
         open "https://$ORGANIZATION.atlassian.net/browse/$ID"
     else
         set ID (git rev-parse --abbrev-ref HEAD | sed "s|^mob/||")
-        open "https://$ORGANIZATION/browse/$ID"
+        open "https://$ORGANIZATION.atlassian.net/browse/$ID"
     end
 end
 
