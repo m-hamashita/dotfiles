@@ -52,6 +52,12 @@ module.action = function()
 	FocusApp(app)
 end
 
+hs.hotkey.bind({ "ctrl" }, "/", function()
+	local appName = "Google Chrome"
+	local app = hs.application.find(appName)
+	FocusApp(app)
+end)
+
 hs.hotkey.bind({ "ctrl" }, "m", function()
 	local appName = "Code"
 	local app = hs.application.find(appName)
