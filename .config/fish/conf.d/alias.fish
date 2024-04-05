@@ -75,12 +75,14 @@ abbr -a gb git switch -c
 abbr -a gbd git branch -D
 abbr -a gc git commit -m
 abbr -a gca git commit --amend
+abbr -a gcf git commit --fixup
 abbr -a gf git fetch
 abbr -a gs git status
 abbr -a gd git diff
 abbr -a gp git pull
 abbr -a gsh 'git stash; git pull --rebase; git stash pop'
 abbr -a gr git rebase
+abbr -a gra git rebase -i autosquash HEAD~5
 abbr -a grh git reset --hard
 abbr -a grhh git reset --hard HEAD
 abbr -a rmbranch 'git branch --merged | grep -v master | grep -v production | grep -v "*" | xargs -I % git branch -d % && git remote prune origin'
