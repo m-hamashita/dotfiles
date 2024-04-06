@@ -3,14 +3,14 @@
   "[python]": {
     "editor.codeActionsOnSave": {
       "source.organizeImports.ruff": "explicit",
-      "source.fixAll.ruff": "explicit"
+      "source.fixAll.ruff": "explicit",
     },
     "editor.formatOnPaste": false,
     "editor.formatOnSave": true,
     "editor.formatOnType": false,
     "editor.insertSpaces": true,
     "editor.tabSize": 4,
-    "editor.defaultFormatter": "ms-python.black-formatter"
+    "editor.defaultFormatter": "ms-python.black-formatter",
   },
   "[rust]": {
     "editor.formatOnSave": true
@@ -341,5 +341,5 @@
     "googlecloudtools.cloudcode",
     "ms-python.python"
   ],
-  "workbench.editor.enablePreview": false
+  "workbench.editor.enablePreview": false,
 }

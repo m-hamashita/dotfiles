@@ -59,10 +59,6 @@
     "when": "editorTextFocus && vim.active && vim.use<C-w> && !inDebugRepl"
   },
   {
-    "key": "ctrl+e ctrl+e",
-    "command": "workbench.action.createTerminalEditor"
-  },
-  {
     "key": "cmd+;",
     "command": "workbench.action.toggleActivityBarVisibility"
   },
