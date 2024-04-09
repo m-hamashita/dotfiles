@@ -384,6 +384,11 @@ function amazon --argument-names 'amazon_url'
     end
 end
 
+function comment
+    echo -e (string split -n \\n -- $argv | sed -e 's/^# \s*//' -e 's/\n/ /g' -e 's/\s\+/ /g' -e 's/^\s*//' -e 's/\s*$//')
+end
+
+
 function memp
     ps -axo "rss,comm" |
     awk '
