@@ -354,6 +354,15 @@
   {
     "key": "shift+cmd+f",
     "command": "search.action.openEditor"
+  },
+  {
+    "key": "shift+cmd+;",
+    "command": "-breadcrumbs.focus",
+    "when": "breadcrumbsPossible && breadcrumbsVisible"
+  },
+  {
+    "key": "shift+cmd+;",
+    "command": "workbench.action.toggleStatusbarVisibility"
   }
 
 ]

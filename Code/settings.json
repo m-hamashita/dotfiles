@@ -345,7 +345,10 @@
   ],
   "workbench.editor.enablePreview": false,
   "window.density.editorTabHeight": "compact",
-  "workbench.activityBar.location": "top",
+  "workbench.activityBar.location": "hidden",
   "search.seedOnFocus": true,
   "search.smartCase": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "window.commandCenter": false,
+  "workbench.layoutControl.enabled": false
 }
