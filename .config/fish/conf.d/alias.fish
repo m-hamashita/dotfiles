@@ -111,6 +111,8 @@ abbr -a hobby "cd ~/work/hobby/"
 abbr -a vs "tmux split-window -h"
 abbr -a sp "tmux split-window -v"
 abbr -a caf "chezmoi add --follow"
+abbr -a kubectx "kubectl ctx"
+abbr -a kubens "kubectl ns"
 
 # abbr -a del "git branch --merged | grep -vE '^\\*|master|develop|staging' | xargs -I % git branch -d % && git remote prune origin"
 
