@@ -46,6 +46,7 @@ set -x DENO_INSTALL /Users/masakatsu.hamashita/.deno
 set -x PATH $DENO_INSTALL/bin $PATH
 set -x PATH ~/.fzf/bin $PATH
 set -x PATH ~/.gvm/bin $PATH
+set -q KREW_ROOT; and set -gx PATH $PATH $KREW_ROOT/.krew/bin; or set -gx PATH $PATH $HOME/.krew/bin
 
 set -x XDG_DATA_HOME $HOME/.local/share
 set -x PATH $XDG_DATA_HOME/aquaproj-aqua/bin $PATH
