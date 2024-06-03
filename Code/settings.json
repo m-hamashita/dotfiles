@@ -292,7 +292,7 @@
   "editor.guides.indentation": false,
   "deno.enable": false,
   "terminal.external.osxExec": "kitty.app",
-  "editor.stickyScroll.enabled": false,
+  "editor.stickyScroll.enabled": true,
   "explorer.confirmDragAndDrop": false,
   "terminal.integrated.profiles.osx": {
     "bash": {
@@ -345,10 +345,10 @@
   ],
   "workbench.editor.enablePreview": false,
   "window.density.editorTabHeight": "compact",
-  "workbench.activityBar.location": "hidden",
+  "workbench.activityBar.location": "top",
   "search.seedOnFocus": true,
   "search.smartCase": true,
   "security.workspace.trust.untrustedFiles": "open",
   "window.commandCenter": false,
-  "workbench.layoutControl.enabled": false
+  "workbench.layoutControl.enabled": false,
 }

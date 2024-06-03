@@ -363,6 +363,13 @@
   {
     "key": "shift+cmd+;",
     "command": "workbench.action.toggleStatusbarVisibility"
+  },
+  {
+    "key": "alt+-",
+    "command": "workbench.action.decreaseViewWidth"
+  },
+  {
+    "key": "alt+;",
+    "command": "workbench.action.increaseViewWidth"
   }
-
 ]
