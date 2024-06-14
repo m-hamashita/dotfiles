@@ -17,10 +17,10 @@ end
 
 function jira --argument-names 'ID'
     if test -n "$ID"
-        open "https://gunosy.atlassian.net/browse/$ID"
+        open "https://$ORGANIZATION.atlassian.net/browse/$ID"
     else
         set ID (git rev-parse --abbrev-ref HEAD | sed "s|^mob/||")
-        open "https://gunosy.atlassian.net/browse/$ID"
+        open "https://$ORGANIZATION.atlassian.net/browse/$ID"
     end
 end
 
@@ -75,19 +75,21 @@ abbr -a gb git switch -c
 abbr -a gbd git branch -D
 abbr -a gc git commit -m
 abbr -a gca git commit --amend
+abbr -a gcf git commit --fixup
 abbr -a gf git fetch
 abbr -a gs git status
 abbr -a gd git diff
 abbr -a gp git pull
 abbr -a gsh 'git stash; git pull --rebase; git stash pop'
 abbr -a gr git rebase
+abbr -a gra git rebase -i --autosquash HEAD~8
 abbr -a grh git reset --hard
 abbr -a grhh git reset --hard HEAD
 abbr -a rmbranch 'git branch --merged | grep -v master | grep -v production | grep -v "*" | xargs -I % git branch -d % && git remote prune origin'
 abbr -a todo 'rg "TODO:|FIXME:"'
 abbr -a awsdoc "aws ecr get-login-password | docker login --username AWS --password-stdin (aws sts get-caller-identity | jq -cr '.Account').dkr.ecr.ap-northeast-1.amazonaws.com"
 abbr -a on tmux kill-pane -a -t
-abbr -a one onelogin-aws-login -d 32400 --username (whoami)@gunosy.com --config-name ads --profile default
+abbr -a one onelogin-aws-login -d 32400 --username (whoami)@$ORGANIZATION.com --config-name ads --profile default
 abbr -a ... '../../'
 abbr -a .... '../../../'
 abbr -a air 'remo aircon send --name エアコン'
@@ -108,6 +110,9 @@ abbr -a tmp "cd ~/tmp/"
 abbr -a hobby "cd ~/work/hobby/"
 abbr -a vs "tmux split-window -h"
 abbr -a sp "tmux split-window -v"
+abbr -a caf "chezmoi add --follow"
+abbr -a kubectx "kubectl ctx"
+abbr -a kubens "kubectl ns"
 
 # abbr -a del "git branch --merged | grep -vE '^\\*|master|develop|staging' | xargs -I % git branch -d % && git remote prune origin"
 
@@ -202,8 +207,8 @@ end
 
 function o --argument-names 'context'
     if test -n "$context"
-        echo "onelogin-aws-login -d 32400 --username (whoami)@gunosy.com --config-name $context --profile $context | awsctx use-context $context"
-        onelogin-aws-login -d 32400 --username (whoami)@gunosy.com --config-name $context --profile $context
+        echo "onelogin-aws-login -d 32400 --username (whoami)@$ORGANIZATION.com --config-name $context --profile $context | awsctx use-context $context"
+        onelogin-aws-login -d 32400 --username (whoami)@$ORGANIZATION.com --config-name $context --profile $context
         awsctx use-context --profile $context
     else
         echo "Please Input context for onelogin."
@@ -381,6 +386,11 @@ function amazon --argument-names 'amazon_url'
         echo "Please Input Amazon URL."
     end
 end
+
+function comment
+    echo -e (string split -n \\n -- $argv | sed -e 's/^# \s*//' -e 's/\n/ /g' -e 's/\s\+/ /g' -e 's/^\s*//' -e 's/\s*$//')
+end
+
 
 function memp
     ps -axo "rss,comm" |

@@ -18,6 +18,7 @@ mkdir -p ~/.ssh
 ln -sf ~/dotfiles/.ssh/config ~/.ssh/config
 
 #.config (fish, nvim, karabiner)
+rm -rf ~/.config
 ln -sf ~/dotfiles/.config/ ~/.config
 
 #.tigrc
@@ -30,6 +31,7 @@ ln -sf ~/dotfiles/.hammerspoon ~/.hammerspoon
 ln -sf ~/dotfiles/compile_flags.txt ~/compile_flags.txt
 
 # aqua.yaml
+mkdir -p ~/.local/share/aquaproj-aqua
 ln -sf ~/dotfiles/aqua.yaml ~/.local/share/aquaproj-aqua/aqua.yaml
 ln -sf ~/dotfiles/registry.yaml ~/.local/share/aquaproj-aqua/registry.yaml
 ln -sf ~/dotfiles/aqua-policy.yaml ~/.local/share/aquaproj-aqua/aqua-policy.yaml

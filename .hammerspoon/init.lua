@@ -52,41 +52,17 @@ module.action = function()
 	FocusApp(app)
 end
 
+hs.hotkey.bind({ "ctrl" }, "/", function()
+	local appName = "Google Chrome"
+	local app = hs.application.find(appName)
+	FocusApp(app)
+end)
+
 hs.hotkey.bind({ "ctrl" }, "m", function()
 	local appName = "Code"
 	local app = hs.application.find(appName)
 	FocusApp(app)
 end)
-
--- module.action = function()
---     local appName = "Alacritty"
---     local activeSpace = spaces.activeSpace()
---     local app = hs.application.find(appName)
---     if app == nil then
---         hs.application.launchOrFocus(appName)
---     elseif app:isFrontmost() then
---         app:hide()
---     else
---         local win = app:focusedWindow()
---         win:spacesMoveTo(activeSpace)
---         hs.application.launchOrFocus(appName)
---     end
--- end
-
--- hs.hotkey.bind({"ctrl"}, "m", function()
---     local appName = "Spotify"
---     local app = hs.application.find(appName)
---     if app == nil then
---         hs.application.launchOrFocus(appName)
---     elseif app:isFrontmost() then
---         app:hide()
---     else
---         local activeSpace = hs.spaces.focusedSpace()
---         local win = app:focusedWindow()
---         hs.spaces.moveWindowToSpace(win, activeSpace)
---         app:setFrontmost()
---     end
--- end)
 
 hs.hotkey.bind({ "ctrl" }, ",", function()
 	local appName = "Slack"
@@ -95,7 +71,7 @@ hs.hotkey.bind({ "ctrl" }, ",", function()
 end)
 
 hs.hotkey.bind({ "ctrl" }, ".", function()
-	local appName = "Google Chrome"
+	local appName = "Notion"
 	local app = hs.application.find(appName)
 	FocusApp(app)
 end)
@@ -185,3 +161,65 @@ module.eventWatcher = eventtap
 		return false
 	end)
 	:start()
+
+-- hs.window.animationDuration = 0
+--
+-- units = {
+-- 	left50 = { x = 0.00, y = 0.00, w = 0.50, h = 1.00 },
+-- 	right50 = { x = 0.50, y = 0.00, w = 0.50, h = 1.00 },
+-- 	top50 = { x = 0.00, y = 0.00, w = 1.00, h = 0.50 },
+-- 	bot50 = { x = 0.00, y = 0.50, w = 1.00, h = 0.50 },
+-- }
+--
+-- windowResizeOrPush = {
+-- 	previousRect = {
+-- 		up = hs.geometry.rect(units.top50),
+-- 		down = hs.geometry.rect(units.bot50),
+-- 		left = hs.geometry.rect(units.left50),
+-- 		right = hs.geometry.rect(units.right50),
+-- 	},
+-- 	units = {
+-- 		up = units.top50,
+-- 		down = units.bot50,
+-- 		left = units.left50,
+-- 		right = units.right50,
+-- 	},
+-- }
+--
+-- function windowResizeOrPush:getNextScreen(window, cursor)
+-- 	local nextScreen = nil
+-- 	if cursor == "up" then
+-- 		nextScreen = window:screen():toNorth()
+-- 	elseif cursor == "down" then
+-- 		nextScreen = window:screen():toSouth()
+-- 	elseif cursor == "left" then
+-- 		nextScreen = window:screen():toWest()
+-- 	elseif cursor == "right" then
+-- 		nextScreen = window:screen():toEast()
+-- 	end
+-- 	return nextScreen
+-- end
+--
+-- function windowResizeOrPush:exec(cursor)
+-- 	return function()
+-- 		local window = hs.window.focusedWindow()
+-- 		local nextScreen = self:getNextScreen(window, cursor)
+--
+-- 		if window:frame():equals(self.previousRect[cursor]) and nextScreen ~= nil then
+-- 			window:moveToScreen(nextScreen, false, true)
+-- 		else
+-- 			window:moveToUnit(self.units[cursor])
+-- 			self.previousRect[cursor] = window:frame()
+-- 		end
+-- 	end
+-- end
+--
+-- hs.hotkey.bind({ "command" }, "left", windowResizeOrPush:exec("left"))
+-- hs.hotkey.bind({ "command" }, "right", windowResizeOrPush:exec("right"))
+-- hs.hotkey.bind({ "command", "ctrl" }, "left", windowResizeOrPush:exec("left"))
+-- hs.hotkey.bind({ "command", "ctrl" }, "right", windowResizeOrPush:exec("right"))
+-- hs.hotkey.bind({ "command", "ctrl" }, "up", windowResizeOrPush:exec("up"))
+-- hs.hotkey.bind({ "command", "ctrl" }, "down", windowResizeOrPush:exec("down"))
+-- hs.hotkey.bind({ "command", "shift" }, "up", function()
+-- 	hs.window.focusedWindow():maximize()
+-- end)
