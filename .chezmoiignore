@@ -1,6 +1,7 @@
 README.md
 LICENSE
 install.sh
+.tmux/plugins/*
 
 {{ if ne .chezmoi.os "darwin" }}
 Library/

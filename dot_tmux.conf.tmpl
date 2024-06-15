@@ -1,5 +1,8 @@
+{{ if eq .chezmoi.os "darwin" -}}
 set-option -g default-shell '/usr/local/bin/fish'
-
+{{ else }}
+set-option -g default-shell '/usr/bin/fish'
+{{ end }}
 # C-S-(Left|Right)でwindowの移動
 bind-key -n C-S-Right swap-window -t +1\; select-window -t +1
 bind-key -n C-S-Left swap-window -t -1\; select-window -t -1
