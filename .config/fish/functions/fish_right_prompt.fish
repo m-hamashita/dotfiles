@@ -31,7 +31,8 @@ function aws_context
 end 
 
 function gcloud_config
-  if [ (command -v gcloud) ]
+
+  if test -f ~/.config/gcloud/active_config
       set -g gcloud_project (cat ~/.config/gcloud/active_config)
   end
   echo (set_color white)"$gcloud_project"
