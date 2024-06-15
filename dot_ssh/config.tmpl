@@ -2,9 +2,11 @@ ServerAliveInterval 240
 
 Include ~/.ssh/config_local
 
+{{- if eq .chezmoi.os "darwin" }}
 Host *
   UseKeychain yes
   AddKeysToAgent yes
+{{- end }}
 
 Host github
   HostName github.com

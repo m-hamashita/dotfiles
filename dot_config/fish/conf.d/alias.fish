@@ -329,24 +329,22 @@ end
 # cd - を使うための設定 builtin cd の代わりに使用
 functions -c cd standard_cd
 function cd
-    standard_cd $argv;
+    standard_cd $argv
     mkdir -p $HOME/.config/fish/tmp
-    touch $HOME/.config/fish/tmp/recent_dir.list
-    pwd >> $HOME/.config/fish/tmp/recent_dir.list
-end
-function cdr
-	tail -500 $HOME/.config/fish/tmp/recent_dir.list | \
-	ruby -ne 'BEGIN{$list=[]}; $list << $_; END{puts $list.reverse.uniq}' | \
-	fzf | read d
-	if [ $d ]
-	   cd $d
-	end
-    echo ""
-    commandline -f repaint
+    set recent_file $HOME/.config/fish/tmp/recent_dir.list
+    touch $recent_file
+    set current_dir (pwd)
+    if not string match -q "$current_dir" < $recent_file
+        echo $current_dir >> $recent_file
+    end
 end
 
-function _ranger
-    ranger
+function cdr
+    cat $HOME/.config/fish/tmp/recent_dir.list | \
+    fzf | read -l d
+    if test -n "$d"
+        cd $d
+    end
     echo ""
     commandline -f repaint
 end

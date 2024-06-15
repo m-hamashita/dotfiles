@@ -291,6 +291,7 @@
   "leetcode.endpoint": "leetcode",
   "editor.guides.indentation": false,
   "deno.enable": false,
+  "window.zoomLevel": 1,
   "terminal.external.osxExec": "kitty.app",
   "editor.stickyScroll.enabled": true,
   "explorer.confirmDragAndDrop": false,
@@ -338,6 +339,7 @@
     "GitHub.vscode-pull-request-github",
     "donjayamanne.githistory",
     "samuelcolvin.jinjahtml",
+    "BazelBuild.vscode-byubazel",
     "Gruntfuggly.todo-tree",
     "googlecloudtools.cloudcode",
     "ms-python.python"
@@ -350,4 +352,10 @@
   "security.workspace.trust.untrustedFiles": "open",
   "window.commandCenter": false,
   "workbench.layoutControl.enabled": false,
+  "python.autoComplete.extraPaths": [
+    "/home/masakatsu.hamashita/.cache/bazel/_bazel_masakatsu.hamashita/015f2443d795632e5d229e920ae3380a/execroot/jp_co_legalforce_mono/bazel-out/k8-fastbuild/bin"
+  ],
+  "python.analysis.extraPaths": [
+    "/home/masakatsu.hamashita/.cache/bazel/_bazel_masakatsu.hamashita/015f2443d795632e5d229e920ae3380a/execroot/jp_co_legalforce_mono/bazel-out/k8-fastbuild/bin"
+  ],
 }
