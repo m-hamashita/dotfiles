@@ -1,0 +1,26 @@
+set line-graphics = utf-8
+set tab-size = 8
+set ignore-space = all
+set split-view-width = 75%
+set split-view-height = 80%
+set diff-context = 6
+set main-view = id date author commit-title:graph=yes,refs=yes
+color diff-header default magenta
+color diff-chunk black white
+
+set vertical-split = no
+# Override the default terminal colors to white on black.
+color default		white	black
+# Diff colors
+color diff-header	yellow	default
+color diff-index	blue	default
+color diff-chunk	magenta	default
+color date yellow default
+color "Reported-by:"	green	default
+# View-specific color
+color tree.date		black	cyan bold
+bind main D !sh -c "git difftool %(commit)~ %(commit)"
+bind refs D !sh -c "git difftool %(branch)"
+
+# copy commit hash
+bind generic y @sh -c "echo %(commit) | pbcopy"

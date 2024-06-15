@@ -1,0 +1,15 @@
+*~
+*.swp
+.DS_Store
+.python-version
+.ccls-cache/
+.cquery_cache
+.idea/
+tags
+.ipynb_checkpoints
+loop.sh
+.vscode/
+node_modules
+a.out
+__pycache__
+.null-ls*
