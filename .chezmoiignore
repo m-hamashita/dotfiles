@@ -1,1 +1,7 @@
 README.md
+LICENSE
+install.sh
+
+{{ if ne .chezmoi.os "darwin" }}
+Library/
+{{ end }}
