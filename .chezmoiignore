@@ -7,6 +7,8 @@ install.sh
 !.config/fish/completions
 !.config/fish/conf.d
 !.config/fish/config.fish
+.ssh/*
+!.ssh/config
 
 {{ if ne .chezmoi.os "darwin" }}
 Library/
