@@ -6,6 +6,7 @@ install.sh
 !.config/fish/functions
 !.config/fish/completions
 !.config/fish/conf.d
+.config/fish/conf.d/002_local.fish
 !.config/fish/config.fish
 .ssh/*
 !.ssh/config
