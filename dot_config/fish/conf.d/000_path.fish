@@ -1,9 +1,3 @@
-# vim のキーバインドでターミナルを操作
-# fish_vi_key_bindings
-# set -U fish_key_bindings fish_default_key_bindings
-# jj で normal に
-# set fish_key_bindings fish_user_key_bindings
-
 set -x theme_color_scheme gruvbox
 
 set -x LANG ja_JP.UTF-8
@@ -51,8 +45,11 @@ set -q KREW_ROOT; and set -gx PATH $PATH $KREW_ROOT/.krew/bin; or set -gx PATH $
 set -x XDG_DATA_HOME $HOME/.local/share
 set -x PATH $XDG_DATA_HOME/aquaproj-aqua/bin $PATH
 # set -x AQUA_GLOBAL_CONFIG $(aqua root-dir)/aqua.yaml
-set -x AQUA_GLOBAL_CONFIG ~/.local/share/aquaproj-aqua/aqua.yaml
-set -x AQUA_POLICY_CONFIG ~/.local/share/aquaproj-aqua/aqua-policy.yaml
+set -x AQUA_ROOT_DIR "$XDG_DATA_HOME/aquaproj-aqua"
+set -x AQUA_GLOBAL_CONFIG "$XDG_DATA_HOME/aquaproj-aqua/aqua.yaml"
+# set -x AQUA_POLICY_CONFIG "$XDG_DATA_HOME/aquaproj-aqua/aqua-policy.yaml"
+# TODO: enable policy
+set -x AQUA_DISABLE_POLICY true
 
 
 # set -x PATH /usr/local/opt/llvm/bin $PATH
