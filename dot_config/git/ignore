@@ -13,3 +13,4 @@ node_modules
 a.out
 __pycache__
 .null-ls*
+tmp_work
