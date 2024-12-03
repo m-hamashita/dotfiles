@@ -71,7 +71,7 @@ hs.hotkey.bind({ "ctrl" }, ",", function()
 end)
 
 hs.hotkey.bind({ "ctrl" }, ".", function()
-	local appName = "Notion"
+	local appName = "Cursor"
 	local app = hs.application.find(appName)
 	FocusApp(app)
 end)
