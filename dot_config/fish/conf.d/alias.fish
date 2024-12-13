@@ -58,7 +58,6 @@ alias bazel 'bazelisk'
 alias devcon 'docker exec -it -u vscode -w "/workspaces/$(basename $(pwd))" $(devcontainer up --workspace-folder . | jq -r .containerId)'
 alias notify 'osascript -e \'display notification "command has completed successfully." with title "Command finished"\''
 
-
 # abbr
 abbr -a df "df -h"
 abbr -a vi vim
