@@ -19,7 +19,7 @@
     "editor.formatOnSave": false
   },
   "[markdown]": {
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascript]": {
@@ -37,7 +37,6 @@
   "editor.inlayHints.fontSize": 12,
   "editor.inlineSuggest.enabled": true,
   "editor.minimap.scale": 1,
-  "editor.minimap.enabled": false,
   "editor.suggestSelection": "first",
   "extensions.ignoreRecommendations": true,
   "files.insertFinalNewline": true,
@@ -268,7 +267,7 @@
       ]
     }
   ],
-  "github.copilot.editor.enableAutoCompletions": true,
+  "github.copilot.editor.enableAutoCompletions": false,
   "git.openRepositoryInParentFolders": "never",
   "circleci.hostUrl": "",
   "leetcode.hint.configWebviewMarkdown": false,
@@ -278,7 +277,7 @@
   "leetcode.defaultLanguage": "rust",
   "leetcode.showDescription": "In File Comment",
   "leetcode.enableStatusBar": false,
-  "workbench.editor.wrapTabs": true,
+  // "workbench.editor.wrapTabs": true,
   "explorer.confirmDelete": false,
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -327,7 +326,7 @@
     "/usr/local/include/**"
   ],
   "terminal.integrated.enableMultiLinePasteWarning": false,
-  "workbench.editor.tabSizing": "fit",
+  "workbench.editor.tabSizing": "shrink",
   "github.copilot.chat.localeOverride": "en",
   "remote.SSH.defaultExtensions": [
     "eamodio.gitlens",
@@ -339,7 +338,6 @@
     "GitHub.vscode-pull-request-github",
     "donjayamanne.githistory",
     "samuelcolvin.jinjahtml",
-    "BazelBuild.vscode-byubazel",
     "Gruntfuggly.todo-tree",
     "googlecloudtools.cloudcode",
     "ms-python.python"
@@ -358,4 +356,18 @@
   "python.analysis.extraPaths": [
     "/home/masakatsu.hamashita/.cache/bazel/_bazel_masakatsu.hamashita/015f2443d795632e5d229e920ae3380a/execroot/jp_co_legalforce_mono/bazel-out/k8-fastbuild/bin"
   ],
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "python.analysis.exclude": ["bazel-*"],
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "python.testing.autoTestDiscoverOnSaveEnabled": true,
+  "coverage-gutters.showGutterCoverage": true,
+  "coverage-gutters.showLineCoverage": true,
+  "coverage-gutters.showRulerCoverage": true,
+  "editor.minimap.enabled": false,
+  "editor.cursorBlinking": "solid"
+  // "window.title": " "
 }
