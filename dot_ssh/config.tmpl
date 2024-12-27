@@ -1,0 +1,21 @@
+ServerAliveInterval 240
+
+Include ~/.ssh/config_local
+
+{{- if eq .chezmoi.os "darwin" }}
+Host *
+  UseKeychain yes
+  AddKeysToAgent yes
+{{- end }}
+
+Host github
+  HostName github.com
+  IdentityFile ~/.ssh/id_ed25519
+  StrictHostKeyChecking no
+  User git
+
+Host raspi
+  HostName raspberrypi.local
+  IdentityFile ~/.ssh/id_ed25519
+  Port 50001
+  User mpeg
