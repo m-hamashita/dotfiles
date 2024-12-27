@@ -1,1 +1,9 @@
 theme = GruvboxDark
+window-padding-x = 0
+window-padding-y = 0,0
+window-padding-balance = true
+background-opacity = 1.00
+background-blur-radius = 20
+macos-titlebar-style = hidden
+font-family = "Menlo"
+macos-option-as-alt = true

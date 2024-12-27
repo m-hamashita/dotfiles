@@ -45,9 +45,9 @@ function FocusApp(app)
 	end
 end
 
--- double tap で toggle で kitty を表示/非表示する
+-- double tap で toggle で表示/非表示する
 module.action = function()
-	local appName = "kitty"
+	local appName = "ghostty"
 	local app = hs.application.get(appName)
 	FocusApp(app)
 end
