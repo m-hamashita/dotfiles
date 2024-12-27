@@ -14,3 +14,7 @@ install.sh
 {{ if ne .chezmoi.os "darwin" }}
 Library/
 {{ end }}
+
+{{ if eq .chezmoi.os "darwin" }}
+.config/karabiner/automatic_backups
+{{ end }}
