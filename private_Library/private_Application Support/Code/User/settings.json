@@ -10,7 +10,7 @@
     "editor.formatOnType": false,
     "editor.insertSpaces": true,
     "editor.tabSize": 4,
-    "editor.defaultFormatter": "ms-python.black-formatter"
+    "editor.defaultFormatter": "charliermarsh.ruff"
   },
   "[rust]": {
     "editor.formatOnSave": true
@@ -74,6 +74,7 @@
   "python.analysis.typeCheckingMode": "basic",
   "python.formatting.blackPath": "/Users/masakatsu.hamashita/.local/bin/black",
   "python.formatting.provider": "black",
+  "python.jediEnabled": true,
   "python.languageServer": "Pylance",
   "python.linting.enabled": true,
   "python.linting.lintOnSave": true,
@@ -82,15 +83,6 @@
   "python.terminal.activateEnvironment": false,
   "metals.javaHome": "/Users/masakatsu.hamashita/.jabba/jdk/adopt@1.11.0-7/Contents/Home",
   "remote.SSH.connectTimeout": 120,
-  // "rust-analyzer.checkOnSave.command": "clippy",
-  // "rust-analyzer.checkOnSave.extraArgs": [
-  //   "--all",
-  //   "--all-targets",
-  //   "--",
-  //   "-D",
-  //   "warnings"
-  // ],
-  "sync.gist": "df73c85695bf359d2465af3337aec7d1",
   "terminal.integrated.defaultProfile.linux": "tmux",
   "terminal.integrated.defaultProfile.osx": "fish (2)",
   "terminal.integrated.env.osx": {
@@ -165,8 +157,6 @@
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.openFilesInNewWindow": "off",
   "workbench.colorCustomizations": {
-    // https://github.com/jdinhify/vscode-theme-gruvbox/blob/main/themes/gruvbox-dark-hard.json
-    // TABS
     "tab.border": "#1d202100",
     "tab.activeBorder": "#689d6a",
     "tab.activeBackground": "#32302f",
@@ -201,7 +191,6 @@
     "titleBar.activeBackground": "#242424",
     "titleBar.activeForeground": "#ebdbb2",
     "titleBar.inactiveBackground": "#242424",
-    // other settings
     "editorLineNumber.foreground": "#c0c0c0",
     "editorInlayHint.background": "#282828",
     "editorInlayHint.foreground": "#a0a0a0",
@@ -223,7 +212,6 @@
   "errorLens.enabledDiagnosticLevels": ["error", "warning", "info"],
   "files.autoSave": "onFocusChange",
   "editor.inlayHints.enabled": "onUnlessPressed",
-  // "editor.inlayHints.enabled": "off",
   "editor.wordWrapColumn": 120,
   "workbench.preferredDarkColorTheme": "Kary Pro Colors － Dark",
   "hexeditor.columnWidth": 16,
@@ -237,22 +225,6 @@
   "terminal.integrated.customGlyphs": false,
   "editor.wordWrap": "off",
   "diffEditor.wordWrap": "off",
-  // "blockman.n24AnalyzeRoundBrackets": true,
-  "blockman.n05CustomColorOfDepth0": "none",
-  "blockman.n10CustomColorOfDepth5": "none",
-  "blockman.n09CustomColorOfDepth4": "none",
-  "blockman.n07CustomColorOfDepth2": "none",
-  "blockman.n08CustomColorOfDepth3": "none",
-  "blockman.n06CustomColorOfDepth1": "none",
-  "blockman.n12CustomColorOfDepth7": "none",
-  "blockman.n13CustomColorOfDepth8": "none",
-  "blockman.n11CustomColorOfDepth6": "none",
-  "blockman.n14CustomColorOfDepth9": "none",
-  "blockman.n15CustomColorOfDepth10": "none",
-  "blockman.n17CustomColorOfFocusedBlock": "same",
-  "blockman.n20CustomColorOfDepth0Border": "none",
-  "blockman.n03MaxDepth": 6,
-  "blockman.n16EnableFocus": false,
   "settings.cycle": [
     {
       "id": "copilot.inlineSuggest",
@@ -267,17 +239,15 @@
       ]
     }
   ],
-  "github.copilot.editor.enableAutoCompletions": false,
+  "github.copilot.editor.enableAutoCompletions": true,
   "git.openRepositoryInParentFolders": "never",
   "circleci.hostUrl": "",
   "leetcode.hint.configWebviewMarkdown": false,
   "leetcode.workspaceFolder": "/Users/masakatsu.hamashita/work/hobby/competitive-programming/leetcode/src",
   "leetcode.hint.commandShortcut": false,
-  "workbench.sideBar.location": "right",
   "leetcode.defaultLanguage": "rust",
   "leetcode.showDescription": "In File Comment",
   "leetcode.enableStatusBar": false,
-  // "workbench.editor.wrapTabs": true,
   "explorer.confirmDelete": false,
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -325,9 +295,9 @@
     "/opt/homebrew/include/**",
     "/usr/local/include/**"
   ],
-  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "terminal.integrated.enableMultiLinePasteWarning": "always",
   "workbench.editor.tabSizing": "shrink",
-  "github.copilot.chat.localeOverride": "en",
+  "github.copilot.chat.localeOverride": "ja",
   "remote.SSH.defaultExtensions": [
     "eamodio.gitlens",
     "GitHub.copilot",
@@ -342,20 +312,11 @@
     "googlecloudtools.cloudcode",
     "ms-python.python"
   ],
-  "workbench.editor.enablePreview": false,
   "window.density.editorTabHeight": "compact",
-  "workbench.activityBar.location": "top",
   "search.seedOnFocus": true,
   "search.smartCase": true,
   "security.workspace.trust.untrustedFiles": "open",
   "window.commandCenter": false,
-  "workbench.layoutControl.enabled": false,
-  "python.autoComplete.extraPaths": [
-    "/home/masakatsu.hamashita/.cache/bazel/_bazel_masakatsu.hamashita/015f2443d795632e5d229e920ae3380a/execroot/jp_co_legalforce_mono/bazel-out/k8-fastbuild/bin"
-  ],
-  "python.analysis.extraPaths": [
-    "/home/masakatsu.hamashita/.cache/bazel/_bazel_masakatsu.hamashita/015f2443d795632e5d229e920ae3380a/execroot/jp_co_legalforce_mono/bazel-out/k8-fastbuild/bin"
-  ],
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
@@ -368,6 +329,12 @@
   "coverage-gutters.showLineCoverage": true,
   "coverage-gutters.showRulerCoverage": true,
   "editor.minimap.enabled": false,
-  "editor.cursorBlinking": "solid"
-  // "window.title": " "
+  "editor.cursorBlinking": "solid",
+  "cursor.cpp.disabledLanguages": ["plaintext", "scminput"],
+  "workbench.sideBar.location": "right",
+  "workbench.iconTheme": "ayu-mirage-zed",
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "python.analysis.indexing": false
 }
