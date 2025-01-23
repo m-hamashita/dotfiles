@@ -1,5 +1,6 @@
 {
   "editor.formatOnSave": true,
+
   "[python]": {
     "editor.codeActionsOnSave": {
       "source.organizeImports.ruff": "explicit",
@@ -72,16 +73,8 @@
   "python.analysis.inlayHints.functionReturnTypes": true,
   "python.analysis.inlayHints.variableTypes": true,
   "python.analysis.typeCheckingMode": "basic",
-  "python.formatting.blackPath": "/Users/masakatsu.hamashita/.local/bin/black",
-  "python.formatting.provider": "black",
-  "python.jediEnabled": true,
   "python.languageServer": "Pylance",
-  "python.linting.enabled": true,
-  "python.linting.lintOnSave": true,
-  "python.linting.pylintEnabled": false,
-  "python.sortImports.path": "/Users/masakatsu.hamashita/.local/bin/isort",
   "python.terminal.activateEnvironment": false,
-  "metals.javaHome": "/Users/masakatsu.hamashita/.jabba/jdk/adopt@1.11.0-7/Contents/Home",
   "remote.SSH.connectTimeout": 120,
   "terminal.integrated.defaultProfile.linux": "tmux",
   "terminal.integrated.defaultProfile.osx": "fish (2)",
@@ -259,7 +252,6 @@
   "leetcode.hint.commentDescription": false,
   "leetcode.endpoint": "leetcode",
   "editor.guides.indentation": false,
-  "deno.enable": false,
   "window.zoomLevel": 1,
   "terminal.external.osxExec": "kitty.app",
   "editor.stickyScroll.enabled": true,
