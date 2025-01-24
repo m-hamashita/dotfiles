@@ -7,3 +7,4 @@ background-blur-radius = 20
 macos-titlebar-style = hidden
 font-family = "Menlo"
 macos-option-as-alt = true
+confirm-close-surface=false
