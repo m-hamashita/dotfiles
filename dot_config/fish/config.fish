@@ -22,3 +22,6 @@ function man
 			LESS_TERMCAP_us=(printf "\e[1;32m") \
 			man "$argv[1]"
 end
+
+# Added by Windsurf
+fish_add_path /Users/masakatsu.hamashita/.codeium/windsurf/bin
