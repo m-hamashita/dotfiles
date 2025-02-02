@@ -3,6 +3,11 @@ if bind -M insert >/dev/null 2>/dev/null
     bind -M insert \cg '__ghq_repository_search'
 end
 
+bind \cx '__ghq_repository_search_cursor'
+if bind -M insert >/dev/null 2>/dev/null
+    bind -M insert \cf '__ghq_repository_search_cursor'
+end
+
 bind \cw 'fzf-git-diff-vim'
 if bind -M insert >/dev/null 2>/dev/null
     bind -M insert \cw 'fzf-git-diff-vim'
