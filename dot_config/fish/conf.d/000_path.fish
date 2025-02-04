@@ -13,13 +13,6 @@ set -x LC_ALL 'ja_JP.UTF-8'
 # Postgres
 set -x PGDATA /usr/local/var/postgres
 
-# go
-if [ (command -v go) ]
-    set -x GOPATH $HOME/go
-    set -x gOROOT ( go env GOROOT )
-    set -x PATH $GOPATH/bin $PATH
-end
-
 # ls color
 set -x CLICOLOR 1
 set -x LSCOLORS DxGxcxdxCxegedabagacad
@@ -63,11 +56,18 @@ set -x PATH $HOME/.local/share/aquaproj-aqua/pkgs/github_archive/github.com/tfut
 set -x EDITOR nvim
 set -x VISUAL nvim
 
-function _delayed_direnv --on-event fish_postexec
-    functions --erase _delayed_direnv
+function _delayed_load --on-event fish_postexec
+    functions --erase _delayed_load
     if [ (command -v direnv) ]
         eval (direnv hook fish)
         set -x DIRENV_LOG_FORMAT
+    end
+
+    # go
+    if [ (command -v go) ]
+        set -x GOPATH $HOME/go
+        set -x gOROOT ( go env GOROOT )
+        set -x PATH $GOPATH/bin $PATH
     end
 end
 
