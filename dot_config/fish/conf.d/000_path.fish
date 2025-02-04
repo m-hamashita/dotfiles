@@ -16,10 +16,7 @@ set -x PGDATA /usr/local/var/postgres
 # go
 if [ (command -v go) ]
     set -x GOPATH $HOME/go
-    # TODO: go env で環境変数を設定するようにする
-    set -x GOROOT ( go env GOROOT )
-    # set -x GOROOT /opt/homebrew/Cellar/go/1.19.4/libexec
-    # set -x GOROOT /usr/local/go/bin/go
+    set -x gOROOT ( go env GOROOT )
     set -x PATH $GOPATH/bin $PATH
 end
 
@@ -66,20 +63,13 @@ set -x PATH $HOME/.local/share/aquaproj-aqua/pkgs/github_archive/github.com/tfut
 set -x EDITOR nvim
 set -x VISUAL nvim
 
-# for direnv
-if [ (command -v direnv) ]
-    eval (direnv hook fish)
-    set -x DIRENV_LOG_FORMAT
+function _delayed_direnv --on-event fish_postexec
+    functions --erase _delayed_direnv
+    if [ (command -v direnv) ]
+        eval (direnv hook fish)
+        set -x DIRENV_LOG_FORMAT
+    end
 end
-
-# for asdf
-# completion setting
-# mkdir -p ~/.config/fish/completions; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
-# if [ -e "$HOME/.asdf/asdf.fish" ]
-#     source ~/.asdf/asdf.fish
-# else
-#     echo "asdf is not installed"
-# end
 
 # pyenv
 set -x PYENV_ROOT $HOME/.pyenv
