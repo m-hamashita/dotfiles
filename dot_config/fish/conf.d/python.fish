@@ -18,17 +18,18 @@ if status --is-login
 end
 command mkdir -p "$pyenv_root/"{shims,versions}
 
+set -x CONDA_PATH $HOME/miniconda3/bin/conda /data/miniconda3/bin/conda
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-if test -f ~/miniconda3/bin/conda
-    eval /Users/masakatsu.hamashita/miniconda3/bin/conda "shell.fish" "hook" $argv | source
-else
-    if test -f "/Users/masakatsu.hamashita/miniconda3/etc/fish/conf.d/conda.fish"
-        . "/Users/masakatsu.hamashita/miniconda3/etc/fish/conf.d/conda.fish"
-    else
-        set -x PATH "/Users/masakatsu.hamashita/miniconda3/bin" $PATH
+function conda
+    echo "Lazy loading conda upon first invocation..."
+    functions --erase conda
+    for conda_path in $CONDA_PATH
+        if test -f $conda_path
+            echo "Using Conda installation found in $conda_path"
+            eval $conda_path "shell.fish" "hook" | source
+            conda $argv
+            return
+        end
     end
+    echo "No conda installation found in $CONDA_PATH"
 end
-# <<< conda initialize <<<
-
