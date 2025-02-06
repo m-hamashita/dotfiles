@@ -8,3 +8,4 @@ macos-titlebar-style = hidden
 font-family = "Menlo"
 macos-option-as-alt = true
 confirm-close-surface=false
+keybind = super+shift+plus=increase_font_size:1
