@@ -47,7 +47,7 @@ end
 
 -- double tap で toggle で表示/非表示する
 module.action = function()
-	local appName = "ghostty"
+	local appName = "Ghostty"
 	local app = hs.application.get(appName)
 	FocusApp(app)
 end
