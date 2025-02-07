@@ -305,6 +305,16 @@
                         "vendor_id": 60505
                     },
                     "ignore": false
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": true,
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 849,
+                        "vendor_id": 1539
+                    },
+                    "ignore": false
                 }
             ],
             "fn_function_keys": [
