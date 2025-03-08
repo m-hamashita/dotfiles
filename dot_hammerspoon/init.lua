@@ -108,7 +108,7 @@ local function maximizeActiveWindow()
 	-- frame.h = 1920
 	win:setFrame(frame)
 end
-hs.hotkey.bind({ "cmd", "shift" }, "M", maximizeActiveWindow)
+-- hs.hotkey.bind({ "cmd", "shift" }, "M", maximizeActiveWindow)
 
 local timeFirstControl, firstDown, secondDown = 0, false, false
 local noFlags = function(ev)
