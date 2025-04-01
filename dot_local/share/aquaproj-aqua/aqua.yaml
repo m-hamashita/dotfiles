@@ -69,3 +69,4 @@ packages:
   - name: jesseduffield/lazygit@v0.48.0
   - name: jesseduffield/lazydocker@v0.24.1
   - name: suzuki-shunsuke/pinact@v1.2.2
+  - name: dagger/dagger@v0.18.0
