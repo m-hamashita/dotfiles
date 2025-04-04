@@ -50,15 +50,6 @@
   },
   "git.autofetch": true,
   "git.confirmSync": false,
-  "github.copilot.enable": {
-    "*": true,
-    "Go": true,
-    "jsonc": true,
-    "markdown": true,
-    "plaintext": false,
-    "rust": true,
-    "yaml": true
-  },
   "githubPullRequests.pullBranch": "never",
   "go.formatTool": "goimports",
   "go.inlayHints.assignVariableTypes": true,
@@ -219,21 +210,32 @@
   "terminal.integrated.customGlyphs": false,
   "editor.wordWrap": "off",
   "diffEditor.wordWrap": "off",
-  "settings.cycle": [
-    {
-      "id": "copilot.inlineSuggest",
-      "overrideWorkspaceSettings": true,
-      "values": [
-        {
-          "github.copilot.editor.enableAutoCompletions": false
-        },
-        {
-          "github.copilot.editor.enableAutoCompletions": true
-        }
-      ]
-    }
-  ],
-  "github.copilot.editor.enableAutoCompletions": false,
+  // "settings.cycle": [
+  //   {
+  //     "id": "copilot.inlineSuggest",
+  //     "overrideWorkspaceSettings": true,
+  //     "values": [
+  //       {
+  //         "github.copilot.editor.enableAutoCompletions": false
+  //       },
+  //       {
+  //         "github.copilot.editor.enableAutoCompletions": true
+  //       }
+  //     ]
+  //   }
+  // ],
+  // "github.copilot.editor.enableAutoCompletions": false,
+  // "github.copilot.editor.enableCodeActions": false,
+  // "github.copilot.enable": {
+  //   "*": true,
+  //   "Go": true,
+  //   "jsonc": true,
+  //   "markdown": true,
+  //   "plaintext": false,
+  //   "rust": true,
+  //   "yaml": true
+  // },
+  // "github.copilot.chat.localeOverride": "ja",
   "git.openRepositoryInParentFolders": "never",
   "circleci.hostUrl": "",
   "leetcode.hint.configWebviewMarkdown": false,
@@ -290,11 +292,10 @@
   ],
   "terminal.integrated.enableMultiLinePasteWarning": "always",
   "workbench.editor.tabSizing": "shrink",
-  "github.copilot.chat.localeOverride": "ja",
   "remote.SSH.defaultExtensions": [
     "eamodio.gitlens",
-    "GitHub.copilot",
-    "GitHub.copilot-chat",
+    // "GitHub.copilot",
+    // "GitHub.copilot-chat",
     "esbenp.prettier-vscode",
     "rust-lang.rust-analyzer",
     "hashicorp.terraform",
@@ -330,8 +331,6 @@
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
   "python.analysis.indexing": false,
-  "github.copilot.editor.enableCodeActions": false,
-  "github.copilot.nextEditSuggestions.enabled": true,
   "editor.unicodeHighlight.ambiguousCharacters": false,
   "geminicodeassist.project": "",
   "cursor.cpp.enablePartialAccepts": true,
