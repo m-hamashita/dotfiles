@@ -15,7 +15,7 @@ packages:
   - name: lsd-rs/lsd@v1.1.5
   - name: stedolan/jq@jq-1.6
   - name: sharkdp/fd@v8.7.0
-  - name: sharkdp/hyperfine@v1.15.0
+  - name: sharkdp/hyperfine@v1.19.0
   - name: XAMPPRocky/tokei@v12.1.2
   - name: Wilfred/difftastic@0.38.0
   - name: dalance/procs@v0.13.3
