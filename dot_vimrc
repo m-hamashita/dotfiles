@@ -99,21 +99,8 @@ set wrapscan
 "autocmd BufWinEnter ?* silent loadview
 autocmd BufReadPost * if line("'\"") > 0 && line ("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-
 nnoremap x "_x
 vnoremap p "_dP
-nnoremap <silent> dd :<C-u>call SmartDelete('line')<CR>
-
-function! SmartDelete(mode)
-  if a:mode ==# 'line'
-    let line = getline('.')
-    if empty(line) || line =~ '^\s*$'
-      execute 'normal! "_dd'
-    else
-      execute 'normal! dd'
-    endif
-  endif
-endfunction
 
 " ショートカット
 nnoremap s <Nop>
