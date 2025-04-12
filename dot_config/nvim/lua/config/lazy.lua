@@ -137,6 +137,17 @@ require("lazy").setup({
 		end,
 		dependencies = { "hrsh7th/cmp-nvim-lsp", "hrsh7th/vim-vsnip" },
 	},
+	{
+		"nvimdev/lspsaga.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		},
+		config = function()
+			require("config.plugins.lspsaga").config()
+		end,
+	},
 	-- statusline
 	{
 		"nvim-lualine/lualine.nvim",
@@ -256,7 +267,21 @@ require("lazy").setup({
 			require("config.plugins.todo-comments").config()
 		end,
 	},
-	{ "bullets-vim/bullets.vim", ft = "markdown" },
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+			-- OPTIONAL:
+			--   `nvim-notify` is only needed, if you want to use the notification view.
+			--   If not available, we use `mini` as the fallback
+			"rcarriga/nvim-notify",
+		},
+		config = function()
+			require("config.plugins.noice").config()
+		end,
+	},
 	{
 		"tversteeg/registers.nvim",
 		name = "registers",
