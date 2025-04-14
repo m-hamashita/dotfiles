@@ -419,5 +419,9 @@
     "key": "shift+cmd+g",
     "command": "search.action.openEditor",
     "when": "editorFocus"
+  },
+  {
+    "key": "cmd+i",
+    "command": "composerMode.agent"
   }
 ]

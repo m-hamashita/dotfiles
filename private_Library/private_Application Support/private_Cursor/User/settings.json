@@ -335,5 +335,9 @@
   "geminicodeassist.project": "",
   "cursor.cpp.enablePartialAccepts": true,
   "editor.inlineSuggest.edits.experimental.useMixedLinesDiff": "whenPossible",
-  "editor.inlineSuggest.edits.experimental.useInterleavedLinesDiff": "always"
+  "editor.inlineSuggest.edits.experimental.useInterleavedLinesDiff": "always",
+  "terminal.integrated.suggest.enableExtensionCompletions": true,
+  "terminal.integrated.suggest.enabled": true,
+  "workbench.editor.enablePreview": false,
+  "workbench.statusBar.visible": false
 }
