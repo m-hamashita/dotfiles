@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # tpm install
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
@@ -41,4 +41,4 @@ echo "Please add `/usr/local/bin/fish` to /etc/shells"
 # aqua install
 curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.0.1/aqua-installer | bash
 
-mkdir ~/.local/share/aquaproj-aqua
+mkdir -p ~/.local/share/aquaproj-aqua
