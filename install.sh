@@ -39,6 +39,6 @@ echo "Please add `/usr/local/bin/fish` to /etc/shells"
 # chsh -s /usr/local/bin/fish
 
 # aqua install
-curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.0.1/aqua-installer | bash
+curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.1.2/aqua-installer | bash
 
 mkdir -p ~/.local/share/aquaproj-aqua
