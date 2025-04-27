@@ -42,6 +42,7 @@ set -x XDG_DATA_HOME $HOME/.local/share
 set -x PATH $XDG_DATA_HOME/aquaproj-aqua/bin $PATH
 # set -x AQUA_GLOBAL_CONFIG $(aqua root-dir)/aqua.yaml
 set -x AQUA_GLOBAL_CONFIG ~/.local/share/aquaproj-aqua/aqua.yaml
+set -x AQUA_DISABLE_POLICY true  # TODO: AQUA_DISABLE_POLICY false
 set -x AQUA_POLICY_CONFIG ~/.local/share/aquaproj-aqua/aqua-policy.yaml
 set -x XDG_CONFIG_HOME $HOME/.config
 
