@@ -33,7 +33,7 @@ packages:
   - name: cli/cli@v2.71.2
   - name: rust-lang/rust-analyzer@2022-10-03
   - name: helm/helm@v3.17.3
-  - name: GoogleContainerTools/skaffold@v2.0.1
+  - name: GoogleContainerTools/skaffold@v2.15.0
   - name: sbstp/kubie@v0.25.2
   - name: rancher/k3d@v5.4.6
   - name: argoproj/argo-rollouts@v1.8.2
