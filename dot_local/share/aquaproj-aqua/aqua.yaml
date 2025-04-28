@@ -19,7 +19,7 @@ packages:
     registry: local
   - name: direnv/direnv@v2.32.1
   - name: BurntSushi/ripgrep@13.0.0
-  - name: CircleCI-Public/circleci-cli@v0.1.22875
+  - name: CircleCI-Public/circleci-cli@v0.1.31632
   - name: lsd-rs/lsd@v1.1.5
   - name: stedolan/jq@jq-1.6
   - name: sharkdp/fd@v8.7.0
