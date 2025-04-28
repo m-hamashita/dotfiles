@@ -9,7 +9,7 @@ registries:
 packages:
   - name: bazelbuild/bazelisk@v1.16.0
     registry: local
-  - name: remotemobprogramming/mob@v4.4.6
+  - name: remotemobprogramming/mob@v4.5.0
     registry: local
   - name: matsuyoshi30/germanium@v1.2.3
     registry: local
