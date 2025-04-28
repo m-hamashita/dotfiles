@@ -1,8 +1,8 @@
 # git checkout branchをfzfで選択
 function co
-    git checkout (git branch -a | tr -d " " | fzf --height 70% --prompt "CHECKOUT BRANCH>" --preview "git log --color=always {}" | head -n 1 | sed -e "s/^\*\s*//g" | perl -pe "s/remotes\/origin\///g")
-    echo ""
-    commandline -f repaint
+  git checkout (git branch -a | tr -d " " | fzf --height 70% --prompt "CHECKOUT BRANCH>" --preview "git log --color=always {}" | head -n 1 | sed -e "s/^\*\s*//g" | perl -pe "s/remotes\/origin\///g")
+  echo ""
+  commandline -f repaint
 end
 
 function cop
@@ -49,16 +49,16 @@ function commitans
 end
 
 alias :q 'exit'
-alias gg 'open https://github.(git config remote.origin.url | cut -f2 -d. | tr ':' /)'
 alias digdag '/bin/bash /usr/local/bin/digdag'
-alias root 'cd (git rev-parse --show-toplevel)'
-alias grr 'echo "git reset --hard origin/"(git rev-parse --abbrev-ref HEAD) && git reset --hard origin/(git rev-parse --abbrev-ref HEAD)'
-# close all pane except current pane
 alias bazel 'bazelisk'
-alias devcon 'docker exec -it -u vscode -w "/workspaces/$(basename $(pwd))" $(devcontainer up --workspace-folder . | jq -r .containerId)'
 alias notify 'osascript -e \'display notification "command has completed successfully." with title "Command finished"\''
 
 # abbr
+abbr -a gg 'open https://github.(git config remote.origin.url | cut -f2 -d. | tr ':' /)'
+abbr -a devcon 'docker exec -it -u vscode -w "/workspaces/$(basename $(pwd))" $(devcontainer up --workspace-folder . | jq -r .containerId)'
+abbr -a grr 'echo "git reset --hard origin/"(git rev-parse --abbrev-ref HEAD) && git reset --hard origin/(git rev-parse --abbrev-ref HEAD)'
+abbr -a gg 'open https://github.(git config remote.origin.url | cut -f2 -d. | tr ':' /)'
+abbr -a root 'cd (git rev-parse --show-toplevel)'
 abbr -a df "df -h"
 abbr -a vi vim
 abbr -a del_swap "rm ~/.local/state/nvim/swap/*"
@@ -71,8 +71,9 @@ abbr -a kg kubectl get pod
 abbr -a kd "kubectl get pod | fzf | cut -d ' ' -f 1 | xargs kubectl describe pod"
 abbr -a kl "kubectl get pod | fzf | cut -d ' ' -f 1 | xargs kubectl logs"
 abbr -a fd fd -H
+abbr -a g "gctx activate (gctx list | sed 's/^\*//' | string trim | fzf)"
 abbr -a ga git add
-abbr -a gb git switch -c 
+abbr -a gb git switch -c
 abbr -a gbd git branch -D
 abbr -a gc git commit -m
 abbr -a gca git commit --amend
@@ -86,11 +87,11 @@ abbr -a gr git rebase
 abbr -a gra git rebase -i --autosquash HEAD~8
 abbr -a grh git reset --hard
 abbr -a grhh git reset --hard HEAD
+abbr -a grs git restore --staged .
 abbr -a rmbranch 'git branch --merged | grep -v master | grep -v production | grep -v "*" | xargs -I % git branch -d % && git remote prune origin'
 abbr -a todo 'rg "TODO:|FIXME:"'
 abbr -a awsdoc "aws ecr get-login-password | docker login --username AWS --password-stdin (aws sts get-caller-identity | jq -cr '.Account').dkr.ecr.ap-northeast-1.amazonaws.com"
 abbr -a on tmux kill-pane -a -t
-abbr -a one onelogin-aws-login -d 32400 --username (whoami)@$ORGANIZATION.com --config-name ads --profile default
 abbr -a ... '../../'
 abbr -a .... '../../../'
 abbr -a air 'remo aircon send --name エアコン'
@@ -114,6 +115,8 @@ abbr -a sp "tmux split-window -v"
 abbr -a caf "chezmoi add --follow"
 abbr -a kubectx "kubectl ctx"
 abbr -a kubens "kubectl ns"
+abbr -a c "chezmoi"
+abbr -a ccd "chezmoi cd"
 
 # abbr -a del "git branch --merged | grep -vE '^\\*|master|develop|staging' | xargs -I % git branch -d % && git remote prune origin"
 
@@ -136,6 +139,7 @@ else
         alias rm 'rm -i'
     end
 end
+
 if [ (command -v nvim) ]
     alias vim 'nvim'
 else
@@ -150,7 +154,7 @@ if [ (command -v g++-13) ]
 end
 if [ (command -v tmux) ]
     abbr -a ta 'tmux a -d'
-    abbr -a tn tmux new-session -s 
+    abbr -a tn tmux new-session -s
 else
     # echo "tmux is not installed"
 end
@@ -204,16 +208,6 @@ function mk
 end
 function pb
   cat $argv | pbcopy
-end
-
-function o --argument-names 'context'
-    if test -n "$context"
-        echo "onelogin-aws-login -d 32400 --username (whoami)@$ORGANIZATION.com --config-name $context --profile $context | awsctx use-context $context"
-        onelogin-aws-login -d 32400 --username (whoami)@$ORGANIZATION.com --config-name $context --profile $context
-        awsctx use-context --profile $context
-    else
-        echo "Please Input context for onelogin."
-    end
 end
 
 function swap

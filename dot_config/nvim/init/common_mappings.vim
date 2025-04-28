@@ -2,6 +2,19 @@ scriptencoding utf-8
 
 " x で削除した時にコピーしない
 nnoremap x "_x
+vnoremap p "_dP
+nnoremap <silent> dd :<C-u>call SmartDelete('line')<CR>
+
+function! SmartDelete(mode)
+  if a:mode ==# 'line'
+    let line = getline('.')
+    if empty(line) || line =~ '^\s*$'
+      execute 'normal! "_dd'
+    else
+      execute 'normal! dd'
+    endif
+  endif
+endfunction
 
 nnoremap s <Nop>
 nnoremap sj <C-w>j "タブ移動系

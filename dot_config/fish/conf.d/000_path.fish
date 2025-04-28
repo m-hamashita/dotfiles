@@ -13,16 +13,6 @@ set -x LC_ALL 'ja_JP.UTF-8'
 # Postgres
 set -x PGDATA /usr/local/var/postgres
 
-# go
-if [ (command -v go) ]
-    set -x GOPATH $HOME/go
-    # TODO: go env で環境変数を設定するようにする
-    set -x GOROOT ( go env GOROOT )
-    # set -x GOROOT /opt/homebrew/Cellar/go/1.19.4/libexec
-    # set -x GOROOT /usr/local/go/bin/go
-    set -x PATH $GOPATH/bin $PATH
-end
-
 # ls color
 set -x CLICOLOR 1
 set -x LSCOLORS DxGxcxdxCxegedabagacad
@@ -52,6 +42,7 @@ set -x XDG_DATA_HOME $HOME/.local/share
 set -x PATH $XDG_DATA_HOME/aquaproj-aqua/bin $PATH
 # set -x AQUA_GLOBAL_CONFIG $(aqua root-dir)/aqua.yaml
 set -x AQUA_GLOBAL_CONFIG ~/.local/share/aquaproj-aqua/aqua.yaml
+set -x AQUA_DISABLE_POLICY true  # TODO: AQUA_DISABLE_POLICY false
 set -x AQUA_POLICY_CONFIG ~/.local/share/aquaproj-aqua/aqua-policy.yaml
 set -x XDG_CONFIG_HOME $HOME/.config
 
@@ -66,20 +57,20 @@ set -x PATH $HOME/.local/share/aquaproj-aqua/pkgs/github_archive/github.com/tfut
 set -x EDITOR nvim
 set -x VISUAL nvim
 
-# for direnv
-if [ (command -v direnv) ]
-    eval (direnv hook fish)
-    set -x DIRENV_LOG_FORMAT
-end
+function _delayed_load --on-event fish_postexec
+    functions --erase _delayed_load
+    if [ (command -v direnv) ]
+        eval (direnv hook fish)
+        set -x DIRENV_LOG_FORMAT
+    end
 
-# for asdf
-# completion setting
-# mkdir -p ~/.config/fish/completions; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
-# if [ -e "$HOME/.asdf/asdf.fish" ]
-#     source ~/.asdf/asdf.fish
-# else
-#     echo "asdf is not installed"
-# end
+    # go
+    if [ (command -v go) ]
+        set -x GOPATH $HOME/go
+        set -x gOROOT ( go env GOROOT )
+        set -x PATH $GOPATH/bin $PATH
+    end
+end
 
 # pyenv
 set -x PYENV_ROOT $HOME/.pyenv

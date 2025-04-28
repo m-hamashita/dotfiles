@@ -99,6 +99,8 @@ set wrapscan
 "autocmd BufWinEnter ?* silent loadview
 autocmd BufReadPost * if line("'\"") > 0 && line ("'\"") <= line("$") | exe "normal! g'\"" | endif
 
+nnoremap x "_x
+vnoremap p "_dP
 
 " ショートカット
 nnoremap s <Nop>

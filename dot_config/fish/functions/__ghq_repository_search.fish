@@ -20,3 +20,4 @@ function __ghq_repository_search -d 'Repository search'
     [ -n "$select" ]; and cd (ghq root)/"$select"
     commandline -f repaint
 end
+

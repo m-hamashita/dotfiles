@@ -47,7 +47,7 @@ end
 
 -- double tap で toggle で表示/非表示する
 module.action = function()
-	local appName = "ghostty"
+	local appName = "Ghostty"
 	local app = hs.application.get(appName)
 	FocusApp(app)
 end
@@ -108,7 +108,7 @@ local function maximizeActiveWindow()
 	-- frame.h = 1920
 	win:setFrame(frame)
 end
-hs.hotkey.bind({ "cmd", "shift" }, "M", maximizeActiveWindow)
+-- hs.hotkey.bind({ "cmd", "shift" }, "M", maximizeActiveWindow)
 
 local timeFirstControl, firstDown, secondDown = 0, false, false
 local noFlags = function(ev)

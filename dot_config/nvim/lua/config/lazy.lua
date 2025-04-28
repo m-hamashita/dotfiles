@@ -1,3 +1,7 @@
+if vim.loader then
+	vim.loader.enable()
+end
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -39,13 +43,14 @@ require("lazy").setup({
 	{ "sainnhe/gruvbox-material", lazy = false },
 	{
 		"machakann/vim-highlightedyank",
-		event = "UIEnter",
+		event = "VeryLazy",
 		config = require("config.plugins.vim-highlightedyank").config(),
 	},
+	-- plugins
 	{
 		-- file explorer
 		"lambdalisue/fern.vim",
-		event = "UIEnter",
+		event = "VeryLazy",
 		config = function()
 			require("config.plugins.fern").config()
 		end,
@@ -63,26 +68,18 @@ require("lazy").setup({
 			"vim-denops/denops.vim",
 		},
 	},
-	{ "machakann/vim-sandwich", event = "UIEnter" },
-	{ "tpope/vim-surround", event = "UIEnter" },
+	{ "machakann/vim-sandwich", event = "VeryLazy" },
+	{ "tpope/vim-surround", event = "VeryLazy" },
 	{
 		"gelguy/wilder.nvim",
-		event = "UIEnter",
+		event = "VeryLazy",
 		config = function()
 			require("config.plugins.wilder").config()
 		end,
 	},
 	{
-		-- support open new tab
-		"lambdalisue/guise.vim",
-		event = "UIEnter",
-		dependencies = {
-			"vim-denops/denops.vim",
-		},
-	},
-	{
 		"Shougo/deol.nvim",
-		event = "UIEnter",
+		event = "VeryLazy",
 		config = function()
 			require("config.plugins.deol").config()
 		end,
@@ -91,7 +88,7 @@ require("lazy").setup({
 	{
 		"williamboman/mason-lspconfig.nvim",
 		lazy = false,
-		event = "VeryLazy",
+		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			require("config.plugins.mason").config()
 		end,
@@ -101,62 +98,73 @@ require("lazy").setup({
 		},
 	},
 	{
-		"github/copilot.vim",
-		event = "UIEnter",
-	},
-	-- {
-	-- 	"zbirenbaum/copilot.lua",
-	-- 	event = "InsertEnter",
-	-- 	config = function()
-	-- 		vim.defer_fn(function()
-	-- 			require("config.plugins.copilot").config()
-	-- 		end, 100)
-	-- 	end,
-	-- },
-	-- {
-	-- 	"zbirenbaum/copilot-cmp",
-	-- 	after = { "zbirenbaum/copilot.lua" },
-	-- },
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		event = "UIEnter",
+		"nvimtools/none-ls.nvim",
+		event = "VeryLazy",
 		config = function()
-			require("config.plugins.null-ls").config()
+			require("config.plugins.none-ls").config()
+		end,
+	},
+	{
+		"jay-babu/mason-null-ls.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			"williamboman/mason.nvim",
+			"nvimtools/none-ls.nvim",
+		},
+		config = function()
+			require("config.plugins.mason-null-ls").config()
+		end,
+	},
+	{
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			require("config.plugins.mason-tool-installer").config()
 		end,
 	},
 	{
 		"lvimuser/lsp-inlayhints.nvim",
-		event = "UIEnter",
+		event = "VeryLazy",
 		config = function()
 			require("config.plugins.lsp-inlayhints").config()
 		end,
 	},
 	{
 		"hrsh7th/nvim-cmp",
-		event = "UIEnter",
+		event = "VeryLazy",
 		config = function()
 			require("config.plugins.nvim-cmp").config()
 		end,
 		dependencies = { "hrsh7th/cmp-nvim-lsp", "hrsh7th/vim-vsnip" },
 	},
 	{
+		"nvimdev/lspsaga.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		},
+		config = function()
+			require("config.plugins.lspsaga").config()
+		end,
+	},
+	-- statusline
+	{
 		"nvim-lualine/lualine.nvim",
-		event = "UIEnter",
+		event = "VeryLazy",
 		config = function()
 			require("config.plugins.lualine").config()
 		end,
 	},
 	{
-		"simrat39/rust-tools.nvim",
+		"lukas-reineke/indent-blankline.nvim",
 		event = "VeryLazy",
-		dependencies = {
-			"mfussenegger/nvim-dap",
-		},
+		main = "ibl",
 		config = function()
-			require("config.plugins.rust-tools").config()
+			require("config.plugins.indent-blankline").config()
 		end,
 	},
-	{ "kyazdani42/nvim-web-devicons", event = "UIEnter" },
+	{ "kyazdani42/nvim-web-devicons", event = "VeryLazy" },
 	{
 		"nvim-telescope/telescope.nvim",
 		event = "VeryLazy",
@@ -168,20 +176,26 @@ require("lazy").setup({
 			require("config.plugins.telescope").config()
 		end,
 	},
-	{ "dstein64/vim-startuptime", event = "UIEnter" },
-	{ "tpope/vim-rhubarb", event = "UIEnter" },
-	{ "tpope/vim-fugitive", event = "UIEnter" },
-	{ "airblade/vim-gitgutter", event = "UIEnter" },
 	{
-		"Maan2003/lsp_lines.nvim",
-		event = "UIEnter",
-		config = function()
-			require("config.plugins.lsp_lines").config()
+		"dstein64/vim-startuptime",
+		cmd = "StartupTime",
+		init = function()
+			vim.g.startuptime_tries = 10
 		end,
-		dependencies = { "neovim/nvim-lspconfig" },
 	},
-	{ "vijaymarupudi/nvim-fzf", event = "UIEnter" },
-	{ "vim-denops/denops.vim", event = "UIEnter" },
+	{ "tpope/vim-rhubarb", event = "VeryLazy" },
+	{ "tpope/vim-fugitive", event = "VeryLazy" },
+	{ "airblade/vim-gitgutter", event = "VeryLazy" },
+	-- {
+	--     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+	--     event = "VeryLazy",
+	--     config = function()
+	--         require("config.plugins.lsp_lines").config()
+	--     end,
+	--     dependencies = { "neovim/nvim-lspconfig" },
+	-- },
+	{ "vijaymarupudi/nvim-fzf", event = "VeryLazy" },
+	{ "vim-denops/denops.vim", event = "VeryLazy" },
 	{
 		"nvim-treesitter/nvim-treesitter",
 		config = function()
@@ -194,83 +208,56 @@ require("lazy").setup({
 	},
 	{
 		"kassio/neoterm",
-		event = "UIEnter",
+		event = "VeryLazy",
 		config = function()
 			require("config.plugins.neoterm").config()
 		end,
 	},
 	{
 		"numToStr/Comment.nvim",
-		event = "UIEnter",
+		event = "VeryLazy",
 		config = function()
 			require("config.plugins.comment").config()
 		end,
 	},
-	{ "sindrets/diffview.nvim", event = "UIEnter" },
-	{ "plasticboy/vim-markdown", event = "UIEnter" },
-	{ "hashivim/vim-terraform", event = "UIEnter" },
-	{ "dag/vim-fish", event = "UIEnter" },
-	{ "skanehira/getpr.vim", event = "UIEnter" },
+	{ "sindrets/diffview.nvim", event = "VeryLazy" },
+	{ "plasticboy/vim-markdown", event = "VeryLazy" },
+	{ "hashivim/vim-terraform", event = "VeryLazy" },
+	{ "dag/vim-fish", event = "VeryLazy" },
+	{ "skanehira/getpr.vim", event = "VeryLazy" },
 	{
 		"luochen1990/rainbow",
-		event = "UIEnter",
+		event = "VeryLazy",
 		config = function()
 			require("config.plugins.rainbow").config()
 		end,
 	},
 	{
-		"lukas-reineke/indent-blankline.nvim",
-		event = "UIEnter",
-		main = "ibl",
-		opts = {},
-	},
-	{
 		"notomo/reacher.nvim",
-		event = "UIEnter",
+		event = "VeryLazy",
 		config = function()
 			require("config.plugins.reacher").config()
 		end,
 	},
 	{
 		"eiji03aero/quick-notes",
-		event = "UIEnter",
+		event = "VeryLazy",
 		config = function()
 			require("config.plugins.quick-notes").config()
 		end,
 	},
 	{
 		"simeji/winresizer",
-		event = "UIEnter",
+		event = "VeryLazy",
 		config = function()
 			require("config.plugins.winresizer").config()
 		end,
 	},
 	{
-		"fedepujol/move.nvim",
-		event = "UIEnter",
-		config = function()
-			require("config.plugins.move").config()
-		end,
-	},
-	{
 		"rhysd/conflict-marker.vim",
-		event = "UIEnter",
+		event = "VeryLazy",
 		config = function()
 			require("config.plugins.conflict-marker").config()
-		end,
-	},
-	{
-		"heavenshell/vim-pydocstring",
-		event = "UIEnter",
-		config = function()
-			require("config.plugins.vim-pydocstring").config()
-		end,
-	},
-	{
-		"kana/vim-altercmd",
-		event = "UIEnter",
-		config = function()
-			require("config.plugins.vim-altercmd").config()
 		end,
 	},
 	{
@@ -280,13 +267,9 @@ require("lazy").setup({
 			require("config.plugins.todo-comments").config()
 		end,
 	},
-	{ "dkarter/bullets.vim", ft = "markdown" },
 	{
 		"folke/noice.nvim",
-		event = "UIEnter",
-		config = function()
-			require("config.plugins.noice").config()
-		end,
+		event = "VeryLazy",
 		dependencies = {
 			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
 			"MunifTanjim/nui.nvim",
@@ -295,6 +278,9 @@ require("lazy").setup({
 			--   If not available, we use `mini` as the fallback
 			"rcarriga/nvim-notify",
 		},
+		config = function()
+			require("config.plugins.noice").config()
+		end,
 	},
 	{
 		"tversteeg/registers.nvim",
@@ -303,6 +289,73 @@ require("lazy").setup({
 			require("config.plugins.registers").config()
 		end,
 		cmd = "Registers",
+	},
+	{
+		"yetone/avante.nvim",
+		event = "VeryLazy",
+		version = false, -- Never set this value to "*"! Never!
+		opts = {
+			-- add any opts here
+			-- for example
+			provider = "openai",
+			openai = {
+				endpoint = "https://api.openai.com/v1",
+				model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
+				timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
+				temperature = 0,
+				max_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
+				--reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+			},
+		},
+		-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+		build = "make",
+		-- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"stevearc/dressing.nvim",
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+			--- The below dependencies are optional,
+			"echasnovski/mini.pick", -- for file_selector provider mini.pick
+			"nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+			"hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+			"ibhagwan/fzf-lua", -- for file_selector provider fzf
+			"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+			"zbirenbaum/copilot.lua", -- for providers='copilot'
+			{
+				-- support for image pasting
+				"HakonHarnes/img-clip.nvim",
+				event = "VeryLazy",
+				opts = {
+					-- recommended settings
+					default = {
+						embed_image_as_base64 = false,
+						prompt_for_file_name = false,
+						drag_and_drop = {
+							insert_mode = true,
+						},
+						-- required for Windows users
+						use_absolute_path = true,
+					},
+				},
+			},
+			{
+				-- Make sure to set this up properly if you have lazy=true
+				"MeanderingProgrammer/render-markdown.nvim",
+				opts = {
+					file_types = { "markdown", "Avante" },
+				},
+				ft = { "markdown", "Avante" },
+			},
+		},
+	},
+	{
+		"j-hui/fidget.nvim",
+		event = "VeryLazy",
+		tag = "v1.6.1",
+		config = function()
+			require("config.plugins.fidget").config()
+		end,
 	},
 }, {
 	defaults = { lazy = true },

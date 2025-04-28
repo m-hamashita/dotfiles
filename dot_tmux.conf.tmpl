@@ -96,8 +96,12 @@ set -g @continuum-boot 'on'
 set -g @continuum-boot-options 'iterm'
 
 # auto restore tmux
+# temporary workaround for my ubuntu machine.
+{{ if eq .chezmoi.os "darwin" -}}
 set -g @continuum-restore 'on'
 set -g @continuum-save-interval '60'
+{{ end }}
+
 
 
 run-shell '~/.tmux/plugins/tpm/tpm'
@@ -107,11 +111,6 @@ run-shell '~/.tmux/plugins/tpm/tpm'
 # ステータスバーの見た目
 #===================================
 
-# 色コード: http://www.calmar.ws/vim/256-xterm-24bit-rgb-color-chart.html
-
-# ステータスバーの色
-# set -g status-fg colour253
-
 # tmux powerline
 # $ git clone https://github.com/erikw/tmux-powerline.git
 # $ git clone https://github.com/abertsch/Menlo-for-Powerline
@@ -119,10 +118,6 @@ run-shell '~/.tmux/plugins/tpm/tpm'
 # $ menlo for powerline
 # run-shell "powerline-daemon -q"
 # source "~/.local/pipx/venvs/powerline-status/lib/python3.10/site-packages/powerline/bindings/tmux/powerline.conf"
-# 256色サポート
-# tmuxをした時にpromptに色を付けるため
-# set-option -g default-terminal screen-256color
-# set -g terminal-overrides 'xterm:colors=256'
 
 
 # ステータスバーの位置

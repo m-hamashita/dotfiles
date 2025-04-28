@@ -1,16 +1,17 @@
 {
   "editor.formatOnSave": true,
-
   "[python]": {
     "editor.codeActionsOnSave": {
       "source.organizeImports.ruff": "explicit",
-      "source.fixAll.ruff": "explicit"
+      "source.fixAll.ruff": "explicit",
+      "source.fixAll": "never"
     },
     "editor.formatOnPaste": false,
     "editor.formatOnSave": true,
     "editor.formatOnType": false,
     "editor.insertSpaces": true,
     "editor.tabSize": 4,
+    // "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.defaultFormatter": "charliermarsh.ruff"
   },
   "[rust]": {
@@ -36,7 +37,7 @@
   "codetour.showMarkers": true,
   "editor.accessibilitySupport": "off",
   "editor.inlayHints.fontSize": 12,
-  "editor.inlineSuggest.enabled": true,
+  "editor.inlineSuggest.enabled": false,
   "editor.minimap.scale": 1,
   "editor.suggestSelection": "first",
   "extensions.ignoreRecommendations": true,
@@ -223,7 +224,8 @@
   //     ]
   //   }
   // ],
-  // "github.copilot.nextEditSuggestions.enabled": true,
+  // "github.copilot.editor.enableAutoCompletions": false,
+  // "github.copilot.editor.enableCodeActions": false,
   // "github.copilot.enable": {
   //   "*": true,
   //   "Go": true,
@@ -233,7 +235,6 @@
   //   "rust": true,
   //   "yaml": true
   // },
-  // "github.copilot.editor.enableAutoCompletions": true,
   // "github.copilot.chat.localeOverride": "ja",
   "git.openRepositoryInParentFolders": "never",
   "circleci.hostUrl": "",
@@ -329,5 +330,14 @@
   "[dockerfile]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
-  "python.analysis.indexing": false
+  "python.analysis.indexing": false,
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "geminicodeassist.project": "",
+  "cursor.cpp.enablePartialAccepts": true,
+  "editor.inlineSuggest.edits.experimental.useMixedLinesDiff": "whenPossible",
+  "editor.inlineSuggest.edits.experimental.useInterleavedLinesDiff": "always",
+  "terminal.integrated.suggest.enableExtensionCompletions": true,
+  "terminal.integrated.suggest.enabled": true,
+  "workbench.editor.enablePreview": false,
+  "workbench.statusBar.visible": false
 }

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # tpm install
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
@@ -6,10 +6,10 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 if [ "$(uname)" == 'Darwin' ]; then
     brew install neovim
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
-    curl -L https://github.com/neovim/neovim/releases/download/v0.10.0/nvim.appimage -o nvim
-    mkdir -p ~/local/bin/
-    mv ./nvim ~/local/bin/nvim
-    rm nvim
+    curl -L  https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.appimage -o nvim
+    mkdir -p ~/.local/bin/
+    mv ./nvim ~/.local/bin/nvim
+    chmod +x ~/.local/bin/nvim
 fi
 
 # fish
@@ -39,6 +39,6 @@ echo "Please add `/usr/local/bin/fish` to /etc/shells"
 # chsh -s /usr/local/bin/fish
 
 # aqua install
-curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.0.1/aqua-installer | bash
+curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.1.2/aqua-installer | bash
 
-mkdir ~/.local/share/aquaproj-aqua
+mkdir -p ~/.local/share/aquaproj-aqua

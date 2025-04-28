@@ -748,105 +748,6 @@ end
 # Virtual environment segments
 # ==============================
 
-function __bobthefish_rvm_parse_ruby -S -a ruby_string -a scope -d 'Parse RVM Ruby string'
-    # Function arguments:
-    # - 'ruby-2.2.3@rails', 'jruby-1.7.19'...
-    # - 'default' or 'current'
-    set -l IFS @
-    echo "$ruby_string" | read __ruby __rvm_{$scope}_ruby_gemset __
-    set IFS -
-    echo "$__ruby" | read __rvm_{$scope}_ruby_interpreter __rvm_{$scope}_ruby_version __
-    set -e __ruby
-    set -e __
-end
-
-function __bobthefish_rvm_info -S -d 'Current Ruby information from RVM'
-    # look for rvm install path
-    set -q rvm_path
-    or set -l rvm_path ~/.rvm /usr/local/rvm
-
-    # More `sed`/`grep`/`cut` magic...
-    set -l __rvm_default_ruby (grep GEM_HOME $rvm_path/environments/default 2>/dev/null | sed -e"s/'//g" | sed -e's/.*\///')
-    set -l __rvm_current_ruby (rvm-prompt i v g)
-
-    [ "$__rvm_default_ruby" = "$__rvm_current_ruby" ]
-    and return
-
-    set -l __rvm_default_ruby_gemset
-    set -l __rvm_default_ruby_interpreter
-    set -l __rvm_default_ruby_version
-    set -l __rvm_current_ruby_gemset
-    set -l __rvm_current_ruby_interpreter
-    set -l __rvm_current_ruby_version
-
-    # Parse default and current Rubies to global variables
-    __bobthefish_rvm_parse_ruby $__rvm_default_ruby default
-    __bobthefish_rvm_parse_ruby $__rvm_current_ruby current
-    # Show unobtrusive RVM prompt
-
-    # If interpreter differs form default interpreter, show everything:
-    if [ "$__rvm_default_ruby_interpreter" != "$__rvm_current_ruby_interpreter" ]
-        if [ "$__rvm_current_ruby_gemset" = 'global' ]
-            rvm-prompt i v
-        else
-            rvm-prompt i v g
-        end
-        # If version differs form default version
-    else if [ "$__rvm_default_ruby_version" != "$__rvm_current_ruby_version" ]
-        if [ "$__rvm_current_ruby_gemset" = 'global' ]
-            rvm-prompt v
-        else
-            rvm-prompt v g
-        end
-        # If gemset differs form default or 'global' gemset, just show it
-    else if [ "$__rvm_default_ruby_gemset" != "$__rvm_current_ruby_gemset" ]
-        rvm-prompt g
-    end
-end
-
-function __bobthefish_prompt_rubies -S -d 'Display current Ruby information'
-    [ "$theme_display_ruby" = 'no' ]
-    and return
-
-    set -l ruby_version
-    if type -fq rvm-prompt
-        set ruby_version (__bobthefish_rvm_info)
-    else if type -fq rbenv
-        set ruby_version (rbenv version-name)
-        # Don't show global ruby version...
-        set -q RBENV_ROOT
-        or set -l RBENV_ROOT $HOME/.rbenv
-
-        [ -e "$RBENV_ROOT/version" ]
-        and read -l global_ruby_version <"$RBENV_ROOT/version"
-
-        [ "$global_ruby_version" ]
-        or set -l global_ruby_version system
-
-        [ "$ruby_version" = "$global_ruby_version" ]
-        and return
-    else if type -q chruby # chruby is implemented as a function, so omitting the -f is intentional
-        set ruby_version $RUBY_VERSION
-    else if type -fq asdf
-        set -l asdf_current_ruby (asdf current ruby 2>/dev/null)
-        or return
-
-        echo "$asdf_current_ruby" | read -l _asdf_plugin asdf_ruby_version asdf_provenance
-
-        # If asdf changes their ruby version provenance format, update this to match
-        [ (string trim -- "$asdf_provenance") = "$HOME/.tool-versions" ]
-        and return
-
-        set ruby_version $asdf_ruby_version
-    end
-
-    [ -z "$ruby_version" ]
-    and return
-
-    __bobthefish_start_segment $color_rvm
-    echo -ns $ruby_glyph $ruby_version ' '
-end
-
 function __bobthefish_virtualenv_python_version -S -d 'Get current Python version'
     switch (python --version 2>&1 | tr '\n' ' ')
         case 'Python 2*PyPy*'
@@ -1172,7 +1073,6 @@ function fish_prompt -d 'bobthefish, a fish theme optimized for awesome'
     # Virtual environments
     __bobthefish_prompt_nix
     __bobthefish_prompt_desk
-    __bobthefish_prompt_rubies
     __bobthefish_prompt_virtualfish
     __bobthefish_prompt_virtualgo
     __bobthefish_prompt_node
