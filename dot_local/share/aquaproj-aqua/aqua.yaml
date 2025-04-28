@@ -64,7 +64,7 @@ packages:
   - name: k3d-io/k3d@v5.6.3
   - name: kubernetes-sigs/kind@v0.23.0
   - name: kubernetes/minikube@v1.33.1
-  - name: astral-sh/uv@0.6.3
+  - name: astral-sh/uv@0.6.17
   - name: one2nc/cloudlens@v0.1.4
   - name: jesseduffield/lazygit@v0.48.0
   - name: jesseduffield/lazydocker@v0.24.1
