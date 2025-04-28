@@ -35,7 +35,7 @@ packages:
   - name: helm/helm@v3.17.3
   - name: GoogleContainerTools/skaffold@v2.0.1
   - name: sbstp/kubie@v0.25.2
-  - name: rancher/k3d@v5.4.6
+  - name: rancher/k3d@v5.8.3
   - name: argoproj/argo-rollouts@v1.8.2
   - name: blacknon/hwatch@0.3.9
   - name: istio/istio/istioctl@1.16.0
