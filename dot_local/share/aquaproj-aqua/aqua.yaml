@@ -48,7 +48,7 @@ packages:
   - name: bcicen/slackcat@1.7.3
   - name: babarot/gomi@v1.5.1
   - name: x-motemen/blogsync@v0.13.0
-  - name: aristocratos/btop@v1.2.13
+  - name: aristocratos/btop@v1.4.3
   - name: bcicen/ctop@v0.7.7
   - name: ninja-build/ninja@v1.11.1
   - name: snyk/cli@v1.1183.0
