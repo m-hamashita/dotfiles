@@ -190,7 +190,6 @@
   "workbench.tree.renderIndentGuides": "always",
   "outline-map.expandOutlineMethod": "hover",
   "outline-map.follow": "cursor",
-  "bazel.buildifierExecutable": "/Users/masakatsu.hamashita/.local/share/aquaproj-aqua/bin/buildifier",
   "markdown-preview-enhanced.previewTheme": "github-dark.css",
   "terminal.integrated.fontFamily": "Meslo LG S for Powerline,Hack Nerd Font",
   "git.ignoreRebaseWarning": true,
@@ -332,12 +331,20 @@
   },
   "python.analysis.indexing": false,
   "editor.unicodeHighlight.ambiguousCharacters": false,
-  "geminicodeassist.project": "",
   "cursor.cpp.enablePartialAccepts": true,
   "editor.inlineSuggest.edits.experimental.useMixedLinesDiff": "whenPossible",
   "editor.inlineSuggest.edits.experimental.useInterleavedLinesDiff": "always",
-  "terminal.integrated.suggest.enableExtensionCompletions": true,
-  "terminal.integrated.suggest.enabled": true,
   "workbench.editor.enablePreview": false,
-  "workbench.statusBar.visible": false
+  "terminal.integrated.inheritEnv": false,
+  "bazel.buildifierFixOnFormat": true,
+  "altimate.onboardedMcpServer": true,
+  "mssql.connectionGroups": [
+    {
+      "name": "ROOT",
+      "id": "DD121F20-B9E5-481F-A9BC-429FA38054EF"
+    }
+  ],
+  "mssql.connections": [],
+  "notebook.output.textLineLimit": 300,
+  "notebook.output.scrolling": true
 }

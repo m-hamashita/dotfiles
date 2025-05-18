@@ -70,3 +70,5 @@ packages:
   - name: jesseduffield/lazydocker@v0.24.1
   - name: suzuki-shunsuke/pinact@v1.2.2
   - name: dagger/dagger@v0.18.0
+  - name: google/yamlfmt@v0.16.0
+  - name: johanhaleby/kubetail@1.6.20

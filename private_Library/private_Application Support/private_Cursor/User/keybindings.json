@@ -59,10 +59,6 @@
     "when": "editorTextFocus && vim.active && vim.use<C-w> && !inDebugRepl"
   },
   {
-    "key": "cmd+;",
-    "command": "workbench.action.toggleActivityBarVisibility"
-  },
-  {
     "key": "alt+h",
     "command": "-git.viewFileHistory"
   },
