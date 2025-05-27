@@ -24,6 +24,9 @@
     "editor.formatOnSave": false,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[toml]": {
+    "editor.formatOnSave": false
+  },
   "[javascript]": {
     "editor.formatOnSave": true
   },
@@ -346,5 +349,14 @@
   ],
   "mssql.connections": [],
   "notebook.output.textLineLimit": 300,
-  "notebook.output.scrolling": true
+  "notebook.output.scrolling": true,
+  "terminal.integrated.allowedLinkSchemes": [
+    "file",
+    "http",
+    "https",
+    "mailto",
+    "vscode",
+    "vscode-insiders",
+    "docker-desktop"
+  ]
 }
