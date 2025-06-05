@@ -71,4 +71,4 @@ packages:
   - name: dagger/dagger@v0.18.0
   - name: google/yamlfmt@v0.16.0
   - name: tamasfe/taplo@0.9.3
-  - name: astral-sh/uv@0.7.8
+  - name: astral-sh/uv@0.7.11
