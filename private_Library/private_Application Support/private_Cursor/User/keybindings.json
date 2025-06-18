@@ -265,7 +265,7 @@
   },
   {
     "key": "\\ \\",
-    "command": "settings.cycle.copilot.inlineSuggest",
+    "command": "settings.cycle.toggleFormatOnSaveForAll",
     "when": "editorFocus && vim.mode == 'Normal'"
   },
   {
@@ -296,11 +296,6 @@
     "key": "ctrl+`",
     "command": "-workbench.action.terminal.toggleTerminal",
     "when": "terminal.active"
-  },
-  {
-    "key": "\\ r",
-    "command": "editor.action.rename",
-    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly && vim.mode == 'Normal'"
   },
   {
     "key": "shift+cmd+e",
@@ -419,5 +414,28 @@
   {
     "key": "cmd+i",
     "command": "composerMode.agent"
+  },
+  {
+    "key": "cmd+escape",
+    "command": "-workbench.action.backgroundComposer.escapeToClose",
+    "when": "backgroundComposerEnabled && isInBackgroundComposerWindow"
+  },
+  {
+    "key": "cmd+escape",
+    "command": "-workbench.action.chat.cancel"
+  },
+  {
+    "key": "shift+cmd+j",
+    "command": "claude-code.runClaude.keyboard",
+    "when": "claude-code.hasClaudeInPath"
+  },
+  {
+    "key": "cmd+escape",
+    "command": "-claude-code.runClaude.keyboard",
+    "when": "claude-code.hasClaudeInPath"
+  },
+  {
+    "key": "shift+cmd+j",
+    "command": "-find-it-faster.findFiles"
   }
 ]

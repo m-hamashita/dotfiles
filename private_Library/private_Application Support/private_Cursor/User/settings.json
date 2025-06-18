@@ -1,18 +1,7 @@
 {
   "editor.formatOnSave": true,
   "[python]": {
-    "editor.codeActionsOnSave": {
-      "source.organizeImports.ruff": "explicit",
-      "source.fixAll.ruff": "explicit",
-      "source.fixAll": "never"
-    },
-    "editor.formatOnPaste": false,
-    "editor.formatOnSave": true,
-    "editor.formatOnType": false,
-    "editor.insertSpaces": true,
-    "editor.tabSize": 4,
-    // "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.defaultFormatter": "charliermarsh.ruff"
+    "editor.formatOnSave": true
   },
   "[rust]": {
     "editor.formatOnSave": true
@@ -22,7 +11,8 @@
   },
   "[markdown]": {
     "editor.formatOnSave": false,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "files.trimTrailingWhitespace": false
   },
   "[toml]": {
     "editor.formatOnSave": false
@@ -212,20 +202,19 @@
   "terminal.integrated.customGlyphs": false,
   "editor.wordWrap": "off",
   "diffEditor.wordWrap": "off",
-  // "settings.cycle": [
-  //   {
-  //     "id": "copilot.inlineSuggest",
-  //     "overrideWorkspaceSettings": true,
-  //     "values": [
-  //       {
-  //         "github.copilot.editor.enableAutoCompletions": false
-  //       },
-  //       {
-  //         "github.copilot.editor.enableAutoCompletions": true
-  //       }
-  //     ]
-  //   }
-  // ],
+  "settings.cycle": [
+    {
+      "id": "toggleFormatOnSaveForAll",
+      "values": [
+        {
+          "[python]": { "editor.formatOnSave": true }
+        },
+        {
+          "[python]": { "editor.formatOnSave": false }
+        }
+      ]
+    }
+  ],
   // "github.copilot.editor.enableAutoCompletions": false,
   // "github.copilot.editor.enableCodeActions": false,
   // "github.copilot.enable": {
@@ -330,7 +319,7 @@
   "workbench.sideBar.location": "right",
   "workbench.iconTheme": "ayu-mirage-zed",
   "[dockerfile]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+    "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   "python.analysis.indexing": false,
   "editor.unicodeHighlight.ambiguousCharacters": false,
@@ -358,5 +347,6 @@
     "vscode",
     "vscode-insiders",
     "docker-desktop"
-  ]
+  ],
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv"
 }
