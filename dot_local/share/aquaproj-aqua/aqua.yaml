@@ -36,7 +36,7 @@ packages:
   - name: GoogleContainerTools/skaffold@v2.15.0
   - name: sbstp/kubie@v0.25.2
   - name: rancher/k3d@v5.8.3
-  - name: argoproj/argo-rollouts@v1.8.2
+  - name: argoproj/argo-rollouts@v1.8.3
   - name: blacknon/hwatch@0.3.19
   - name: istio/istio/istioctl@1.25.2
   - name: fullstorydev/grpcurl@v1.8.7
