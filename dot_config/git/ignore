@@ -16,3 +16,6 @@ __pycache__
 tmp_work
 .memo.md
 .specstory/
+.cursor/
+
+**/.claude/settings.local.json

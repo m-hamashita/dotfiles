@@ -46,9 +46,13 @@ set -x AQUA_DISABLE_POLICY true  # TODO: AQUA_DISABLE_POLICY false
 set -x AQUA_POLICY_CONFIG ~/.local/share/aquaproj-aqua/aqua-policy.yaml
 set -x XDG_CONFIG_HOME $HOME/.config
 
+set -x HOMEBREW_NO_AUTO_UPDATE 1
+set -x HOMEBREW_NO_INSTALL_CLEANUP 1
+
 # tfenv TODO: make it good
 set -x PATH $HOME/.local/share/aquaproj-aqua/pkgs/github_archive/github.com/tfutils/tfenv/v3.0.0/tfenv-3.0.0/bin $PATH
 
+set -Ux nvm_default_version v22.4.1
 
 # set -x PATH /usr/local/opt/llvm/bin $PATH
 # set -g fish_user_paths "/usr/local/opt/llvm/bin" $fish_user_paths

@@ -16,7 +16,7 @@ set -g prefix C-a
 # C-bのキーバインドを解除する
 unbind C-b
 # キーストロークのディレイを減らす
-set -sg escape-time 1
+set -sg escape-time 100
 # C-a*2でtmux内のプログラムにC-aを送る( ssh 時によく使う)
 bind C-a send-prefix
 # 設定ファイルをリロードする

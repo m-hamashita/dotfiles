@@ -23,15 +23,14 @@ function kubectl_status
 
 end
 
-function aws_context 
+function aws_context
   if [ (command -v awsctx) ]
       set -g awsctx_profile (awsctx active-context)
   end
   echo (set_color white)$awsctx_profile
-end 
+end
 
 function gcloud_config
-
   if test -f ~/.config/gcloud/active_config
       set -g gcloud_project (cat ~/.config/gcloud/active_config)
   end

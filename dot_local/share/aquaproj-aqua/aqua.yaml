@@ -2,14 +2,14 @@
 # https://aquaproj.github.io/
 registries:
   - type: standard
-    ref: v4.354.0 # renovate: depName=aquaproj/aqua-registry
+    ref: v4.379.0 # renovate: depName=aquaproj/aqua-registry
   - name: local
     type: local
     path: registry.yaml
 packages:
-  - name: bazelbuild/bazelisk@v1.16.0
+  - name: bazelbuild/bazelisk@v1.26.0
     registry: local
-  - name: remotemobprogramming/mob@v4.4.6
+  - name: remotemobprogramming/mob@v5.4.0
     registry: local
   - name: matsuyoshi30/germanium@v1.2.3
     registry: local
@@ -17,36 +17,36 @@ packages:
     registry: local
   - name: bazelbuild/bazel@7.2.0
     registry: local
-  - name: direnv/direnv@v2.32.1
-  - name: BurntSushi/ripgrep@13.0.0
-  - name: CircleCI-Public/circleci-cli@v0.1.22875
+  - name: direnv/direnv@v2.36.0
+  - name: BurntSushi/ripgrep@14.1.1
+  - name: CircleCI-Public/circleci-cli@v0.1.31632
   - name: lsd-rs/lsd@v1.1.5
-  - name: stedolan/jq@jq-1.6
-  - name: sharkdp/fd@v8.7.0
-  - name: sharkdp/hyperfine@v1.15.0
+  - name: stedolan/jq@jq-1.7.1
+  - name: sharkdp/fd@v10.2.0
+  - name: sharkdp/hyperfine@v1.19.0
   - name: XAMPPRocky/tokei@v12.1.2
-  - name: Wilfred/difftastic@0.38.0
-  - name: dalance/procs@v0.13.3
-  - name: x-motemen/ghq@v1.3.0
-  - name: sharkdp/bat@v0.22.1
-  - name: junegunn/fzf@0.38.0
-  - name: cli/cli@v2.33.0
-  - name: rust-lang/rust-analyzer@2022-10-03
-  - name: helm/helm@v3.10.2
-  - name: GoogleContainerTools/skaffold@v2.0.1
-  - name: sbstp/kubie@v0.19.1
-  - name: rancher/k3d@v5.4.6
-  - name: argoproj/argo-rollouts@v1.3.1
-  - name: blacknon/hwatch@0.3.9
-  - name: istio/istio/istioctl@1.16.0
+  - name: Wilfred/difftastic@0.63.0
+  - name: dalance/procs@v0.14.10
+  - name: x-motemen/ghq@v1.8.0
+  - name: sharkdp/bat@v0.25.0
+  - name: junegunn/fzf@v0.61.3
+  - name: cli/cli@v2.71.2
+  - name: rust-lang/rust-analyzer@2025-04-28
+  - name: helm/helm@v3.17.3
+  - name: GoogleContainerTools/skaffold@v2.15.0
+  - name: sbstp/kubie@v0.25.2
+  - name: rancher/k3d@v5.8.3
+  - name: argoproj/argo-rollouts@v1.8.2
+  - name: blacknon/hwatch@0.3.19
+  - name: istio/istio/istioctl@1.25.2
   - name: fullstorydev/grpcurl@v1.8.7
-  - name: stern/stern@v1.22.0
+  - name: stern/stern@v1.32.0
   - name: dandavison/delta@0.16.5
   - name: chmln/sd@v0.7.6
   - name: nektos/act@v0.2.71
   - name: rhysd/vim-startuptime@v1.3.1
   - name: bcicen/slackcat@1.7.3
-  - name: babarot/gomi@v1.5.1
+  - name: babarot/gomi@v1.6.1
   - name: x-motemen/blogsync@v0.13.0
   - name: aristocratos/btop@v1.2.13
   - name: bcicen/ctop@v0.7.7
@@ -61,12 +61,14 @@ packages:
   - name: rhysd/hgrep@v0.3.4
   - name: astral-sh/rye@0.43.0
   - name: kubernetes-sigs/krew@v0.4.4
-  - name: k3d-io/k3d@v5.6.3
+  - name: k3d-io/k3d@v5.8.3
   - name: kubernetes-sigs/kind@v0.23.0
   - name: kubernetes/minikube@v1.33.1
-  - name: astral-sh/uv@0.6.3
   - name: one2nc/cloudlens@v0.1.4
   - name: jesseduffield/lazygit@v0.48.0
   - name: jesseduffield/lazydocker@v0.24.1
   - name: suzuki-shunsuke/pinact@v1.2.2
-  - name: dagger/dagger@v0.18.0
+  - name: dagger/dagger@v0.18.10
+  - name: google/yamlfmt@v0.16.0
+  - name: tamasfe/taplo@0.9.3
+  - name: astral-sh/uv@0.7.11

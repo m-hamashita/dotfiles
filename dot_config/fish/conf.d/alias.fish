@@ -51,7 +51,7 @@ end
 alias :q 'exit'
 alias digdag '/bin/bash /usr/local/bin/digdag'
 alias bazel 'bazelisk'
-alias notify 'osascript -e \'display notification "command has completed successfully." with title "Command finished"\''
+# alias notify 'osascript -e \'display notification "command has completed successfully." with title "Command finished"\''
 
 # abbr
 abbr -a gg 'open https://github.(git config remote.origin.url | cut -f2 -d. | tr ':' /)'
