@@ -15,7 +15,7 @@ packages:
     registry: local
   - name: chroju/nature-remo-cli@v0.3.0
     registry: local
-  - name: bazelbuild/bazel@7.6.1
+  - name: bazelbuild/bazel@8.2.1
     registry: local
   - name: direnv/direnv@v2.36.0
   - name: BurntSushi/ripgrep@14.1.1
@@ -42,7 +42,7 @@ packages:
   - name: fullstorydev/grpcurl@v1.9.3
   - name: stern/stern@v1.32.0
   - name: dandavison/delta@0.18.2
-  - name: chmln/sd@v0.7.6
+  - name: chmln/sd@v1.0.0
   - name: nektos/act@v0.2.78
   - name: rhysd/vim-startuptime@v1.3.2
   - name: bcicen/slackcat@1.7.3
@@ -56,7 +56,7 @@ packages:
   - name: derailed/k9s@v0.50.6
   - name: mikefarah/yq@v4.45.4
   - name: jez/as-tree@0.12.0
-  - name: protocolbuffers/protobuf/protoc@v26.1
+  - name: protocolbuffers/protobuf/protoc@v31.1
   - name: hashicorp/packer@v1.13.1
   - name: rhysd/hgrep@v0.3.8
   - name: astral-sh/rye@0.44.0
@@ -67,7 +67,7 @@ packages:
   - name: one2nc/cloudlens@v0.1.4
   - name: jesseduffield/lazygit@v0.52.0
   - name: jesseduffield/lazydocker@v0.24.1
-  - name: suzuki-shunsuke/pinact@v1.6.0
+  - name: suzuki-shunsuke/pinact@v3.3.0
   - name: dagger/dagger@v0.18.10
   - name: google/yamlfmt@v0.17.1
   - name: tamasfe/taplo@0.10.0
