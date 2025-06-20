@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>aquaproj/aqua-renovate-config#1.13.0"],
+  "extends": ["github>aquaproj/aqua-renovate-config#2.8.2"],
   "automerge": false,
   "automergeType": "pr",
   "automergeStrategy": "squash",
