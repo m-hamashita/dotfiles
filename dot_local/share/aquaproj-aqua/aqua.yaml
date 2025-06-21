@@ -2,7 +2,7 @@
 # https://aquaproj.github.io/
 registries:
   - type: standard
-    ref: v4.379.0 # renovate: depName=aquaproj/aqua-registry
+    ref: v4.379.1 # renovate: depName=aquaproj/aqua-registry
   - name: local
     type: local
     path: registry.yaml
@@ -38,7 +38,7 @@ packages:
   - name: rancher/k3d@v5.8.3
   - name: argoproj/argo-rollouts@v1.8.3
   - name: blacknon/hwatch@0.3.19
-  - name: istio/istio/istioctl@1.26.1
+  - name: istio/istio/istioctl@1.26.2
   - name: fullstorydev/grpcurl@v1.9.3
   - name: stern/stern@v1.32.0
   - name: dandavison/delta@0.18.2
