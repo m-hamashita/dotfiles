@@ -37,6 +37,10 @@ function gcloud_config
   echo (set_color white)"$gcloud_project"
 end
 
+# function fish_right_prompt
+#   echo "("(kubectl_status)"/"(aws_context)"/"(gcloud_config)")"
+# end
+
 function fish_right_prompt
-  echo "("(kubectl_status)"/"(aws_context)"/"(gcloud_config)")"
+  echo "("(kubectl_status)"/"(gcloud_config)")"
 end
