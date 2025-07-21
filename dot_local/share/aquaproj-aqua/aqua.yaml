@@ -75,3 +75,4 @@ packages:
   - name: koalaman/shellcheck@v0.10.0
   - name: nektos/act@v0.2.79
   - name: wagoodman/dive@v0.13.1
+  - name: vladimirvivien/ktop@v0.4.1

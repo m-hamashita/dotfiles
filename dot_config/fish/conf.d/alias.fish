@@ -117,6 +117,7 @@ abbr -a kubectx "kubectl ctx"
 abbr -a kubens "kubectl ns"
 abbr -a c "chezmoi"
 abbr -a ccd "chezmoi cd"
+abbr -a gsa "[sa-name]@[project].iam.gserviceaccount.com"
 
 # abbr -a del "git branch --merged | grep -vE '^\\*|master|develop|staging' | xargs -I % git branch -d % && git remote prune origin"
 

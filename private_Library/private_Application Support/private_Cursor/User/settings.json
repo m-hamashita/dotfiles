@@ -326,7 +326,6 @@
   "cursor.cpp.enablePartialAccepts": true,
   "editor.inlineSuggest.edits.experimental.useMixedLinesDiff": "whenPossible",
   "editor.inlineSuggest.edits.experimental.useInterleavedLinesDiff": "always",
-  "workbench.editor.enablePreview": false,
   "terminal.integrated.inheritEnv": false,
   "bazel.buildifierFixOnFormat": true,
   "altimate.onboardedMcpServer": true,
@@ -356,5 +355,7 @@
     "git log",
     "git diff",
     "git show"
-  ]
+  ],
+  "workbench.editor.enablePreview": false,
+  "rust-analyzer.initializeStopped": true
 }
