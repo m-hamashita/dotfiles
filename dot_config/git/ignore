@@ -17,5 +17,7 @@ tmp_work
 .memo.md
 .specstory/
 .cursor/
+.wt_hook.fish
+.claude/
 
 **/.claude/settings.local.json
