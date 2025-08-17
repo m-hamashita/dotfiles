@@ -356,5 +356,6 @@
     "git show"
   ],
   "workbench.editor.enablePreview": false,
-  "rust-analyzer.initializeStopped": true
+  "rust-analyzer.initializeStopped": true,
+  "jupyter.askForKernelRestart": false
 }

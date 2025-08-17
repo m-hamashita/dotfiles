@@ -76,3 +76,4 @@ packages:
   - name: nektos/act@v0.2.79
   - name: wagoodman/dive@v0.13.1
   - name: vladimirvivien/ktop@v0.4.1
+  - name: aristocratos/btop@v1.4.4
