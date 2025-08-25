@@ -19,5 +19,8 @@ tmp_work
 .cursor/
 .wt_hook.fish
 .claude/
+.coverage
+htmlcov/
+
 
 **/.claude/settings.local.json
