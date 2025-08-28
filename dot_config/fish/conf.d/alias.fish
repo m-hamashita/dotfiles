@@ -54,10 +54,9 @@ alias bazel 'bazelisk'
 # alias notify 'osascript -e \'display notification "command has completed successfully." with title "Command finished"\''
 
 # abbr
-abbr -a gg 'open https://github.(git config remote.origin.url | cut -f2 -d. | tr ':' /)'
 abbr -a devcon 'docker exec -it -u vscode -w "/workspaces/$(basename $(pwd))" $(devcontainer up --workspace-folder . | jq -r .containerId)'
 abbr -a grr 'echo "git reset --hard origin/"(git rev-parse --abbrev-ref HEAD) && git reset --hard origin/(git rev-parse --abbrev-ref HEAD)'
-abbr -a gg 'open https://github.(git config remote.origin.url | cut -f2 -d. | tr ':' /)'
+abbr -a gg 'open "https://github.$(git config remote.origin.url | cut -f2 -d. | tr ":" /)/tree/$(git rev-parse --abbrev-ref HEAD)"'
 abbr -a root 'cd (git rev-parse --show-toplevel)'
 abbr -a df "df -h"
 abbr -a vi vim
