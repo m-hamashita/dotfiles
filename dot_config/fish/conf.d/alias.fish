@@ -71,6 +71,7 @@ abbr -a kd "kubectl get pod | fzf | cut -d ' ' -f 1 | xargs kubectl describe pod
 abbr -a kl "kubectl get pod | fzf | cut -d ' ' -f 1 | xargs kubectl logs"
 abbr -a fd fd -H
 abbr -a g "gctx activate (gctx list | sed 's/^\*//' | string trim | fzf)"
+abbr -a gas "gcloud config set account (gcloud auth list --format='value(account)' | fzf)"
 abbr -a ga git add
 abbr -a gb git switch -c
 abbr -a gbd git branch -D
@@ -117,6 +118,7 @@ abbr -a kubens "kubectl ns"
 abbr -a c "chezmoi"
 abbr -a ccd "chezmoi cd"
 abbr -a gsa "[sa-name]@[project].iam.gserviceaccount.com"
+abbr -a gl "gcloud config configurations list"
 
 # abbr -a del "git branch --merged | grep -vE '^\\*|master|develop|staging' | xargs -I % git branch -d % && git remote prune origin"
 
