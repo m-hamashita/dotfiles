@@ -78,3 +78,4 @@ packages:
   - name: vladimirvivien/ktop@v0.4.1
   - name: aristocratos/btop@v1.4.4
   - name: checkmake/checkmake@0.2.2
+  - name: git-lfs/git-lfs@v3.7.0
