@@ -34,11 +34,6 @@
     "when": "neovim.mode == 'cmdline_insert' || neovim.mode == 'cmdline_normal' || neovim.mode == 'cmdline_replace'"
   },
   {
-    "key": "space w",
-    "command": "workbench.action.toggleSidebarVisibility",
-    "when": "filesExplorerFocus && !terminalFocus || editorTextFocus && !terminalFocus && vim.mode == 'Normal'"
-  },
-  {
     "key": "ctrl+t",
     "command": "-editor.action.indentLines",
     "when": "editorTextFocus && neovim.ctrlKeysInsert && !neovim.recording && neovim.mode == 'insert'"
@@ -441,7 +436,7 @@
   {
     "key": "\\ r",
     "command": "editor.action.rename",
-    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly && vim.mode == 'Normal'"
   },
   {
     "key": "f2",
@@ -449,7 +444,11 @@
     "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
   },
   {
-    "key": "cmd+e",
-    "command": "composerMode.background"
+    "key": "cmd+;",
+    "command": "-bsv.bzl.goToLabel"
+  },
+  {
+    "key": "cmd+;",
+    "command": "workbench.view.extension.codexViewContainer"
   }
 ]

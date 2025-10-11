@@ -26,6 +26,9 @@
   "[javascriptreact]": {
     "editor.formatOnSave": true
   },
+  "[yaml]": {
+    "editor.formatOnSave": false
+  },
   "code-runner.runInTerminal": true,
   "codetour.showMarkers": true,
   "editor.accessibilitySupport": "off",
@@ -67,16 +70,6 @@
   },
   "terminal.integrated.macOptionIsMeta": true,
   "terminal.integrated.scrollback": 10000,
-  "todo-tree.general.tags": [
-    "BUG",
-    "HACK",
-    "FIXME",
-    "TODO",
-    "XXX",
-    "[ ]",
-    "[x]"
-  ],
-  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
   "typescript.inlayHints.parameterNames.enabled": "all",
   "vim.hlsearch": true,
   "vim.insertModeKeyBindings": [
@@ -357,5 +350,7 @@
   ],
   "workbench.editor.enablePreview": false,
   "rust-analyzer.initializeStopped": true,
-  "jupyter.askForKernelRestart": false
+  "jupyter.askForKernelRestart": false,
+  "geminicodeassist.displayInlineContextHint": false,
+  "workbench.statusBar.visible": false
 }
