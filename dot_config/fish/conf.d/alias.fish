@@ -409,3 +409,19 @@ function memp
       }
     ' | sort -rn
 end
+
+
+function loop
+    if test (count $argv) -lt 2
+        echo "Usage: loop <count> <command...>"
+        return 1
+    end
+
+    set count $argv[1]
+    set cmd $argv[2..-1]
+
+    for i in (seq $count)
+        echo "[$i/$count] Running: $cmd"
+        eval $cmd
+    end
+end
