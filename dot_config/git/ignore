@@ -21,6 +21,6 @@ tmp_work
 .claude/
 .coverage
 htmlcov/
-
+plans.md
 
 **/.claude/settings.local.json
