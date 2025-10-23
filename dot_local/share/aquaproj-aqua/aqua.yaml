@@ -79,3 +79,4 @@ packages:
   - name: aristocratos/btop@v1.4.4
   - name: checkmake/checkmake@0.2.2
   - name: git-lfs/git-lfs@v3.7.0
+  - name: aws/session-manager-plugin@1.2.707.0
