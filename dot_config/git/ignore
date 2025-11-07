@@ -22,5 +22,6 @@ tmp_work
 .coverage
 htmlcov/
 plans.md
+.kiro/
 
 **/.claude/settings.local.json
