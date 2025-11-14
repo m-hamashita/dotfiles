@@ -23,5 +23,6 @@ tmp_work
 htmlcov/
 plans.md
 .kiro/
+.agent/
 
 **/.claude/settings.local.json
