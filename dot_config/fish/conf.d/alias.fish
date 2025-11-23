@@ -119,9 +119,6 @@ abbr -a c "chezmoi"
 abbr -a ccd "chezmoi cd"
 abbr -a gsa "[sa-name]@[project].iam.gserviceaccount.com"
 abbr -a gl "gcloud config configurations list"
-abbr -a ac "llm -s 'Generate a simple and concise commit message in English based on the following git diff.
-Use the Conventional Commits style (e.g., feat:, fix:, chore:, refactor:, docs:, test:).
-Choose the most appropriate prefix automatically based on the changes.'"
 
 # abbr -a del "git branch --merged | grep -vE '^\\*|master|develop|staging' | xargs -I % git branch -d % && git remote prune origin"
 
@@ -428,3 +425,65 @@ function loop
         eval $cmd
     end
 end
+
+function gencommit
+    set -l flag_commit 0
+    set -l diff_mode ""
+    set -l diff_sha ""
+    set -l diff_source ""
+
+    # 引数処理
+    for arg in $argv
+        switch $arg
+            case '--commit'
+                set flag_commit 1
+            case '--cached'
+                set diff_mode "cached"
+            case '--working' '--work'
+                set diff_mode "working"
+            case 'HEAD' '*'[0-9a-f]*
+                set diff_mode "sha"
+                set diff_sha $arg
+            case '*'
+                echo "Unknown argument: $arg"
+                return 1
+        end
+    end
+
+    # diff の種別を決定
+    switch $diff_mode
+        case "cached"
+            set diff_source "git diff --cached"
+        case "working"
+            set diff_source "git diff"
+        case "sha"
+            set diff_source "git diff $diff_sha"
+        case ""
+            # 自動判定: working → cached の順でチェック
+            if not git diff --quiet
+                set diff_source "git diff"
+            else if not git diff --cached --quiet
+                set diff_source "git diff --cached"
+            else
+                echo "No changes found (working tree or staged)."
+                return 1
+            end
+    end
+
+    # LLM でメッセージ生成（diff はそのままパイプ）
+    set -l MSG (
+        eval $diff_source | llm -s "Generate a simple and concise commit message in English based on the following git diff. Use the Conventional Commits style (e.g., feat:, fix:, chore:, refactor:, docs:, test:). Choose the most appropriate prefix automatically based on the changes."
+    )
+
+    echo
+    echo "=== Generated Commit Message ==="
+    echo $MSG
+    echo "================================"
+    echo
+
+    # --commit 指定時のみ commit 実行
+    if test $flag_commit -eq 1
+        git commit -m "$MSG"
+    end
+end
+
