@@ -119,6 +119,9 @@ abbr -a c "chezmoi"
 abbr -a ccd "chezmoi cd"
 abbr -a gsa "[sa-name]@[project].iam.gserviceaccount.com"
 abbr -a gl "gcloud config configurations list"
+abbr -a ac "llm -s 'Generate a simple and concise commit message in English based on the following git diff.
+Use the Conventional Commits style (e.g., feat:, fix:, chore:, refactor:, docs:, test:).
+Choose the most appropriate prefix automatically based on the changes.'"
 
 # abbr -a del "git branch --merged | grep -vE '^\\*|master|develop|staging' | xargs -I % git branch -d % && git remote prune origin"
 
