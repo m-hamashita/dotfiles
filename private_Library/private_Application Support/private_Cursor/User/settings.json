@@ -175,7 +175,7 @@
   "workbench.tree.renderIndentGuides": "always",
   "outline-map.expandOutlineMethod": "hover",
   "outline-map.follow": "cursor",
-  "markdown-preview-enhanced.previewTheme": "github-dark.css",
+  "markdown-preview-enhanced.previewTheme": "solarized-light.css",
   "terminal.integrated.fontFamily": "Meslo LG S for Powerline,Hack Nerd Font",
   "git.ignoreRebaseWarning": true,
   "errorLens.enabledDiagnosticLevels": ["error", "warning", "info"],
