@@ -2,7 +2,7 @@
 # https://aquaproj.github.io/
 registries:
   - type: standard
-    ref: v4.403.0 # renovate: depName=aquaproj/aqua-registry
+    ref: v4.439.0 # renovate: depName=aquaproj/aqua-registry
   - name: local
     type: local
     path: registry.yaml
@@ -15,69 +15,69 @@ packages:
     registry: local
   - name: chroju/nature-remo-cli@v0.3.0
     registry: local
-  - name: bazelbuild/bazel@8.3.1
+  - name: bazelbuild/bazel@8.4.2
     registry: local
   - name: direnv/direnv@v2.37.1
   - name: BurntSushi/ripgrep@14.1.1
-  - name: CircleCI-Public/circleci-cli@v0.1.33163
-  - name: lsd-rs/lsd@v1.1.5
+  - name: CircleCI-Public/circleci-cli@v0.1.33721
+  - name: lsd-rs/lsd@v1.2.0
   - name: stedolan/jq@jq-1.7.1
-  - name: sharkdp/fd@v10.2.0
-  - name: sharkdp/hyperfine@v1.19.0
+  - name: sharkdp/fd@v10.3.0
+  - name: sharkdp/hyperfine@v1.20.0
   - name: XAMPPRocky/tokei@v12.1.2
-  - name: Wilfred/difftastic@0.64.0
+  - name: Wilfred/difftastic@0.67.0
   - name: dalance/procs@v0.14.10
   - name: x-motemen/ghq@v1.8.0
-  - name: sharkdp/bat@v0.25.0
-  - name: junegunn/fzf@v0.65.1
-  - name: cli/cli@v2.78.0
+  - name: sharkdp/bat@v0.26.0
+  - name: junegunn/fzf@v0.67.0
+  - name: cli/cli@v2.83.1
   - name: rust-lang/rust-analyzer@2025-04-28
-  - name: helm/helm@v3.18.6
-  - name: GoogleContainerTools/skaffold@v2.16.1
+  - name: helm/helm@v3.19.2
+  - name: GoogleContainerTools/skaffold@v2.17.0
   - name: sbstp/kubie@v0.26.0
   - name: rancher/k3d@v5.8.3
   - name: argoproj/argo-rollouts@v1.8.3
   - name: blacknon/hwatch@0.3.19
-  - name: istio/istio/istioctl@1.27.0
+  - name: istio/istio/istioctl@1.28.0
   - name: fullstorydev/grpcurl@v1.9.3
-  - name: stern/stern@v1.32.0
+  - name: stern/stern@v1.33.1
   - name: dandavison/delta@0.18.2
   - name: chmln/sd@v1.0.0
   - name: rhysd/vim-startuptime@v1.3.2
   - name: bcicen/slackcat@1.7.3
   - name: babarot/gomi@v1.6.1
   - name: x-motemen/blogsync@v0.20.1
-  - name: aristocratos/btop@v1.4.4
+  - name: aristocratos/btop@v1.4.5
   - name: bcicen/ctop@v0.7.7
-  - name: ninja-build/ninja@v1.13.1
-  - name: snyk/cli@v1.1298.3
+  - name: ninja-build/ninja@v1.13.2
+  - name: snyk/cli@v1.1301.0
   - name: tfutils/tfenv@v3.0.0
-  - name: derailed/k9s@v0.50.9
-  - name: mikefarah/yq@v4.47.1
+  - name: derailed/k9s@v0.50.16
+  - name: mikefarah/yq@v4.49.2
   - name: jez/as-tree@0.12.0
-  - name: protocolbuffers/protobuf/protoc@v32.0
-  - name: hashicorp/packer@v1.14.1
-  - name: rhysd/hgrep@v0.3.8
+  - name: protocolbuffers/protobuf/protoc@v32.1
+  - name: hashicorp/packer@v1.14.3
+  - name: rhysd/hgrep@v0.3.9
   - name: astral-sh/rye@0.44.0
   - name: kubernetes-sigs/krew@v0.4.5
   - name: k3d-io/k3d@v5.8.3
-  - name: kubernetes-sigs/kind@v0.29.0
-  - name: kubernetes/minikube@v1.36.0
+  - name: kubernetes-sigs/kind@v0.30.0
+  - name: kubernetes/minikube@v1.37.0
   - name: one2nc/cloudlens@v0.1.4
-  - name: jesseduffield/lazygit@v0.54.2
-  - name: jesseduffield/lazydocker@v0.24.1
-  - name: suzuki-shunsuke/pinact@v3.4.2
-  - name: dagger/dagger@v0.18.16
-  - name: google/yamlfmt@v0.17.2
+  - name: jesseduffield/lazygit@v0.56.0
+  - name: jesseduffield/lazydocker@v0.24.2
+  - name: suzuki-shunsuke/pinact@v3.4.4
+  - name: dagger/dagger@v0.19.7
+  - name: google/yamlfmt@v0.20.0
   - name: tamasfe/taplo@0.10.0
-  - name: astral-sh/uv@0.8.13
-  - name: rhysd/actionlint@v1.7.7
+  - name: astral-sh/uv@0.9.11
+  - name: rhysd/actionlint@v1.7.9
   - name: koalaman/shellcheck@v0.11.0
-  - name: nektos/act@v0.2.80
+  - name: nektos/act@v0.2.82
   - name: wagoodman/dive@v0.13.1
   - name: vladimirvivien/ktop@v0.4.1
-  - name: aristocratos/btop@v1.4.4
+  - name: aristocratos/btop@v1.4.5
   - name: checkmake/checkmake@0.2.2
-  - name: git-lfs/git-lfs@v3.7.0
+  - name: git-lfs/git-lfs@v3.7.1
   - name: aws/session-manager-plugin@1.2.707.0
   - name: eza-community/eza@v0.23.4
