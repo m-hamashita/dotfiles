@@ -26,6 +26,9 @@
   "[javascriptreact]": {
     "editor.formatOnSave": true
   },
+  "[yaml]": {
+    "editor.formatOnSave": false
+  },
   "code-runner.runInTerminal": true,
   "codetour.showMarkers": true,
   "editor.accessibilitySupport": "off",
@@ -58,7 +61,6 @@
   "python.analysis.inlayHints.functionReturnTypes": true,
   "python.analysis.inlayHints.variableTypes": true,
   "python.analysis.typeCheckingMode": "basic",
-  "python.languageServer": "Pylance",
   "python.terminal.activateEnvironment": false,
   "remote.SSH.connectTimeout": 120,
   "terminal.integrated.defaultProfile.linux": "tmux",
@@ -68,16 +70,6 @@
   },
   "terminal.integrated.macOptionIsMeta": true,
   "terminal.integrated.scrollback": 10000,
-  "todo-tree.general.tags": [
-    "BUG",
-    "HACK",
-    "FIXME",
-    "TODO",
-    "XXX",
-    "[ ]",
-    "[x]"
-  ],
-  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
   "typescript.inlayHints.parameterNames.enabled": "all",
   "vim.hlsearch": true,
   "vim.insertModeKeyBindings": [
@@ -183,7 +175,7 @@
   "workbench.tree.renderIndentGuides": "always",
   "outline-map.expandOutlineMethod": "hover",
   "outline-map.follow": "cursor",
-  "markdown-preview-enhanced.previewTheme": "github-dark.css",
+  "markdown-preview-enhanced.previewTheme": "solarized-light.css",
   "terminal.integrated.fontFamily": "Meslo LG S for Powerline,Hack Nerd Font",
   "git.ignoreRebaseWarning": true,
   "errorLens.enabledDiagnosticLevels": ["error", "warning", "info"],
@@ -326,7 +318,6 @@
   "cursor.cpp.enablePartialAccepts": true,
   "editor.inlineSuggest.edits.experimental.useMixedLinesDiff": "whenPossible",
   "editor.inlineSuggest.edits.experimental.useInterleavedLinesDiff": "always",
-  "workbench.editor.enablePreview": false,
   "terminal.integrated.inheritEnv": false,
   "bazel.buildifierFixOnFormat": true,
   "altimate.onboardedMcpServer": true,
@@ -348,5 +339,18 @@
     "vscode-insiders",
     "docker-desktop"
   ],
-  "python.defaultInterpreterPath": "${workspaceFolder}/.venv"
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv",
+  "roo-cline.allowedCommands": [
+    "npm test",
+    "npm install",
+    "tsc",
+    "git log",
+    "git diff",
+    "git show"
+  ],
+  "workbench.editor.enablePreview": false,
+  "rust-analyzer.initializeStopped": true,
+  "jupyter.askForKernelRestart": false,
+  "geminicodeassist.displayInlineContextHint": false,
+  "workbench.statusBar.visible": false
 }

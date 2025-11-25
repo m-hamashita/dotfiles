@@ -37,6 +37,34 @@ function gcloud_config
   echo (set_color white)"$gcloud_project"
 end
 
-function fish_right_prompt
-  echo "("(kubectl_status)"/"(aws_context)"/"(gcloud_config)")"
+# function fish_right_prompt
+#   echo "("(kubectl_status)"/"(aws_context)"/"(gcloud_config)")"
+# end
+
+# function fish_right_prompt
+#   echo "("(kubectl_status)"/"(gcloud_config)")"
+# end
+
+function enable_fish_right_prompt
+    function fish_right_prompt
+        echo "("(kubectl_status)"/"(gcloud_config)")"
+    end
+    set -g fish_right_prompt_enabled 1
 end
+
+function disable_fish_right_prompt
+    function fish_right_prompt
+        echo "[disabled]"
+    end
+    set -g fish_right_prompt_enabled 0
+end
+
+function toggle_fish_right_prompt
+    if test "$fish_right_prompt_enabled" = "1"
+        disable_fish_right_prompt
+    else
+        enable_fish_right_prompt
+    end
+end
+
+disable_fish_right_prompt

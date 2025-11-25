@@ -59,13 +59,13 @@ hs.hotkey.bind({ "ctrl" }, "/", function()
 end)
 
 hs.hotkey.bind({ "ctrl" }, "m", function()
-	local appName = "Code"
+	local appName = "Slack"
 	local app = hs.application.find(appName)
 	FocusApp(app)
 end)
 
 hs.hotkey.bind({ "ctrl" }, ",", function()
-	local appName = "Slack"
+	local appName = "Obsidian"
 	local app = hs.application.find(appName)
 	FocusApp(app)
 end)

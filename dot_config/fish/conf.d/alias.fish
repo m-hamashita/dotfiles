@@ -54,10 +54,9 @@ alias bazel 'bazelisk'
 # alias notify 'osascript -e \'display notification "command has completed successfully." with title "Command finished"\''
 
 # abbr
-abbr -a gg 'open https://github.(git config remote.origin.url | cut -f2 -d. | tr ':' /)'
 abbr -a devcon 'docker exec -it -u vscode -w "/workspaces/$(basename $(pwd))" $(devcontainer up --workspace-folder . | jq -r .containerId)'
 abbr -a grr 'echo "git reset --hard origin/"(git rev-parse --abbrev-ref HEAD) && git reset --hard origin/(git rev-parse --abbrev-ref HEAD)'
-abbr -a gg 'open https://github.(git config remote.origin.url | cut -f2 -d. | tr ':' /)'
+abbr -a gg 'open "https://github.$(git config remote.origin.url | cut -f2 -d. | tr ":" /)/tree/$(git rev-parse --abbrev-ref HEAD)"'
 abbr -a root 'cd (git rev-parse --show-toplevel)'
 abbr -a df "df -h"
 abbr -a vi vim
@@ -72,6 +71,7 @@ abbr -a kd "kubectl get pod | fzf | cut -d ' ' -f 1 | xargs kubectl describe pod
 abbr -a kl "kubectl get pod | fzf | cut -d ' ' -f 1 | xargs kubectl logs"
 abbr -a fd fd -H
 abbr -a g "gctx activate (gctx list | sed 's/^\*//' | string trim | fzf)"
+abbr -a gas "gcloud config set account (gcloud auth list --format='value(account)' | fzf)"
 abbr -a ga git add
 abbr -a gb git switch -c
 abbr -a gbd git branch -D
@@ -117,6 +117,8 @@ abbr -a kubectx "kubectl ctx"
 abbr -a kubens "kubectl ns"
 abbr -a c "chezmoi"
 abbr -a ccd "chezmoi cd"
+abbr -a gsa "[sa-name]@[project].iam.gserviceaccount.com"
+abbr -a gl "gcloud config configurations list"
 
 # abbr -a del "git branch --merged | grep -vE '^\\*|master|develop|staging' | xargs -I % git branch -d % && git remote prune origin"
 
@@ -407,3 +409,81 @@ function memp
       }
     ' | sort -rn
 end
+
+
+function loop
+    if test (count $argv) -lt 2
+        echo "Usage: loop <count> <command...>"
+        return 1
+    end
+
+    set count $argv[1]
+    set cmd $argv[2..-1]
+
+    for i in (seq $count)
+        echo "[$i/$count] Running: $cmd"
+        eval $cmd
+    end
+end
+
+function gencommit
+    set -l flag_commit 0
+    set -l diff_mode ""
+    set -l diff_sha ""
+    set -l diff_source ""
+
+    # 引数処理
+    for arg in $argv
+        switch $arg
+            case '--commit'
+                set flag_commit 1
+            case '--cached'
+                set diff_mode "cached"
+            case '--working' '--work'
+                set diff_mode "working"
+            case 'HEAD' '*'[0-9a-f]*
+                set diff_mode "sha"
+                set diff_sha $arg
+            case '*'
+                echo "Unknown argument: $arg"
+                return 1
+        end
+    end
+
+    # diff の種別を決定
+    switch $diff_mode
+        case "cached"
+            set diff_source "git diff --cached"
+        case "working"
+            set diff_source "git diff"
+        case "sha"
+            set diff_source "git diff $diff_sha"
+        case ""
+            # 自動判定: working → cached の順でチェック
+            if not git diff --quiet
+                set diff_source "git diff"
+            else if not git diff --cached --quiet
+                set diff_source "git diff --cached"
+            else
+                echo "No changes found (working tree or staged)."
+                return 1
+            end
+    end
+
+    # LLM でメッセージ生成（diff はそのままパイプ）
+    set -l MSG (
+        eval $diff_source | llm -s "Generate a simple and concise commit message in English based on the following git diff. Use the Conventional Commits style (e.g., feat:, fix:, chore:, refactor:, docs:, test:). Choose the most appropriate prefix automatically based on the changes."
+    )
+
+    echo
+    echo "=== Generated Commit Message ==="
+    echo $MSG
+    echo "================================"
+    echo
+
+    # --commit 指定時のみ commit 実行
+    if test $flag_commit -eq 1
+        git commit -m "$MSG"
+    end
+end
+

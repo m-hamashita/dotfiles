@@ -17,5 +17,12 @@ tmp_work
 .memo.md
 .specstory/
 .cursor/
+.wt_hook.fish
+.claude/
+.coverage
+htmlcov/
+plans.md
+.kiro/
+.agent/
 
 **/.claude/settings.local.json

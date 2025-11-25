@@ -407,10 +407,6 @@
     "when": "editorFocus"
   },
   {
-    "key": "cmd+i",
-    "command": "composerMode.agent"
-  },
-  {
     "key": "cmd+escape",
     "command": "-workbench.action.backgroundComposer.escapeToClose",
     "when": "backgroundComposerEnabled && isInBackgroundComposerWindow"

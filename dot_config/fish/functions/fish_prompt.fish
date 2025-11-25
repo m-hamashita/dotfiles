@@ -51,6 +51,11 @@
 #     set -g theme_project_dir_length 1
 #     set -g theme_newline_cursor yes
 
+# 軽くするための環境変数
+set -g theme_display_git_untracked no
+set -g theme_display_git_ahead_verbose no
+set -g theme_display_git_stashed_verbose no
+set -g theme_git_worktree_support no
 
 # ==============================
 # Helper methods
