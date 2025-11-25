@@ -24,5 +24,6 @@ htmlcov/
 plans.md
 .kiro/
 .agent/
+.cursorindexingignore
 
 **/.claude/settings.local.json
