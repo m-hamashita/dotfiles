@@ -309,7 +309,6 @@
   "editor.cursorBlinking": "solid",
   "cursor.cpp.disabledLanguages": ["plaintext", "scminput"],
   "workbench.sideBar.location": "right",
-  "workbench.iconTheme": "ayu-mirage-zed",
   "[dockerfile]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
