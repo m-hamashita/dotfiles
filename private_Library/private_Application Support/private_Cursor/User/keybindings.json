@@ -450,5 +450,9 @@
   {
     "key": "cmd+;",
     "command": "workbench.view.extension.codexViewContainer"
+  },
+  {
+    "key": "cmd+i",
+    "command": "composerMode.agent"
   }
 ]

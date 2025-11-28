@@ -169,7 +169,6 @@
     "editor.lineHighlightBorder": "#9fced11f",
     "editor.lineHighlightBackground": "#1073cf2d"
   },
-  "workbench.colorTheme": "Kary Pro Colors － Dark",
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.tree.indent": 24,
   "workbench.tree.renderIndentGuides": "always",
@@ -351,5 +350,5 @@
   "rust-analyzer.initializeStopped": true,
   "jupyter.askForKernelRestart": false,
   "geminicodeassist.displayInlineContextHint": false,
-  "workbench.statusBar.visible": false
+  "workbench.colorTheme": "Kary Pro Colors － Dark"
 }

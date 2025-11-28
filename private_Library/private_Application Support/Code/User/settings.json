@@ -330,5 +330,11 @@
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
   "python.analysis.indexing": false,
+  "mssql.connectionGroups": [
+    {
+      "name": "ROOT",
+      "id": "9B23D2E5-32F1-494D-8247-A4DB2B3589F2"
+    }
+  ],
   "workbench.activityBar.location": "hidden"
 }
