@@ -147,21 +147,66 @@ function wt
 # - \$WT_BRANCH_NAME: Name of the branch
 # - \$WT_PROJECT_ROOT: Path to the original project root
 
-# Files and directories to copy from project root to worktree directory
-# Add or remove file/directory names as needed
-set copy_items \".env\" \".claude\" \".agent\" \".kiro\" \".vscode\"
+# ===============================================
+# Copy root-level items from project → worktree (no find)
+# ===============================================
 
-for item in \$copy_items
+set root_copy_items \".claude\" \".agent\" \".kiro\" \".vscode\"
+
+for item in \$root_copy_items
     if test -f \"\$WT_PROJECT_ROOT/\$item\"
-        # Copy file
         cp \"\$WT_PROJECT_ROOT/\$item\" \"\$item\"
         echo \"Copied file \$item to worktree\"
     else if test -d \"\$WT_PROJECT_ROOT/\$item\"
-        # Copy directory recursively
-        cp -r \"\$WT_PROJECT_ROOT/\$item\" \"\$item\"
+        cp -RP \"\$WT_PROJECT_ROOT/\$item\" \"\$item\"
         echo \"Copied directory \$item to worktree\"
     end
 end
+
+# ===============================================
+# Find & copy config-like files (e.g. .env) from project → worktree
+# ===============================================
+
+# Targets searched recursively via find
+set find_copy_files \".env\"
+
+echo \"Scanning for recursive copy files under: \$WT_PROJECT_ROOT (targets: \$find_copy_files)\"
+
+set -l find_sources
+
+for name in \$find_copy_files
+    set find_sources \$find_sources (find \"\$WT_PROJECT_ROOT\" -name \"\$name\" -not -path \"*/.git/*\" 2>/dev/null)
+end
+
+if test (count \$find_sources) -eq 0
+    echo \"No recursive copy file targets found.\"
+else
+    set -l root_pattern_find (string escape --style=regex \"\$WT_PROJECT_ROOT/\")
+
+    for src in \$find_sources
+        set -l rel_path (string replace -r \"^\$root_pattern_find\" \"\" \"\$src\")
+
+        if test \"\$rel_path\" = \"\$src\"
+            echo \"WARN(find): could not compute relative path for \$src\"
+            continue
+        end
+
+        set -l dest \"\$rel_path\"
+        set -l dest_parent (path dirname \"\$dest\")
+        mkdir -p \"\$dest_parent\"
+
+        if test -e \"\$dest\"
+            echo \"Skip(find): \$dest already exists\"
+        else
+            echo \"Copying file: \$src -> \$dest\"
+            cp \"\$src\" \"\$dest\"
+        end
+    end
+end
+
+# ===============================================
+# Find & copy all .venv directories from project → worktree
+# ===============================================
 
 echo \"Scanning for .venv directories under: \$WT_PROJECT_ROOT\"
 
@@ -170,13 +215,13 @@ set -l venv_dirs (find \"\$WT_PROJECT_ROOT\" -type d -name \".venv\" -not -path 
 if test (count \$venv_dirs) -eq 0
     echo \"No .venv directories found.\"
 else
-    set -l root_pattern (string escape --style=regex \"\$WT_PROJECT_ROOT/\")
+    set -l root_pattern_venv (string escape --style=regex \"\$WT_PROJECT_ROOT/\")
 
     for venv_src in \$venv_dirs
-        set -l rel_path (string replace -r \"^\$root_pattern\" \"\" \"\$venv_src\")
+        set -l rel_path (string replace -r \"^\$root_pattern_venv\" \"\" \"\$venv_src\")
 
         if test \"\$rel_path\" = \"\$venv_src\"
-            echo \"WARN: could not compute relative path for \$venv_src\"
+            echo \"WARN(venv): could not compute relative path for \$venv_src\"
             continue
         end
 
@@ -186,10 +231,10 @@ else
         mkdir -p \"\$dest_parent\"
 
         if test -e \"\$venv_dest\"
-            echo \"Skip: \$venv_dest already exists\"
+            echo \"Skip(venv): \$venv_dest already exists\"
         else
-            echo \"Linking \$venv_dest → \$venv_src\"
-            ln -s \"\$venv_src\" \"\$venv_dest\"
+            echo \"Copying .venv: \$venv_src -> \$venv_dest\"
+            cp -RP \"\$venv_src\" \"\$venv_dest\"
         end
     end
 end
