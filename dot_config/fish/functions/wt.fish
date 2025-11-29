@@ -140,7 +140,8 @@ function wt
         end
 
         # Create .wt_hook.fish with copy template
-        echo "# .wt_hook.fish - Executed after 'wt add' command in worktree directory
+        printf "%s\n" "\
+# .wt_hook.fish - Executed after 'wt add' command in worktree directory
 # Available variables:
 # - \$WT_WORKTREE_PATH: Path to the new worktree (current directory)
 # - \$WT_BRANCH_NAME: Name of the branch
@@ -148,7 +149,7 @@ function wt
 
 # Files and directories to copy from project root to worktree directory
 # Add or remove file/directory names as needed
-set copy_items \".env\" \".claude\"
+set copy_items \".env\" \".claude\" \".agent\" \".kiro\" \".vscode\"
 
 for item in \$copy_items
     if test -f \"\$WT_PROJECT_ROOT/\$item\"
@@ -162,10 +163,36 @@ for item in \$copy_items
     end
 end
 
-# Example: Install dependencies
-# npm install
+echo \"Scanning for .venv directories under: \$WT_PROJECT_ROOT\"
 
-# Add your custom initialization commands here
+set -l venv_dirs (find \"\$WT_PROJECT_ROOT\" -type d -name \".venv\" -not -path \"*/.git/*\" 2>/dev/null)
+
+if test (count \$venv_dirs) -eq 0
+    echo \"No .venv directories found.\"
+else
+    set -l root_pattern (string escape --style=regex \"\$WT_PROJECT_ROOT/\")
+
+    for venv_src in \$venv_dirs
+        set -l rel_path (string replace -r \"^\$root_pattern\" \"\" \"\$venv_src\")
+
+        if test \"\$rel_path\" = \"\$venv_src\"
+            echo \"WARN: could not compute relative path for \$venv_src\"
+            continue
+        end
+
+        set -l venv_dest \"\$rel_path\"
+
+        set -l dest_parent (path dirname \"\$venv_dest\")
+        mkdir -p \"\$dest_parent\"
+
+        if test -e \"\$venv_dest\"
+            echo \"Skip: \$venv_dest already exists\"
+        else
+            echo \"Linking \$venv_dest → \$venv_src\"
+            ln -s \"\$venv_src\" \"\$venv_dest\"
+        end
+    end
+end
 " > .wt_hook.fish
 
         echo "Created .wt_hook.fish template"
