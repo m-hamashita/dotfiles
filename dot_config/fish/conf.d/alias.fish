@@ -487,3 +487,25 @@ function gencommit
     end
 end
 
+
+function tf_targets
+    set -l targets
+
+    while read -l line
+        set line (string replace -r '\x1b\[[0-9;]*m' '' -- $line)
+
+        set -l m (string match -r '^\s*#\s+([^ ]+)\s+will' -- $line)
+
+        if test (count $m) -ge 2
+            set -a targets $m[2]
+        end
+    end
+
+    set out_targets
+    for t in $targets
+        set -a out_targets "--target=$t"
+    end
+
+    echo $out_targets
+end
+
