@@ -63,6 +63,7 @@
 # for delta
 [core]
     pager = delta --syntax-theme gruvbox-dark
+	fsmonitor = true
 [interactive]
     diffFilter = delta --color-only
 [delta]
