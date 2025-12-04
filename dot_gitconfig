@@ -64,6 +64,7 @@
 [core]
     pager = delta --syntax-theme gruvbox-dark
 	fsmonitor = true
+	untrackedCache = true
 [interactive]
     diffFilter = delta --color-only
 [delta]
