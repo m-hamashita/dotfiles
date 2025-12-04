@@ -441,12 +441,15 @@ function gencommit
                 set diff_mode "cached"
             case '--working' '--work'
                 set diff_mode "working"
-            case 'HEAD' '*'[0-9a-f]*
+            case HEAD
                 set diff_mode "sha"
                 set diff_sha $arg
-            case '*'
+            case '-*'
                 echo "Unknown argument: $arg"
                 return 1
+            case '*'
+                set diff_mode "sha"
+                set diff_sha $arg
         end
     end
 
@@ -512,7 +515,7 @@ end
 function delta_dir --description "Diff dir1 and dir2 using fd and delta"
     set dir1 $argv[1]
     set dir2 $argv[2]
-    
+
     # 3つ目以降の引数は fd へのオプションやパターンとして渡す
     set fd_args $argv[3..-1]
 
