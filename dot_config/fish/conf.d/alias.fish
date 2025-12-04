@@ -503,9 +503,48 @@ function tf_targets
 
     set out_targets
     for t in $targets
-        set -a out_targets "--target=$t"
+        set -a out_targets "--target='$t'"
     end
 
     echo $out_targets
 end
 
+function delta_dir --description "Diff dir1 and dir2 using fd and delta"
+    set dir1 $argv[1]
+    set dir2 $argv[2]
+    
+    # 3つ目以降の引数は fd へのオプションやパターンとして渡す
+    set fd_args $argv[3..-1]
+
+    if test (count $argv) -lt 2
+        echo "Usage: delta_dir <dir1> <dir2> [fd options...]"
+        return 1
+    end
+
+    # dir1, dir2 のパス末尾の / を削除して正規化（置換ミスを防ぐため）
+    set dir1 (string trim --right --chars=/\  $dir1)
+    set dir2 (string trim --right --chars=/\  $dir2)
+
+    begin
+        # fd に dir1 を渡して検索を実行
+        # $fd_args が空でも "." を渡すことで dir1 全体を検索対象にする
+        if test (count $fd_args) -eq 0
+            fd --type f . $dir1
+        else
+            fd --type f $fd_args $dir1
+        end | while read -l file_path_1
+
+            set rel_path (string replace --regex "^$dir1/" "" -- $file_path_1)
+
+            # 比較対象(dir2)のパスを作成
+            set file_path_2 "$dir2/$rel_path"
+
+            if test -f "$file_path_2"
+                # diff を実行
+                diff -u "$file_path_1" "$file_path_2" \
+                    --label "$dir1/$rel_path" \
+                    --label "$dir2/$rel_path"
+            end
+        end
+    end | delta
+end
