@@ -52,7 +52,7 @@ set -x HOMEBREW_NO_INSTALL_CLEANUP 1
 # tfenv TODO: make it good
 set -x PATH $HOME/.local/share/aquaproj-aqua/pkgs/github_archive/github.com/tfutils/tfenv/v3.0.0/tfenv-3.0.0/bin $PATH
 
-set -Ux nvm_default_version v22.4.1
+set -Ux nvm_default_version v24.11.1
 
 # set -x PATH /usr/local/opt/llvm/bin $PATH
 # set -g fish_user_paths "/usr/local/opt/llvm/bin" $fish_user_paths
@@ -95,3 +95,22 @@ set -x FZF_DEFAULT_OPTS '--height 70% --layout=reverse --preview-window="wrap" -
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/masakatsu.hamashita/.local/google-cloud-sdk/path.fish.inc' ]; . '/Users/masakatsu.hamashita/.local/google-cloud-sdk/path.fish.inc'; end
 
+# Added by Windsurf
+fish_add_path /Users/masakatsu.hamashita/.codeium/windsurf/bin
+
+string match -q "$TERM_PROGRAM" "kiro" and . (kiro --locate-shell-integration-path fish)
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+
+# Added by Antigravity
+fish_add_path /Users/masakatsu.hamashita/.antigravity/antigravity/bin
+
+
+# pnpm
+set -gx PNPM_HOME "/Users/masakatsu.hamashita/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
