@@ -1,4 +1,3 @@
-# git checkout branchをfzfで選択
 function co
   git checkout (git branch -a | tr -d " " | fzf --height 70% --prompt "CHECKOUT BRANCH>" --preview "git log --color=always {}" | head -n 1 | sed -e "s/^\*\s*//g" | perl -pe "s/remotes\/origin\///g")
   echo ""
@@ -119,6 +118,7 @@ abbr -a c "chezmoi"
 abbr -a ccd "chezmoi cd"
 abbr -a gsa "[sa-name]@[project].iam.gserviceaccount.com"
 abbr -a gl "gcloud config configurations list"
+abbr -a dtm "tmux list-panes -F '#{pane_id} #{pane_active}' | awk '\$2 == 0 {print \$1}' | xargs -n1 tmux kill-pane -t"
 
 # abbr -a del "git branch --merged | grep -vE '^\\*|master|develop|staging' | xargs -I % git branch -d % && git remote prune origin"
 
@@ -516,7 +516,6 @@ function delta_dir --description "Diff dir1 and dir2 using fd and delta"
     set dir1 $argv[1]
     set dir2 $argv[2]
 
-    # 3つ目以降の引数は fd へのオプションやパターンとして渡す
     set fd_args $argv[3..-1]
 
     if test (count $argv) -lt 2
@@ -524,13 +523,10 @@ function delta_dir --description "Diff dir1 and dir2 using fd and delta"
         return 1
     end
 
-    # dir1, dir2 のパス末尾の / を削除して正規化（置換ミスを防ぐため）
     set dir1 (string trim --right --chars=/\  $dir1)
     set dir2 (string trim --right --chars=/\  $dir2)
 
     begin
-        # fd に dir1 を渡して検索を実行
-        # $fd_args が空でも "." を渡すことで dir1 全体を検索対象にする
         if test (count $fd_args) -eq 0
             fd --type f . $dir1
         else
@@ -539,11 +535,9 @@ function delta_dir --description "Diff dir1 and dir2 using fd and delta"
 
             set rel_path (string replace --regex "^$dir1/" "" -- $file_path_1)
 
-            # 比較対象(dir2)のパスを作成
             set file_path_2 "$dir2/$rel_path"
 
             if test -f "$file_path_2"
-                # diff を実行
                 diff -u "$file_path_1" "$file_path_2" \
                     --label "$dir1/$rel_path" \
                     --label "$dir2/$rel_path"
