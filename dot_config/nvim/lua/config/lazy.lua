@@ -350,6 +350,17 @@ require("lazy").setup({
 	-- 	},
 	-- },
 	{
+		"zbirenbaum/copilot.lua",
+		dependencies = {
+			"copilotlsp-nvim/copilot-lsp",
+		},
+		cmd = "Copilot",
+		event = "InsertEnter",
+		config = function()
+			require("copilot").setup({})
+		end,
+	},
+	{
 		"j-hui/fidget.nvim",
 		event = "VeryLazy",
 		tag = "v1.6.1",

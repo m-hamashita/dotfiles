@@ -1,5 +1,15 @@
 local M = {}
 
+local lsp_util = vim.lsp.util
+if not lsp_util._str_utfindex_enc then
+	-- Fallback for Neovim versions that removed the internal helper.
+	local get_offset_encoding = lsp_util._get_offset_encoding
+	lsp_util._str_utfindex_enc = function(line, _, offset_encoding)
+		local encoding = offset_encoding or (get_offset_encoding and get_offset_encoding() or "utf-16")
+		return vim.str_utfindex(line, encoding)
+	end
+end
+
 function M.config()
 	local autocmd = vim.api.nvim_create_autocmd
 	local augroup = vim.api.nvim_create_augroup
