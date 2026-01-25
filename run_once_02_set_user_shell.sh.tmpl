@@ -1,0 +1,29 @@
+{{- if eq .chezmoi.os "darwin" }}
+
+if ! grep -q "/opt/homebrew/bin/fish" /etc/shells; then
+    echo "Adding fish to /etc/shells, you may be prompted for your password"
+    echo "/opt/homebrew/bin/fish" | sudo tee -a /etc/shells
+fi
+
+if [ "$(dscl . -read /Users/$USER UserShell | awk '{print $2}')" != "/opt/homebrew/bin/fish" ]; then
+    echo "Changing shell to fish, you may be prompted for your password"
+    user="$(id -nu)"
+    sudo chsh -s /opt/homebrew/bin/fish "$user"
+fi
+
+{{- end }}
+
+{{- if eq .chezmoi.os "linux" }}
+# Ensure fish is in /etc/shells
+fish_path="$(which fish)"
+if ! grep -q "$fish_path" /etc/shells; then
+    echo "Adding fish to /etc/shells, you may be prompted for your password"
+    echo "$fish_path" | sudo tee -a /etc/shells
+fi
+
+# Set shell to fish if not already set
+if [ "$SHELL" != "$fish_path" ]; then
+    echo "Changing shell to fish, you may be prompted for your password"
+    chsh -s "$fish_path"
+fi
+{{ end -}}

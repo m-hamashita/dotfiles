@@ -1,0 +1,7 @@
+#!/bin/bash
+set -eu
+
+{{ if eq .chezmoi.os "darwin" }}
+    brew update
+    brew bundle --file="$HOME/.Brewfile"
+{{ end }}
