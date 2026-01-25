@@ -357,7 +357,7 @@ require("lazy").setup({
 		cmd = "Copilot",
 		event = "InsertEnter",
 		config = function()
-			require("copilot").setup({})
+			require("config.plugins.copilot").config()
 		end,
 	},
 	{

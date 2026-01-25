@@ -6,6 +6,8 @@
   "claudecode.nvim": { "branch": "main", "commit": "3f09b5163af9ce6e1869ea3220c77f8229d934c5" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "5af77f54de1b16c34b23cba810150689a3a90312" },
   "conflict-marker.vim": { "branch": "master", "commit": "11a4d42244755505b66b15cd4496a150432eb5e3" },
+  "copilot-lsp": { "branch": "main", "commit": "1b6d8273594643f51bb4c0c1d819bdb21b42159d" },
+  "copilot.lua": { "branch": "master", "commit": "2d7511494245129aa6c2176f9c71cc2bc1360ed9" },
   "denops-germanium.vim": { "branch": "main", "commit": "b12a924781029354c98ece5212c631768f2da245" },
   "denops.vim": { "branch": "main", "commit": "b5dfcbc249a7559cbdc08ba1b7dc1cd92dec6d98" },
   "deol.nvim": { "branch": "master", "commit": "0fcdadc7636ef82636e972c4c651fb77e3cf1954" },
