@@ -1,3 +1,6 @@
+#!/bin/bash
+set -eu
+
 {{- if eq .chezmoi.os "darwin" }}
 
 if ! grep -q "/opt/homebrew/bin/fish" /etc/shells; then
