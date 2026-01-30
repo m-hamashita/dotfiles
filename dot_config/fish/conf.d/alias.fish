@@ -41,12 +41,6 @@ function pull
     git pull origin $branch_name
 end
 
-function commitans
-    set problem (pwd | rev | cut -d '/' -f 1,2 | rev | sed -e 's/\// /')
-    echo git commit -m \"$problem\"
-    git commit -m "$problem"
-end
-
 alias :q 'exit'
 alias digdag '/bin/bash /usr/local/bin/digdag'
 alias bazel 'bazelisk'
@@ -96,7 +90,6 @@ abbr -a .... '../../../'
 abbr -a air 'remo aircon send --name エアコン'
 abbr -a bl 'remo signal send AV機器 bluetooth'
 abbr -a light 'remo signal send light_for_signal'
-abbr -a temp 'sudo powermetrics --samplers smc | grep "CPU die temperature"'
 abbr -a hg 'history | grep'
 abbr -a history "history --show-time='%Y/%m/%d %H:%M:%S '"
 abbr -a cr cargo run
@@ -105,7 +98,6 @@ abbr -a a awsctx
 abbr -a mvuntrack backup_untracked
 abbr -a docf "docker run -it --rm (docker image ls | sed -e '1d' | fzf --height 40% --reverse | awk '{print \$3}') bash"
 abbr -a image "docker image ls | sed -e '1d' | fzf --height 40% --reverse | awk '{print \$3}'"
-abbr -a jupyterssh "jupyter notebook --no-browser --ip="0.0.0.0" --allow-root"
 abbr -a work "cd ~/work/"
 abbr -a tmp "cd ~/tmp/"
 abbr -a hobby "cd ~/work/hobby/"
@@ -271,20 +263,6 @@ function fzf-cd
   commandline -f repaint
 end
 
-function docker_jupyter
-  docker run -v $PWD:/tmp/workspace -w=/tmp/workspace -p 8988:8888 --rm -it "$argv" jupyter notebook --no-browser --ip="0.0.0.0" --notebook-dir=/tmp/workspace --allow-root
-end
-function docker_run
-  docker run -v $PWD:/tmp/workspace -w=/tmp/workspace -p 8988:8888 --rm -it "$argv" bash
-end
-
-function kaggle_python
-  docker run -v $PWD:/tmp/workspace -w=/tmp/workspace --rm -it kaggle/python python "$argv"
-end
-function kaggle_jupyter
-  docker run -v $PWD:/tmp/workspace -w=/tmp/workspace -p 8988:8888 --rm -it kaggle/python jupyter notebook --no-browser --ip="0.0.0.0" --notebook-dir=/tmp/workspace --allow-root
-end
-
 function fshow
   git log --graph --color=always \
       --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" $argv |
@@ -295,32 +273,6 @@ function fshow
                 {}
 FZF-EOF"
 end
-
-function AZ --argument-names 'node_type'
-  if test -n "$node_type"
-      kubectl get nodes $(kubectl get pods -o wide | grep $node_type | awk '{print $7}' | uniq) --show-labels | perl -nle 'print $1 if /.*=(.+)/' | sort | uniq -c
-  end
-end
-
-function nodegroup --argument-names 'nodegroup'
-  if test -n "$nodegroup"
-    kubectl get nodes -o=jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.eks\.amazonaws\.com/nodegroup}{"\n"}{end}' | grep $nodegroup | sort -t'\t' -k2
-  end
-end
-
-function nodepod --argument-names 'nodegroup'
-  if test -n "$nodegroup"
-    set nodes (kubectl get nodes -o=jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.eks\.amazonaws\.com/nodegroup}{"\n"}{end}' | grep $nodegroup | sort -t'\t' -k2)
-    for node in $nodes
-        set node_name (echo $node | awk '{print $1}')
-        set node_group (echo $node | awk '{print $2}')
-        echo $node_name $node_group
-        kubectl get pods --field-selector spec.nodeName=$node_name -o custom-columns=NAME:.metadata.name --no-headers | tr '\n' ' '
-        echo -e "\n"
-    end
-  end
-end
-
 
 # https://github.com/fish-shell/fish-shell/issues/4869#issuecomment-377850086
 # cd - を使うための設定 builtin cd の代わりに使用
