@@ -186,14 +186,6 @@ require("lazy").setup({
 	{ "tpope/vim-rhubarb", event = "VeryLazy" },
 	{ "tpope/vim-fugitive", event = "VeryLazy" },
 	{ "airblade/vim-gitgutter", event = "VeryLazy" },
-	-- {
-	--     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-	--     event = "VeryLazy",
-	--     config = function()
-	--         require("config.plugins.lsp_lines").config()
-	--     end,
-	--     dependencies = { "neovim/nvim-lspconfig" },
-	-- },
 	{ "vijaymarupudi/nvim-fzf", event = "VeryLazy" },
 	{ "vim-denops/denops.vim", event = "VeryLazy" },
 	{
