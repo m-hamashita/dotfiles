@@ -68,11 +68,7 @@ function M.config()
             end
         end,
     }
-    if type(mason_lspconfig.setup_handlers) == "function" then
-        mason_lspconfig.setup_handlers(handlers)
-    else
-        mason_lspconfig.setup({ handlers = handlers })
-    end
+    mason_lspconfig.setup({ handlers = handlers })
 end
 
 return M
