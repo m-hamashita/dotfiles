@@ -1,11 +1,14 @@
-chezmoi:modify-template
+{{- /* chezmoi:modify-template */ -}}
 {{- $existing := .chezmoi.stdin -}}
+{{- $projects := regexFindAll "(?m)^\\[projects\\.\\\"[^\\\"]+\\\"\\]\\ntrust_level\\s*=\\s*\\\"[^\\\"]+\\\"\\s*$" $existing -1 -}}
+{{- $projectsText := trim (join "\n" $projects) -}}
 
 model = "gpt-5.2-codex"
 model_reasoning_effort = "medium"
 
-[features]
-web_search_request=true
+{{ if $projectsText -}}
+{{ printf "%s\n\n" $projectsText -}}
+{{- end -}}
 
 [mcp_servers.context7]
 command = "npx"
@@ -20,9 +23,5 @@ url = "https://mcp.notion.com/mcp"
 [notice.model_migrations]
 "gpt-5.2" = "gpt-5.2-codex"
 
-{{- /* 既存ファイルから [projects."..."] ブロックだけ抜き出してそのまま残す */ -}}
-{{- $projects := regexFindAll "(?ms)^\\[projects\\.\\\"[^\\\"]+\\\"\\][\\s\\S]*?(?=^\\[|\\z)" $existing -1 -}}
-{{- range $projects }}
-
-{{ . }}
-{{- end }}
+[features]
+web_search_request = true
