@@ -12,7 +12,7 @@ function M.config()
         },
     })
     local nvim_lsp = require("lspconfig")
-    local lspconfig = require("mason-lspconfig")
+    local mason_lspconfig = require("mason-lspconfig")
     local on_attach = function(_, bufnr)
         local bufopts = { silent = true, buffer = bufnr }
         vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, bufopts)
@@ -24,7 +24,7 @@ function M.config()
         vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
         -- vim.keymap.set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>") --substitued by lspsaga
     end
-    lspconfig.setup_handlers({
+    local handlers = {
         function(server_name)
             if server_name == "sumneko_lua" then
                 nvim_lsp[server_name].setup({
@@ -67,7 +67,12 @@ function M.config()
                 })
             end
         end,
-    })
+    }
+    if type(mason_lspconfig.setup_handlers) == "function" then
+        mason_lspconfig.setup_handlers(handlers)
+    else
+        mason_lspconfig.setup({ handlers = handlers })
+    end
 end
 
 return M

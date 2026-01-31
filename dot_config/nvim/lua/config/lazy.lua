@@ -84,9 +84,9 @@ require("lazy").setup({
 			require("config.plugins.deol").config()
 		end,
 	},
-	{ "williamboman/mason.nvim" },
+	{ "mason-org/mason.nvim" },
 	{
-		"williamboman/mason-lspconfig.nvim",
+		"mason-org/mason-lspconfig.nvim",
 		lazy = false,
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
