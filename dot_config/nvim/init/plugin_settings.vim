@@ -4,12 +4,6 @@ filetype off
 filetype plugin indent on
 syntax enable
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" dein.vimでのプラグイン削除, :call
-" dein#recache_runtimepath()を実行すると良いらしい
-" call map(dein#check_clean(), "delete(v:val, 'rf')")
-
 set nofoldenable
 
 " Copilot
@@ -22,24 +16,8 @@ let g:copilot_filetypes = {
 " back to definition: <C-o> - jump to original window on list create.
 nmap <silent> gp <C-o>
 
-
-" tint.nvim
-" lua <<EOF
-"   require("tint").setup()
-" EOF
-
-" translate.vim
-let g:translate_source = 'en'
-let g:translate_target = 'ja'
-let g:translate_popup_window = 1 " if you want use popup window, set value 1
-let g:translate_winsize = 5 " set buffer window height size if you doesn't use popup window
-
-nmap <space>t <Plug>(Translate)
-vmap <space>t <Plug>(VTranslate)
-
 let $BAT_THEME                     = 'gruvbox-dark'
 let $FZF_PREVIEW_PREVIEW_BAT_THEME = 'gruvbox-dark'
-
 
 " git-fugitive
 function! s:GstatusToggle() abort
