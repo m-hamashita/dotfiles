@@ -28,6 +28,7 @@ function M.config()
 			"luacheck",
 			"misspell",
 			"revive",
+			"ruff",
 			"shellcheck",
 			"shfmt",
 			"staticcheck",
