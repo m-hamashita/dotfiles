@@ -1,0 +1,28 @@
+chezmoi:modify-template
+{{- $existing := .chezmoi.stdin -}}
+
+model = "gpt-5.2-codex"
+model_reasoning_effort = "medium"
+
+[features]
+web_search_request=true
+
+[mcp_servers.context7]
+command = "npx"
+args = ["-y", "@upstash/context7-mcp"]
+startup_timeout_sec = 20.0
+tool_timeout_sec = 60.0
+rmcp_client = true
+
+[mcp_servers.notion]
+url = "https://mcp.notion.com/mcp"
+
+[notice.model_migrations]
+"gpt-5.2" = "gpt-5.2-codex"
+
+{{- /* 既存ファイルから [projects."..."] ブロックだけ抜き出してそのまま残す */ -}}
+{{- $projects := regexFindAll "(?ms)^\\[projects\\.\\\"[^\\\"]+\\\"\\][\\s\\S]*?(?=^\\[|\\z)" $existing -1 -}}
+{{- range $projects }}
+
+{{ . }}
+{{- end }}
