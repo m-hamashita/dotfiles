@@ -1,0 +1,90 @@
+{{- if eq .chezmoi.os "linux" -}}
+#!/usr/bin/env bash
+set -euo pipefail
+
+# ---- distro detection (chezmoi -> /etc/os-release) ----
+id="{{ .chezmoi.osRelease.id | default "" }}"
+id_like="{{ .chezmoi.osRelease.idLike | default "" }}"
+ver="{{ .chezmoi.osRelease.versionID | default "" }}"
+arch="{{ .chezmoi.arch }}"
+
+# Some derivatives may not have id exactly ubuntu/debian.
+# Prefer id, fallback to id_like.
+is_ubuntu=false
+is_debian=false
+
+if [[ "$id" == "ubuntu" ]]; then
+  is_ubuntu=true
+elif [[ "$id" == "debian" ]]; then
+  is_debian=true
+else
+  if [[ "$id_like" == *"ubuntu"* ]]; then
+    is_ubuntu=true
+  elif [[ "$id_like" == *"debian"* ]]; then
+    is_debian=true
+  fi
+fi
+
+if ! $is_ubuntu && ! $is_debian; then
+  echo "Unsupported Linux distro: id=$id id_like=$id_like version=$ver" >&2
+  exit 1
+fi
+
+# ---- base deps ----
+sudo apt update
+sudo apt install -y --no-install-recommends \
+  curl ca-certificates gpg
+
+# =======================================================
+# neovim (nightly AppImage) -> ~/.local/bin/nvim
+# =======================================================
+mkdir -p "$HOME/.local/bin"
+
+if [[ "$arch" == "amd64" || "$arch" == "x86_64" ]]; then
+  nvim_url="https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.appimage"
+elif [[ "$arch" == "arm64" || "$arch" == "aarch64" ]]; then
+  nvim_url="https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-arm64.appimage"
+else
+  echo "Unsupported arch for neovim AppImage: $arch" >&2
+  exit 1
+fi
+
+curl -fsSL "$nvim_url" -o "$HOME/.local/bin/nvim"
+chmod +x "$HOME/.local/bin/nvim"
+
+# =======================================================
+# fish
+#   - Ubuntu: fish PPA (release-4)
+#   - Debian: openSUSE Build Service (OBS)
+# =======================================================
+if $is_ubuntu; then
+  # Ubuntu: PPA
+  sudo apt install -y --no-install-recommends software-properties-common
+  sudo add-apt-repository -y ppa:fish-shell/release-4
+  sudo apt update
+  sudo apt install -y fish
+
+elif $is_debian; then
+  # Debian: OBS
+  # Example: Debian_12
+  if [[ -z "$ver" ]]; then
+    echo "Debian versionID is empty; cannot determine OBS distro name." >&2
+    exit 1
+  fi
+  obs="Debian_${ver}"
+
+  echo "deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/${obs}/ /" \
+    | sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list >/dev/null
+
+  curl -fsSL "https://download.opensuse.org/repositories/shells:/fish:/release:/3/${obs}/Release.key" \
+    | gpg --dearmor \
+    | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg >/dev/null
+
+  sudo apt update
+  sudo apt install -y fish
+fi
+
+# ---- quick checks (optional) ----
+command -v nvim >/dev/null && nvim --version | head -n 2 || true
+command -v fish >/dev/null && fish --version || true
+{{- end -}}

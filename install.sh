@@ -24,20 +24,6 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
 fi
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 
-# for symlink
-rm -rf ~/.config/fish
-
-# font install
-echo "Please install powerline font"
-echo "Font: Meslo for powerline"
-echo "Non-ASCII: Hack Nerd Font Mono for defx.nvim"
-if [ "$(uname)" == 'Darwin' ]; then
-    brew install font-hack-nerd-font
-fi
-
-echo "Please add `/usr/local/bin/fish` to /etc/shells"
-# chsh -s /usr/local/bin/fish
-
 # aqua install
 curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.1.2/aqua-installer | bash
 
