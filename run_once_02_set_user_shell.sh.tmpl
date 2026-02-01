@@ -3,7 +3,7 @@ set -eu
 
 {{- if eq .chezmoi.os "darwin" }}
 
-if ! grep -q "/opt/homebrew/bin/fish" /etc/shells; then
+if ! grep -qxF "/opt/homebrew/bin/fish" /etc/shells; then
     echo "Adding fish to /etc/shells, you may be prompted for your password"
     echo "/opt/homebrew/bin/fish" | sudo tee -a /etc/shells
 fi
@@ -19,7 +19,7 @@ fi
 {{- if eq .chezmoi.os "linux" }}
 # Ensure fish is in /etc/shells
 fish_path="$(which fish)"
-if ! grep -q "$fish_path" /etc/shells; then
+if ! grep -qxF "$fish_path" /etc/shells; then
     echo "Adding fish to /etc/shells, you may be prompted for your password"
     echo "$fish_path" | sudo tee -a /etc/shells
 fi
