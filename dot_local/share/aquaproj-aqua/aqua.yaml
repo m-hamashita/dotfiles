@@ -19,7 +19,6 @@ packages:
     registry: local
   - name: direnv/direnv@v2.37.1
   - name: BurntSushi/ripgrep@15.1.0
-  - name: CircleCI-Public/circleci-cli@v0.1.34038
   - name: lsd-rs/lsd@v1.2.0
   - name: stedolan/jq@jq-1.7.1
   - name: sharkdp/fd@v10.3.0
@@ -58,7 +57,6 @@ packages:
   - name: protocolbuffers/protobuf/protoc@v33.5
   - name: hashicorp/packer@v1.14.3
   - name: rhysd/hgrep@v0.3.9
-  - name: astral-sh/rye@0.44.0
   - name: kubernetes-sigs/krew@v0.4.5
   - name: k3d-io/k3d@v5.8.3
   - name: kubernetes-sigs/kind@v0.31.0

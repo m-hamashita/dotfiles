@@ -175,16 +175,6 @@ else
     # echo "CotEditer is not installed"
 end
 
-function ci
-  set url (git config --get remote.origin.url)
-  if test (echo $url | grep -c "https")
-    set repo (echo $url | awk -F/ '{print $4"/"$5}')
-  else
-    set repo (echo $url | cut -f2 -d: | cut -f1 -d.)
-  end
-  open https://app.circleci.com/pipelines/github/(echo $repo)
-end
-
 function gvm
   bass source ~/.gvm/scripts/gvm ';' gvm $argv
 end
