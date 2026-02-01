@@ -1,2 +1,18 @@
-# install fisher
-curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+#!/bin/sh
+set -eu
+
+command -v fish >/dev/null 2>&1 || exit 0
+
+fish -c '
+if type -q fisher
+    exit 0
+end
+
+set -l fisher_file ~/.config/fish/functions/fisher.fish
+mkdir -p (dirname $fisher_file)
+
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish -o $fisher_file
+source $fisher_file
+
+fisher install jorgebucaran/fisher
+'
