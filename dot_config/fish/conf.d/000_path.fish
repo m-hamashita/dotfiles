@@ -98,7 +98,11 @@ if [ -f '/Users/masakatsu.hamashita/.local/google-cloud-sdk/path.fish.inc' ]; . 
 # Added by Windsurf
 fish_add_path /Users/masakatsu.hamashita/.codeium/windsurf/bin
 
-string match -q "$TERM_PROGRAM" "kiro" and . (kiro --locate-shell-integration-path fish)
+if string match -q "$TERM_PROGRAM" "kiro"
+    if type -q kiro
+        . (kiro --locate-shell-integration-path fish)
+    end
+end
 
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.

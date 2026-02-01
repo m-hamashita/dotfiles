@@ -27,5 +27,7 @@ alias ls="ls -a --color"
 
 . "$HOME/.local/share/../bin/env"
 
-[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path bash)"
+if [[ "$TERM_PROGRAM" == "kiro" ]] && command -v kiro >/dev/null 2>&1; then
+  . "$(kiro --locate-shell-integration-path bash)"
+fi
 . "$HOME/.cargo/env"

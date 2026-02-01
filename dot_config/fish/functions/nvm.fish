@@ -5,6 +5,10 @@ function nvm
   end
   set -q NVM_DIR; or set -gx NVM_DIR ~/.nvm
   set -q nvm_prefix; or set -gx nvm_prefix $NVM_DIR
+
+  if not test -f $nvm_prefix/nvm.sh
+    return
+  end
   
   bass source $nvm_prefix/nvm.sh --no-use ';' nvm $argv
 
