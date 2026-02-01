@@ -253,6 +253,22 @@ require("lazy").setup({
 		end,
 	},
 	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		keys = {
+			{
+				"<leader>?",
+				function()
+					require("which-key").show({ global = false })
+				end,
+				desc = "Buffer Local Keymaps (which-key)",
+			},
+		},
+		config = function()
+			require("config.plugins.which-key").config()
+		end,
+	},
+	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
