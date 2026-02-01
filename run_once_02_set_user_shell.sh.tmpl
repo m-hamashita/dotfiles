@@ -27,6 +27,6 @@ fi
 # Set shell to fish if not already set
 if [ "$SHELL" != "$fish_path" ]; then
     echo "Changing shell to fish, you may be prompted for your password"
-    chsh -s "$fish_path"
+    sudo chsh -s "$fish_path" $(whoami)
 fi
 {{ end -}}
