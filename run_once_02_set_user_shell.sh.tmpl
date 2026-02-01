@@ -20,13 +20,14 @@ fi
 # Ensure fish is in /etc/shells
 fish_path="$(command -v fish)"
 if ! grep -qxF "$fish_path" /etc/shells; then
-    echo "Adding fish to /etc/shells, you may be prompted for your password"
-    echo "$fish_path" | sudo tee -a /etc/shells
+    echo "Adding fish to /etc/shells"
+    echo "$fish_path" | sudo -n tee -a /etc/shells >/dev/null
 fi
 
 # Set shell to fish if not already set
-if [ "$SHELL" != "$fish_path" ]; then
-    echo "Changing shell to fish, you may be prompted for your password"
-    sudo usermod -s "$fish_path" "$USER"
+current_shell="$(getent passwd "$USER" | cut -d: -f7 || true)"
+if [ "$current_shell" != "$fish_path" ]; then
+  echo "Changing login shell to fish"
+  sudo -n usermod -s "$fish_path" "$USER"
 fi
 {{ end -}}
