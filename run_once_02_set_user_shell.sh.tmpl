@@ -18,7 +18,7 @@ fi
 
 {{- if eq .chezmoi.os "linux" }}
 # Ensure fish is in /etc/shells
-fish_path="$(which fish)"
+fish_path="$(command -v fish)"
 if ! grep -qxF "$fish_path" /etc/shells; then
     echo "Adding fish to /etc/shells, you may be prompted for your password"
     echo "$fish_path" | sudo tee -a /etc/shells
@@ -27,6 +27,6 @@ fi
 # Set shell to fish if not already set
 if [ "$SHELL" != "$fish_path" ]; then
     echo "Changing shell to fish, you may be prompted for your password"
-    sudo chsh -s "$fish_path" $(whoami)
+    sudo usermod -s "$fish_path" "$USER"
 fi
 {{ end -}}
