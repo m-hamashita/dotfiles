@@ -15,8 +15,6 @@ packages:
     registry: local
   - name: chroju/nature-remo-cli@v0.3.0
     registry: local
-  - name: bazelbuild/bazel@9.0.0
-    registry: local
   - name: direnv/direnv@v2.37.1
   - name: BurntSushi/ripgrep@15.1.0
   - name: lsd-rs/lsd@v1.2.0
