@@ -75,3 +75,5 @@
     conflictstyle = diff3
 [diff]
     colorMoved = default
+[wt]
+	basedir = ~/work/{gitroot}-worktrees
