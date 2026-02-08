@@ -29,7 +29,11 @@ bind - split-window -v
 # ウィンドウ番号1から開始する
 set-option -g base-index 1
 # bind+y で全部コピー
-bind y copy-mode
+# bind y copy-mode
+
+# bind + y でペイン同期のオンオフ切り替え
+bind y set-window-option synchronize-panes \; display-message "synchronize-panes: #{?pane_synchronized,on,off}"
+
 
 bind -n C-q run-shell "fish -c \"tmuxpopup\""
 
