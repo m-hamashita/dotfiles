@@ -350,5 +350,6 @@
   "rust-analyzer.initializeStopped": true,
   "jupyter.askForKernelRestart": false,
   "geminicodeassist.displayInlineContextHint": false,
-  "workbench.colorTheme": "Kary Pro Colors － Dark"
+  "workbench.colorTheme": "Kary Pro Colors － Dark",
+  "workbench.statusBar.visible": false
 }
