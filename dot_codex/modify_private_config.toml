@@ -20,5 +20,4 @@ rmcp_client = true
 [notice.model_migrations]
 "gpt-5.2" = "gpt-5.2-codex"
 
-[features]
-web_search_request = true
+web_search = "live"
