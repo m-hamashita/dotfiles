@@ -17,6 +17,9 @@ startup_timeout_sec = 20.0
 tool_timeout_sec = 60.0
 rmcp_client = true
 
+[mcp_servers.linear]
+url = "https://mcp.linear.app/mcp"
+
 [notice.model_migrations]
 "gpt-5.2" = "gpt-5.2-codex"
 
