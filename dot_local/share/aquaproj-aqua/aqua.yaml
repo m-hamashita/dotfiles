@@ -81,3 +81,4 @@ packages:
   - name: kayac/ecspresso@v2.7.0
   - name: anthropics/claude-code@v2.1.29
   - name: k1LoW/git-wt@v0.17.0
+  - name: takaishi/tfclean@v0.0.16
