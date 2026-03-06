@@ -3,6 +3,10 @@ set -eu
 
 {{- if eq .chezmoi.os "darwin" }}
 
+echo ""
+echo "Applying macOS settings..."
+echo ""
+
 # Keyboard
 defaults write -g ApplePressAndHoldEnabled -bool false
 defaults write -g InitialKeyRepeat -int 12
