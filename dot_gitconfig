@@ -65,6 +65,7 @@
     pager = delta --syntax-theme gruvbox-dark
 	fsmonitor = true
 	untrackedCache = true
+	preloadIndex = true
 [interactive]
     diffFilter = delta --color-only
 [delta]
@@ -77,3 +78,5 @@
     colorMoved = default
 [wt]
 	basedir = ~/work/{gitroot}-worktrees
+[feature]
+	manyFiles = true
