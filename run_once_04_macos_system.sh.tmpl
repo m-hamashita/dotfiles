@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+set -eu
+
+{{- if eq .chezmoi.os "darwin" }}
+
+# Keyboard
+defaults write -g ApplePressAndHoldEnabled -bool false
+defaults write -g InitialKeyRepeat -int 12
+defaults write -g KeyRepeat -int 1
+defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
+
+# Disable redesigned text cursor if the key does not already exist
+sudo mkdir -p /Library/Preferences/FeatureFlags/Domain
+if sudo test -f /Library/Preferences/FeatureFlags/Domain/UIKit.plist; then
+  if sudo /usr/libexec/PlistBuddy -c "Print 'redesigned_text_cursor:Enabled'" /Library/Preferences/FeatureFlags/Domain/UIKit.plist >/dev/null 2>&1; then
+    sudo /usr/libexec/PlistBuddy -c "Set 'redesigned_text_cursor:Enabled' false" /Library/Preferences/FeatureFlags/Domain/UIKit.plist
+  else
+    sudo /usr/libexec/PlistBuddy -c "Add 'redesigned_text_cursor:Enabled' bool false" /Library/Preferences/FeatureFlags/Domain/UIKit.plist
+  fi
+else
+  sudo /usr/libexec/PlistBuddy -c "Add 'redesigned_text_cursor:Enabled' bool false" /Library/Preferences/FeatureFlags/Domain/UIKit.plist
+fi
+
+# Trackpad
+defaults write com.apple.AppleMultitouchTrackpad Clicking -int 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -int 1
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write NSGlobalDomain com.apple.trackpad.scaling -int 2
+
+# Dock
+defaults write com.apple.dock orientation -string left
+defaults write com.apple.dock tilesize -int 24
+defaults write com.apple.dock magnification -bool true
+defaults write com.apple.dock largesize -int 36
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock show-recents -bool false
+defaults write com.apple.dock persistent-apps -array
+defaults write com.apple.dock mineffect -string scale
+defaults write com.apple.dock minimize-to-application -bool true
+
+# Clock
+defaults write com.apple.menuextra.clock ShowSeconds -bool true
+
+# Finder
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+defaults write com.apple.finder AppleShowAllFiles -bool true
+defaults write com.apple.finder ShowPathbar -bool true
+defaults write com.apple.finder ShowStatusBar -bool true
+defaults write com.apple.finder FXPreferredViewStyle -string Nlsv
+
+# Desktop services
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
+# Reload affected services
+killall Finder 2>/dev/null || true
+killall Dock 2>/dev/null || true
+killall SystemUIServer 2>/dev/null || true
+killall cfprefsd 2>/dev/null || true
+
+echo "macOS settings applied."
+
+{{- end }}
