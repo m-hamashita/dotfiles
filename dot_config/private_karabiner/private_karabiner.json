@@ -348,11 +348,11 @@
                 },
                 {
                     "from": { "key_code": "lang1" },
-                    "to": [{ "key_code": "left_command" }]
+                    "to": [{ "key_code": "right_command" }]
                 },
                 {
                     "from": { "key_code": "lang2" },
-                    "to": [{ "key_code": "right_command" }]
+                    "to": [{ "key_code": "left_command" }]
                 },
                 {
                     "from": { "key_code": "right_option" },
