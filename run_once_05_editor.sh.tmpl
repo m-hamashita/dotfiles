@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+{{- if eq .chezmoi.os "darwin" }}
+
+echo ""
+echo "Applying macOS editor extensions..."
+echo ""
+
+EXTENSIONS_FILE="$HOME/.local/share/chezmoi/editor-extensions.txt"
+
+if [ ! -f "$EXTENSIONS_FILE" ]; then
+  echo "Extensions file not found: $EXTENSIONS_FILE"
+  exit 0
+fi
+
+install_extensions() {
+  local editor_cmd="$1"
+
+  echo "Installing extensions via: $editor_cmd"
+
+  while IFS= read -r ext || [ -n "$ext" ]; do
+    [ -z "$ext" ] && continue
+    case "$ext" in
+      \#*) continue ;;
+    esac
+
+    echo "  - $ext"
+    "$editor_cmd" --install-extension "$ext"
+  done < "$EXTENSIONS_FILE"
+}
+
+installed_any=false
+
+if command -v cursor >/dev/null 2>&1; then
+  install_extensions "cursor"
+  installed_any=true
+else
+  echo "'cursor' not found in PATH. Skipping Cursor."
+fi
+
+if command -v code >/dev/null 2>&1; then
+  install_extensions "code"
+  installed_any=true
+else
+  echo "'code' not found in PATH. Skipping VS Code."
+fi
+
+if [ "$installed_any" = false ]; then
+  echo "Neither 'cursor' nor 'code' was found in PATH. Skipping extension install."
+  exit 0
+fi
+
+echo ""
+echo "Done applying editor extensions."
+
+{{- end }}
