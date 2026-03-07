@@ -59,4 +59,4 @@ function s:DeinReadmeFzf(name_and_path) abort
 endfunction
 
 " for copilot.vim
-let g:copilot_node_command = "~/.nvm/versions/node/v17.9.1/bin/node"
+let g:copilot_node_command = "~/.nvm/versions/node/v24.14.0/bin/node"
