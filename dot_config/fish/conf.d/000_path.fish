@@ -19,7 +19,6 @@ set -x LSCOLORS DxGxcxdxCxegedabagacad
 
 # PATH
 set -x PATH ~/.rye/shims $PATH
-set -x PATH $HOME/.nodebrew/current/bin $PATH
 set -x PATH $HOME/.cargo/bin $PATH
 set -x PATH $HOME/bin $PATH
 set -x PATH $HOME/.bin $PATH
@@ -52,7 +51,7 @@ set -x HOMEBREW_NO_INSTALL_CLEANUP 1
 # tfenv TODO: make it good
 set -x PATH $HOME/.local/share/aquaproj-aqua/pkgs/github_archive/github.com/tfutils/tfenv/v3.0.0/tfenv-3.0.0/bin $PATH
 
-set -x nvm_default_version v24.11.1
+set -x nvm_default_version v24.14.0
 
 # set -x PATH /usr/local/opt/llvm/bin $PATH
 # set -g fish_user_paths "/usr/local/opt/llvm/bin" $fish_user_paths
