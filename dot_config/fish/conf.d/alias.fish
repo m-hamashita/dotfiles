@@ -14,15 +14,6 @@ function cop
  commandline -f repaint
 end
 
-function jira --argument-names 'ID'
-    if test -n "$ID"
-        open "https://$ORGANIZATION.atlassian.net/browse/$ID"
-    else
-        set ID (git rev-parse --abbrev-ref HEAD | sed "s|^mob/||")
-        open "https://$ORGANIZATION.atlassian.net/browse/$ID"
-    end
-end
-
 function push
     git rev-parse --abbrev-ref HEAD | read -l branch_name
     echo "git push origin $branch_name"
@@ -42,7 +33,6 @@ function pull
 end
 
 alias :q 'exit'
-alias digdag '/bin/bash /usr/local/bin/digdag'
 alias bazel 'bazelisk'
 # alias notify 'osascript -e \'display notification "command has completed successfully." with title "Command finished"\''
 

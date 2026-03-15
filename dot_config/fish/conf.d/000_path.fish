@@ -1,9 +1,3 @@
-# vim のキーバインドでターミナルを操作
-# fish_vi_key_bindings
-# set -U fish_key_bindings fish_default_key_bindings
-# jj で normal に
-# set fish_key_bindings fish_user_key_bindings
-
 set -x theme_color_scheme gruvbox
 
 set -x LANG ja_JP.UTF-8
@@ -18,7 +12,6 @@ set -x CLICOLOR 1
 set -x LSCOLORS DxGxcxdxCxegedabagacad
 
 # PATH
-set -x PATH ~/.rye/shims $PATH
 set -x PATH $HOME/.cargo/bin $PATH
 set -x PATH $HOME/bin $PATH
 set -x PATH $HOME/.bin $PATH
@@ -31,10 +24,11 @@ set -x PATH $HOME/.poetry/bin $PATH
 set -x PATH /usr/local/opt/binutils/bin $PATH
 set -x PATH /opt/homebrew/bin $PATH
 set -x PATH /opt/homebrew/opt/openjdk@11/bin $PATH # for openjdk@11(for digdag)
-set -x DENO_INSTALL /Users/masakatsu.hamashita/.deno
 set -x PATH $DENO_INSTALL/bin $PATH
 set -x PATH ~/.fzf/bin $PATH
 set -x PATH ~/.gvm/bin $PATH
+
+set -x DENO_INSTALL /Users/masakatsu.hamashita/.deno
 set -q KREW_ROOT; and set -gx PATH $PATH $KREW_ROOT/.krew/bin; or set -gx PATH $PATH $HOME/.krew/bin
 
 set -x XDG_DATA_HOME $HOME/.local/share
@@ -51,6 +45,7 @@ set -x HOMEBREW_NO_INSTALL_CLEANUP 1
 # tfenv TODO: make it good
 set -x PATH $HOME/.local/share/aquaproj-aqua/pkgs/github_archive/github.com/tfutils/tfenv/v3.0.0/tfenv-3.0.0/bin $PATH
 
+# TODO: make it good
 set -x nvm_default_version v24.14.0
 
 # set -x PATH /usr/local/opt/llvm/bin $PATH
@@ -70,7 +65,7 @@ function _delayed_load --on-event fish_postexec
     # go
     if [ (command -v go) ]
         set -x GOPATH $HOME/go
-        set -x gOROOT ( go env GOROOT )
+        set -x GOROOT ( go env GOROOT )
         set -x PATH $GOPATH/bin $PATH
     end
 end
@@ -84,7 +79,6 @@ set -x WORKON_HOME $HOME/.virtualenvs
 set -x PYTHONPATH /Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Resources/Python $PYTHONPATH
 
 set -x HOMEBREW_CASK_OPTS "--appdir=/Applications"
-set -x CPLUS_INCLUDE_PATH $CPLUS_INCLUDE_PATH:/usr/local/include/c++/9.2.0/x86_64-apple-darwin18/
 
 # cd, pwd などは history に登録しない
 set -x HISTORY_IGNORE "(cd *|pwd|ls|rm *)"
