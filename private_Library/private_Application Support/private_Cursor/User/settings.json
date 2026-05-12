@@ -1,33 +1,33 @@
 {
   "editor.formatOnSave": true,
   "[python]": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
   },
   "[rust]": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
   },
   "[sql]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
   },
   "[markdown]": {
     "editor.formatOnSave": false,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "files.trimTrailingWhitespace": false
+    "files.trimTrailingWhitespace": false,
   },
   "[toml]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
   },
   "[javascript]": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
   },
   "[typescript]": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
   },
   "[javascriptreact]": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
   },
   "[yaml]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
   },
   "code-runner.runInTerminal": true,
   "codetour.showMarkers": true,
@@ -42,7 +42,7 @@
   "files.watcherExclude": {
     "**/.ammonite": true,
     "**/.bloop": true,
-    "**/.metals": true
+    "**/.metals": true,
   },
   "git.autofetch": true,
   "git.confirmSync": false,
@@ -66,7 +66,7 @@
   "terminal.integrated.defaultProfile.linux": "tmux",
   "terminal.integrated.defaultProfile.osx": "fish (2)",
   "terminal.integrated.env.osx": {
-    "FIG_NEW_SESSION": "1"
+    "FIG_NEW_SESSION": "1",
   },
   "terminal.integrated.macOptionIsMeta": true,
   "terminal.integrated.scrollback": 10000,
@@ -75,51 +75,51 @@
   "vim.insertModeKeyBindings": [
     {
       "after": ["<Esc>"],
-      "before": ["j", "j"]
-    }
+      "before": ["j", "j"],
+    },
   ],
   "vim.mouseSelectionGoesIntoVisualMode": false,
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["g", "p"],
-      "commands": ["extension.vim_ctrl+o"]
+      "commands": ["extension.vim_ctrl+o"],
     },
     {
       "before": ["g", "o"],
-      "commands": ["workbench.action.navigateForwardInNavigationLocations"]
+      "commands": ["workbench.action.navigateForwardInNavigationLocations"],
     },
     {
       "before": ["g", "i"],
-      "commands": ["editor.action.goToImplementation"]
+      "commands": ["editor.action.goToImplementation"],
     },
     {
       "before": ["<leader>", "o"],
-      "commands": ["workbench.action.closeOtherEditors"]
+      "commands": ["workbench.action.closeOtherEditors"],
     },
     {
       "before": ["<leader>", "r"],
-      "commands": ["editor.action.rename"]
+      "commands": ["editor.action.rename"],
     },
     {
       "before": ["<C-c>", "<C-c>"],
-      "commands": [":nohl"]
+      "commands": [":nohl"],
     },
     {
       "before": ["j"],
-      "after": ["g", "j"]
+      "after": ["g", "j"],
     },
     {
       "before": ["k"],
-      "after": ["g", "k"]
+      "after": ["g", "k"],
     },
     {
       "before": ["Y"],
-      "after": ["y", "$"]
+      "after": ["y", "$"],
     },
     {
       "before": ["x"],
-      "after": ["\"", "_", "x"]
-    }
+      "after": ["\"", "_", "x"],
+    },
   ],
   "vim.useSystemClipboard": true,
   "vim.vimrc.enable": true,
@@ -167,7 +167,7 @@
     "editorInlayHint.typeBackground": "#282828",
     "editorInlayHint.typeForeground": "#a0a0a0",
     "editor.lineHighlightBorder": "#9fced11f",
-    "editor.lineHighlightBackground": "#1073cf2d"
+    "editor.lineHighlightBackground": "#1073cf2d",
   },
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.tree.indent": 24,
@@ -198,13 +198,13 @@
       "id": "toggleFormatOnSaveForAll",
       "values": [
         {
-          "[python]": { "editor.formatOnSave": true }
+          "[python]": { "editor.formatOnSave": true },
         },
         {
-          "[python]": { "editor.formatOnSave": false }
-        }
-      ]
-    }
+          "[python]": { "editor.formatOnSave": false },
+        },
+      ],
+    },
   ],
   // "github.copilot.editor.enableAutoCompletions": false,
   // "github.copilot.editor.enableCodeActions": false,
@@ -228,11 +228,11 @@
   "leetcode.enableStatusBar": false,
   "explorer.confirmDelete": false,
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
   },
   "leetcode.hint.commentDescription": false,
   "leetcode.endpoint": "leetcode",
@@ -245,32 +245,32 @@
     "bash": {
       "path": "bash",
       "args": ["-l"],
-      "icon": "terminal-bash"
+      "icon": "terminal-bash",
     },
     "zsh": {
       "path": "zsh",
-      "args": ["-l"]
+      "args": ["-l"],
     },
     "fish": {
       "path": "fish",
-      "args": ["-l"]
+      "args": ["-l"],
     },
     "tmux": {
       "path": "tmux",
-      "icon": "terminal-tmux"
+      "icon": "terminal-tmux",
     },
     "pwsh": {
       "path": "pwsh",
-      "icon": "terminal-powershell"
+      "icon": "terminal-powershell",
     },
     "fish (2)": {
-      "path": "/opt/homebrew/bin/fish"
-    }
+      "path": "/opt/homebrew/bin/fish",
+    },
   },
   "C_Cpp.default.includePath": [
     "${workspaceFolder}/**",
     "/opt/homebrew/include/**",
-    "/usr/local/include/**"
+    "/usr/local/include/**",
   ],
   "terminal.integrated.enableMultiLinePasteWarning": "always",
   "workbench.editor.tabSizing": "shrink",
@@ -286,7 +286,7 @@
     "samuelcolvin.jinjahtml",
     "Gruntfuggly.todo-tree",
     "googlecloudtools.cloudcode",
-    "ms-python.python"
+    "ms-python.python",
   ],
   "window.density.editorTabHeight": "compact",
   "search.seedOnFocus": true,
@@ -294,11 +294,11 @@
   "security.workspace.trust.untrustedFiles": "open",
   "window.commandCenter": false,
   "[shellscript]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
+    "editor.defaultFormatter": "foxundermoon.shell-format",
   },
   "python.analysis.exclude": ["bazel-*"],
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "python.testing.autoTestDiscoverOnSaveEnabled": true,
   "coverage-gutters.showGutterCoverage": true,
@@ -309,7 +309,7 @@
   "cursor.cpp.disabledLanguages": ["plaintext", "scminput"],
   "workbench.sideBar.location": "right",
   "[dockerfile]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
+    "editor.defaultFormatter": "foxundermoon.shell-format",
   },
   "python.analysis.indexing": false,
   "editor.unicodeHighlight.ambiguousCharacters": false,
@@ -322,8 +322,8 @@
   "mssql.connectionGroups": [
     {
       "name": "ROOT",
-      "id": "DD121F20-B9E5-481F-A9BC-429FA38054EF"
-    }
+      "id": "DD121F20-B9E5-481F-A9BC-429FA38054EF",
+    },
   ],
   "mssql.connections": [],
   "notebook.output.textLineLimit": 300,
@@ -335,7 +335,7 @@
     "mailto",
     "vscode",
     "vscode-insiders",
-    "docker-desktop"
+    "docker-desktop",
   ],
   "python.defaultInterpreterPath": "${workspaceFolder}/.venv",
   "roo-cline.allowedCommands": [
@@ -344,12 +344,12 @@
     "tsc",
     "git log",
     "git diff",
-    "git show"
+    "git show",
   ],
   "workbench.editor.enablePreview": false,
   "rust-analyzer.initializeStopped": true,
   "jupyter.askForKernelRestart": false,
   "geminicodeassist.displayInlineContextHint": false,
   "workbench.colorTheme": "Kary Pro Colors － Dark",
-  "workbench.statusBar.visible": false
+  "workbench.statusBar.visible": false,
 }
