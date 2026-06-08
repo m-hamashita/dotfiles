@@ -22,11 +22,3 @@ function man
 			LESS_TERMCAP_us=(printf "\e[1;32m") \
 			man "$argv[1]"
 end
-
-
-# pnpm
-set -gx PNPM_HOME "/Users/masakatsu.hamashita/.local/share/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
-end
-# pnpm end
