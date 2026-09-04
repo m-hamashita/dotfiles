@@ -1,0 +1,7 @@
+interface:
+  display_name: "Pull Requestを作成"
+  short_description: "変更をpushしてDraft PRを作成"
+  default_prompt: "現在の変更を検証し、Draft PRを作成してください。"
+
+policy:
+  allow_implicit_invocation: true

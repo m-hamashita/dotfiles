@@ -1,0 +1,7 @@
+interface:
+  display_name: "変更をコミット"
+  short_description: "完了した変更を適切な単位でコミット"
+  default_prompt: "今回のタスクに関係する変更だけを検証してコミットしてください。"
+
+policy:
+  allow_implicit_invocation: true

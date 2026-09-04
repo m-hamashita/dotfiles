@@ -1,0 +1,7 @@
+interface:
+  display_name: "レビューコメントに対応"
+  short_description: "PRの指摘を修正して返信"
+  default_prompt: "現在のPRにある対応可能なレビューコメントへ対応してください。"
+
+policy:
+  allow_implicit_invocation: true
