@@ -32,6 +32,7 @@
 - 実装と検証が完了したら、原則として関連差分をcommitする。
 - ユーザーが「commitしないで」と指定した場合はcommitしない。
 - タスクに関係する変更だけをstageし、既存の無関係な変更を含めない。
+- `tmp_work` 配下のファイルはcommitしない。
 - commitは論理的な変更単位でまとめ、Conventional Commits形式を使用する。
 - 安全に差分を分離できない場合はcommitせず、その理由を報告する。
 - amend、push、branch作成、tag作成、PR作成、mergeは明示的に依頼された場合だけ行う。
