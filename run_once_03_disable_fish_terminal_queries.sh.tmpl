@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -eu
+
+command -v fish >/dev/null 2>&1 || exit 0
+
+# Fish expands fish_features in the child process.
+# shellcheck disable=SC2016
+fish -c '
+if not contains -- no-query-term $fish_features
+    set --universal --append fish_features no-query-term
+end
+'
