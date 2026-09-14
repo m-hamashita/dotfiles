@@ -12,12 +12,6 @@ sandbox_mode = "danger-full-access"
 {{ printf "%s\n\n" $projectsText -}}
 {{- end -}}
 
-[mcp_servers.context7]
-command = "npx"
-args = ["-y", "@upstash/context7-mcp"]
-startup_timeout_sec = 20.0
-tool_timeout_sec = 60.0
-rmcp_client = true
 
 [mcp_servers.github]
 url = "https://api.githubcopilot.com/mcp/"
