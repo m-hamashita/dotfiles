@@ -84,3 +84,4 @@ packages:
   - name: takaishi/tfclean@v0.0.16
   - name: tree-sitter/tree-sitter@v0.26.6
   - name: Nukesor/pueue/pueue@v4.0.4
+  - name: aws/session-manager-plugin@1.2.835.0

@@ -352,4 +352,6 @@
   "geminicodeassist.displayInlineContextHint": false,
   "workbench.colorTheme": "Kary Pro Colors － Dark",
   "workbench.statusBar.visible": false,
+  "window.autoDetectColorScheme": false,
+  "claudeCode.preferredLocation": "panel",
 }
