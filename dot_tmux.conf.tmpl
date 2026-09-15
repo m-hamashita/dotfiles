@@ -152,7 +152,12 @@ set-window-option -g window-status-current-style bg=red,fg=colour237 # fg=bg1
 
 # pane border
 set-option -g pane-active-border-style fg=colour250 #fg2
-set-option -g pane-border-style fg=colour237 #bg1
+set-option -g pane-border-style fg=colour244
+set-option -g pane-border-status top
+
+# Codexのpaneだけセッションタイトルを表示する
+set-option -g pane-border-format \
+  '#{?pane_active,#[fg=colour250],#[fg=colour244]}#{?#{==:#{pane_current_command},codex}, #{pane_title} ,}#[default]'
 
 # pane background
 set-hook -g after-new-window 'run-shell -b "~/.config/tmux/pane-color.sh #{pane_id}"'
