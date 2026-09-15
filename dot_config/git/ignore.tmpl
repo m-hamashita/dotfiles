@@ -28,3 +28,7 @@ plans.md
 plans/
 
 **/.claude/settings.local.json
+{{ $localIgnore := joinPath .chezmoi.homeDir ".config/git/ignore_local" -}}
+{{- if stat $localIgnore }}
+{{ include $localIgnore -}}
+{{- end -}}
