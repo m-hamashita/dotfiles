@@ -3,7 +3,7 @@
 {{- $projects := regexFindAll "(?m)^\\[projects\\.\\\"[^\\\"]+\\\"\\]\\ntrust_level\\s*=\\s*\\\"[^\\\"]+\\\"\\s*$" $existing -1 -}}
 {{- $projectsText := trim (join "\n" $projects) -}}
 
-model = "gpt-5.6-sol"
+model = "gpt-6-astra"
 model_reasoning_effort = "xhigh"
 approval_policy = "never"
 sandbox_mode = "danger-full-access"
