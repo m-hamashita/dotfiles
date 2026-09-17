@@ -59,33 +59,16 @@ hs.hotkey.bind({ "ctrl" }, "/", function()
 end)
 
 hs.hotkey.bind({ "ctrl" }, "m", function()
-	local appName = "Slack"
-	local app = hs.application.find(appName)
-	FocusApp(app)
-end)
-
-local chatGPTHotkey = hs.hotkey.bind({ "ctrl", "alt", "cmd" }, "m", "ChatGPT: キー受信", function()
 	local appPath = "/Applications/ChatGPT.app"
 	local appInfo = hs.application.infoForBundlePath(appPath)
 	local app = appInfo and hs.application.applicationsForBundleID(appInfo.CFBundleIdentifier)[1]
 	local frontmost = hs.application.frontmostApplication()
-	local action, result
 	if app and frontmost and app:pid() == frontmost:pid() then
-		-- ChatGPT responds to its Hide menu but not to app:hide().
-		action = "selectMenuItem"
-		result = app:selectMenuItem(app:name() .. "を隠す") or app:selectMenuItem("Hide " .. app:name()) or false
+		return app:selectMenuItem(app:name() .. "を隠す") or app:selectMenuItem("Hide " .. app:name())
 	else
-		action = "launchOrFocus"
-		result = hs.application.launchOrFocus(appPath)
+		hs.application.launchOrFocus(appPath)
 	end
-	local message = "ChatGPT: キー受信 / " .. action .. "() = " .. tostring(result)
-	print(message)
-	hs.alert.show(message, 3)
 end)
-if not chatGPTHotkey then
-	print("ChatGPT hotkey registration failed")
-	hs.alert.show("ChatGPT: ショートカットを登録できませんでした", 5)
-end
 
 hs.hotkey.bind({ "ctrl" }, ",", function()
 	local appName = "Obsidian"
