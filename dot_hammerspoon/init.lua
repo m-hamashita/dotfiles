@@ -71,8 +71,9 @@ local chatGPTHotkey = hs.hotkey.bind({ "ctrl", "alt", "cmd" }, "m", "ChatGPT: �
 	local frontmost = hs.application.frontmostApplication()
 	local action, result
 	if app and frontmost and app:pid() == frontmost:pid() then
-		action = "hide"
-		result = app:hide()
+		-- ChatGPT responds to its Hide menu but not to app:hide().
+		action = "selectMenuItem"
+		result = app:selectMenuItem(app:name() .. "を隠す") or app:selectMenuItem("Hide " .. app:name()) or false
 	else
 		action = "launchOrFocus"
 		result = hs.application.launchOrFocus(appPath)
