@@ -64,7 +64,7 @@ hs.hotkey.bind({ "ctrl" }, "m", function()
 	local app = appInfo and hs.application.applicationsForBundleID(appInfo.CFBundleIdentifier)[1]
 	local frontmost = hs.application.frontmostApplication()
 	if app and frontmost and app:pid() == frontmost:pid() then
-		return app:selectMenuItem(app:name() .. "を隠す") or app:selectMenuItem("Hide " .. app:name())
+		return app:hide()
 	else
 		hs.application.launchOrFocus(appPath)
 	end
