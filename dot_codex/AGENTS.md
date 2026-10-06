@@ -60,8 +60,10 @@
 - `tmp_work` 配下のファイルはcommitしない。
 - commitは論理的な変更単位でまとめ、Conventional Commits形式を使用する。
 - 安全に差分を分離できない場合はcommitせず、その理由を報告する。
-- amend、push、branch作成、tag作成、PR作成、mergeは明示的に依頼された場合だけ行う。
-- PR作成を明示された場合、その依頼は必要なbranch作成とpushも許可したものとして扱う。
+- 基本的に amend、push、branch作成、tag作成、PR作成に関しては確認を取る必要はない。
+  - 基本的に PR 作成をすること。ただし draft PR にすること。
+  - PR 作成時は必要な branch 作成と push もすること
+- mergeは明示的に依頼された場合だけ行う。
 
 ## Validation
 
